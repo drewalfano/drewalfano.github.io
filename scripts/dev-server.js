@@ -22,8 +22,15 @@ http
     if (filePath.endsWith("/")) filePath = path.join(filePath, "index.html");
     fs.readFile(filePath, (err, data) => {
       if (err) {
-        res.writeHead(404);
-        res.end("Not found");
+        fs.readFile(path.join(root, "404.html"), (notFoundErr, notFoundData) => {
+          if (notFoundErr) {
+            res.writeHead(404);
+            res.end("Not found");
+            return;
+          }
+          res.writeHead(404, { "Content-Type": "text/html" });
+          res.end(notFoundData);
+        });
         return;
       }
       const ext = path.extname(filePath);

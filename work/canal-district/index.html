@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canal District — Drew Alfano</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/dist/output.css">
 </head>
 <body class="bg-paper text-ink font-body">
 
-    <header class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <header id="top" class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
         <a href="/" class="font-display font-extrabold text-lg">DA</a>
         <nav class="flex gap-6 text-sm">
-            <a href="/work/" class="text-brand">Work</a>
-            <a href="/about/" class="hover:text-brand">About</a>
-            <a href="/contact/" class="hover:text-brand">Contact</a>
+            <a href="/work/" class="text-brand border-b-2 border-brand pb-1">Work</a>
+            <a href="/about/" class="link-underline hover:text-brand">About</a>
+            <a href="/contact/" class="link-underline hover:text-brand">Contact</a>
         </nav>
     </header>
 
-    <section class="max-w-5xl mx-auto px-6 pt-10 pb-16">
-        <a href="/work/" class="text-sm text-gray-500 hover:text-brand">&larr; Back to Work</a>
+    <section data-reveal class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+        <a href="/work/" class="link-underline text-sm text-gray-500 hover:text-brand">&larr; Back to Work</a>
         <span class="block text-brand font-body text-sm font-medium uppercase tracking-wide mt-6">Environmental &amp; Campaigns</span>
         <h1 class="font-display font-extrabold text-4xl md:text-6xl tracking-tight mt-2">Canal District</h1>
         <p class="text-gray-600 mt-6 max-w-2xl leading-relaxed">
@@ -27,13 +31,13 @@
         </p>
     </section>
 
-    <section class="max-w-5xl mx-auto px-6 pb-16">
+    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16">
         <div class="aspect-video bg-gray-200 flex items-center justify-center">
             <span class="text-gray-400 text-sm">Hero image placeholder</span>
         </div>
     </section>
 
-    <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 border-t border-gray-200">
+    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 border-t border-gray-200">
         <div>
             <h2 class="font-display font-extrabold text-2xl">The Challenge</h2>
             <p class="text-gray-600 mt-4 leading-relaxed">
@@ -52,13 +56,35 @@
         </div>
     </section>
 
-    <section class="max-w-5xl mx-auto px-6 pb-16 grid grid-cols-2 gap-6">
-        <div class="aspect-square bg-gray-200 flex items-center justify-center">
-            <span class="text-gray-400 text-sm">Detail placeholder</span>
+    <!-- Venue photography, tagged by location -->
+    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
+        <h2 class="font-display font-extrabold text-2xl">Around the District</h2>
+        <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
+            Signage and environmental work photographed on location at each venue.
+            <span class="text-gray-400">(Placeholder — swap in real photography.)</span>
+        </p>
+        <div class="grid grid-cols-2 gap-6 mt-8">
+            <div class="relative aspect-square bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-400 text-sm">Photo placeholder</span>
+                <span class="absolute top-3 left-3 bg-ink text-paper text-xs px-2 py-1">Mill Steakhouse</span>
+            </div>
+            <div class="relative aspect-square bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-400 text-sm">Photo placeholder</span>
+                <span class="absolute top-3 left-3 bg-ink text-paper text-xs px-2 py-1">Boiler Room</span>
+            </div>
+            <div class="relative aspect-square bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-400 text-sm">Photo placeholder</span>
+                <span class="absolute top-3 left-3 bg-ink text-paper text-xs px-2 py-1">Blockhouse</span>
+            </div>
+            <div class="relative aspect-square bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-400 text-sm">Photo placeholder</span>
+                <span class="absolute top-3 left-3 bg-ink text-paper text-xs px-2 py-1">Gelato Mill</span>
+            </div>
         </div>
-        <div class="aspect-square bg-gray-200 flex items-center justify-center">
-            <span class="text-gray-400 text-sm">Detail placeholder</span>
-        </div>
+    </section>
+
+    <section class="max-w-5xl mx-auto px-6 pb-16">
+        <a href="#top" class="link-underline text-sm text-gray-500 hover:text-brand">&uarr; Back to top</a>
     </section>
 
     <!-- Contact CTA -->
@@ -74,8 +100,9 @@
 
     <footer class="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
         <span class="font-body">&copy; 2026 Drew Alfano</span>
-        <a href="mailto:hello@drewalfano.com" class="hover:text-brand">hello@drewalfano.com</a>
+        <a href="mailto:hello@drewalfano.com" class="link-underline hover:text-brand">hello@drewalfano.com</a>
     </footer>
 
+    <script src="/assets/js/site.js" defer></script>
 </body>
 </html>

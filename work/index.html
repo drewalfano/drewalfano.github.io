@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work — Drew Alfano</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/dist/output.css">
 </head>
 <body class="bg-paper text-ink font-body">
 
-    <header class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <header id="top" class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
         <a href="/" class="font-display font-extrabold text-lg">DA</a>
         <nav class="flex gap-6 text-sm">
-            <a href="/work/" class="text-brand">Work</a>
-            <a href="/about/" class="hover:text-brand">About</a>
-            <a href="/contact/" class="hover:text-brand">Contact</a>
+            <a href="/work/" class="text-brand border-b-2 border-brand pb-1">Work</a>
+            <a href="/about/" class="link-underline hover:text-brand">About</a>
+            <a href="/contact/" class="link-underline hover:text-brand">Contact</a>
         </nav>
     </header>
 
@@ -25,7 +29,7 @@
     </section>
 
     <!-- Filters -->
-    <section class="max-w-5xl mx-auto px-6 pb-8">
+    <section data-reveal class="max-w-5xl mx-auto px-6 pb-8">
         <div id="filters" class="flex flex-wrap gap-3">
             <button type="button" data-filter="All" class="filter-btn is-active px-4 py-2 border border-ink text-sm font-body">All</button>
             <button type="button" data-filter="Branding" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Branding</button>
@@ -40,36 +44,44 @@
     </section>
 
     <!-- Grid -->
-    <section class="max-w-5xl mx-auto px-6 pb-24">
+    <section data-reveal class="max-w-5xl mx-auto px-6 pb-24">
         <div id="grid" class="grid grid-cols-2 md:grid-cols-3 gap-6">
 
             <a href="/work/soo-falls/" class="project-card group" data-tags="Branding,Packaging">
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Soo Falls</span>
+                <div class="card-image aspect-square overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-400 text-xs px-2 text-center">Soo Falls</span>
+                    </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Soo Falls</p>
                 <p class="text-gray-400 text-xs mt-1">Branding, Packaging</p>
             </a>
 
             <a href="/work/canal-district/" class="project-card group" data-tags="Environmental,Campaigns">
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Canal District</span>
+                <div class="card-image aspect-square overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-400 text-xs px-2 text-center">Canal District</span>
+                    </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Canal District</p>
                 <p class="text-gray-400 text-xs mt-1">Environmental, Campaigns</p>
             </a>
 
             <a href="/work/jenesis-medical-aesthetics/" class="project-card group" data-tags="Digital/Web,Branding">
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Jenesis Medical Aesthetics</span>
+                <div class="card-image aspect-square overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-400 text-xs px-2 text-center">Jenesis Medical Aesthetics</span>
+                    </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Jenesis Medical Aesthetics</p>
                 <p class="text-gray-400 text-xs mt-1">Digital/Web, Branding</p>
             </a>
 
             <a href="/work/growtogether/" class="project-card group" data-tags="Digital/Web,Campaigns">
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">GrowTogether</span>
+                <div class="card-image aspect-square overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-400 text-xs px-2 text-center">GrowTogether</span>
+                    </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">GrowTogether</p>
                 <p class="text-gray-400 text-xs mt-1">Digital/Web, Campaigns</p>
@@ -77,8 +89,10 @@
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Branding,Student Work"
                 data-title="Jayl House" data-description="A conceptual branding project for a fictional supper club, exploring warm, moody visual identity work." data-meta="Branding, Student Work">
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Jayl House</span>
+                <div class="card-image aspect-square overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-400 text-xs px-2 text-center">Jayl House</span>
+                    </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Jayl House</p>
                 <p class="text-gray-400 text-xs mt-1">Branding, Student Work</p>
@@ -86,8 +100,10 @@
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Packaging,Student Work"
                 data-title="High Seas" data-description="Packaging concept and label system for a fictional rum brand, built around nautical illustration." data-meta="Packaging, Student Work">
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">High Seas</span>
+                <div class="card-image aspect-square overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-400 text-xs px-2 text-center">High Seas</span>
+                    </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">High Seas</p>
                 <p class="text-gray-400 text-xs mt-1">Packaging, Student Work</p>
@@ -95,8 +111,10 @@
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Illustration,Student Work"
                 data-title="Atari 2600" data-description="A poster illustration series celebrating the design history of the Atari 2600." data-meta="Illustration, Student Work">
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Atari 2600</span>
+                <div class="card-image aspect-square overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-400 text-xs px-2 text-center">Atari 2600</span>
+                    </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Atari 2600</p>
                 <p class="text-gray-400 text-xs mt-1">Illustration, Student Work</p>
@@ -104,8 +122,10 @@
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Illustration"
                 data-title="Coffee Guy" data-description="A character illustration and sticker set made for a local coffee shop." data-meta="Illustration">
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Coffee Guy</span>
+                <div class="card-image aspect-square overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-400 text-xs px-2 text-center">Coffee Guy</span>
+                    </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Coffee Guy</p>
                 <p class="text-gray-400 text-xs mt-1">Illustration</p>
@@ -113,8 +133,10 @@
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Illustration,Student Work"
                 data-title="Self-Portrait" data-description="A personal illustrated self-portrait exploring identity through a limited color palette." data-meta="Illustration, Student Work">
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Self-Portrait</span>
+                <div class="card-image aspect-square overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-400 text-xs px-2 text-center">Self-Portrait</span>
+                    </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Self-Portrait</p>
                 <p class="text-gray-400 text-xs mt-1">Illustration, Student Work</p>
@@ -122,8 +144,10 @@
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Social Media,Campaigns"
                 data-title="Project SEARCH Algoma" data-description="Social media campaign assets supporting Project SEARCH Algoma's community outreach program." data-meta="Social Media, Campaigns">
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Project SEARCH Algoma</span>
+                <div class="card-image aspect-square overflow-hidden">
+                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-400 text-xs px-2 text-center">Project SEARCH Algoma</span>
+                    </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Project SEARCH Algoma</p>
                 <p class="text-gray-400 text-xs mt-1">Social Media, Campaigns</p>
@@ -136,7 +160,7 @@
     <!-- Persistent footer -->
     <footer class="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
         <span class="font-body">&copy; 2026 Drew Alfano</span>
-        <a href="mailto:hello@drewalfano.com" class="hover:text-brand">hello@drewalfano.com</a>
+        <a href="mailto:hello@drewalfano.com" class="link-underline hover:text-brand">hello@drewalfano.com</a>
     </footer>
 
     <!-- Lightbox modal -->
@@ -212,5 +236,6 @@
         });
     </script>
 
+    <script src="/assets/js/site.js" defer></script>
 </body>
 </html>

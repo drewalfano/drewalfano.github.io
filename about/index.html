@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About — Drew Alfano</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/dist/output.css">
 </head>
 <body class="bg-paper text-ink font-body">
 
-    <header class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+    <header id="top" class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
         <a href="/" class="font-display font-extrabold text-lg">DA</a>
         <nav class="flex gap-6 text-sm">
-            <a href="/work/" class="hover:text-brand">Work</a>
-            <a href="/about/" class="text-brand">About</a>
-            <a href="/contact/" class="hover:text-brand">Contact</a>
+            <a href="/work/" class="link-underline hover:text-brand">Work</a>
+            <a href="/about/" class="text-brand border-b-2 border-brand pb-1">About</a>
+            <a href="/contact/" class="link-underline hover:text-brand">Contact</a>
         </nav>
     </header>
 
-    <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
         <div class="aspect-[4/3] bg-gray-200 flex items-center justify-center order-1">
             <span class="text-gray-400 text-sm">Portrait placeholder</span>
         </div>
@@ -37,7 +41,7 @@
         </div>
     </section>
 
-    <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
+    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
         <h2 class="font-display font-extrabold text-2xl md:text-3xl">What I do</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8 text-sm text-gray-600">
             <span>Branding</span>
@@ -64,8 +68,9 @@
 
     <footer class="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
         <span class="font-body">&copy; 2026 Drew Alfano</span>
-        <a href="mailto:hello@drewalfano.com" class="hover:text-brand">hello@drewalfano.com</a>
+        <a href="mailto:hello@drewalfano.com" class="link-underline hover:text-brand">hello@drewalfano.com</a>
     </footer>
 
+    <script src="/assets/js/site.js" defer></script>
 </body>
 </html>
