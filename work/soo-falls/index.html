@@ -38,18 +38,19 @@
         <div class="mt-10 grid sm:grid-cols-3 gap-8 max-w-3xl border-t border-gray-200 pt-8">
             <div>
                 <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Role</p>
-                <p class="mt-2 text-sm">Creative Lead &amp; Sole Designer</p>
+                <p class="mt-2 text-sm">In-house Graphic Designer &amp; Brand Lead</p>
             </div>
             <div>
                 <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Timeline</p>
-                <p class="mt-2 text-sm">2024 — Present</p>
+                <p class="mt-2 text-sm">December 2023 – March 2026; packaging design ongoing</p>
             </div>
             <div>
                 <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Disciplines</p>
                 <p class="mt-2 text-sm leading-relaxed">
                     Brand Identity, Packaging, Art Direction, Campaign Design, Social Media,
                     Environmental Graphics, Outdoor Advertising, Print Collateral, Photography,
-                    Video, Web &amp; Digital Design, Production Design
+                    Video, Website Strategy &amp; Information Architecture, Web Design Direction,
+                    Production Design
                 </p>
             </div>
         </div>
@@ -57,7 +58,7 @@
         <div class="mt-8 max-w-3xl">
             <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Selected Applications</p>
             <div class="flex flex-wrap gap-2 mt-3">
-                <span class="border border-gray-300 text-xs px-3 py-1">8+ Beer Labels</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">10+ Produced Can Designs</span>
                 <span class="border border-gray-300 text-xs px-3 py-1">Seasonal Packaging</span>
                 <span class="border border-gray-300 text-xs px-3 py-1">LCBO Launch Materials</span>
                 <span class="border border-gray-300 text-xs px-3 py-1">Restaurant Partner Collateral</span>
@@ -109,27 +110,65 @@
         <div class="max-w-5xl mx-auto px-6">
             <p class="text-paper text-xs uppercase tracking-wide font-medium opacity-70">Project Scale</p>
             <p class="font-display font-extrabold text-paper text-3xl md:text-5xl tracking-tight mt-4 leading-tight max-w-3xl">
-                Eight-plus beer labels. LCBO launches. Bus wraps, billboards, and a Zamboni.
+                Ten-plus produced can designs. LCBO launches. Bus wraps, billboards, and a Zamboni.
                 One system built to hold all of it.
             </p>
         </div>
     </section>
 
-    <!-- Before/after logo restoration slider -->
+    <!-- Packaging system: the full lineup -->
+    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
+        <div class="max-w-2xl">
+            <h2 class="font-display font-extrabold text-2xl">A System Built to Expand</h2>
+            <p class="text-gray-600 mt-4 leading-relaxed">
+                The packaging system begins with five core beers, each using the same label
+                structure while colour and typography distinguish the individual styles. From
+                there, the system expands into the Shipwreck Sour series, a seasonal Hefeweizen
+                and a limited Oktoberfest release.
+            </p>
+            <p class="text-gray-600 mt-4 leading-relaxed">
+                The Doppelbock was intentionally designed to stand apart. Its darker palette,
+                expressive typography and bold illustration give it an identity of its own,
+                while the Soo Falls mark keeps it connected to the broader brand.
+            </p>
+        </div>
+        <figure class="mt-10">
+            <picture>
+                <source srcset="/images/soo-falls-optimized/full-lineup.webp" type="image/webp">
+                <img src="/images/soo-falls-optimized/full-lineup.jpg" alt="The full Soo Falls packaging lineup: Light Lager, Italian Pilsner, Irish Red Ale, Hazy IPA, Dunkelweizen, two Shipwreck Sour flavors, Hefeweizen, Doppelbock, and Festbier Oktoberfest Lager, arranged in two rows." class="w-full h-auto" loading="lazy">
+            </picture>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">
+                Fig. 02 — The Packaging System
+                <span class="block normal-case tracking-normal text-gray-400 mt-1">
+                    Ten produced can designs: five core beers, two Shipwreck Sours, a seasonal
+                    Hefeweizen, a limited Oktoberfest release, and a deliberately distinct Doppelbock.
+                </span>
+            </figcaption>
+        </figure>
+    </section>
+
+    <!-- Logo reconstruction and modernization -->
     <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
-        <h2 class="font-display font-extrabold text-2xl">A Historical Restoration</h2>
+        <h2 class="font-display font-extrabold text-2xl">Logo Reconstruction and Modernization</h2>
         <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
-            Drag the slider to compare the original mark against the restored identity.
-            <span class="text-gray-400">(Placeholder — swap in the real before/after logo images.)</span>
+            The only logo material supplied at the beginning of the project was a collection
+            of low-resolution raster references. I reconstructed the mark as a clean vector,
+            refining its typography and proportions while retaining its established character.
         </p>
         <figure class="mt-8">
-            <div class="relative aspect-video select-none" id="ba-slider">
-                <div class="absolute inset-0 bg-gray-300 flex items-center justify-center">
-                    <span class="text-gray-500 text-sm">After — restored logo placeholder</span>
+            <div class="relative aspect-video overflow-hidden select-none bg-gray-100 border border-gray-200" id="ba-slider">
+                <div class="absolute inset-0 flex items-center justify-center p-10">
+                    <picture>
+                        <source srcset="/images/soo-falls-optimized/logo-after.webp" type="image/webp">
+                        <img src="/images/soo-falls-optimized/logo-after.png" alt="Reconstructed and modernized vector Soo Falls logo." class="max-w-full max-h-full object-contain" loading="lazy">
+                    </picture>
                 </div>
                 <div id="ba-before-wrap" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
-                    <div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
-                        <span class="text-gray-500 text-sm">Before — original logo placeholder</span>
+                    <div class="absolute inset-0 flex items-center justify-center p-10">
+                        <picture>
+                            <source srcset="/images/soo-falls-optimized/logo-before.webp" type="image/webp">
+                            <img src="/images/soo-falls-optimized/logo-before.png" alt="Original low-resolution Soo Falls logo supplied at the beginning of the project." class="max-w-full max-h-full object-contain" loading="lazy">
+                        </picture>
                     </div>
                 </div>
                 <div id="ba-handle" class="absolute top-0 bottom-0 w-0.5 bg-accent pointer-events-none" style="left: 50%;"></div>
@@ -141,11 +180,11 @@
                     min="0"
                     max="100"
                     value="50"
-                    aria-label="Before and after comparison slider"
+                    aria-label="Before and after comparison slider: original low-resolution logo versus reconstructed vector logo"
                     class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
                 >
             </div>
-            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 02 — Before &amp; After, Logo Restoration</figcaption>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 03 — Before &amp; After, Logo Reconstruction</figcaption>
         </figure>
     </section>
 
@@ -158,7 +197,7 @@
                     <img src="/images/soo-falls-optimized/soo-falls-glass.jpg" alt="A pint of Soo Falls beer in a branded glass, held up against a brick wall." class="w-full h-full object-cover" loading="lazy">
                 </picture>
             </div>
-            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 03 — Draft Pour</figcaption>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 04 — Draft Pour</figcaption>
         </figure>
     </section>
 
@@ -171,7 +210,7 @@
                     <img src="/images/soo-falls-optimized/italian-pilsner-canning.jpg" alt="A can of Italian Pilsner held up in front of stacked cases on the canning line." class="w-full h-full object-cover" loading="lazy">
                 </picture>
             </div>
-            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 04 — Canning Line</figcaption>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 05 — Canning Line</figcaption>
         </figure>
         <figure>
             <div class="aspect-square overflow-hidden">
@@ -180,7 +219,7 @@
                     <img src="/images/soo-falls-optimized/img_1850.jpg" alt="Two Shipwreck Sour flavor cans, SS Cedarville Citrus and SS Glenlyon Guava Passion Fruit, side by side." class="w-full h-full object-cover" loading="lazy">
                 </picture>
             </div>
-            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 05 — Flavor System</figcaption>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 06 — Flavor System</figcaption>
         </figure>
     </section>
 
@@ -193,37 +232,8 @@
                     <img src="/images/soo-falls-optimized/img_3238.jpg" alt="A Zamboni wrapped in Soo Falls Brewing Company livery, parked outside the brewery building." class="w-full h-full object-cover" loading="lazy">
                 </picture>
             </div>
-            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2 px-2">Fig. 06 — The Zamboni Wrap</figcaption>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2 px-2">Fig. 07 — The Zamboni Wrap</figcaption>
         </figure>
-    </section>
-
-    <!-- Process material -->
-    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
-        <h2 class="font-display font-extrabold text-2xl">Process</h2>
-        <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
-            From early sketches through to print-ready dielines and proofs.
-            <span class="text-gray-400">(Placeholder — swap in real process material.)</span>
-        </p>
-        <div class="grid grid-cols-3 gap-6 mt-8">
-            <figure>
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Sketch placeholder</span>
-                </div>
-                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Sketch</figcaption>
-            </figure>
-            <figure>
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Dieline placeholder</span>
-                </div>
-                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Dieline</figcaption>
-            </figure>
-            <figure>
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Proof placeholder</span>
-                </div>
-                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Proof</figcaption>
-            </figure>
-        </div>
     </section>
 
     <!-- Closing brand family shot -->
@@ -235,7 +245,7 @@
                     <img src="/images/soo-falls-optimized/img_3345.jpg" alt="A person wearing a Soo Falls Brewing Company t-shirt holding all eight Soo Falls beer cans across both arms." class="w-full h-full object-cover" loading="lazy">
                 </picture>
             </div>
-            <figcaption class="max-w-5xl mx-auto px-6 text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 07 — The Full Lineup</figcaption>
+            <figcaption class="max-w-5xl mx-auto px-6 text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 08 — The Full Lineup</figcaption>
         </figure>
     </section>
 

@@ -5,3 +5,4 @@ node_modules/
 # Raw, unoptimized source photography — only the processed /images/*-optimized/
 # folders are actually used by the site and committed.
 images/soo-falls/
+images/soo-falls-selects/
