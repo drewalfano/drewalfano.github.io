@@ -7,14 +7,14 @@
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,800;1,800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/dist/output.css">
 </head>
 <body class="bg-paper text-ink font-body">
 
     <header id="top" class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
         <span class="font-display font-extrabold text-lg">DA</span>
-        <nav class="flex gap-6 text-sm">
+        <nav class="flex gap-6 text-xs uppercase tracking-wide font-medium">
             <a href="/work/" class="link-underline hover:text-brand">Work</a>
             <a href="/about/" class="link-underline hover:text-brand">About</a>
             <a href="/contact/" class="link-underline hover:text-brand">Contact</a>
@@ -31,54 +31,65 @@
         <p class="text-gray-600 mt-6 max-w-xl leading-relaxed">
             Building cohesive visual systems across packaging, retail, campaigns and digital experiences.
         </p>
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs uppercase tracking-wide font-medium text-gray-500 mt-8">
+            <span>Identity</span>
+            <span aria-hidden="true">&rarr;</span>
+            <span>Packaging</span>
+            <span aria-hidden="true">&rarr;</span>
+            <span>Retail</span>
+            <span aria-hidden="true">&rarr;</span>
+            <span>Campaign</span>
+            <span aria-hidden="true">&rarr;</span>
+            <span>Screen</span>
+        </div>
     </section>
 
     <!-- Soo Falls feature -->
-    <section id="soo-falls" data-reveal class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+    <section id="soo-falls" data-reveal style="--accent:#1F6F78" class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
         <div class="aspect-[4/3] bg-gray-200 flex items-center justify-center order-1">
             <span class="text-gray-400 text-sm">Soo Falls — image placeholder</span>
         </div>
         <div class="order-2">
-            <span class="text-brand font-body text-sm font-medium uppercase tracking-wide">Branding &amp; Packaging</span>
-            <h2 class="font-display font-extrabold text-3xl md:text-4xl mt-2">Soo Falls</h2>
+            <span class="text-accent font-body text-sm font-medium uppercase tracking-wide">01 &middot; Branding &amp; Packaging</span>
+            <h2 class="font-display italic font-extrabold text-3xl md:text-4xl mt-2">Soo Falls</h2>
             <p class="text-gray-600 mt-4 leading-relaxed max-w-md">
                 A full brand identity and packaging system built around the character of the Sault Ste. Marie rapids.
             </p>
-            <a href="/work/soo-falls/" class="inline-block mt-6 font-body font-medium text-sm border-b-2 border-brand text-brand hover:opacity-70">
+            <a href="/work/soo-falls/" class="inline-block mt-6 font-body font-medium text-sm border-b-2 border-accent text-accent hover:opacity-70">
                 View case study &rarr;
             </a>
         </div>
     </section>
 
     <!-- Canal District feature -->
-    <section id="canal-district" data-reveal class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+    <section id="canal-district" data-reveal style="--accent:#8B4A23" class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
         <div class="aspect-[4/3] bg-gray-200 flex items-center justify-center order-1 md:order-2">
             <span class="text-gray-400 text-sm">Canal District — image placeholder</span>
         </div>
         <div class="order-2 md:order-1">
-            <span class="text-brand font-body text-sm font-medium uppercase tracking-wide">Environmental &amp; Campaigns</span>
-            <h2 class="font-display font-extrabold text-3xl md:text-4xl mt-2">Canal District</h2>
+            <span class="text-accent font-body text-sm font-medium uppercase tracking-wide">02 &middot; Environmental &amp; Campaigns</span>
+            <h2 class="font-display italic font-extrabold text-3xl md:text-4xl mt-2">Canal District</h2>
             <p class="text-gray-600 mt-4 leading-relaxed max-w-md">
                 Wayfinding, signage, and campaign work for the revitalization of the Canal District waterfront.
             </p>
-            <a href="/work/canal-district/" class="inline-block mt-6 font-body font-medium text-sm border-b-2 border-brand text-brand hover:opacity-70">
+            <a href="/work/canal-district/" class="inline-block mt-6 font-body font-medium text-sm border-b-2 border-accent text-accent hover:opacity-70">
                 View case study &rarr;
             </a>
         </div>
     </section>
 
     <!-- Jenesis highlight -->
-    <section id="jenesis" data-reveal class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
+    <section id="jenesis" data-reveal style="--accent:#7A4B5E" class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
         <div class="aspect-[4/3] bg-gray-200 flex items-center justify-center order-1">
             <span class="text-gray-400 text-sm">Jenesis — image placeholder</span>
         </div>
         <div class="order-2">
-            <span class="text-brand font-body text-sm font-medium uppercase tracking-wide">Digital / Web</span>
-            <h2 class="font-display font-extrabold text-3xl md:text-4xl mt-2">Jenesis Medical Aesthetics</h2>
+            <span class="text-accent font-body text-sm font-medium uppercase tracking-wide">03 &middot; Digital / Web</span>
+            <h2 class="font-display italic font-extrabold text-3xl md:text-4xl mt-2">Jenesis Medical Aesthetics</h2>
             <p class="text-gray-600 mt-4 leading-relaxed max-w-md">
                 Brand identity and digital presence for a medical aesthetics practice, spanning web, social, and print.
             </p>
-            <a href="/work/jenesis-medical-aesthetics/" class="inline-block mt-6 font-body font-medium text-sm border-b-2 border-brand text-brand hover:opacity-70">
+            <a href="/work/jenesis-medical-aesthetics/" class="inline-block mt-6 font-body font-medium text-sm border-b-2 border-accent text-accent hover:opacity-70">
                 View case study &rarr;
             </a>
         </div>
@@ -93,13 +104,13 @@
             </a>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <a href="/work/growtogether/" class="group">
+            <a href="/work/growtogether/" style="--accent:#3B6E3F" class="group">
                 <div class="card-image aspect-square overflow-hidden">
                     <div class="w-full h-full bg-gray-200 flex items-center justify-center">
                         <span class="text-gray-400 text-xs px-2 text-center">GrowTogether</span>
                     </div>
                 </div>
-                <p class="font-body text-sm mt-2 group-hover:text-brand">GrowTogether</p>
+                <p class="font-body text-sm mt-2 group-hover:text-accent">04 &middot; GrowTogether</p>
             </a>
             <a href="/work/" class="group">
                 <div class="card-image aspect-square overflow-hidden">

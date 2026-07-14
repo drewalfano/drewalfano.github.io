@@ -7,14 +7,14 @@
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,800;1,800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/dist/output.css">
 </head>
 <body class="bg-paper text-ink font-body">
 
     <header id="top" class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
         <a href="/" class="font-display font-extrabold text-lg">DA</a>
-        <nav class="flex gap-6 text-sm">
+        <nav class="flex gap-6 text-xs uppercase tracking-wide font-medium">
             <a href="/work/" class="text-brand border-b-2 border-brand pb-1">Work</a>
             <a href="/about/" class="link-underline hover:text-brand">About</a>
             <a href="/contact/" class="link-underline hover:text-brand">Contact</a>
@@ -31,15 +31,15 @@
     <!-- Filters -->
     <section data-reveal class="max-w-5xl mx-auto px-6 pb-8">
         <div id="filters" class="flex flex-wrap gap-3">
-            <button type="button" data-filter="All" class="filter-btn is-active px-4 py-2 border border-ink text-sm font-body">All</button>
-            <button type="button" data-filter="Branding" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Branding</button>
-            <button type="button" data-filter="Packaging" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Packaging</button>
-            <button type="button" data-filter="Campaigns" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Campaigns</button>
-            <button type="button" data-filter="Digital/Web" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Digital/Web</button>
-            <button type="button" data-filter="Social Media" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Social Media</button>
-            <button type="button" data-filter="Environmental" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Environmental</button>
-            <button type="button" data-filter="Illustration" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Illustration</button>
-            <button type="button" data-filter="Student Work" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Student Work</button>
+            <button type="button" data-filter="All" class="filter-btn is-active px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">All</button>
+            <button type="button" data-filter="Branding" class="filter-btn px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">Branding</button>
+            <button type="button" data-filter="Packaging" class="filter-btn px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">Packaging</button>
+            <button type="button" data-filter="Campaigns" class="filter-btn px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">Campaigns</button>
+            <button type="button" data-filter="Digital/Web" class="filter-btn px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">Digital/Web</button>
+            <button type="button" data-filter="Social Media" class="filter-btn px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">Social Media</button>
+            <button type="button" data-filter="Environmental" class="filter-btn px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">Environmental</button>
+            <button type="button" data-filter="Illustration" class="filter-btn px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">Illustration</button>
+            <button type="button" data-filter="Student Work" class="filter-btn px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">Student Work</button>
         </div>
     </section>
 
@@ -47,43 +47,43 @@
     <section data-reveal class="max-w-5xl mx-auto px-6 pb-24">
         <div id="grid" class="grid grid-cols-2 md:grid-cols-3 gap-6">
 
-            <a href="/work/soo-falls/" class="project-card group" data-tags="Branding,Packaging">
+            <a href="/work/soo-falls/" style="--accent:#1F6F78" class="project-card group" data-tags="Branding,Packaging">
                 <div class="card-image aspect-square overflow-hidden">
                     <div class="w-full h-full bg-gray-200 flex items-center justify-center">
                         <span class="text-gray-400 text-xs px-2 text-center">Soo Falls</span>
                     </div>
                 </div>
-                <p class="font-body text-sm mt-2 group-hover:text-brand">Soo Falls</p>
+                <p class="font-body text-sm mt-2 group-hover:text-accent">01 &middot; Soo Falls</p>
                 <p class="text-gray-400 text-xs mt-1">Branding, Packaging</p>
             </a>
 
-            <a href="/work/canal-district/" class="project-card group" data-tags="Environmental,Campaigns">
+            <a href="/work/canal-district/" style="--accent:#8B4A23" class="project-card group" data-tags="Environmental,Campaigns">
                 <div class="card-image aspect-square overflow-hidden">
                     <div class="w-full h-full bg-gray-200 flex items-center justify-center">
                         <span class="text-gray-400 text-xs px-2 text-center">Canal District</span>
                     </div>
                 </div>
-                <p class="font-body text-sm mt-2 group-hover:text-brand">Canal District</p>
+                <p class="font-body text-sm mt-2 group-hover:text-accent">02 &middot; Canal District</p>
                 <p class="text-gray-400 text-xs mt-1">Environmental, Campaigns</p>
             </a>
 
-            <a href="/work/jenesis-medical-aesthetics/" class="project-card group" data-tags="Digital/Web,Branding">
+            <a href="/work/jenesis-medical-aesthetics/" style="--accent:#7A4B5E" class="project-card group" data-tags="Digital/Web,Branding">
                 <div class="card-image aspect-square overflow-hidden">
                     <div class="w-full h-full bg-gray-200 flex items-center justify-center">
                         <span class="text-gray-400 text-xs px-2 text-center">Jenesis Medical Aesthetics</span>
                     </div>
                 </div>
-                <p class="font-body text-sm mt-2 group-hover:text-brand">Jenesis Medical Aesthetics</p>
+                <p class="font-body text-sm mt-2 group-hover:text-accent">03 &middot; Jenesis Medical Aesthetics</p>
                 <p class="text-gray-400 text-xs mt-1">Digital/Web, Branding</p>
             </a>
 
-            <a href="/work/growtogether/" class="project-card group" data-tags="Digital/Web,Campaigns">
+            <a href="/work/growtogether/" style="--accent:#3B6E3F" class="project-card group" data-tags="Digital/Web,Campaigns">
                 <div class="card-image aspect-square overflow-hidden">
                     <div class="w-full h-full bg-gray-200 flex items-center justify-center">
                         <span class="text-gray-400 text-xs px-2 text-center">GrowTogether</span>
                     </div>
                 </div>
-                <p class="font-body text-sm mt-2 group-hover:text-brand">GrowTogether</p>
+                <p class="font-body text-sm mt-2 group-hover:text-accent">04 &middot; GrowTogether</p>
                 <p class="text-gray-400 text-xs mt-1">Digital/Web, Campaigns</p>
             </a>
 
@@ -171,7 +171,7 @@
             </div>
             <div class="p-8">
                 <span id="lightbox-meta" class="text-brand font-body text-sm font-medium uppercase tracking-wide"></span>
-                <h2 id="lightbox-title" class="font-display font-extrabold text-2xl mt-2"></h2>
+                <h2 id="lightbox-title" class="font-display italic font-extrabold text-2xl mt-2"></h2>
                 <p id="lightbox-description" class="text-gray-600 mt-4 leading-relaxed"></p>
                 <button type="button" id="lightbox-close" class="inline-block mt-6 font-body font-medium text-sm border-b-2 border-brand text-brand hover:opacity-70">
                     Close &times;

@@ -42,6 +42,19 @@
     @apply bg-ink text-paper;
   }
 
+  /* Project accent color: set --accent on a scoping element (body, card)
+     and these utilities pick it up. Falls back to brand red everywhere
+     --accent isn't set, so the rest of the site is unaffected. */
+  .text-accent {
+    color: var(--accent, #D0272B);
+  }
+  .border-accent {
+    border-color: var(--accent, #D0272B);
+  }
+  .bg-accent {
+    background-color: var(--accent, #D0272B);
+  }
+
   /* Animated underline for inline text links */
   .link-underline {
     position: relative;
@@ -74,14 +87,17 @@
     transform: translateY(0);
   }
 
-  /* Subtle zoom on project card imagery */
+  /* Project imagery starts on a tighter crop and settles to the full
+     composition on hover/focus — recurring reveal interaction for cards. */
   .card-image {
     overflow: hidden;
   }
   .card-image > * {
+    transform: scale(1.12);
     transition: transform 0.4s ease;
   }
-  .group:hover .card-image > * {
-    transform: scale(1.05);
+  .group:hover .card-image > *,
+  .group:focus-within .card-image > * {
+    transform: scale(1);
   }
 }
