@@ -5,7 +5,12 @@
 @layer base {
   ::selection {
     background-color: #D0272B;
-    color: #FAFAFA;
+    color: #FFFFFF;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
   }
 
   html {
@@ -42,9 +47,11 @@
     @apply bg-ink text-paper;
   }
 
-  /* Project accent color: set --accent on a scoping element (body, card)
-     and these utilities pick it up. Falls back to brand red everywhere
-     --accent isn't set, so the rest of the site is unaffected. */
+  /* Project accent color: set --accent (true brand hex, for rules/chips/
+     swatches) and --accent-text (a darkened, contrast-safe variant of the
+     same hue, for anything the color sits behind as text) on a scoping
+     element (body, card). Both fall back to brand red everywhere neither
+     is set, so the rest of the site is unaffected. */
   .text-accent {
     color: var(--accent, #D0272B);
   }
@@ -53,6 +60,12 @@
   }
   .bg-accent {
     background-color: var(--accent, #D0272B);
+  }
+  .text-accent-safe {
+    color: var(--accent-text, var(--accent, #D0272B));
+  }
+  .border-accent-safe {
+    border-color: var(--accent-text, var(--accent, #D0272B));
   }
 
   /* Animated underline for inline text links */
@@ -80,7 +93,7 @@
   .reveal {
     opacity: 0;
     transform: translateY(16px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.25s ease, transform 0.25s ease;
   }
   .reveal.is-visible {
     opacity: 1;
@@ -94,10 +107,21 @@
   }
   .card-image > * {
     transform: scale(1.12);
-    transition: transform 0.4s ease;
+    transition: transform 0.25s ease;
   }
   .group:hover .card-image > *,
   .group:focus-within .card-image > * {
     transform: scale(1);
+  }
+
+  /* Full-bleed: breaks an element out to the true viewport edge regardless
+     of its parent's max-width. Paired with overflow-x:hidden above so the
+     100vw calculation can never introduce a scrollbar-width sliver of
+     horizontal scroll. */
+  .full-bleed {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }

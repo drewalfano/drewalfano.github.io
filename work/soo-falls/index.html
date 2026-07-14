@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,800;1,800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/dist/output.css">
 </head>
-<body class="bg-paper text-ink font-body" style="--accent:#1F6F78">
+<body class="bg-paper text-ink font-body" style="--accent:#24354e; --accent-text:#24354e">
 
     <header id="top" class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
         <a href="/" class="font-display font-extrabold text-lg">DA</a>
@@ -23,26 +23,64 @@
 
     <section data-reveal class="max-w-5xl mx-auto px-6 pt-10 pb-16">
         <a href="/work/" class="link-underline text-sm text-gray-500 hover:text-brand">&larr; Back to Work</a>
-        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-accent font-body text-sm font-medium uppercase tracking-wide mt-6">
+        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-accent-safe font-body text-sm font-medium uppercase tracking-wide mt-6">
             <span>01</span>
             <span aria-hidden="true">&middot;</span>
             <span>Branding &amp; Packaging</span>
-            <span aria-hidden="true">&middot;</span>
-            <span>Date — TBA</span>
-            <span aria-hidden="true">&middot;</span>
-            <span>Role — TBA</span>
         </div>
-        <h1 class="font-display font-extrabold text-4xl md:text-6xl tracking-tight mt-2">Soo Falls</h1>
-        <p class="text-gray-600 mt-6 max-w-2xl leading-relaxed">
-            A full brand identity and packaging system for Soo Falls, a Sault Ste. Marie beverage brand
-            built around the power and character of the local rapids.
+        <h1 class="font-display font-extrabold text-accent-safe text-4xl md:text-6xl tracking-tight mt-2">Soo Falls</h1>
+        <p class="text-gray-700 mt-6 max-w-2xl text-lg leading-relaxed">
+            Reviving Sault Ste. Marie's historic brewery through a bold, flexible identity and
+            packaging system built for modern retail, hospitality, events, and local culture.
         </p>
+
+        <!-- Project facts -->
+        <div class="mt-10 grid sm:grid-cols-3 gap-8 max-w-3xl border-t border-gray-200 pt-8">
+            <div>
+                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Role</p>
+                <p class="mt-2 text-sm">Creative Lead &amp; Sole Designer</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Timeline</p>
+                <p class="mt-2 text-sm">2024 — Present</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Disciplines</p>
+                <p class="mt-2 text-sm leading-relaxed">
+                    Brand Identity, Packaging, Art Direction, Campaign Design, Social Media,
+                    Environmental Graphics, Outdoor Advertising, Print Collateral, Photography,
+                    Video, Web &amp; Digital Design, Production Design
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-8 max-w-3xl">
+            <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Selected Applications</p>
+            <div class="flex flex-wrap gap-2 mt-3">
+                <span class="border border-gray-300 text-xs px-3 py-1">8+ Beer Labels</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Seasonal Packaging</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">LCBO Launch Materials</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Restaurant Partner Collateral</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Bus Advertising</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Zamboni Wraps</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Digital &amp; Printed Billboards</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Table Toppers</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">GFL Memorial Gardens Advertising</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Event Branding</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Social Media Campaigns</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Signage &amp; History Walls</span>
+            </div>
+        </div>
     </section>
 
-    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16">
-        <div class="aspect-video bg-gray-200 flex items-center justify-center">
-            <span class="text-gray-400 text-sm">Hero image placeholder</span>
-        </div>
+    <!-- Full-bleed hero -->
+    <section data-reveal class="pb-16">
+        <figure class="full-bleed">
+            <div class="aspect-[21/9] bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-400 text-sm">Hero image placeholder</span>
+            </div>
+            <figcaption class="max-w-5xl mx-auto px-6 text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 01 — Hero</figcaption>
+        </figure>
     </section>
 
     <section data-reveal class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 border-t border-gray-200">
@@ -63,6 +101,17 @@
         </div>
     </section>
 
+    <!-- Colour field: project scale, the one bold moment on this page -->
+    <section data-reveal class="full-bleed py-20 md:py-28" style="background-color: var(--accent);">
+        <div class="max-w-5xl mx-auto px-6">
+            <p class="text-paper text-xs uppercase tracking-wide font-medium opacity-70">Project Scale</p>
+            <p class="font-display font-extrabold text-paper text-3xl md:text-5xl tracking-tight mt-4 leading-tight max-w-3xl">
+                Eight-plus beer labels. LCBO launches. Bus wraps, billboards, and a Zamboni.
+                One system built to hold all of it.
+            </p>
+        </div>
+    </section>
+
     <!-- Before/after logo restoration slider -->
     <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
         <h2 class="font-display font-extrabold text-2xl">A Historical Restoration</h2>
@@ -70,36 +119,95 @@
             Drag the slider to compare the original mark against the restored identity.
             <span class="text-gray-400">(Placeholder — swap in the real before/after logo images.)</span>
         </p>
-        <div class="relative aspect-video mt-8 select-none" id="ba-slider">
-            <div class="absolute inset-0 bg-gray-300 flex items-center justify-center">
-                <span class="text-gray-500 text-sm">After — restored logo placeholder</span>
-            </div>
-            <div id="ba-before-wrap" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
-                <div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-500 text-sm">Before — original logo placeholder</span>
+        <figure class="mt-8">
+            <div class="relative aspect-video select-none" id="ba-slider">
+                <div class="absolute inset-0 bg-gray-300 flex items-center justify-center">
+                    <span class="text-gray-500 text-sm">After — restored logo placeholder</span>
                 </div>
+                <div id="ba-before-wrap" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
+                    <div class="absolute inset-0 bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-500 text-sm">Before — original logo placeholder</span>
+                    </div>
+                </div>
+                <div id="ba-handle" class="absolute top-0 bottom-0 w-0.5 bg-accent pointer-events-none" style="left: 50%;"></div>
+                <span class="absolute top-3 left-3 bg-ink text-paper text-xs px-2 py-1 pointer-events-none">Before</span>
+                <span class="absolute top-3 right-3 bg-ink text-paper text-xs px-2 py-1 pointer-events-none">After</span>
+                <input
+                    type="range"
+                    id="ba-range"
+                    min="0"
+                    max="100"
+                    value="50"
+                    aria-label="Before and after comparison slider"
+                    class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
+                >
             </div>
-            <div id="ba-handle" class="absolute top-0 bottom-0 w-0.5 bg-accent pointer-events-none" style="left: 50%;"></div>
-            <span class="absolute top-3 left-3 bg-ink text-paper text-xs px-2 py-1 pointer-events-none">Before</span>
-            <span class="absolute top-3 right-3 bg-ink text-paper text-xs px-2 py-1 pointer-events-none">After</span>
-            <input
-                type="range"
-                id="ba-range"
-                min="0"
-                max="100"
-                value="50"
-                aria-label="Before and after comparison slider"
-                class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
-            >
-        </div>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 02 — Before &amp; After, Logo Restoration</figcaption>
+        </figure>
     </section>
 
+    <!-- Close crop -->
+    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16">
+        <figure class="max-w-sm ml-auto">
+            <div class="aspect-[3/4] bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-400 text-sm px-4 text-center">Close crop placeholder</span>
+            </div>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 03 — Detail, Close Crop</figcaption>
+        </figure>
+    </section>
+
+    <!-- Paired details -->
     <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 grid grid-cols-2 gap-6">
-        <div class="aspect-square bg-gray-200 flex items-center justify-center">
-            <span class="text-gray-400 text-sm">Detail placeholder</span>
-        </div>
-        <div class="aspect-square bg-gray-200 flex items-center justify-center">
-            <span class="text-gray-400 text-sm">Detail placeholder</span>
+        <figure>
+            <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-400 text-sm">Detail placeholder</span>
+            </div>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 04 — Packaging Detail</figcaption>
+        </figure>
+        <figure>
+            <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-400 text-sm">Detail placeholder</span>
+            </div>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 05 — Packaging Detail</figcaption>
+        </figure>
+    </section>
+
+    <!-- Grid-breaking image -->
+    <section data-reveal class="pb-16">
+        <figure class="max-w-6xl mx-auto px-4">
+            <div class="aspect-[21/9] bg-gray-200 flex items-center justify-center">
+                <span class="text-gray-400 text-sm">Wide shelf/retail placeholder</span>
+            </div>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2 px-2">Fig. 06 — On Shelf</figcaption>
+        </figure>
+    </section>
+
+    <!-- Process material -->
+    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
+        <h2 class="font-display font-extrabold text-2xl">Process</h2>
+        <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
+            From early sketches through to print-ready dielines and proofs.
+            <span class="text-gray-400">(Placeholder — swap in real process material.)</span>
+        </p>
+        <div class="grid grid-cols-3 gap-6 mt-8">
+            <figure>
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Sketch placeholder</span>
+                </div>
+                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Sketch</figcaption>
+            </figure>
+            <figure>
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Dieline placeholder</span>
+                </div>
+                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Dieline</figcaption>
+            </figure>
+            <figure>
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Proof placeholder</span>
+                </div>
+                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Proof</figcaption>
+            </figure>
         </div>
     </section>
 
