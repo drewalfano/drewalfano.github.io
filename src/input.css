@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .filter-btn.is-active {
+    @apply bg-ink text-paper;
+  }
+}

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work — Drew Alfano</title>
+    <link rel="stylesheet" href="/dist/output.css">
+</head>
+<body class="bg-paper text-ink font-body">
+
+    <header class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
+        <a href="/" class="font-display font-extrabold text-lg">DA</a>
+        <nav class="flex gap-6 text-sm">
+            <a href="/work/" class="text-brand">Work</a>
+            <a href="/about/" class="hover:text-brand">About</a>
+            <a href="/contact/" class="hover:text-brand">Contact</a>
+        </nav>
+    </header>
+
+    <section class="max-w-5xl mx-auto px-6 py-16">
+        <h1 class="font-display font-extrabold text-4xl md:text-5xl tracking-tight">Work</h1>
+        <p class="text-gray-600 mt-4 max-w-xl leading-relaxed">
+            A collection of branding, packaging, campaign, and digital projects.
+        </p>
+    </section>
+
+    <!-- Filters -->
+    <section class="max-w-5xl mx-auto px-6 pb-8">
+        <div id="filters" class="flex flex-wrap gap-3">
+            <button type="button" data-filter="All" class="filter-btn is-active px-4 py-2 border border-ink text-sm font-body">All</button>
+            <button type="button" data-filter="Branding" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Branding</button>
+            <button type="button" data-filter="Packaging" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Packaging</button>
+            <button type="button" data-filter="Campaigns" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Campaigns</button>
+            <button type="button" data-filter="Digital/Web" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Digital/Web</button>
+            <button type="button" data-filter="Social Media" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Social Media</button>
+            <button type="button" data-filter="Environmental" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Environmental</button>
+            <button type="button" data-filter="Illustration" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Illustration</button>
+            <button type="button" data-filter="Student Work" class="filter-btn px-4 py-2 border border-ink text-sm font-body">Student Work</button>
+        </div>
+    </section>
+
+    <!-- Grid -->
+    <section class="max-w-5xl mx-auto px-6 pb-24">
+        <div id="grid" class="grid grid-cols-2 md:grid-cols-3 gap-6">
+
+            <a href="/work/soo-falls/" class="project-card group" data-tags="Branding,Packaging">
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Soo Falls</span>
+                </div>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">Soo Falls</p>
+                <p class="text-gray-400 text-xs mt-1">Branding, Packaging</p>
+            </a>
+
+            <a href="/work/canal-district/" class="project-card group" data-tags="Environmental,Campaigns">
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Canal District</span>
+                </div>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">Canal District</p>
+                <p class="text-gray-400 text-xs mt-1">Environmental, Campaigns</p>
+            </a>
+
+            <a href="/work/jenesis-medical-aesthetics/" class="project-card group" data-tags="Digital/Web,Branding">
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Jenesis Medical Aesthetics</span>
+                </div>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">Jenesis Medical Aesthetics</p>
+                <p class="text-gray-400 text-xs mt-1">Digital/Web, Branding</p>
+            </a>
+
+            <a href="/work/growtogether/" class="project-card group" data-tags="Digital/Web,Campaigns">
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">GrowTogether</span>
+                </div>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">GrowTogether</p>
+                <p class="text-gray-400 text-xs mt-1">Digital/Web, Campaigns</p>
+            </a>
+
+            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Branding,Student Work"
+                data-title="Jayl House" data-description="A conceptual branding project for a fictional supper club, exploring warm, moody visual identity work." data-meta="Branding, Student Work">
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Jayl House</span>
+                </div>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">Jayl House</p>
+                <p class="text-gray-400 text-xs mt-1">Branding, Student Work</p>
+            </button>
+
+            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Packaging,Student Work"
+                data-title="High Seas" data-description="Packaging concept and label system for a fictional rum brand, built around nautical illustration." data-meta="Packaging, Student Work">
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">High Seas</span>
+                </div>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">High Seas</p>
+                <p class="text-gray-400 text-xs mt-1">Packaging, Student Work</p>
+            </button>
+
+            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Illustration,Student Work"
+                data-title="Atari 2600" data-description="A poster illustration series celebrating the design history of the Atari 2600." data-meta="Illustration, Student Work">
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Atari 2600</span>
+                </div>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">Atari 2600</p>
+                <p class="text-gray-400 text-xs mt-1">Illustration, Student Work</p>
+            </button>
+
+            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Illustration"
+                data-title="Coffee Guy" data-description="A character illustration and sticker set made for a local coffee shop." data-meta="Illustration">
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Coffee Guy</span>
+                </div>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">Coffee Guy</p>
+                <p class="text-gray-400 text-xs mt-1">Illustration</p>
+            </button>
+
+            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Illustration,Student Work"
+                data-title="Self-Portrait" data-description="A personal illustrated self-portrait exploring identity through a limited color palette." data-meta="Illustration, Student Work">
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Self-Portrait</span>
+                </div>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">Self-Portrait</p>
+                <p class="text-gray-400 text-xs mt-1">Illustration, Student Work</p>
+            </button>
+
+            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="Social Media,Campaigns"
+                data-title="Project SEARCH Algoma" data-description="Social media campaign assets supporting Project SEARCH Algoma's community outreach program." data-meta="Social Media, Campaigns">
+                <div class="aspect-square bg-gray-200 flex items-center justify-center">
+                    <span class="text-gray-400 text-xs px-2 text-center">Project SEARCH Algoma</span>
+                </div>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">Project SEARCH Algoma</p>
+                <p class="text-gray-400 text-xs mt-1">Social Media, Campaigns</p>
+            </button>
+
+        </div>
+        <p id="empty-state" class="hidden text-gray-400 text-sm mt-10">No projects match this filter yet.</p>
+    </section>
+
+    <!-- Persistent footer -->
+    <footer class="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+        <span class="font-body">&copy; 2026 Drew Alfano</span>
+        <a href="mailto:hello@drewalfano.com" class="hover:text-brand">hello@drewalfano.com</a>
+    </footer>
+
+    <!-- Lightbox modal -->
+    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-ink/90 items-center justify-center px-6">
+        <div class="bg-paper text-ink max-w-lg w-full">
+            <div class="aspect-[4/3] bg-gray-200 flex items-center justify-center">
+                <span id="lightbox-image-label" class="text-gray-400 text-sm">Image placeholder</span>
+            </div>
+            <div class="p-8">
+                <span id="lightbox-meta" class="text-brand font-body text-sm font-medium uppercase tracking-wide"></span>
+                <h2 id="lightbox-title" class="font-display font-extrabold text-2xl mt-2"></h2>
+                <p id="lightbox-description" class="text-gray-600 mt-4 leading-relaxed"></p>
+                <button type="button" id="lightbox-close" class="inline-block mt-6 font-body font-medium text-sm border-b-2 border-brand text-brand hover:opacity-70">
+                    Close &times;
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Filtering
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const cards = document.querySelectorAll(".project-card");
+        const emptyState = document.getElementById("empty-state");
+
+        filterButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                filterButtons.forEach((b) => b.classList.remove("is-active"));
+                btn.classList.add("is-active");
+                const filter = btn.dataset.filter;
+                let visibleCount = 0;
+                cards.forEach((card) => {
+                    const tags = card.dataset.tags.split(",");
+                    const show = filter === "All" || tags.includes(filter);
+                    card.classList.toggle("hidden", !show);
+                    if (show) visibleCount++;
+                });
+                emptyState.classList.toggle("hidden", visibleCount !== 0);
+            });
+        });
+
+        // Lightbox
+        const lightbox = document.getElementById("lightbox");
+        const lightboxTitle = document.getElementById("lightbox-title");
+        const lightboxDescription = document.getElementById("lightbox-description");
+        const lightboxMeta = document.getElementById("lightbox-meta");
+        const lightboxImageLabel = document.getElementById("lightbox-image-label");
+
+        function openLightbox(trigger) {
+            lightboxTitle.textContent = trigger.dataset.title;
+            lightboxDescription.textContent = trigger.dataset.description;
+            lightboxMeta.textContent = trigger.dataset.meta;
+            lightboxImageLabel.textContent = trigger.dataset.title + " — image placeholder";
+            lightbox.classList.remove("hidden");
+            lightbox.classList.add("flex");
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add("hidden");
+            lightbox.classList.remove("flex");
+        }
+
+        document.querySelectorAll(".lightbox-trigger").forEach((trigger) => {
+            trigger.addEventListener("click", () => openLightbox(trigger));
+        });
+
+        document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+        lightbox.addEventListener("click", (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeLightbox();
+        });
+    </script>
+
+</body>
+</html>
