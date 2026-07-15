@@ -73,8 +73,11 @@
             </a>
 
             <a href="/work/canal-district/" style="--accent:#d23e45; --accent-text:#b8353c" class="project-card group" data-tags="branding,campaigns">
-                <div class="aspect-square overflow-hidden bg-[#d23e45] flex items-center justify-center">
-                    <img src="/images/canal-district-optimized/canal-district-wordmark.svg" alt="Canal District wordmark on a red background" class="w-2/3" loading="lazy">
+                <div class="aspect-square overflow-hidden bg-[#d23e45]">
+                    <picture>
+                        <source srcset="/images/canal-district-optimized/canal-district-logo-card.webp" type="image/webp">
+                        <img src="/images/canal-district-optimized/canal-district-logo-card.png" alt="Canal District wordmark on a red background" width="1200" height="1200" class="w-full h-full object-contain" loading="lazy">
+                    </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-accent-safe">02 &middot; Canal District</p>
                 <p class="text-gray-400 text-xs mt-1">Branding, Campaigns</p>
@@ -91,7 +94,7 @@
                 <p class="text-gray-400 text-xs mt-1">Digital/Web, Branding</p>
             </a>
 
-            <a href="/work/growtogether/" style="--accent:#468359; --accent-text:#396e49" class="project-card group" data-tags="digital-web">
+            <a href="/work/growtogether/" style="--accent:#468359; --accent-text:#396e49" class="project-card group" data-tags="digital-web,student-work">
                 <div class="aspect-square overflow-hidden bg-[#468359]">
                     <picture>
                         <source srcset="/images/growtogether-optimized/growtogether-logo-card.webp" type="image/webp">
@@ -99,7 +102,7 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-accent-safe">04 &middot; GrowTogether</p>
-                <p class="text-gray-400 text-xs mt-1">Digital/Web, UX/UI</p>
+                <p class="text-gray-400 text-xs mt-1">Digital/Web, UX/UI, Student Work</p>
             </a>
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="branding,student-work"
@@ -113,7 +116,7 @@
                 <p class="text-gray-400 text-xs mt-1">Branding, Student Work</p>
             </button>
 
-            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="packaging,student-work"
+            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="packaging,student-work" data-gallery="high-seas-brewing"
                 data-title="High Seas" data-description="Packaging concept and label system for a fictional rum brand, built around nautical illustration." data-meta="Packaging, Student Work">
                 <div class="aspect-square overflow-hidden bg-[#17475a]">
                     <picture>
@@ -125,7 +128,7 @@
                 <p class="text-gray-400 text-xs mt-1">Packaging, Student Work</p>
             </button>
 
-            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="illustration,student-work"
+            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="illustration,student-work" data-gallery="atari-2600"
                 data-title="Atari 2600" data-description="A poster illustration series celebrating the design history of the Atari 2600." data-meta="Illustration, Student Work">
                 <div class="aspect-square overflow-hidden bg-[#d0272b]">
                     <picture>
@@ -137,8 +140,8 @@
                 <p class="text-gray-400 text-xs mt-1">Illustration, Student Work</p>
             </button>
 
-            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="illustration"
-                data-title="Coffee Guy" data-description="A character illustration and sticker set made for a local coffee shop." data-meta="Illustration">
+            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="illustration,student-work" data-gallery="coffee-guy"
+                data-title="Coffee Guy" data-description="A character illustration and sticker set made for a local coffee shop." data-meta="Illustration, Student Work">
                 <div class="aspect-square overflow-hidden bg-[#c5c2e3]">
                     <picture>
                         <source srcset="/images/coffee-guy-optimized/coffee-guy-logo-card.webp" type="image/webp">
@@ -146,7 +149,7 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Coffee Guy</p>
-                <p class="text-gray-400 text-xs mt-1">Illustration</p>
+                <p class="text-gray-400 text-xs mt-1">Illustration, Student Work</p>
             </button>
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="social-media,campaigns"
@@ -173,8 +176,19 @@
     <!-- Lightbox modal -->
     <div id="lightbox" class="hidden fixed inset-0 z-50 bg-ink/90 items-center justify-center px-6">
         <div class="bg-paper text-ink max-w-lg w-full">
-            <div class="aspect-[4/3] bg-gray-200 flex items-center justify-center">
-                <span id="lightbox-image-label" class="text-gray-400 text-sm">Image placeholder</span>
+            <div class="relative aspect-[4/3] bg-gray-200 overflow-hidden">
+                <span id="lightbox-image-label" class="absolute inset-0 flex items-center justify-center px-4 text-center text-gray-400 text-sm">Image placeholder</span>
+                <picture id="lightbox-picture" class="hidden absolute inset-0">
+                    <source id="lightbox-source" type="image/webp">
+                    <img id="lightbox-img" src="" alt="" class="w-full h-full object-contain">
+                </picture>
+                <button type="button" id="lightbox-prev" aria-label="Previous image" class="hidden absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center bg-paper/90 text-ink hover:bg-paper">
+                    <span aria-hidden="true">&larr;</span>
+                </button>
+                <button type="button" id="lightbox-next" aria-label="Next image" class="hidden absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center bg-paper/90 text-ink hover:bg-paper">
+                    <span aria-hidden="true">&rarr;</span>
+                </button>
+                <span id="lightbox-position" class="hidden absolute bottom-2 right-2 text-xs font-body bg-ink/70 text-paper px-2 py-0.5"></span>
             </div>
             <div class="p-8">
                 <span id="lightbox-meta" class="text-brand font-body text-sm font-medium uppercase tracking-wide"></span>
@@ -235,17 +249,94 @@
         syncURL(initialFilter);
 
         // Lightbox
+        // Approved image sequences for supporting projects (Jayl House and
+        // Project SEARCH Algoma have no approved sequence yet, so they are
+        // deliberately absent here and fall back to the placeholder state).
+        // This shape (ordered array of {src, webp, alt}) is designed to be
+        // lifted directly into the future large editorial viewer without
+        // reshaping the data.
+        const projectGalleries = {
+            "atari-2600": [
+                { src: "/images/atari-2600-optimized/atari-poster.jpg", webp: "/images/atari-2600-optimized/atari-poster.webp", alt: "Atari 2600 poster illustration: a photorealistic vector rendering of the console and two joysticks beside a colorful stripe of game titles" },
+                { src: "/images/atari-2600-optimized/atari-shirt.jpg", webp: "/images/atari-2600-optimized/atari-shirt.webp", alt: "The Atari 2600 illustration printed on a dark grey t-shirt mockup" },
+                { src: "/images/atari-2600-optimized/atari-diagram.png", webp: "/images/atari-2600-optimized/atari-diagram.webp", alt: "Labeled diagram of the Atari 2600 console's switches, game slot, and ports" }
+            ],
+            "high-seas-brewing": [
+                { src: "/images/high-seas-brewing-optimized/high-seas-can-lineup.jpg", webp: "/images/high-seas-brewing-optimized/high-seas-can-lineup.webp", alt: "Three High Seas Brewing cans staggered together: Crab Apple Sour, Hazy Mackerel, and Inked Out Stout" },
+                { src: "/images/high-seas-brewing-optimized/high-seas-posters.jpg", webp: "/images/high-seas-brewing-optimized/high-seas-posters.webp", alt: "Three High Seas Brewing poster mockups on a wall, one per flavor" },
+                { src: "/images/high-seas-brewing-optimized/high-seas-billboard.jpg", webp: "/images/high-seas-brewing-optimized/high-seas-billboard.webp", alt: "High Seas Brewing Crab Apple Sour billboard mockup reading \"Brewed for the Bold\"" }
+            ],
+            "coffee-guy": [
+                { src: "/images/coffee-guy-optimized/coffee-guy-logo-full.png", webp: "/images/coffee-guy-optimized/coffee-guy-logo-full.webp", alt: "Coffee Guy character logo: a coffee cup face wearing glasses with a steam swirl for hair" },
+                { src: "/images/coffee-guy-optimized/coffee-guy-cup.png", webp: "/images/coffee-guy-optimized/coffee-guy-cup.webp", alt: "Coffee Guy branded paper cup product photo" },
+                { src: "/images/coffee-guy-optimized/coffee-guy-banner.jpg", webp: "/images/coffee-guy-optimized/coffee-guy-banner.webp", alt: "Coffee Guy promotional banner ad: \"Relax This Fall and Enjoy a Coffee On Us\"" },
+                { src: "/images/coffee-guy-optimized/coffee-guy-pattern.png", webp: "/images/coffee-guy-optimized/coffee-guy-pattern.webp", alt: "Coffee Guy repeating brand pattern texture" }
+            ]
+        };
+
         const lightbox = document.getElementById("lightbox");
         const lightboxTitle = document.getElementById("lightbox-title");
         const lightboxDescription = document.getElementById("lightbox-description");
         const lightboxMeta = document.getElementById("lightbox-meta");
         const lightboxImageLabel = document.getElementById("lightbox-image-label");
+        const lightboxPicture = document.getElementById("lightbox-picture");
+        const lightboxSource = document.getElementById("lightbox-source");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxPrev = document.getElementById("lightbox-prev");
+        const lightboxNext = document.getElementById("lightbox-next");
+        const lightboxPosition = document.getElementById("lightbox-position");
+
+        let currentGallery = null;
+        let currentIndex = 0;
+
+        function preload(src) {
+            var img = new Image();
+            img.src = src;
+        }
+
+        function renderGalleryImage() {
+            if (!currentGallery) return;
+            var item = currentGallery[currentIndex];
+            lightboxSource.srcset = item.webp;
+            lightboxImg.src = item.src;
+            lightboxImg.alt = item.alt;
+            lightboxPosition.textContent = ("0" + (currentIndex + 1)).slice(-2) + " / 0" + currentGallery.length;
+            preload(currentGallery[(currentIndex + 1) % currentGallery.length].src);
+            preload(currentGallery[(currentIndex - 1 + currentGallery.length) % currentGallery.length].src);
+        }
+
+        function stepGallery(delta) {
+            if (!currentGallery) return;
+            currentIndex = (currentIndex + delta + currentGallery.length) % currentGallery.length;
+            renderGalleryImage();
+        }
 
         function openLightbox(trigger) {
             lightboxTitle.textContent = trigger.dataset.title;
             lightboxDescription.textContent = trigger.dataset.description;
             lightboxMeta.textContent = trigger.dataset.meta;
-            lightboxImageLabel.textContent = trigger.dataset.title + " — image placeholder";
+
+            var gallery = projectGalleries[trigger.dataset.gallery];
+            var hasGallery = Array.isArray(gallery) && gallery.length > 0;
+
+            currentGallery = hasGallery ? gallery : null;
+            currentIndex = 0;
+
+            lightboxImageLabel.classList.toggle("hidden", hasGallery);
+            lightboxPicture.classList.toggle("hidden", !hasGallery);
+            var showNav = hasGallery && gallery.length > 1;
+            lightboxPrev.classList.toggle("hidden", !showNav);
+            lightboxPrev.classList.toggle("flex", showNav);
+            lightboxNext.classList.toggle("hidden", !showNav);
+            lightboxNext.classList.toggle("flex", showNav);
+            lightboxPosition.classList.toggle("hidden", !hasGallery);
+
+            if (hasGallery) {
+                renderGalleryImage();
+            } else {
+                lightboxImageLabel.textContent = trigger.dataset.title + " — image placeholder";
+            }
+
             lightbox.classList.remove("hidden");
             lightbox.classList.add("flex");
         }
@@ -259,12 +350,18 @@
             trigger.addEventListener("click", () => openLightbox(trigger));
         });
 
+        lightboxPrev.addEventListener("click", () => stepGallery(-1));
+        lightboxNext.addEventListener("click", () => stepGallery(1));
+
         document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
         lightbox.addEventListener("click", (e) => {
             if (e.target === lightbox) closeLightbox();
         });
         document.addEventListener("keydown", (e) => {
+            if (lightbox.classList.contains("hidden")) return;
             if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowLeft") stepGallery(-1);
+            if (e.key === "ArrowRight") stepGallery(1);
         });
     </script>
 
