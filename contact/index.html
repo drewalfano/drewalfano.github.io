@@ -40,9 +40,16 @@
             Have a project in mind, or just want to say hello? Reach out and I'll get back to
             you soon.
         </p>
-        <a href="mailto:hello@drewalfano.com" class="inline-block mt-10 bg-brand text-paper font-body font-medium text-lg px-8 py-4 hover:opacity-90">
-            hello@drewalfano.com
-        </a>
+        <div class="mt-10 flex flex-wrap items-center gap-4">
+            <a href="mailto:hello@drewalfano.com" class="group link-underline inline-flex items-center gap-2 font-body font-medium text-lg md:text-xl text-ink hover:text-brand focus-visible:text-brand">
+                hello@drewalfano.com
+                <span class="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1 group-focus-visible:translate-x-1" aria-hidden="true">&rarr;</span>
+            </a>
+            <button type="button" id="copy-email-btn" class="inline-flex items-center border border-ink px-3 py-1.5 text-xs font-body font-medium uppercase tracking-wide transition-colors duration-200 ease-out hover:bg-ink hover:text-paper">
+                <span id="copy-btn-label">Copy</span>
+            </button>
+        </div>
+        <p id="copy-status" class="sr-only" aria-live="polite"></p>
 
         <div class="mt-16 grid grid-cols-2 gap-8 max-w-md text-sm">
             <div>
@@ -51,7 +58,10 @@
             </div>
             <div>
                 <span class="text-gray-400 block">Availability</span>
-                <span class="mt-1 block">Open to new projects</span>
+                <span class="mt-1 flex items-center gap-2">
+                    <span class="inline-block w-2 h-2 shrink-0 rounded-full bg-[#2E7D32]" aria-hidden="true"></span>
+                    Open to new projects
+                </span>
             </div>
         </div>
     </section>
@@ -60,6 +70,61 @@
         <span class="font-body">&copy; 2026 Drew Alfano</span>
         <a href="mailto:hello@drewalfano.com" class="link-underline hover:text-brand">hello@drewalfano.com</a>
     </footer>
+
+    <script>
+        (function () {
+            var btn = document.getElementById("copy-email-btn");
+            var label = document.getElementById("copy-btn-label");
+            var status = document.getElementById("copy-status");
+            if (!btn) return;
+
+            var email = "hello@drewalfano.com";
+            var resetTimer;
+
+            function announce(copied) {
+                label.textContent = copied ? "Copied ✓" : "Copy";
+                status.textContent = copied
+                    ? "Email address copied to clipboard."
+                    : "Couldn't copy the email address. You can select and copy it manually.";
+                clearTimeout(resetTimer);
+                if (copied) {
+                    resetTimer = setTimeout(function () {
+                        label.textContent = "Copy";
+                        status.textContent = "";
+                    }, 2000);
+                }
+            }
+
+            function fallbackCopy() {
+                var textarea = document.createElement("textarea");
+                textarea.value = email;
+                textarea.setAttribute("readonly", "");
+                textarea.style.position = "absolute";
+                textarea.style.left = "-9999px";
+                document.body.appendChild(textarea);
+                textarea.select();
+                var copied = false;
+                try {
+                    copied = document.execCommand("copy");
+                } catch (err) {
+                    copied = false;
+                }
+                document.body.removeChild(textarea);
+                announce(copied);
+            }
+
+            btn.addEventListener("click", function () {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(email).then(
+                        function () { announce(true); },
+                        fallbackCopy
+                    );
+                } else {
+                    fallbackCopy();
+                }
+            });
+        })();
+    </script>
 
     <script src="/assets/js/site.js" defer></script>
 </body>

@@ -34,38 +34,76 @@
         </nav>
     </header>
 
-    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-        <div class="aspect-[4/3] bg-gray-200 flex items-center justify-center order-1">
-            <span class="text-gray-400 text-sm">Portrait placeholder</span>
-        </div>
+    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-start">
+        <figure class="order-1">
+            <div tabindex="0" role="img" aria-label="Geometric illustrated self-portrait of Drew Alfano." class="portrait-frame relative aspect-[4/5] overflow-hidden border border-gray-200">
+                <picture>
+                    <source srcset="/images/about-optimized/self-portrait.webp" type="image/webp">
+                    <img src="/images/about-optimized/self-portrait.jpg" alt="" class="w-full h-full object-cover object-bottom">
+                </picture>
+            </div>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Illustrated self-portrait</figcaption>
+        </figure>
         <div class="order-2">
             <h1 class="font-display font-extrabold text-4xl md:text-5xl tracking-tight">About</h1>
             <p class="text-gray-600 mt-6 leading-relaxed max-w-md">
                 I'm Drew Alfano, a graphic designer and brand lead based in Sault Ste. Marie.
-                I work across branding, packaging, campaigns, and digital design, building
-                visual systems that stay consistent from a shelf label to a billboard to a
-                scroll on a phone.
+                I build visual systems across packaging, campaigns, websites and physical
+                applications, with a focus on making many moving parts feel like one clear
+                brand.
             </p>
             <p class="text-gray-600 mt-4 leading-relaxed max-w-md">
-                My process starts with structure: clear typography, a disciplined color
-                system, and a grid that holds up whether it's applied to a single business
-                card or a full retail environment.
+                My work has included reconstructing and modernizing established identities,
+                developing packaging systems, planning websites, directing campaigns and
+                preparing designs for production. I'm most interested in the point where
+                strategy meets execution—creating a system that still feels consistent
+                whether it appears on a can, a billboard or a phone.
             </p>
         </div>
     </section>
 
     <section data-reveal class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
         <h2 class="font-display font-extrabold text-2xl md:text-3xl">What I do</h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8 text-sm text-gray-600">
-            <span>Branding</span>
-            <span>Packaging</span>
-            <span>Campaigns</span>
-            <span>Digital / Web</span>
-            <span>Social Media</span>
-            <span>Environmental</span>
-            <span>Illustration</span>
-            <span>Student Work</span>
+        <div class="mt-8 max-w-2xl divide-y divide-gray-200">
+            <a href="/work/?filter=branding" class="group flex items-center justify-between gap-6 py-4">
+                <span class="flex items-baseline gap-6">
+                    <span class="font-body text-sm text-gray-400 transition-colors duration-200 ease-out group-hover:text-brand group-focus-visible:text-brand">01</span>
+                    <span class="font-body text-base md:text-lg">Brand Identity</span>
+                </span>
+                <span class="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1 group-focus-visible:translate-x-1" aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="/work/?filter=packaging" class="group flex items-center justify-between gap-6 py-4">
+                <span class="flex items-baseline gap-6">
+                    <span class="font-body text-sm text-gray-400 transition-colors duration-200 ease-out group-hover:text-brand group-focus-visible:text-brand">02</span>
+                    <span class="font-body text-base md:text-lg">Packaging Systems</span>
+                </span>
+                <span class="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1 group-focus-visible:translate-x-1" aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="/work/?filter=campaigns" class="group flex items-center justify-between gap-6 py-4">
+                <span class="flex items-baseline gap-6">
+                    <span class="font-body text-sm text-gray-400 transition-colors duration-200 ease-out group-hover:text-brand group-focus-visible:text-brand">03</span>
+                    <span class="font-body text-base md:text-lg">Campaign Design</span>
+                </span>
+                <span class="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1 group-focus-visible:translate-x-1" aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="/work/?filter=digital-web" class="group flex items-center justify-between gap-6 py-4">
+                <span class="flex items-baseline gap-6">
+                    <span class="font-body text-sm text-gray-400 transition-colors duration-200 ease-out group-hover:text-brand group-focus-visible:text-brand">04</span>
+                    <span class="font-body text-base md:text-lg">Web Strategy &amp; UX/UI</span>
+                </span>
+                <span class="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1 group-focus-visible:translate-x-1" aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="/work/?filter=illustration" class="group flex items-center justify-between gap-6 py-4">
+                <span class="flex items-baseline gap-6">
+                    <span class="font-body text-sm text-gray-400 transition-colors duration-200 ease-out group-hover:text-brand group-focus-visible:text-brand">05</span>
+                    <span class="font-body text-base md:text-lg">Illustration</span>
+                </span>
+                <span class="inline-block transition-transform duration-200 ease-out group-hover:translate-x-1 group-focus-visible:translate-x-1" aria-hidden="true">&rarr;</span>
+            </a>
         </div>
+        <p class="mt-8 max-w-2xl text-sm text-gray-400 leading-relaxed">
+            Additional experience includes art direction, production design, motion, video and photography.
+        </p>
     </section>
 
     <!-- Contact CTA -->

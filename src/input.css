@@ -85,7 +85,8 @@
     transform-origin: left;
     transition: transform 0.25s ease;
   }
-  .link-underline:hover::after {
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after {
     transform: scaleX(1);
   }
 
@@ -123,5 +124,15 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  /* About-page portrait: frame shifts via box-shadow only, never the
+     artwork itself (no scale/tilt), on hover or keyboard focus. */
+  .portrait-frame {
+    transition: box-shadow 0.2s ease-out;
+  }
+  .portrait-frame:hover,
+  .portrait-frame:focus-visible {
+    box-shadow: 3px 3px 0 0 #D0272B;
   }
 }
