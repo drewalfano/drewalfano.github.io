@@ -18,7 +18,7 @@ module.exports = {
         brand: "#D0272B",
       },
       fontFamily: {
-        display: ["Archivo", "sans-serif"],
+        display: ["DM Sans", "sans-serif"],
         body: ["Work Sans", "sans-serif"],
       },
     },

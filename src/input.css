@@ -44,6 +44,14 @@
 }
 
 @layer components {
+  /* DM Sans display headings: -0.02em tracking site-wide (~-20 optical
+     kerning). Utilities layer loads after components, so any element that
+     also carries an explicit tracking-* utility (e.g. tracking-tight) still
+     wins the cascade and overrides this baseline. */
+  .font-display {
+    letter-spacing: -0.02em;
+  }
+
   .filter-btn.is-active {
     @apply bg-ink text-paper;
   }
