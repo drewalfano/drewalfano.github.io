@@ -133,6 +133,27 @@
     transform: translateX(-50%);
   }
 
+  /* .reveal's translateY and .full-bleed's translateX(-50%) both set the
+     `transform` property — on an element with both classes, whichever rule
+     wins overwrites the other's transform entirely rather than composing
+     with it. `.reveal.is-visible` (two classes) beats plain `.full-bleed`
+     (one class) on specificity, which was stripping the -50% recentering
+     transform the moment a full-bleed section revealed, shifting it a full
+     half-viewport off-screen. Full-bleed sections must never move
+     horizontally, so when the two combine, reveal drops to opacity-only and
+     transform stays pinned to the centering translate in every state. */
+  .full-bleed.reveal,
+  .full-bleed.reveal.is-visible {
+    transform: translateX(-50%);
+  }
+  .full-bleed.reveal {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .full-bleed.reveal.is-visible {
+    opacity: 1;
+  }
+
   /* Quieter, slower variant of .reveal for About: used on the portrait/intro
      copy and the "What I do" heading/rows, which want a softer entrance than
      the sitewide default. Paired with data-reveal="soft" in the markup. */
