@@ -91,13 +91,13 @@
     <!-- Full-bleed hero -->
     <section data-reveal class="pb-16">
         <figure class="full-bleed">
-            <div class="aspect-[4/3] md:aspect-[16/9] overflow-hidden">
+            <div class="aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-paper">
                 <picture>
-                    <source srcset="/images/soo-falls-optimized/img_1064.webp" type="image/webp">
-                    <img src="/images/soo-falls-optimized/img_1064.jpg" alt="A hand holding a can of Soo Falls Italian Pilsner in front of an LCBO retail display sign reading &quot;Local Pours.&quot;" class="w-full h-full object-cover">
+                    <source srcset="/images/soo-falls-optimized/full-lineup.webp" type="image/webp">
+                    <img src="/images/soo-falls-optimized/full-lineup.jpg" alt="The full Soo Falls packaging lineup on white: Light Lager, Italian Pilsner, Irish Red Ale, Hazy IPA, Dunkelweizen, two Shipwreck Sour flavors, Hefeweizen, Doppelbock, and Festbier Oktoberfest Lager, arranged in two rows." class="w-full h-full object-contain">
                 </picture>
             </div>
-            <figcaption class="max-w-5xl mx-auto px-6 text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 01 — Retail Launch, LCBO</figcaption>
+            <figcaption class="max-w-5xl mx-auto px-6 text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 01 — The Full Lineup</figcaption>
         </figure>
     </section>
 
@@ -122,13 +122,14 @@
     <!-- Logo reconstruction and modernization -->
     <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
         <h2 class="font-display font-extrabold text-2xl">Logo Reconstruction and Modernization</h2>
-        <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
-            The only logo material supplied at the beginning of the project was a collection
-            of low-resolution raster references. I reconstructed the mark as a clean vector,
-            refining its typography and proportions while retaining its established character.
-        </p>
-        <figure class="mt-8">
-            <div class="relative aspect-square overflow-hidden select-none bg-gray-100 border border-gray-200" id="ba-slider">
+        <div class="mt-8 grid md:grid-cols-2 gap-8 items-center">
+            <p class="text-gray-600 leading-relaxed">
+                The only logo material supplied at the beginning of the project was a collection
+                of low-resolution raster references. I reconstructed the mark as a clean vector,
+                refining its typography and proportions while retaining its established character.
+            </p>
+        <figure class="md:mt-0">
+            <div class="relative aspect-square max-w-sm mx-auto overflow-hidden select-none bg-gray-100 border border-gray-200" id="ba-slider">
                 <div class="absolute inset-0 flex items-center justify-center p-10">
                     <picture>
                         <source srcset="/images/soo-falls-optimized/logo-after.webp" type="image/webp">
@@ -156,26 +157,27 @@
                     class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
                 >
             </div>
-            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 02 — Before &amp; After, Logo Reconstruction</figcaption>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2 text-center">Fig. 02 — Before &amp; After, Logo Reconstruction</figcaption>
         </figure>
+        </div>
     </section>
 
-    <!-- Packaging system: the full lineup -->
+    <!-- Retail rollout: LCBO launch -->
     <section data-reveal class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
         <div class="max-w-2xl">
-            <h2 class="font-display font-extrabold text-2xl">A System Built to Expand</h2>
+            <h2 class="font-display font-extrabold text-2xl">A System Built for Retail</h2>
             <p class="text-gray-600 mt-4 leading-relaxed">
-                The system begins with five core beers on a shared label structure, then expands
-                into seasonal and limited releases — each distinct enough to stand alone, still
-                unmistakably part of the same family.
+                The label system was designed to hold up off the shelf, not just on it — the
+                Italian Pilsner's LCBO launch put that to the test, carrying the identity into
+                general retail alongside the province's largest brands.
             </p>
         </div>
         <figure class="mt-10">
             <picture>
-                <source srcset="/images/soo-falls-optimized/full-lineup.webp" type="image/webp">
-                <img src="/images/soo-falls-optimized/full-lineup.jpg" alt="The full Soo Falls packaging lineup: Light Lager, Italian Pilsner, Irish Red Ale, Hazy IPA, Dunkelweizen, two Shipwreck Sour flavors, Hefeweizen, Doppelbock, and Festbier Oktoberfest Lager, arranged in two rows." class="w-full h-auto" loading="lazy">
+                <source srcset="/images/soo-falls-optimized/img_1064.webp" type="image/webp">
+                <img src="/images/soo-falls-optimized/img_1064.jpg" alt="A hand holding a can of Soo Falls Italian Pilsner in front of an LCBO retail display sign reading &quot;Local Pours.&quot;" class="w-full h-auto" loading="lazy">
             </picture>
-            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 03 — The Packaging System</figcaption>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 03 — Retail Launch, LCBO</figcaption>
         </figure>
     </section>
 
@@ -238,9 +240,9 @@
                     </button>
                 </div>
 
-                <!-- Text panel: overlay on desktop, stacked below on mobile -->
+                <!-- Text panel: compact card overlay on desktop, stacked below on mobile -->
                 <div id="explorer-panel" role="tabpanel" aria-labelledby="explorer-tab-0"
-                    class="p-6 bg-ink text-paper md:absolute md:inset-x-0 md:bottom-0 md:bg-ink/85 md:backdrop-blur-sm md:p-8">
+                    class="p-6 bg-ink text-paper md:absolute md:left-0 md:bottom-0 md:max-w-sm md:bg-ink/75 md:backdrop-blur-sm md:p-6 md:m-4">
                     <div class="flex items-center justify-between gap-4">
                         <span id="explorer-position" class="text-xs uppercase tracking-wide opacity-70 font-body">01 / 04</span>
                         <div class="flex md:hidden gap-2">
@@ -253,43 +255,18 @@
                         </div>
                     </div>
                     <div id="explorer-content" class="explorer-content mt-2">
-                        <h3 id="explorer-title" class="font-display font-extrabold text-xl md:text-2xl">Packaging &amp; Releases</h3>
-                        <p id="explorer-copy" class="text-sm md:text-base mt-3 max-w-xl leading-relaxed text-gray-200">
+                        <h3 id="explorer-title" class="font-display font-extrabold text-xl md:text-lg">Packaging &amp; Releases</h3>
+                        <p id="explorer-copy" class="text-sm mt-3 leading-relaxed text-gray-200">
                             The lineup expands from five core beers into the Shipwreck Sour series, a
                             seasonal Hefeweizen, and standalone releases like the Doppelbock — each with
                             enough individual character to stand on its own while staying part of one
                             connected system.
                         </p>
-                        <p id="explorer-caption" class="text-xs uppercase tracking-wide text-gray-400 mt-4">Packaging system, core lineup through seasonal releases</p>
+                        <p id="explorer-caption" class="text-xs uppercase tracking-wide text-gray-400 mt-4 md:hidden">Packaging system, core lineup through seasonal releases</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Closing brand family shot -->
-    <section data-reveal class="pb-16 border-t border-gray-200 pt-16">
-        <figure class="full-bleed">
-            <div class="aspect-[4/3] md:aspect-[16/9] overflow-hidden">
-                <picture>
-                    <source srcset="/images/soo-falls-optimized/img_3345.webp" type="image/webp">
-                    <img src="/images/soo-falls-optimized/img_3345.jpg" alt="A person wearing a Soo Falls Brewing Company t-shirt holding all eight Soo Falls beer cans across both arms." class="w-full h-full object-cover" loading="lazy">
-                </picture>
-            </div>
-            <figcaption class="max-w-5xl mx-auto px-6 text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 04 — The Full Lineup</figcaption>
-        </figure>
-    </section>
-
-    <!-- Closing statement -->
-    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16">
-        <p class="font-display font-extrabold text-2xl md:text-3xl tracking-tight max-w-2xl leading-tight">
-            A rebuilt identity and an expanding packaging system carried across retail,
-            campaigns, digital platforms and physical environments.
-        </p>
-    </section>
-
-    <section class="max-w-5xl mx-auto px-6 pb-16">
-        <a href="#top" class="link-underline text-sm text-gray-500 hover:text-brand">&uarr; Back to top</a>
     </section>
 
     <!-- Contact CTA -->
