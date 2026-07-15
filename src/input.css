@@ -185,4 +185,49 @@
       border-top-color: #9CA3AF !important;
     }
   }
+
+  /* Interactive brand explorer (Soo Falls "Explore the Brand System"):
+     stacked background layers crossfade via opacity so the stage never
+     changes height; text content fades/rises together on category change.
+     Reduced motion is handled entirely by the sitewide transition-duration
+     override above — these are plain CSS transitions, no extra exception
+     needed. */
+  .explorer-bg {
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+  }
+  .explorer-bg.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .explorer-content {
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+  .explorer-content.is-entering {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .explorer-tab {
+    border-color: transparent;
+    color: #6B7280;
+    transition: border-color 250ms ease, color 250ms ease, background-color 250ms ease;
+  }
+  .explorer-tab.is-active {
+    color: #111111;
+  }
+  @media (min-width: 768px) {
+    .explorer-tab.is-active {
+      border-left-color: var(--accent, #D0272B);
+    }
+  }
+  @media (max-width: 767px) {
+    .explorer-tab.is-active {
+      background-color: #111111;
+      color: #FFFFFF;
+      border-color: #111111;
+    }
+  }
 }
