@@ -1,4 +1,2 @@
 User-agent: *
 Allow: /
-
-Sitemap: https://drewalfano.github.io/sitemap.xml

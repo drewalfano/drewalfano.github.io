@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GrowTogether — Drew Alfano</title>
-    <meta name="description" content="A brand and digital campaign built to recruit volunteers and donors online while staying grounded and community-first in person.">
+    <meta name="robots" content="noindex, nofollow"> <!-- SEARCH-VISIBILITY: remove this line to allow indexing at launch, see CLAUDE.md -->
+    <meta name="description" content="A plant-care companion app concept — information architecture, wireframing, and usability-tested UI design for tracking and identifying plants.">
     <link rel="canonical" href="https://drewalfano.github.io/work/growtogether/">
     <meta name="theme-color" content="#111111">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Drew Alfano">
     <meta property="og:title" content="GrowTogether — Drew Alfano">
-    <meta property="og:description" content="A brand and digital campaign built to recruit volunteers and donors online while staying grounded and community-first in person.">
+    <meta property="og:description" content="A plant-care companion app concept — information architecture, wireframing, and usability-tested UI design for tracking and identifying plants.">
     <meta property="og:url" content="https://drewalfano.github.io/work/growtogether/">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="GrowTogether — Drew Alfano">
-    <meta name="twitter:description" content="A brand and digital campaign built to recruit volunteers and donors online while staying grounded and community-first in person.">
+    <meta name="twitter:description" content="A plant-care companion app concept — information architecture, wireframing, and usability-tested UI design for tracking and identifying plants.">
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
@@ -34,33 +35,37 @@
         </nav>
     </header>
 
+    <!-- Hero / opening -->
     <section data-reveal class="max-w-5xl mx-auto px-6 pt-10 pb-16">
         <a href="/work/" class="link-underline text-sm text-gray-500 hover:text-brand">&larr; Back to Work</a>
         <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-accent-safe font-body text-sm font-medium uppercase tracking-wide mt-6">
             <span>04</span>
             <span aria-hidden="true">&middot;</span>
-            <span>Digital / Web &amp; Campaigns</span>
+            <span>UX/UI Design</span>
+            <span aria-hidden="true">&middot;</span>
+            <span>Academic Project</span>
         </div>
         <h1 class="font-display font-extrabold text-accent-safe text-4xl md:text-6xl tracking-tight mt-2">GrowTogether</h1>
         <p class="text-gray-700 mt-6 max-w-2xl text-lg leading-relaxed">
-            A brand and digital campaign built to recruit volunteers and donors online while
-            staying grounded and community-first in person.
+            A plant-care companion app concept, designed to help people track, water, and
+            identify the plants in their home — built from the ground up through user flows,
+            competing wireframe directions, and real usability testing.
         </p>
 
         <!-- Project facts -->
         <div class="mt-10 grid sm:grid-cols-3 gap-8 max-w-3xl border-t border-gray-200 pt-8">
             <div>
                 <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Role</p>
-                <p class="mt-2 text-sm">Role — TBA</p>
+                <p class="mt-2 text-sm">UX/UI Designer</p>
             </div>
             <div>
                 <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Timeline</p>
-                <p class="mt-2 text-sm">Year — TBA</p>
+                <p class="mt-2 text-sm">Winter 2026</p>
             </div>
             <div>
-                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Disciplines</p>
+                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Responsibilities</p>
                 <p class="mt-2 text-sm leading-relaxed">
-                    Brand Identity, Campaign Design, Web &amp; Digital Design
+                    Information architecture, user flows, wireframing, usability testing, visual interface design
                 </p>
             </div>
         </div>
@@ -68,118 +73,320 @@
         <div class="mt-8 max-w-3xl">
             <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Selected Applications</p>
             <div class="flex flex-wrap gap-2 mt-3">
-                <span class="border border-gray-300 text-xs px-3 py-1">Landing Page</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Social Templates</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Email Graphics</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Mobile App Concept</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Wireframing</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">Usability Testing</span>
+                <span class="border border-gray-300 text-xs px-3 py-1">UI Design</span>
             </div>
         </div>
     </section>
 
-    <!-- Full-bleed hero -->
-    <section data-reveal class="pb-16">
-        <figure class="full-bleed">
-            <div class="aspect-[21/9] bg-gray-200 flex items-center justify-center">
-                <span class="text-gray-400 text-sm">Hero image placeholder</span>
+    <!-- Full-bleed hero: colour field carrying the interface imagery -->
+    <section data-reveal class="full-bleed pb-16" style="background-color: var(--accent);">
+        <div class="max-w-5xl mx-auto px-6 py-16 md:py-20">
+            <figure>
+                <picture>
+                    <source srcset="/images/growtogether-optimized/home.webp" type="image/webp">
+                    <img src="/images/growtogether-optimized/home.jpg" alt="GrowTogether home screen showing a personalized greeting, a plant needing water, a local weather widget, and trending plants" width="487" height="900" class="mx-auto shadow-2xl" style="max-height: 640px; width: auto;" loading="eager">
+                </picture>
+                <figcaption class="text-paper text-xs uppercase tracking-wide opacity-70 mt-6 text-center">Fig. 01 — Home, from the primary high-fidelity screen set</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- The problem -->
+    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
+        <h2 class="font-display font-extrabold text-2xl md:text-3xl">The Problem</h2>
+        <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
+            Keeping houseplants alive means juggling information scattered across memory,
+            plant tags, and guesswork. GrowTogether's brief was to design a single place
+            for the needs that came up again and again:
+        </p>
+        <div class="grid sm:grid-cols-2 gap-x-10 gap-y-4 mt-8 max-w-3xl">
+            <div class="flex gap-3">
+                <span class="text-accent-safe font-body text-sm font-medium">01</span>
+                <p class="text-sm text-gray-700">Organizing plant information in one place</p>
             </div>
-            <figcaption class="max-w-5xl mx-auto px-6 text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 01 — Hero</figcaption>
+            <div class="flex gap-3">
+                <span class="text-accent-safe font-body text-sm font-medium">02</span>
+                <p class="text-sm text-gray-700">Tracking ongoing care over time</p>
+            </div>
+            <div class="flex gap-3">
+                <span class="text-accent-safe font-body text-sm font-medium">03</span>
+                <p class="text-sm text-gray-700">Adding new plants to a personal collection</p>
+            </div>
+            <div class="flex gap-3">
+                <span class="text-accent-safe font-body text-sm font-medium">04</span>
+                <p class="text-sm text-gray-700">Identifying an unfamiliar plant on sight</p>
+            </div>
+            <div class="flex gap-3">
+                <span class="text-accent-safe font-body text-sm font-medium">05</span>
+                <p class="text-sm text-gray-700">Receiving timely, useful care reminders</p>
+            </div>
+            <div class="flex gap-3">
+                <span class="text-accent-safe font-body text-sm font-medium">06</span>
+                <p class="text-sm text-gray-700">Getting diagnosis support when something's wrong</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process overview -->
+    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
+        <h2 class="font-display font-extrabold text-2xl md:text-3xl">Process</h2>
+        <div class="mt-10 flex flex-wrap items-baseline gap-x-3 gap-y-4">
+            <span class="font-display font-extrabold text-2xl md:text-4xl text-accent-safe">Research</span>
+            <span class="text-gray-300 font-display text-2xl md:text-4xl" aria-hidden="true">&rarr;</span>
+            <span class="font-display font-extrabold text-2xl md:text-4xl text-accent-safe">Define</span>
+            <span class="text-gray-300 font-display text-2xl md:text-4xl" aria-hidden="true">&rarr;</span>
+            <span class="font-display font-extrabold text-2xl md:text-4xl text-accent-safe">Explore</span>
+            <span class="text-gray-300 font-display text-2xl md:text-4xl" aria-hidden="true">&rarr;</span>
+            <span class="font-display font-extrabold text-2xl md:text-4xl text-accent-safe">Test</span>
+            <span class="text-gray-300 font-display text-2xl md:text-4xl" aria-hidden="true">&rarr;</span>
+            <span class="font-display font-extrabold text-2xl md:text-4xl text-accent-safe">Refine</span>
+        </div>
+    </section>
+
+    <!-- Information architecture and user flow -->
+    <section data-reveal class="pb-16 border-t border-gray-200 pt-16">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="font-display font-extrabold text-2xl md:text-3xl">Information Architecture &amp; User Flow</h2>
+            <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
+                The core task — adding a new plant and setting up its care routine — was mapped
+                end to end before any screen was drawn: Launch &rarr; Discover &rarr; Virtual Garden &rarr;
+                Search/Select/Scan &rarr; Plant Information Setup &rarr; Confirmation &rarr; back to Virtual Garden.
+            </p>
+        </div>
+        <figure class="max-w-6xl mx-auto px-4 mt-8">
+            <div class="overflow-x-auto">
+                <picture>
+                    <source srcset="/images/growtogether-optimized/user-flow.webp" type="image/webp">
+                    <img src="/images/growtogether-optimized/user-flow.jpg" alt="User flow chart showing the six-screen path from Launch through Discover, Virtual Garden, Search or Scan a Plant, Plant Information Setup, Confirmation, and back to Virtual Garden" width="1400" height="888" class="w-full min-w-[640px]" loading="lazy">
+                </picture>
+            </div>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2 px-2">Fig. 02 — Core user flow chart</figcaption>
         </figure>
     </section>
 
-    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 border-t border-gray-200">
-        <div>
-            <h2 class="font-display font-extrabold text-2xl">The Challenge</h2>
-            <p class="text-gray-600 mt-4 leading-relaxed">
-                GrowTogether needed a brand and campaign that could recruit volunteers and
-                donors online while still feeling grounded and community-first in person.
-            </p>
-        </div>
-        <div>
-            <h2 class="font-display font-extrabold text-2xl">The Approach</h2>
-            <p class="text-gray-600 mt-4 leading-relaxed">
-                An approachable identity built around a simple growth mark, plus a digital
-                campaign toolkit of social templates, email graphics, and a landing page
-                designed to convert first-time visitors into volunteers.
-            </p>
-        </div>
-    </section>
-
-    <!-- Colour field: the one bold moment on this page -->
+    <!-- Colour field: bold moment -->
     <section data-reveal class="full-bleed py-20 md:py-28" style="background-color: var(--accent);">
         <div class="max-w-5xl mx-auto px-6">
-            <p class="text-paper text-xs uppercase tracking-wide font-medium opacity-70">The Approach</p>
+            <p class="text-paper text-xs uppercase tracking-wide font-medium opacity-70">Exploring Two Approaches</p>
             <p class="font-display font-extrabold text-paper text-3xl md:text-5xl tracking-tight mt-4 leading-tight max-w-3xl">
-                One growth mark. A landing page built to convert. A campaign toolkit
-                made to keep pace with volunteers, not slow them down.
+                One fast, single-scroll form. One guided, three-step wizard.
+                Two honest bets on how people want to add a plant.
             </p>
         </div>
     </section>
 
-    <!-- Usability test: Version A vs Version B -->
-    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
-        <h2 class="font-display font-extrabold text-2xl">Usability Test</h2>
+    <!-- Exploring two approaches -->
+    <section data-reveal class="max-w-5xl mx-auto px-6 py-16">
+        <h2 class="font-display font-extrabold text-2xl md:text-3xl">Exploring Two Approaches</h2>
         <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
-            Two landing page directions were tested with volunteers to see which converted
-            first-time visitors more reliably.
-            <span class="text-gray-400">(Placeholder — swap in real screens and findings.)</span>
+            The "Add a Plant" flow was designed and tested as two deliberately different
+            interaction models, not a right-answer-and-a-throwaway. The design question:
+            does a single, faster-scrolling form serve people better than a slower, more
+            guided sequence?
         </p>
-        <div class="grid md:grid-cols-2 gap-6 mt-8">
-            <div>
-                <div class="relative aspect-[4/3] bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">Screen placeholder</span>
-                    <span class="absolute top-3 left-3 bg-ink text-paper text-xs px-2 py-1">Version A</span>
-                </div>
-                <p class="text-gray-600 text-sm mt-3 leading-relaxed">
-                    Original layout with a single call to action above the fold.
-                </p>
+        <div class="mt-10">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-ink text-paper text-xs px-2 py-1 font-medium uppercase tracking-wide">Version A</span>
+                <p class="text-sm text-gray-600">A faster, single-scroll experience — every field on one screen</p>
             </div>
-            <div>
-                <div class="relative aspect-[4/3] bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-sm">Screen placeholder</span>
-                    <span class="absolute top-3 left-3 bg-accent text-paper text-xs px-2 py-1">Version B</span>
+            <figure>
+                <div class="overflow-x-auto">
+                    <picture>
+                        <source srcset="/images/growtogether-optimized/version-a.webp" type="image/webp">
+                        <img src="/images/growtogether-optimized/version-a.jpg" alt="Version A wireflow: a single-scroll Add a Plant form covering plant details, environment, and watering routine on one continuous screen" width="1800" height="621" class="w-full min-w-[720px]" loading="lazy">
+                    </picture>
                 </div>
-                <p class="text-gray-600 text-sm mt-3 leading-relaxed">
-                    Revised layout with volunteer testimonials placed ahead of the sign-up form.
-                </p>
+                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 03 — Version A wireflow, with the tested hypothesis</figcaption>
+            </figure>
+        </div>
+        <div class="mt-12">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="bg-accent text-paper text-xs px-2 py-1 font-medium uppercase tracking-wide">Version B</span>
+                <p class="text-sm text-gray-600">A more guided, three-step wizard — Plant Details, Environment, Watering Routine</p>
             </div>
+            <figure>
+                <div class="overflow-x-auto">
+                    <picture>
+                        <source srcset="/images/growtogether-optimized/version-b.webp" type="image/webp">
+                        <img src="/images/growtogether-optimized/version-b.jpg" alt="Version B wireflow: a three-step guided wizard splitting the Add a Plant task into Plant Details, Environment, and Watering Routine screens" width="1800" height="521" class="w-full min-w-[720px]" loading="lazy">
+                    </picture>
+                </div>
+                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 04 — Version B wireflow</figcaption>
+            </figure>
         </div>
     </section>
 
-    <!-- Grid-breaking image -->
-    <section data-reveal class="pb-16">
-        <figure class="max-w-6xl mx-auto px-4">
-            <div class="aspect-[21/9] bg-gray-200 flex items-center justify-center">
-                <span class="text-gray-400 text-sm">Wide social/email campaign placeholder</span>
+    <!-- Usability testing -->
+    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
+        <h2 class="font-display font-extrabold text-2xl md:text-3xl">Usability Testing</h2>
+        <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
+            Both versions were tested with three participants completing the same task:
+            search for and add an Aloe Vera to their garden. All three ultimately preferred
+            Version A — but not for identical reasons, and not without acknowledging what
+            Version B did well.
+        </p>
+
+        <div class="mt-10 grid md:grid-cols-3 gap-8">
+            <div class="border-t border-gray-200 pt-6">
+                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Participant 1</p>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+                    Found Version B's repeated confirmation steps frustrating — configuring care,
+                    then reviewing again, felt repetitive. Preferred Version A as faster and less
+                    tedious, despite Version A asking for more at once.
+                </p>
             </div>
-            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2 px-2">Fig. 02 — Campaign Toolkit</figcaption>
+            <div class="border-t border-gray-200 pt-6">
+                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Participant 2</p>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+                    Completed both versions with zero navigation friction, but found Version B's
+                    step transitions abrupt. Preferred seeing all information <span class="italic">"at once"</span>
+                    over having it split across separate steps.
+                </p>
+            </div>
+            <div class="border-t border-2 border-accent pt-6">
+                <p class="text-xs uppercase tracking-wide text-accent-safe font-medium">Participant 3</p>
+                <p class="text-sm text-gray-700 mt-3 leading-relaxed">
+                    Praised Version B's step-by-step layout for breaking the task into smaller,
+                    <span class="italic">"easier to take in"</span> chunks — and suggested it would be more
+                    accessible for elderly users or beginners. Still preferred Version A overall, for speed.
+                </p>
+            </div>
+        </div>
+
+        <div class="mt-10 max-w-2xl border-l-2 border-accent pl-6">
+            <p class="text-sm text-gray-700 leading-relaxed">
+                <strong>The result was a trade-off, not a simple win.</strong> Speed and directness
+                won out for this task and this group, but Version B's guided structure surfaced a
+                real accessibility advantage worth carrying into future work rather than discarding.
+            </p>
+        </div>
+    </section>
+
+    <!-- Insight to revision -->
+    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
+        <h2 class="font-display font-extrabold text-2xl md:text-3xl">Insight to Revision</h2>
+        <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
+            Earlier working drafts of the Add-a-Plant flow used placeholder plant names
+            ("Emma," "Mr. Ficus") that were later replaced in the finished screens ("Ollie,"
+            "Ms. Fig") as the flow was refined toward its final state. Not every visual change
+            traces directly back to a usability finding — some are ordinary iteration.
+        </p>
+        <div class="grid sm:grid-cols-3 gap-8 mt-10 max-w-3xl">
+            <div>
+                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Observation</p>
+                <p class="text-sm text-gray-700 mt-2 leading-relaxed">Early drafts used placeholder naming and a rougher wireframe fidelity.</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Design consideration</p>
+                <p class="text-sm text-gray-700 mt-2 leading-relaxed">The finished flow needed names and details that felt like a real garden, not a template.</p>
+            </div>
+            <div>
+                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Refined screen</p>
+                <p class="text-sm text-gray-700 mt-2 leading-relaxed">The polished Plant Care setup screen, shown below.</p>
+            </div>
+        </div>
+        <figure class="mt-10 max-w-sm">
+            <picture>
+                <source srcset="/images/growtogether-optimized/addplant.webp" type="image/webp">
+                <img src="/images/growtogether-optimized/addplant.jpg" alt="Refined Plant Care setup screen for adding an Aloe Vera, with room, light conditions, watering frequency, and reminder controls" width="582" height="900" class="w-full shadow-xl" loading="lazy">
+            </picture>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 05 — Refined Plant Care setup screen</figcaption>
         </figure>
     </section>
 
-    <!-- Process material -->
+    <!-- Dashboard exploration -->
     <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
-        <h2 class="font-display font-extrabold text-2xl">Process</h2>
+        <h2 class="font-display font-extrabold text-2xl md:text-3xl">Dashboard Exploration</h2>
         <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
-            From early sketches through to the tested, finished toolkit.
-            <span class="text-gray-400">(Placeholder — swap in real process material.)</span>
+            The home dashboard went through more than one exploration. Two related, high-fidelity
+            versions exist side by side — it isn't established which, if either, was the final
+            intended direction, so both are shown here as real exploration rather than a settled answer.
         </p>
-        <div class="grid grid-cols-3 gap-6 mt-8">
+        <div class="grid sm:grid-cols-2 gap-8 mt-10">
             <figure>
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Sketch placeholder</span>
-                </div>
-                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Sketch</figcaption>
+                <picture>
+                    <source srcset="/images/growtogether-optimized/dashboard-discover.webp" type="image/webp">
+                    <img src="/images/growtogether-optimized/dashboard-discover.jpg" alt="Dashboard exploration with a generic GrowTogether header, weather widget, trending plants, and an In the Kitchen section for edible plants" width="238" height="750" class="w-full shadow-lg" loading="lazy">
+                </picture>
+                <figcaption class="text-xs text-gray-500 mt-2 leading-relaxed">
+                    Generic "GrowTogether" header, includes an "In the Kitchen" section for edible plants.
+                </figcaption>
             </figure>
             <figure>
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Wireframe placeholder</span>
-                </div>
-                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Wireframe</figcaption>
+                <picture>
+                    <source srcset="/images/growtogether-optimized/home.webp" type="image/webp">
+                    <img src="/images/growtogether-optimized/home.jpg" alt="Dashboard exploration with a personalized Hi, Drew! header, weather widget, and trending plants, without an In the Kitchen section" width="487" height="900" class="w-full shadow-lg" loading="lazy">
+                </picture>
+                <figcaption class="text-xs text-gray-500 mt-2 leading-relaxed">
+                    Personalized "Hi, Drew!" header, no "In the Kitchen" section.
+                </figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Final experience -->
+    <section data-reveal class="pb-16 border-t border-gray-200 pt-16">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="font-display font-extrabold text-2xl md:text-3xl">Final Experience</h2>
+            <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
+                Sign in, home, plant care setup, plant diagnosis, search, and camera-based plant
+                identification — the full high-fidelity screen set, shown together.
+            </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-6 mt-10 grid sm:grid-cols-2 gap-8">
+            <figure>
+                <picture>
+                    <source srcset="/images/growtogether-optimized/home.webp" type="image/webp">
+                    <img src="/images/growtogether-optimized/home.jpg" alt="GrowTogether home screen" width="487" height="900" class="w-full shadow-xl" loading="lazy">
+                </picture>
+                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Home</figcaption>
             </figure>
             <figure>
-                <div class="aspect-square bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400 text-xs px-2 text-center">Toolkit proof placeholder</span>
-                </div>
-                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Toolkit Proof</figcaption>
+                <picture>
+                    <source srcset="/images/growtogether-optimized/addplant.webp" type="image/webp">
+                    <img src="/images/growtogether-optimized/addplant.jpg" alt="GrowTogether plant care setup screen" width="582" height="900" class="w-full shadow-xl" loading="lazy">
+                </picture>
+                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Plant Care Setup</figcaption>
             </figure>
+        </div>
+
+        <figure class="mt-10">
+            <div class="overflow-x-auto">
+                <picture>
+                    <source srcset="/images/growtogether-optimized/final-experience-filmstrip.webp" type="image/webp">
+                    <img src="/images/growtogether-optimized/final-experience-filmstrip.jpg" alt="Full sequence of GrowTogether high-fidelity screens: sign in, home, account, my garden, add a plant, aloe vera detail, dr grow diagnosis chat, search, identify plant camera scan, and plant identified result" width="2400" height="645" class="w-full min-w-[960px]" loading="lazy">
+                </picture>
+            </div>
+            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2 px-2">Fig. 06 — Full screen sequence, sign in through plant identification</figcaption>
+        </figure>
+    </section>
+
+    <!-- Reflection -->
+    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
+        <h2 class="font-display font-extrabold text-2xl md:text-3xl">Reflection</h2>
+        <p class="text-xs uppercase tracking-wide text-accent-safe font-medium mt-2">Provisional — pending Drew's review</p>
+        <div class="mt-6 max-w-2xl space-y-4 text-gray-700 leading-relaxed">
+            <p>
+                Version A's visual economy won out with this group — seeing every field at once,
+                even at the cost of a longer single screen, read as faster and less tedious than
+                moving through separate steps.
+            </p>
+            <p>
+                That result doesn't make Version B's guided structure a mistake. One participant's
+                accessibility observation — that breaking the task into smaller steps was easier to
+                take in — is a legitimate signal, not a consolation prize.
+            </p>
+            <p>
+                Testing more than one interaction model, rather than committing early to a single
+                direction, was what surfaced that trade-off in the first place. A broader participant
+                group — including people who identify as beginners or who have accessibility needs —
+                would be the natural next test, to see whether Version B's advantage holds at scale
+                or whether Version A's speed still wins out.
+            </p>
         </div>
     </section>
 

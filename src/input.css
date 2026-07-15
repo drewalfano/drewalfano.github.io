@@ -37,6 +37,7 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+      transition-delay: 0ms !important;
       scroll-behavior: auto !important;
     }
   }
@@ -83,9 +84,15 @@
     background-color: currentColor;
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.25s ease;
+    transition: transform 0.24s ease-out;
   }
-  .link-underline:hover::after,
+  /* Hover only on devices that truly support it, so a tap on touch
+     doesn't leave the underline "stuck" drawn in. Focus always applies. */
+  @media (hover: hover) {
+    .link-underline:hover::after {
+      transform: scaleX(1);
+    }
+  }
   .link-underline:focus-visible::after {
     transform: scaleX(1);
   }
@@ -126,13 +133,35 @@
     transform: translateX(-50%);
   }
 
-  /* About-page portrait: frame shifts via box-shadow only, never the
-     artwork itself (no scale/tilt), on hover or keyboard focus. */
-  .portrait-frame {
-    transition: box-shadow 0.2s ease-out;
+  /* Quieter, slower variant of .reveal for About: used on the portrait/intro
+     copy and the "What I do" heading/rows, which want a softer entrance than
+     the sitewide default. Paired with data-reveal="soft" in the markup. */
+  .reveal-soft {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
   }
-  .portrait-frame:hover,
-  .portrait-frame:focus-visible {
-    box-shadow: 3px 3px 0 0 #D0272B;
+  .reveal-soft.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* "What I do" capability rows: hovering/focusing a row also darkens the
+     divide-y rule immediately above (this row) and below (next row), so the
+     rule reads as part of one coordinated response rather than a separate
+     element. !important overrides the divide-y utility's own border-color,
+     which otherwise wins on specificity. */
+  .capability-row {
+    transition: border-color 240ms ease-out;
+  }
+  .capability-row:focus-visible,
+  .capability-row:focus-visible + .capability-row {
+    border-top-color: #9CA3AF !important;
+  }
+  @media (hover: hover) {
+    .capability-row:hover,
+    .capability-row:hover + .capability-row {
+      border-top-color: #9CA3AF !important;
+    }
   }
 }

@@ -1,9 +1,9 @@
 (function () {
-  var targets = document.querySelectorAll("[data-reveal]");
+  var targets = document.querySelectorAll("[data-reveal], [data-reveal-soft]");
   if (!("IntersectionObserver" in window) || !targets.length) return;
 
   targets.forEach(function (el) {
-    el.classList.add("reveal");
+    el.classList.add(el.hasAttribute("data-reveal-soft") ? "reveal-soft" : "reveal");
   });
 
   var observer = new IntersectionObserver(
