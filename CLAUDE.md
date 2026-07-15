@@ -68,6 +68,7 @@ No image libraries installed (no ImageMagick/PIL). Process is: `sips` (macOS bui
 - **Soo Falls**: fully real — real photography (hero, close crop, paired details, grid-breaking Zamboni shot, closing lineup shot), real packaging lineup (10 cans), real logo before/after comparison, real facts (role, timeline, disciplines). Process/sketches section was removed (not placeholder'd) since no real process material exists yet.
 - **Canal District, Jenesis, GrowTogether**: still on the shared *structural* system but with placeholder imagery and `TBA` role/timeline facts. Not yet given the "use Soo Falls as the reference" full treatment — waiting on the user for real photos/facts before repeating what was done for Soo Falls.
 - Deployed to GitHub Pages at **drewalfano.github.io** (repo renamed from `drew-portfolio` to `drewalfano.github.io` specifically so root-relative links work without a `/repo-name/` prefix). Push only after explicit user confirmation each time.
+- **SEO/metadata pass done**: every page has a real `<meta name="description">`, canonical `<link>`, Open Graph + Twitter Card tags (no `og:image` yet — deliberately skipped rather than reuse the favicon as a fake preview image), and `theme-color` (`#111111`). Root has `robots.txt` + `sitemap.xml` (8 indexable URLs, 404 excluded via `<meta name="robots" content="noindex">`). Favicon now has PNG fallbacks (`assets/favicon-32.png`, `assets/apple-touch-icon.png`, rasterized from `assets/favicon.svg` via `sips`) alongside the original SVG.
 
 ## Known gaps / next steps
 
@@ -75,3 +76,4 @@ No image libraries installed (no ImageMagick/PIL). Process is: `sips` (macOS bui
 - **Soo Falls** still has no real process material (sketches, dielines, proofs) — that section was removed rather than left as a placeholder; re-add if/when real material shows up.
 - **Homepage / About / Contact**: still on original placeholder imagery (portrait, feature section photos) — never revisited after the initial build.
 - Don't fabricate facts, imagery, or results — this has been a hard rule all session. Missing info gets an explicit `TBA` or a clearly labeled placeholder, never an invented value.
+- **`og:image`**: not set on any page. Add once real hero art exists site-wide (currently only Soo Falls has real photography) rather than pointing social previews at a placeholder or the favicon.
