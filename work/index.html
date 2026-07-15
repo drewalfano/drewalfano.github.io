@@ -105,15 +105,16 @@
                 <p class="text-gray-400 text-xs mt-1">Digital/Web, UX/UI, Student Work</p>
             </a>
 
-            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="branding,student-work"
-                data-title="Jayl House" data-description="A conceptual branding project for a fictional supper club, exploring warm, moody visual identity work." data-meta="Branding, Student Work">
-                <div class="card-image aspect-square overflow-hidden">
-                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                        <span class="text-gray-400 text-xs px-2 text-center">Jayl House</span>
-                    </div>
+            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="branding" data-gallery="jayl-house"
+                data-title="The Jayl House" data-description="Client brand identity: a JH monogram, stacked and horizontal wordmark lockups, and a brand style guide in a deep green and warm beige palette, applied across signage and branded goods." data-meta="Branding, Client Work">
+                <div class="aspect-square overflow-hidden bg-[#253821]">
+                    <picture>
+                        <source srcset="/images/jayl-house-optimized/jayl-house-logo-card.webp" type="image/webp">
+                        <img src="/images/jayl-house-optimized/jayl-house-logo-card.png" alt="The Jayl House JH monogram in beige on a deep green background" width="1200" height="1200" class="w-full h-full object-contain" loading="lazy">
+                    </picture>
                 </div>
-                <p class="font-body text-sm mt-2 group-hover:text-brand">Jayl House</p>
-                <p class="text-gray-400 text-xs mt-1">Branding, Student Work</p>
+                <p class="font-body text-sm mt-2 group-hover:text-brand">The Jayl House</p>
+                <p class="text-gray-400 text-xs mt-1">Branding</p>
             </button>
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="packaging,student-work" data-gallery="high-seas-brewing"
@@ -155,8 +156,8 @@
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="social-media,campaigns"
                 data-title="Project SEARCH Algoma" data-description="Social media campaign assets supporting Project SEARCH Algoma's community outreach program." data-meta="Social Media, Campaigns">
                 <div class="card-image aspect-square overflow-hidden">
-                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
-                        <span class="text-gray-400 text-xs px-2 text-center">Project SEARCH Algoma</span>
+                    <div class="w-full h-full bg-ink flex items-center justify-center p-6">
+                        <span class="font-display font-extrabold text-paper text-lg md:text-xl text-center leading-tight">Project SEARCH<br>Algoma</span>
                     </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Project SEARCH Algoma</p>
@@ -177,7 +178,7 @@
     <div id="lightbox" class="hidden fixed inset-0 z-50 bg-ink/90 items-center justify-center px-6">
         <div class="bg-paper text-ink max-w-lg w-full">
             <div class="relative aspect-[4/3] bg-gray-200 overflow-hidden">
-                <span id="lightbox-image-label" class="absolute inset-0 flex items-center justify-center px-4 text-center text-gray-400 text-sm">Image placeholder</span>
+                <span id="lightbox-image-label" class="absolute inset-0 flex items-center justify-center px-4 text-center font-display font-extrabold text-gray-500 text-xl"></span>
                 <picture id="lightbox-picture" class="hidden absolute inset-0">
                     <source id="lightbox-source" type="image/webp">
                     <img id="lightbox-img" src="" alt="" class="w-full h-full object-contain">
@@ -249,13 +250,19 @@
         syncURL(initialFilter);
 
         // Lightbox
-        // Approved image sequences for supporting projects (Jayl House and
-        // Project SEARCH Algoma have no approved sequence yet, so they are
-        // deliberately absent here and fall back to the placeholder state).
+        // Approved image sequences for supporting projects (Project SEARCH
+        // Algoma has no approved sequence yet, so it is deliberately absent
+        // here and falls back to the title-only state).
         // This shape (ordered array of {src, webp, alt}) is designed to be
         // lifted directly into the future large editorial viewer without
         // reshaping the data.
         const projectGalleries = {
+            "jayl-house": [
+                { src: "/images/jayl-house-optimized/jayl-house-storefront.jpg", webp: "/images/jayl-house-optimized/jayl-house-storefront.webp", alt: "The Jayl House horizontal wordmark in deep green on a backlit beige storefront sign mockup" },
+                { src: "/images/jayl-house-optimized/jayl-house-reception.jpg", webp: "/images/jayl-house-optimized/jayl-house-reception.webp", alt: "Gold stacked Jayl House wordmark on a dark green reception wall mockup above a stone desk" },
+                { src: "/images/jayl-house-optimized/jayl-house-print.jpg", webp: "/images/jayl-house-optimized/jayl-house-print.webp", alt: "Framed Jayl House wordmark print mockup on a green tiled wall above a marble vanity" },
+                { src: "/images/jayl-house-optimized/jayl-house-amenities.jpg", webp: "/images/jayl-house-optimized/jayl-house-amenities.webp", alt: "JH monogram embroidered on a green cap and slippers mockup beside a Jayl House business card" }
+            ],
             "atari-2600": [
                 { src: "/images/atari-2600-optimized/atari-poster.jpg", webp: "/images/atari-2600-optimized/atari-poster.webp", alt: "Atari 2600 poster illustration: a photorealistic vector rendering of the console and two joysticks beside a colorful stripe of game titles" },
                 { src: "/images/atari-2600-optimized/atari-shirt.jpg", webp: "/images/atari-2600-optimized/atari-shirt.webp", alt: "The Atari 2600 illustration printed on a dark grey t-shirt mockup" },
@@ -334,7 +341,7 @@
             if (hasGallery) {
                 renderGalleryImage();
             } else {
-                lightboxImageLabel.textContent = trigger.dataset.title + " — image placeholder";
+                lightboxImageLabel.textContent = trigger.dataset.title;
             }
 
             lightbox.classList.remove("hidden");
