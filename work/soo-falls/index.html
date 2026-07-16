@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soo Falls Brewing Co. — Drew Alfano</title>
     <meta name="robots" content="noindex, nofollow"> <!-- SEARCH-VISIBILITY: remove this line to allow indexing at launch, see CLAUDE.md -->
-    <meta name="description" content="Reviving Sault Ste. Marie's historic brewery through a bold, flexible identity and packaging system for modern retail, hospitality, and events.">
+    <meta name="description" content="Reviving Sault Ste. Marie's historic brewery through a bold, flexible identity and packaging system for modern retail, hospitality, events, and local culture.">
     <link rel="canonical" href="https://drewalfano.github.io/work/soo-falls/">
     <meta name="theme-color" content="#111111">
     <meta property="og:type" content="website">
@@ -21,8 +21,136 @@
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/dist/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700;800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../dist/output.css">
+
+    <!-- ============================================================
+         Page-scoped styles (sf-* namespace). Editorial / gallery
+         layout for a brand + packaging project — navy-led, with each
+         beer's own label colour used as a small accent. Self-contained
+         so it needs no Tailwind rebuild. Motion off under reduced-motion.
+    ============================================================ -->
+    <style>
+      :root{
+        --sf-navy:#24354e;
+        --sf-navy-deep:#1a2740;
+        --sf-ink:#111111;
+        --sf-mut:#5b6675;
+        /* beer label accents */
+        --sf-lager:#3d5a80; --sf-pilsner:#2c7a4b; --sf-red:#c0392b;
+        --sf-ipa:#cf7620; --sf-sour:#e0621f; --sf-guava:#d85a97;
+      }
+      .sf-eyebrow{ font-family:"Work Sans",sans-serif; font-weight:500; text-transform:uppercase;
+        letter-spacing:.2em; font-size:.72rem; color:var(--sf-navy); }
+      .sf-eyebrow.on-navy{ color:#a9bad4; }
+      .sf-title{ font-family:"DM Sans",sans-serif; font-weight:800; letter-spacing:-.03em;
+        line-height:1.02; font-size:clamp(2.4rem,6vw,4.6rem); color:var(--sf-navy); }
+      .sf-h2{ font-family:"DM Sans",sans-serif; font-weight:800; letter-spacing:-.02em;
+        line-height:1.06; font-size:clamp(1.7rem,3.6vw,2.9rem); color:var(--sf-ink); }
+      .sf-lead{ font-family:"Work Sans",sans-serif; font-size:clamp(1.05rem,1.6vw,1.3rem);
+        line-height:1.6; color:#374151; }
+      .sf-body{ font-family:"Work Sans",sans-serif; color:#4b5563; line-height:1.65; }
+
+      .sf-wrap{ max-width:74rem; margin:0 auto; padding-left:1.5rem; padding-right:1.5rem; }
+      .sf-section{ padding-top:clamp(2.75rem,5vw,4.5rem); padding-bottom:clamp(2.75rem,5vw,4.5rem); }
+      .sf-rule{ border-top:1px solid #e5e7eb; }
+      .sf-index{ font-family:"DM Sans"; font-weight:800; font-size:.8rem; letter-spacing:.06em; color:var(--sf-navy); }
+
+      /* ---- Hero ---- */
+      .sf-hero-grid{ display:grid; grid-template-columns:1fr; gap:2rem; align-items:center; }
+      @media(min-width:900px){ .sf-hero-grid{ grid-template-columns:1.02fr .98fr; gap:3rem; } }
+      /* colourful can cluster */
+      .sf-cans{ display:grid; grid-template-columns:repeat(3,1fr); align-items:end; gap:0;
+        max-width:440px; margin-left:auto; }
+      .sf-cans picture{ display:block; }
+      .sf-can{ width:100%; height:auto; display:block;
+        filter:drop-shadow(0 18px 26px rgba(17,24,39,.28)); }
+      .sf-can.b{ transform:translateY(-8%) scale(1.12); z-index:2; }
+      .sf-can.a{ transform:translateX(12%) rotate(-4deg); z-index:1; }
+      .sf-can.c{ transform:translateX(-12%) rotate(4deg); z-index:1; }
+
+      /* ---- Facts ---- */
+      .sf-facts{ display:grid; grid-template-columns:1fr; gap:1.5rem 2.5rem; }
+      @media(min-width:720px){ .sf-facts{ grid-template-columns:repeat(3,1fr); } }
+      .sf-fact-k{ font-family:"Work Sans"; text-transform:uppercase; letter-spacing:.14em;
+        font-size:.66rem; color:#9ca3af; font-weight:500; }
+      .sf-fact-v{ font-family:"Work Sans"; color:var(--sf-ink); margin-top:.5rem; font-size:.92rem; line-height:1.5; }
+      .sf-chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+      .sf-chip{ border:1px solid #d1d5db; font-family:"Work Sans"; font-size:.72rem; color:#374151;
+        padding:.3rem .65rem; }
+
+      /* ---- Two-up ---- */
+      .sf-twoup{ display:grid; grid-template-columns:1fr; gap:2rem; }
+      @media(min-width:760px){ .sf-twoup{ grid-template-columns:1fr 1fr; gap:3rem; } }
+
+      /* ---- Lineup band ---- */
+      .sf-lineup-shot{ width:100%; height:auto; display:block; }
+      .sf-corefour{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem 1rem; margin-top:2.5rem; }
+      @media(min-width:640px){ .sf-corefour{ grid-template-columns:repeat(3,1fr); } }
+      @media(min-width:960px){ .sf-corefour{ grid-template-columns:repeat(6,1fr); gap:1.5rem .75rem; } }
+      .sf-corecan figure{ margin:0; text-align:center; }
+      .sf-corecan img{ width:100%; height:auto; display:block; max-width:120px; margin:0 auto;
+        filter:drop-shadow(0 10px 16px rgba(17,24,39,.18)); }
+      .sf-corecan .nm{ font-family:"DM Sans"; font-weight:700; font-size:.82rem; color:var(--sf-ink); margin-top:.8rem; }
+      .sf-corecan .dot{ display:inline-block; width:8px; height:8px; border-radius:999px; margin-right:.35rem; vertical-align:middle; }
+      .sf-corecan .st{ font-family:"Work Sans"; font-size:.68rem; color:#9ca3af; text-transform:uppercase; letter-spacing:.08em; margin-top:.15rem; }
+
+      /* ---- Before/After slider ---- */
+      .sf-ba{ position:relative; aspect-ratio:1/1; max-width:26rem; overflow:hidden;
+        background:#f3f4f6; border:1px solid #e5e7eb; user-select:none; }
+      .sf-ba .layer{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:2.5rem; }
+      .sf-ba .layer img{ max-width:100%; max-height:100%; object-fit:contain; }
+      .sf-ba-tag{ position:absolute; top:.75rem; background:var(--sf-navy); color:#fff;
+        font-family:"Work Sans"; font-size:.66rem; letter-spacing:.06em; text-transform:uppercase; padding:.25rem .55rem; z-index:5; }
+
+      /* ---- Retail row ---- */
+      .sf-three{ display:grid; grid-template-columns:1fr; gap:1.25rem; }
+      @media(min-width:760px){ .sf-three{ grid-template-columns:repeat(3,1fr); } }
+      .sf-shot{ margin:0; }
+      .sf-shot .frame{ overflow:hidden; background:#eee; }
+      .sf-shot img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; }
+      @media(hover:hover){ .sf-shot:hover img{ transform:scale(1.04); } }
+      .sf-cap{ font-family:"Work Sans"; font-size:.78rem; color:#6b7280; margin-top:.6rem; }
+      .sf-cap b{ color:var(--sf-ink); font-weight:600; }
+
+      /* ---- Gallery masonry (brand in the world). CSS columns = robust across
+             any image aspect, no cropping, no row-height guesswork. ---- */
+      .sf-mosaic{ column-count:2; column-gap:1rem; }
+      @media(min-width:640px){ .sf-mosaic{ column-count:3; } }
+      @media(min-width:1000px){ .sf-mosaic{ column-count:4; } }
+      .sf-tile{ position:relative; margin:0 0 1rem; overflow:hidden; background:#e9ebf0;
+        break-inside:avoid; -webkit-column-break-inside:avoid; }
+      .sf-tile img{ width:100%; height:auto; display:block; transition:transform .6s ease; }
+      @media(hover:hover){ .sf-tile:hover img{ transform:scale(1.05); } }
+      .sf-tile figcaption{ position:absolute; left:0; right:0; bottom:0;
+        font-family:"Work Sans"; font-size:.76rem; color:#fff; padding:1.6rem .9rem .8rem;
+        background:linear-gradient(to top, rgba(17,20,28,.78), rgba(17,20,28,0)); }
+      .sf-tile figcaption b{ font-weight:600; }
+
+      /* ---- Navy statement band ---- */
+      .sf-field{ background:var(--sf-navy); color:#fff; }
+      .sf-field .sf-huge{ font-family:"DM Sans"; font-weight:800; letter-spacing:-.02em;
+        line-height:1.08; font-size:clamp(1.9rem,4.4vw,3.4rem); }
+      .sf-swatches{ display:flex; gap:.5rem; margin-top:1.75rem; flex-wrap:wrap; }
+      .sf-sw{ width:2.4rem; height:2.4rem; border-radius:2px; }
+
+      /* ---- Closing full-bleed ---- */
+      .sf-closer{ position:relative; }
+      .sf-closer img{ width:100%; height:100%; object-fit:cover; display:block; }
+
+      figcaption.sf-fig{ font-family:"Work Sans"; font-size:.72rem; text-transform:uppercase;
+        letter-spacing:.1em; color:#9ca3af; margin-top:.75rem; }
+
+      /* reveal */
+      [data-sf]{ opacity:0; transform:translateY(20px); transition:opacity .6s cubic-bezier(.2,.6,.2,1), transform .6s cubic-bezier(.2,.6,.2,1); }
+      [data-sf].in{ opacity:1; transform:none; }
+      @media (prefers-reduced-motion: reduce){
+        [data-sf]{ opacity:1 !important; transform:none !important; transition:none !important; }
+        .sf-can, .sf-can.a, .sf-can.b, .sf-can.c{ transform:none !important; }
+        .sf-shot img, .sf-tile img{ transition:none !important; }
+      }
+    </style>
+    <noscript><style>[data-sf]{opacity:1 !important; transform:none !important;}</style></noscript>
 </head>
 <body class="bg-paper text-ink font-body" style="--accent:#24354e; --accent-text:#24354e">
 
@@ -35,242 +163,321 @@
         </nav>
     </header>
 
-    <section class="max-w-5xl mx-auto px-6 pt-10 pb-16">
-        <a href="/work/" class="link-underline text-sm text-gray-500 hover:text-brand">&larr; Back to Work</a>
-        <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-accent-safe font-body text-sm font-medium uppercase tracking-wide mt-6">
-            <span>01</span>
-            <span aria-hidden="true">&middot;</span>
-            <span>Branding &amp; Packaging</span>
-        </div>
-        <h1 class="font-display font-extrabold text-accent-safe text-4xl md:text-6xl leading-[1.1] tracking-tight mt-2">Soo Falls Brewing Co.</h1>
-        <p class="text-gray-700 mt-6 max-w-2xl text-lg leading-relaxed">
-            Reviving Sault Ste. Marie's historic brewery through a bold, flexible identity and
-            packaging system built for modern retail, hospitality, events, and local culture.
-        </p>
-
-        <!-- Project facts -->
-        <div class="mt-10 grid sm:grid-cols-3 gap-8 border-t border-gray-200 pt-8">
-            <div>
-                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Role</p>
-                <p class="mt-2 text-sm">In-house Graphic Designer &amp; Brand Lead</p>
-            </div>
-            <div>
-                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Timeline</p>
-                <p class="mt-2 text-sm">December 2023 – March 2026; packaging design ongoing</p>
-            </div>
-            <div>
-                <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Disciplines</p>
-                <p class="mt-2 text-sm leading-relaxed">
-                    Brand Identity, Packaging, Art Direction, Campaign Design, Social Media,
-                    Environmental Graphics, Outdoor Advertising, Print Collateral, Photography,
-                    Video, Website Strategy &amp; Information Architecture, Web Design Direction,
-                    Production Design
-                </p>
-            </div>
-        </div>
-
-        <div class="mt-8">
-            <p class="text-xs uppercase tracking-wide text-gray-400 font-medium">Selected Applications</p>
-            <div class="flex flex-wrap gap-2 mt-3">
-                <span class="border border-gray-300 text-xs px-3 py-1">10+ Produced Can Designs</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Seasonal Packaging</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">LCBO Launch Materials</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Restaurant Partner Collateral</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Bus Advertising</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Zamboni Wraps</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Digital &amp; Printed Billboards</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Table Toppers</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">GFL Memorial Gardens Advertising</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Event Branding</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Social Media Campaigns</span>
-                <span class="border border-gray-300 text-xs px-3 py-1">Signage &amp; History Walls</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Full-bleed hero -->
-    <section data-reveal class="pb-16">
-        <figure class="full-bleed">
-            <div class="aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-paper">
-                <picture>
-                    <source srcset="/images/soo-falls-optimized/full-lineup.webp" type="image/webp">
-                    <img src="/images/soo-falls-optimized/full-lineup.jpg" alt="The full Soo Falls packaging lineup on white: Light Lager, Italian Pilsner, Irish Red Ale, Hazy IPA, Dunkelweizen, two Shipwreck Sour flavors, Hefeweizen, Doppelbock, and Festbier Oktoberfest Lager, arranged in two rows." class="w-full h-full object-contain">
-                </picture>
-            </div>
-            <figcaption class="max-w-5xl mx-auto px-6 text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 01 — The Full Lineup</figcaption>
-        </figure>
-    </section>
-
-    <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 border-t border-gray-200">
+    <!-- ======================= HERO (product-first + text) ======================= -->
+    <section class="sf-wrap" style="padding-top:clamp(1.5rem,4vw,3rem); padding-bottom:clamp(2.5rem,5vw,4rem);">
+      <a href="/work/" class="link-underline text-sm text-gray-500 hover:text-brand">&larr; Back to Work</a>
+      <div class="sf-hero-grid" style="margin-top:1.75rem;">
         <div>
-            <h2 class="font-display font-extrabold text-2xl">The Challenge</h2>
-            <p class="text-gray-600 mt-4 leading-relaxed">
-                Soo Falls needed a brand that felt distinctly local without leaning on tired
-                waterfall clichés, and a packaging system flexible enough to scale across a
-                growing product line.
-            </p>
+          <p class="sf-eyebrow" data-sf>01 — Brand Identity &amp; Packaging</p>
+          <h1 class="sf-title" data-sf style="margin-top:.9rem;">Soo Falls<br>Brewing Co.</h1>
+          <p class="sf-lead" data-sf style="margin-top:1.25rem; max-width:40ch;">
+            Reviving Sault Ste. Marie's historic brewery with a bold, flexible identity —
+            a packaging system built to scale from five core beers to a shelf full of
+            seasonals, and to hold up everywhere from the LCBO to a wrapped Zamboni.
+          </p>
+          <div class="sf-facts" data-sf style="margin-top:2rem; border-top:1px solid #e5e7eb; padding-top:1.5rem;">
+            <div><p class="sf-fact-k">Role</p><p class="sf-fact-v">In-house Graphic Designer &amp; Brand Lead</p></div>
+            <div><p class="sf-fact-k">Timeline</p><p class="sf-fact-v">Dec 2023 – Mar 2026 · packaging ongoing</p></div>
+            <div><p class="sf-fact-k">Scope</p><p class="sf-fact-v">Identity, packaging, campaigns, environmental, production</p></div>
+          </div>
         </div>
-        <div>
-            <h2 class="font-display font-extrabold text-2xl">The Approach</h2>
-            <p class="text-gray-600 mt-4 leading-relaxed">
-                A bold wordmark, a restrained color system, and a modular label grid let each
-                product feel distinct while staying unmistakably part of the same family.
-            </p>
+        <div data-sf>
+          <div class="sf-cans">
+            <picture class="a">
+              <source srcset="../../images/soo-falls-optimized/italianpilsner2.webp" type="image/webp">
+              <img class="sf-can a" src="../../images/soo-falls-optimized/italianpilsner2.png" width="325" height="793" loading="eager" alt="Soo Falls Italian Pilsner can — green label with the circular Soo Falls Brewing Company mark.">
+            </picture>
+            <picture class="b">
+              <source srcset="../../images/soo-falls-optimized/ipa2.webp" type="image/webp">
+              <img class="sf-can b" src="../../images/soo-falls-optimized/ipa2.png" width="325" height="793" loading="eager" alt="Soo Falls Hazy IPA can — orange label with the circular Soo Falls Brewing Company mark.">
+            </picture>
+            <picture class="c">
+              <source srcset="../../images/soo-falls-optimized/guava2.webp" type="image/webp">
+              <img class="sf-can c" src="../../images/soo-falls-optimized/guava2.png" width="325" height="793" loading="eager" alt="Soo Falls Shipwreck Sour Guava Passion Fruit can — pink label with a shipwreck illustration.">
+            </picture>
+          </div>
         </div>
+      </div>
+
+      <!-- Selected applications -->
+      <div data-sf style="margin-top:clamp(2rem,4vw,3rem);">
+        <p class="sf-fact-k" style="margin-bottom:.85rem;">Selected Applications</p>
+        <div class="sf-chips">
+          <span class="sf-chip">10+ Produced Can Designs</span>
+          <span class="sf-chip">Seasonal Packaging</span>
+          <span class="sf-chip">LCBO Launch</span>
+          <span class="sf-chip">Restaurant Partner Collateral</span>
+          <span class="sf-chip">Bus &amp; Billboard Advertising</span>
+          <span class="sf-chip">Zamboni Wraps</span>
+          <span class="sf-chip">Event Branding</span>
+          <span class="sf-chip">Social Campaigns</span>
+          <span class="sf-chip">Signage &amp; History Walls</span>
+        </div>
+      </div>
     </section>
 
-    <!-- Logo reconstruction and modernization -->
-    <section class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
-        <h2 class="font-display font-extrabold text-2xl">Logo Reconstruction and Modernization</h2>
-        <div class="mt-8 grid md:grid-cols-2 gap-8 items-center">
-            <p class="text-gray-600 leading-relaxed">
-                The only logo material supplied at the beginning of the project was a collection
-                of low-resolution raster references. I reconstructed the mark as a clean vector,
-                refining its typography and proportions while retaining its established character.
-            </p>
-        <figure data-reveal class="md:mt-0">
-            <div class="relative aspect-square max-w-sm mx-auto overflow-hidden select-none bg-gray-100 border border-gray-200" id="ba-slider">
-                <div class="absolute inset-0 flex items-center justify-center p-10">
-                    <picture>
-                        <source srcset="/images/soo-falls-optimized/logo-after.webp" type="image/webp">
-                        <img src="/images/soo-falls-optimized/logo-after.png" alt="Reconstructed and modernized vector Soo Falls logo." class="max-w-full max-h-full object-contain" loading="lazy">
-                    </picture>
-                </div>
-                <div id="ba-before-wrap" class="absolute inset-0 overflow-hidden" style="clip-path: inset(0 50% 0 0);">
-                    <div class="absolute inset-0 flex items-center justify-center p-10">
-                        <picture>
-                            <source srcset="/images/soo-falls-optimized/logo-before.webp" type="image/webp">
-                            <img src="/images/soo-falls-optimized/logo-before.png" alt="Original low-resolution Soo Falls logo supplied at the beginning of the project." class="max-w-full max-h-full object-contain" loading="lazy">
-                        </picture>
-                    </div>
-                </div>
-                <div id="ba-handle" class="absolute top-0 bottom-0 w-0.5 bg-accent pointer-events-none" style="left: 50%;"></div>
-                <span class="absolute top-3 left-3 bg-ink text-paper text-xs px-2 py-1 pointer-events-none">Before</span>
-                <span class="absolute top-3 right-3 bg-ink text-paper text-xs px-2 py-1 pointer-events-none">After</span>
-                <input
-                    type="range"
-                    id="ba-range"
-                    min="0"
-                    max="100"
-                    value="50"
-                    aria-label="Before and after comparison slider: original low-resolution logo versus reconstructed vector logo"
-                    class="absolute inset-0 w-full h-full opacity-0 cursor-ew-resize"
-                >
-            </div>
-            <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2 text-center">Fig. 02 — Before &amp; After, Logo Reconstruction</figcaption>
-        </figure>
+    <!-- ======================= CHALLENGE / APPROACH ======================= -->
+    <section class="sf-section sf-rule">
+      <div class="sf-wrap sf-twoup">
+        <div data-sf>
+          <p class="sf-index">The Challenge</p>
+          <h2 class="sf-h2" style="margin-top:.75rem;">Local pride, without the waterfall clichés.</h2>
+          <p class="sf-body" style="margin-top:1rem; font-size:1.02rem;">
+            Soo Falls needed a brand that read as distinctly Sault Ste. Marie without leaning on
+            tired waterfall imagery, and that made craft beer feel approachable in a Northern
+            Ontario town — never gimmicky, never intimidating, just a beer people want to try and
+            aren't confused by. The packaging system also had to scale across a fast-growing
+            product line without losing its family resemblance.
+          </p>
         </div>
+        <div data-sf>
+          <p class="sf-index">The Approach</p>
+          <h2 class="sf-h2" style="margin-top:.75rem;">One system, room for many beers.</h2>
+          <p class="sf-body" style="margin-top:1rem; font-size:1.02rem;">
+            A confident wordmark, a disciplined navy-anchored palette, and a modular label grid.
+            Each beer gets its own colour and character; the shared structure keeps them
+            unmistakably one family — on a shelf, a tap handle, or the side of a trailer.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- Retail rollout: LCBO launch -->
-    <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
-        <div class="grid md:grid-cols-2 gap-10 items-center">
-            <div>
-                <h2 class="font-display font-extrabold text-2xl">A System Built for Retail</h2>
-                <p class="text-gray-600 mt-4 leading-relaxed">
-                    The label system was designed to hold up off the shelf, not just on it — the
-                    Italian Pilsner's LCBO launch put that to the test, carrying the identity into
-                    general retail alongside the province's largest brands.
-                </p>
-            </div>
-            <figure data-reveal>
-                <div class="aspect-[3/4] overflow-hidden">
-                    <picture>
-                        <source srcset="/images/soo-falls-optimized/img_1064.webp" type="image/webp">
-                        <img src="/images/soo-falls-optimized/img_1064.jpg" alt="A hand holding a can of Soo Falls Italian Pilsner in front of an LCBO retail display sign reading &quot;Local Pours.&quot;" class="w-full h-full object-cover" loading="lazy">
-                    </picture>
-                </div>
-                <figcaption class="text-xs uppercase tracking-wide text-gray-500 mt-2">Fig. 03 — Retail Launch, LCBO</figcaption>
-            </figure>
-        </div>
-    </section>
-
-    <!-- Interactive brand explorer: no entrance motion, it's fully interaction-driven already -->
-    <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
-        <h2 class="font-display font-extrabold text-2xl md:text-3xl">Explore the Brand System</h2>
-        <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
-            Four ways the identity carries through the project — packaging, campaigns, the
-            physical world, and the production work behind it.
+    <!-- ======================= THE LINEUP ======================= -->
+    <section class="sf-section sf-rule">
+      <div class="sf-wrap">
+        <p class="sf-index" data-sf>02 — Packaging</p>
+        <h2 class="sf-h2" data-sf style="margin-top:.75rem; max-width:20ch;">Five core beers. One growing shelf.</h2>
+        <p class="sf-body" data-sf style="margin-top:1rem; max-width:54ch; font-size:1.02rem;">
+          The system started with the core lineup and stretched into the Shipwreck Sour series,
+          a seasonal Hefeweizen, and standalone releases like the Doppelbock — each distinct,
+          all clearly related.
         </p>
-
-        <div class="mt-10 grid md:grid-cols-[220px_1fr] gap-4 md:gap-8">
-
-            <!-- Category controls -->
-            <div role="tablist" aria-label="Brand system categories" class="flex md:flex-col gap-2 overflow-x-auto md:overflow-visible -mx-6 px-6 md:mx-0 md:px-0 pb-1 md:pb-0">
-                <button type="button" role="tab" id="explorer-tab-0" aria-selected="true" aria-controls="explorer-panel" tabindex="0" data-index="0"
-                    class="explorer-tab is-active shrink-0 md:shrink text-left px-4 py-3 border border-gray-200 md:border-0 md:border-l-2 md:pl-4">
-                    <span class="block font-body text-xs text-gray-400">01</span>
-                    <span class="block font-body text-sm font-medium mt-1 whitespace-nowrap md:whitespace-normal">Packaging &amp; Releases</span>
-                </button>
-                <button type="button" role="tab" id="explorer-tab-1" aria-selected="false" aria-controls="explorer-panel" tabindex="-1" data-index="1"
-                    class="explorer-tab shrink-0 md:shrink text-left px-4 py-3 border border-gray-200 md:border-0 md:border-l-2 md:pl-4">
-                    <span class="block font-body text-xs text-gray-400">02</span>
-                    <span class="block font-body text-sm font-medium mt-1 whitespace-nowrap md:whitespace-normal">Campaigns &amp; Social</span>
-                </button>
-                <button type="button" role="tab" id="explorer-tab-2" aria-selected="false" aria-controls="explorer-panel" tabindex="-1" data-index="2"
-                    class="explorer-tab shrink-0 md:shrink text-left px-4 py-3 border border-gray-200 md:border-0 md:border-l-2 md:pl-4">
-                    <span class="block font-body text-xs text-gray-400">03</span>
-                    <span class="block font-body text-sm font-medium mt-1 whitespace-nowrap md:whitespace-normal">Brand in the World</span>
-                </button>
-                <button type="button" role="tab" id="explorer-tab-3" aria-selected="false" aria-controls="explorer-panel" tabindex="-1" data-index="3"
-                    class="explorer-tab shrink-0 md:shrink text-left px-4 py-3 border border-gray-200 md:border-0 md:border-l-2 md:pl-4">
-                    <span class="block font-body text-xs text-gray-400">04</span>
-                    <span class="block font-body text-sm font-medium mt-1 whitespace-nowrap md:whitespace-normal">Digital, Production &amp; Rollout</span>
-                </button>
-            </div>
-
-            <!-- Stage -->
-            <div class="relative">
-                <div class="relative aspect-[4/3] md:aspect-[16/9] overflow-hidden bg-gray-200">
-                    <div id="explorer-bg-0" class="explorer-bg is-active absolute inset-0 flex items-center justify-center" style="background-image: repeating-linear-gradient(135deg, #e5e7eb, #e5e7eb 14px, #d1d5db 14px, #d1d5db 28px);">
-                        <span class="font-body text-xs uppercase tracking-wide text-gray-600 bg-paper/80 px-3 py-1">Packaging Image 01</span>
-                    </div>
-                    <div id="explorer-bg-1" class="explorer-bg absolute inset-0 flex items-center justify-center" style="background-image: repeating-linear-gradient(135deg, #e2e4ea, #e2e4ea 14px, #c9ccd6 14px, #c9ccd6 28px);">
-                        <span class="font-body text-xs uppercase tracking-wide text-gray-600 bg-paper/80 px-3 py-1">Campaign Image 01</span>
-                    </div>
-                    <div id="explorer-bg-2" class="explorer-bg absolute inset-0 flex items-center justify-center" style="background-image: repeating-linear-gradient(135deg, #e5e7eb, #e5e7eb 14px, #cfd3da 14px, #cfd3da 28px);">
-                        <span class="font-body text-xs uppercase tracking-wide text-gray-600 bg-paper/80 px-3 py-1">Brand in the World Image 01</span>
-                    </div>
-                    <div id="explorer-bg-3" class="explorer-bg absolute inset-0 flex items-center justify-center" style="background-image: repeating-linear-gradient(135deg, #e3e5ea, #e3e5ea 14px, #cacdd5 14px, #cacdd5 28px);">
-                        <span class="font-body text-xs uppercase tracking-wide text-gray-600 bg-paper/80 px-3 py-1">Production Image 01</span>
-                    </div>
-
-                    <!-- Prev/next -->
-                    <button type="button" id="explorer-prev" aria-label="Previous category" class="hidden md:flex absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 items-center justify-center bg-paper/90 text-ink hover:bg-paper">
-                        <span aria-hidden="true">&larr;</span>
-                    </button>
-                    <button type="button" id="explorer-next" aria-label="Next category" class="hidden md:flex absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 items-center justify-center bg-paper/90 text-ink hover:bg-paper">
-                        <span aria-hidden="true">&rarr;</span>
-                    </button>
-                </div>
-
-                <!-- Text panel: compact card overlay on desktop, stacked below on mobile -->
-                <div id="explorer-panel" role="tabpanel" aria-labelledby="explorer-tab-0"
-                    class="p-6 bg-ink text-paper md:absolute md:left-0 md:bottom-0 md:max-w-sm md:bg-ink/75 md:backdrop-blur-sm md:p-6 md:m-4">
-                    <div class="flex items-center justify-between gap-4">
-                        <span id="explorer-position" class="text-xs uppercase tracking-wide opacity-70 font-body">01 / 04</span>
-                        <div class="flex md:hidden gap-2">
-                            <button type="button" id="explorer-prev-mobile" aria-label="Previous category" class="w-8 h-8 flex items-center justify-center border border-white/30 text-paper">
-                                <span aria-hidden="true">&larr;</span>
-                            </button>
-                            <button type="button" id="explorer-next-mobile" aria-label="Next category" class="w-8 h-8 flex items-center justify-center border border-white/30 text-paper">
-                                <span aria-hidden="true">&rarr;</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div id="explorer-content" class="explorer-content mt-2">
-                        <h3 id="explorer-title" class="font-display font-extrabold text-xl md:text-lg">Packaging &amp; Releases</h3>
-                        <p id="explorer-copy" class="text-sm mt-3 leading-relaxed text-gray-200">
-                            The lineup expands from five core beers into the Shipwreck Sour series, a
-                            seasonal Hefeweizen, and standalone releases like the Doppelbock — each with
-                            enough individual character to stand on its own while staying part of one
-                            connected system.
-                        </p>
-                        <p id="explorer-caption" class="text-xs uppercase tracking-wide text-gray-400 mt-4 md:hidden">Packaging system, core lineup through seasonal releases</p>
-                    </div>
-                </div>
-            </div>
+      </div>
+      <figure class="sf-wrap" data-sf style="margin-top:2.25rem;">
+        <div style="border:1px solid #e5e7eb; background:#fff; padding:clamp(1rem,3vw,2.5rem);">
+          <picture>
+            <source srcset="../../images/soo-falls-optimized/full-lineup.webp" type="image/webp">
+            <img class="sf-lineup-shot" src="../../images/soo-falls-optimized/full-lineup.jpg" width="2000" height="1545" loading="lazy" alt="The full Soo Falls packaging lineup on white: Light Lager, Italian Pilsner, Irish Red Ale, Hazy IPA, Dunkelweizen, two Shipwreck Sour flavours, Hefeweizen, Doppelbock, and a Festbier Oktoberfest lager, in two rows.">
+          </picture>
         </div>
+        <figcaption class="sf-fig">Fig. 01 — The full lineup, core beers through seasonal releases</figcaption>
+      </figure>
+
+      <!-- core six, colour-coded (the fun) -->
+      <div class="sf-wrap sf-corefour" data-sf>
+        <div class="sf-corecan"><figure>
+          <picture><source srcset="../../images/soo-falls-optimized/lager2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/lager2.png" width="325" height="793" loading="lazy" alt="Light Lager can, blue label."></picture>
+          <figcaption class="nm"><span class="dot" style="background:var(--sf-lager)"></span>Light Lager<span class="st">Core</span></figcaption>
+        </figure></div>
+        <div class="sf-corecan"><figure>
+          <picture><source srcset="../../images/soo-falls-optimized/italianpilsner2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/italianpilsner2.png" width="325" height="793" loading="lazy" alt="Italian Pilsner can, green label."></picture>
+          <figcaption class="nm"><span class="dot" style="background:var(--sf-pilsner)"></span>Italian Pilsner<span class="st">Core · LCBO</span></figcaption>
+        </figure></div>
+        <div class="sf-corecan"><figure>
+          <picture><source srcset="../../images/soo-falls-optimized/red2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/red2.png" width="325" height="793" loading="lazy" alt="Irish Red Ale can, red label."></picture>
+          <figcaption class="nm"><span class="dot" style="background:var(--sf-red)"></span>Irish Red Ale<span class="st">Core</span></figcaption>
+        </figure></div>
+        <div class="sf-corecan"><figure>
+          <picture><source srcset="../../images/soo-falls-optimized/ipa2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/ipa2.png" width="325" height="793" loading="lazy" alt="Hazy IPA can, orange label."></picture>
+          <figcaption class="nm"><span class="dot" style="background:var(--sf-ipa)"></span>Hazy IPA<span class="st">Core</span></figcaption>
+        </figure></div>
+        <div class="sf-corecan"><figure>
+          <picture><source srcset="../../images/soo-falls-optimized/sour2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/sour2.png" width="325" height="793" loading="lazy" alt="Shipwreck Sour Citrus can, orange label with shipwreck illustration."></picture>
+          <figcaption class="nm"><span class="dot" style="background:var(--sf-sour)"></span>Shipwreck Sour<span class="st">Series · Citrus</span></figcaption>
+        </figure></div>
+        <div class="sf-corecan"><figure>
+          <picture><source srcset="../../images/soo-falls-optimized/guava2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/guava2.png" width="325" height="793" loading="lazy" alt="Shipwreck Sour Guava Passion Fruit can, pink label with shipwreck illustration."></picture>
+          <figcaption class="nm"><span class="dot" style="background:var(--sf-guava)"></span>Shipwreck Sour<span class="st">Series · Guava</span></figcaption>
+        </figure></div>
+      </div>
+    </section>
+
+    <!-- ======================= LOGO RECONSTRUCTION ======================= -->
+    <section class="sf-section sf-rule">
+      <div class="sf-wrap sf-twoup" style="align-items:center;">
+        <div data-sf>
+          <p class="sf-index">03 — Logo Reconstruction</p>
+          <h2 class="sf-h2" style="margin-top:.75rem;">From low-res reference to clean vector.</h2>
+          <p class="sf-body" style="margin-top:1rem; font-size:1.02rem; max-width:46ch;">
+            The only mark supplied at kickoff was a set of low-resolution raster references. I
+            rebuilt it as a clean vector — refining the typography, weight, and proportions while
+            keeping the character that made it feel like it had been around since 1899.
+          </p>
+          <p class="sf-body" style="margin-top:1rem; font-size:.9rem; color:#9ca3af;">Drag the handle to compare.</p>
+        </div>
+        <figure data-sf style="margin:0;">
+          <div class="sf-ba" id="ba-slider" style="margin-inline:auto;">
+            <div class="layer">
+              <picture>
+                <source srcset="../../images/soo-falls-optimized/logo-after.webp" type="image/webp">
+                <img src="../../images/soo-falls-optimized/logo-after.png" alt="Reconstructed, modernised vector Soo Falls logo." loading="lazy">
+              </picture>
+            </div>
+            <div class="layer" id="ba-before-wrap" style="clip-path: inset(0 50% 0 0);">
+              <picture>
+                <source srcset="../../images/soo-falls-optimized/logo-before.webp" type="image/webp">
+                <img src="../../images/soo-falls-optimized/logo-before.png" alt="Original low-resolution Soo Falls logo supplied at the start of the project." loading="lazy">
+              </picture>
+            </div>
+            <div id="ba-handle" style="position:absolute; top:0; bottom:0; width:2px; background:var(--sf-navy); left:50%; z-index:4; pointer-events:none;"></div>
+            <span class="sf-ba-tag" style="left:.75rem;">Before</span>
+            <span class="sf-ba-tag" style="right:.75rem;">After</span>
+            <input type="range" id="ba-range" min="0" max="100" value="50"
+              aria-label="Before and after comparison: original low-resolution logo versus reconstructed vector logo"
+              style="position:absolute; inset:0; width:100%; height:100%; opacity:0; cursor:ew-resize; z-index:6;">
+          </div>
+          <figcaption class="sf-fig" style="text-align:center;">Fig. 02 — Logo reconstruction, before &amp; after</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ======================= ON THE SHELF (retail + production) ======================= -->
+    <section class="sf-section sf-rule">
+      <div class="sf-wrap">
+        <p class="sf-index" data-sf>04 — On the Shelf</p>
+        <h2 class="sf-h2" data-sf style="margin-top:.75rem; max-width:22ch;">Built to hold up off the shelf, not just on it.</h2>
+        <p class="sf-body" data-sf style="margin-top:1rem; max-width:54ch; font-size:1.02rem;">
+          The Italian Pilsner's LCBO launch put the label system to the test — carrying the
+          identity into general retail alongside the province's biggest brands, and off the
+          canning line by the pallet.
+        </p>
+      </div>
+      <div class="sf-wrap sf-three" data-sf style="margin-top:2rem;">
+        <figure class="sf-shot">
+          <div class="frame" style="aspect-ratio:3/4;">
+            <picture><source srcset="../../images/soo-falls-optimized/img_1064.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/img_1064.jpg" loading="lazy" alt="A hand holding a Soo Falls Italian Pilsner can in front of an LCBO retail display reading Local Pours."></picture>
+          </div>
+          <figcaption class="sf-cap"><b>LCBO launch.</b> Local Pours, provincial shelf.</figcaption>
+        </figure>
+        <figure class="sf-shot">
+          <div class="frame" style="aspect-ratio:3/4;">
+            <picture><source srcset="../../images/soo-falls-optimized/img_2515.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/img_2515.jpg" loading="lazy" alt="Two Soo Falls cans, Italian Pilsner and Hazy IPA, held up outside The Beer Store."></picture>
+          </div>
+          <figcaption class="sf-cap"><b>The Beer Store.</b> Two cores, side by side.</figcaption>
+        </figure>
+        <figure class="sf-shot">
+          <div class="frame" style="aspect-ratio:3/4;">
+            <picture><source srcset="../../images/soo-falls-optimized/italian-pilsner-canning.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/italian-pilsner-canning.jpg" loading="lazy" alt="A hand holding an Italian Pilsner can above pallets of freshly canned Italian Pilsner on the canning line."></picture>
+          </div>
+          <figcaption class="sf-cap"><b>Off the line.</b> By the pallet.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ======================= BRAND IN THE WORLD (gallery by theme) ======================= -->
+    <section class="sf-section sf-rule">
+      <div class="sf-wrap">
+        <p class="sf-index" data-sf>05 — Brand in the World</p>
+        <h2 class="sf-h2" data-sf style="margin-top:.75rem; max-width:24ch;">The identity had to work everywhere it showed up.</h2>
+        <p class="sf-body" data-sf style="margin-top:1rem; max-width:54ch; font-size:1.02rem;">
+          A wrapped Zamboni, a neon sign, tap handles, festival tents, merch, glass pours — the
+          brand travelled well past the can. I built and ran Soo Falls' social presence from day
+          one, and directed the look everywhere it landed.
+        </p>
+      </div>
+      <div class="sf-wrap sf-mosaic" data-sf style="margin-top:2rem;">
+        <figure class="sf-tile wide tall">
+          <picture><source srcset="../../images/soo-falls-optimized/img_7333.webp" type="image/webp">
+          <img src="../../images/soo-falls-optimized/img_7333.jpg" loading="lazy" alt="The Soo Falls Brewing Company neon sign glowing in a dark taproom, reading Est. 1899."></picture>
+          <figcaption><b>Neon.</b> Est. 1899, lit up again.</figcaption>
+        </figure>
+        <figure class="sf-tile wide">
+          <picture><source srcset="../../images/soo-falls-optimized/img_3238.webp" type="image/webp">
+          <img src="../../images/soo-falls-optimized/img_3238.jpg" loading="lazy" alt="A trailer fully wrapped in Soo Falls branding parked outside the brick brewery."></picture>
+          <figcaption><b>Wrapped &amp; parked.</b> The identity at 15 km/h.</figcaption>
+        </figure>
+        <figure class="sf-tile">
+          <picture><source srcset="../../images/soo-falls-optimized/img_0394.webp" type="image/webp">
+          <img src="../../images/soo-falls-optimized/img_0394.jpg" loading="lazy" alt="A row of Soo Falls tap handles lined up behind the bar."></picture>
+          <figcaption><b>On tap.</b></figcaption>
+        </figure>
+        <figure class="sf-tile">
+          <picture><source srcset="../../images/soo-falls-optimized/img_7269.webp" type="image/webp">
+          <img src="../../images/soo-falls-optimized/img_7269.jpg" loading="lazy" alt="A Soo Falls event tent and branded flags set up at an outdoor festival."></picture>
+          <figcaption><b>Festival circuit.</b></figcaption>
+        </figure>
+        <figure class="sf-tile">
+          <picture><source srcset="../../images/soo-falls-optimized/img_4471.webp" type="image/webp">
+          <img src="../../images/soo-falls-optimized/img_4471.jpg" loading="lazy" alt="Soo Falls cans and a branded cap arranged on grass in front of the brick brewery."></picture>
+          <figcaption><b>Merch.</b> Cap to match the cans.</figcaption>
+        </figure>
+        <figure class="sf-tile">
+          <picture><source srcset="../../images/soo-falls-optimized/img_2481.webp" type="image/webp">
+          <img src="../../images/soo-falls-optimized/img_2481.jpg" loading="lazy" alt="A hand holding a Soo Falls Doppelbock can in front of the stainless brewing tanks."></picture>
+          <figcaption><b>From the source.</b></figcaption>
+        </figure>
+        <figure class="sf-tile wide">
+          <picture><source srcset="../../images/soo-falls-optimized/img_0614.webp" type="image/webp">
+          <img src="../../images/soo-falls-optimized/img_0614.jpg" loading="lazy" alt="Two full glasses of Soo Falls beer on a patio table beside a printed menu."></picture>
+          <figcaption><b>Patio season.</b> Partner restaurants and menus.</figcaption>
+        </figure>
+        <figure class="sf-tile">
+          <picture><source srcset="../../images/soo-falls-optimized/img_0559.webp" type="image/webp">
+          <img src="../../images/soo-falls-optimized/img_0559.jpg" loading="lazy" alt="A Soo Falls launch table with a branded tablecloth reading Proudly Brewed in Sault Ste. Marie."></picture>
+          <figcaption><b>Trade-show ready.</b></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ======================= NAVY STATEMENT ======================= -->
+    <section class="sf-field full-bleed" data-reveal>
+      <div class="sf-wrap sf-section">
+        <p class="sf-eyebrow on-navy">One System</p>
+        <p class="sf-huge" style="margin-top:1.25rem; max-width:24ch;">
+          From the can to the Zamboni, it all reads as one brand.
+        </p>
+        <p style="font-family:'Work Sans'; color:#c7d2e4; margin-top:1.25rem; max-width:56ch; font-size:1.05rem; line-height:1.6;">
+          Navy anchors the family; each beer brings its own colour. That balance — one disciplined
+          system, room for personality — is what let the identity stretch across packaging, retail,
+          environments, and campaigns without ever coming apart.
+        </p>
+        <div class="sf-swatches" aria-hidden="true">
+          <span class="sf-sw" style="background:#24354e"></span>
+          <span class="sf-sw" style="background:var(--sf-pilsner)"></span>
+          <span class="sf-sw" style="background:var(--sf-red)"></span>
+          <span class="sf-sw" style="background:var(--sf-ipa)"></span>
+          <span class="sf-sw" style="background:var(--sf-guava)"></span>
+          <span class="sf-sw" style="background:var(--sf-lager)"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= ROLE / REFLECTION ======================= -->
+    <section class="sf-section">
+      <div class="sf-wrap">
+        <p class="sf-index" data-sf>06 — Role &amp; Rollout</p>
+        <h2 class="sf-h2" data-sf style="margin-top:.75rem; max-width:22ch;">Design that followed the work to the finish line.</h2>
+        <div class="sf-twoup" data-sf style="margin-top:1.5rem;">
+          <p class="sf-body" style="font-size:1.02rem;">
+            Beyond the marks and labels, I planned the website's sitemap, pages, typography, colour,
+            and imagery direction — a developer built the final site. The same hands-on approach
+            carried into production: proofing labels, coordinating the canning line, and solving
+            problems as work moved from file to finished can.
+          </p>
+          <p class="sf-body" style="font-size:1.02rem;">
+            <span style="color:var(--sf-navy); font-weight:600;">Design and development were credited
+            separately.</span> My part was the identity system and every place it showed up — which,
+            for a brewery in a proud town, turned out to be just about everywhere.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================= CLOSING FULL-BLEED ======================= -->
+    <section class="sf-closer full-bleed" data-reveal>
+      <div style="aspect-ratio:16/9; max-height:70vh; overflow:hidden;">
+        <picture>
+          <source srcset="../../images/soo-falls-optimized/soo-falls-glass.webp" type="image/webp">
+          <img src="../../images/soo-falls-optimized/soo-falls-glass.jpg" loading="lazy" alt="A full pint of Soo Falls beer held up against a brick wall, the wordmark on the glass.">
+        </picture>
+      </div>
+    </section>
+
+    <section class="sf-wrap" style="padding:1.5rem 1.5rem 3rem;">
+      <a href="#top" class="link-underline text-sm text-gray-500 hover:text-brand">&uarr; Back to top</a>
     </section>
 
     <!-- Contact CTA -->
@@ -289,120 +496,34 @@
         <a href="mailto:hello@drewalfano.com" class="link-underline hover:text-brand">hello@drewalfano.com</a>
     </footer>
 
+    <!-- Before/after slider -->
     <script>
-        var baRange = document.getElementById("ba-range");
-        var baBeforeWrap = document.getElementById("ba-before-wrap");
-        var baHandle = document.getElementById("ba-handle");
-        if (baRange) {
-            baRange.addEventListener("input", function () {
-                var v = baRange.value;
-                baBeforeWrap.style.clipPath = "inset(0 " + (100 - v) + "% 0 0)";
-                baHandle.style.left = v + "%";
-            });
-        }
+      (function(){
+        var r=document.getElementById("ba-range"), w=document.getElementById("ba-before-wrap"), h=document.getElementById("ba-handle");
+        if(!r) return;
+        r.addEventListener("input", function(){
+          var v=r.value; w.style.clipPath="inset(0 "+(100-v)+"% 0 0)"; h.style.left=v+"%";
+        });
+      })();
     </script>
-
+    <!-- Page-scoped staggered reveal -->
     <script>
-        (function () {
-            var categories = [
-                {
-                    title: "Packaging &amp; Releases",
-                    copy: "The lineup expands from five core beers into the Shipwreck Sour series, a seasonal Hefeweizen, and standalone releases like the Doppelbock — each with enough individual character to stand on its own while staying part of one connected system.",
-                    caption: "Packaging system, core lineup through seasonal releases"
-                },
-                {
-                    title: "Campaigns &amp; Social",
-                    copy: "From trade-show launch tables to festival tents and flags, the brand traveled with the beer. I independently built and managed Soo Falls' social presence from the very beginning &mdash; visual direction, content, and all.",
-                    caption: "Campaign presence and organic social growth, developed independently"
-                },
-                {
-                    title: "Brand in the World",
-                    copy: "A wrapped Zamboni, tap handles behind the bar, a neon sign glowing above it, cans on a retail shelf &mdash; the identity had to hold up everywhere it showed up, not just on the can.",
-                    caption: "Environmental and retail applications across the city"
-                },
-                {
-                    title: "Digital, Production &amp; Rollout",
-                    copy: "I planned the website's sitemap, pages, typography, colour, and imagery direction &mdash; a developer built the final site. The same hands-on approach carried through production: proofing labels, coordinating the canning line, and solving problems as work moved from file to finished product.",
-                    caption: "Website direction and production coordination — design and development credited separately"
-                }
-            ];
-
-            var tabs = Array.prototype.slice.call(document.querySelectorAll(".explorer-tab"));
-            var bgs = Array.prototype.slice.call(document.querySelectorAll(".explorer-bg"));
-            var titleEl = document.getElementById("explorer-title");
-            var copyEl = document.getElementById("explorer-copy");
-            var captionEl = document.getElementById("explorer-caption");
-            var contentEl = document.getElementById("explorer-content");
-            var positionEl = document.getElementById("explorer-position");
-            var panelEl = document.getElementById("explorer-panel");
-            var current = 0;
-
-            function select(index, opts) {
-                opts = opts || {};
-                index = (index + categories.length) % categories.length;
-                current = index;
-
-                tabs.forEach(function (tab, i) {
-                    var active = i === index;
-                    tab.classList.toggle("is-active", active);
-                    tab.setAttribute("aria-selected", active ? "true" : "false");
-                    tab.setAttribute("tabindex", active ? "0" : "-1");
-                });
-
-                bgs.forEach(function (bg, i) {
-                    bg.classList.toggle("is-active", i === index);
-                });
-
-                panelEl.setAttribute("aria-labelledby", "explorer-tab-" + index);
-
-                contentEl.classList.add("is-entering");
-                window.setTimeout(function () {
-                    titleEl.innerHTML = categories[index].title;
-                    copyEl.innerHTML = categories[index].copy;
-                    captionEl.textContent = categories[index].caption;
-                    positionEl.textContent = ("0" + (index + 1)).slice(-2) + " / 0" + categories.length;
-                    contentEl.classList.remove("is-entering");
-                }, 60);
-
-                if (opts.moveFocus && tabs[index]) {
-                    tabs[index].focus();
-                }
+      (function(){
+        var els=document.querySelectorAll('[data-sf]'); if(!els.length) return;
+        var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(reduce || !('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+        var io=new IntersectionObserver(function(entries){
+          entries.forEach(function(e){
+            if(e.isIntersecting){
+              var el=e.target, sibs=Array.prototype.filter.call(el.parentNode.children,function(c){return c.hasAttribute&&c.hasAttribute('data-sf');});
+              el.style.transitionDelay=(Math.max(0,sibs.indexOf(el))*70)+'ms';
+              el.classList.add('in'); io.unobserve(el);
             }
-
-            tabs.forEach(function (tab) {
-                tab.addEventListener("click", function () {
-                    select(parseInt(tab.dataset.index, 10));
-                });
-            });
-
-            var tablist = document.querySelector('[role="tablist"]');
-            if (tablist) {
-                tablist.addEventListener("keydown", function (e) {
-                    if (["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"].indexOf(e.key) === -1) return;
-                    e.preventDefault();
-                    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
-                        select(current + 1, { moveFocus: true });
-                    } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
-                        select(current - 1, { moveFocus: true });
-                    } else if (e.key === "Home") {
-                        select(0, { moveFocus: true });
-                    } else if (e.key === "End") {
-                        select(categories.length - 1, { moveFocus: true });
-                    }
-                });
-            }
-
-            ["explorer-prev", "explorer-prev-mobile"].forEach(function (id) {
-                var btn = document.getElementById(id);
-                if (btn) btn.addEventListener("click", function () { select(current - 1); });
-            });
-            ["explorer-next", "explorer-next-mobile"].forEach(function (id) {
-                var btn = document.getElementById(id);
-                if (btn) btn.addEventListener("click", function () { select(current + 1); });
-            });
-        })();
+          });
+        }, { threshold:0.14, rootMargin:'0px 0px -8% 0px' });
+        els.forEach(function(e){ io.observe(e); });
+      })();
     </script>
-
-    <script src="/assets/js/site.js" defer></script>
+    <script src="../../assets/js/site.js" defer></script>
 </body>
 </html>
