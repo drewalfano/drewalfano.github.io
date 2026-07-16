@@ -35,14 +35,16 @@
         </nav>
     </header>
 
-    <section data-reveal class="max-w-5xl mx-auto px-6 pt-10 pb-16">
+    <section class="max-w-5xl mx-auto px-6 pt-10 pb-16">
         <a href="/work/" class="link-underline text-sm text-gray-500 hover:text-brand">&larr; Back to Work</a>
         <div class="flex flex-wrap items-center gap-x-2 gap-y-1 text-accent-safe font-body text-sm font-medium uppercase tracking-wide mt-6">
             <span>01</span>
             <span aria-hidden="true">&middot;</span>
             <span>Branding &amp; Packaging</span>
         </div>
-        <h1 class="font-display font-extrabold text-accent-safe text-4xl md:text-6xl tracking-tight mt-2">Soo Falls Brewing Co.</h1>
+        <div data-reveal="heading" class="reveal-heading">
+            <h1 class="reveal-heading-inner font-display font-extrabold text-accent-safe text-4xl md:text-6xl tracking-tight mt-2">Soo Falls Brewing Co.</h1>
+        </div>
         <p class="text-gray-700 mt-6 max-w-2xl text-lg leading-relaxed">
             Reviving Sault Ste. Marie's historic brewery through a bold, flexible identity and
             packaging system built for modern retail, hospitality, events, and local culture.
@@ -101,7 +103,7 @@
         </figure>
     </section>
 
-    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 border-t border-gray-200">
+    <section class="max-w-5xl mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 border-t border-gray-200">
         <div>
             <h2 class="font-display font-extrabold text-2xl">The Challenge</h2>
             <p class="text-gray-600 mt-4 leading-relaxed">
@@ -120,7 +122,7 @@
     </section>
 
     <!-- Logo reconstruction and modernization -->
-    <section data-reveal class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
+    <section class="max-w-5xl mx-auto px-6 pb-16 border-t border-gray-200 pt-16">
         <h2 class="font-display font-extrabold text-2xl">Logo Reconstruction and Modernization</h2>
         <div class="mt-8 grid md:grid-cols-2 gap-8 items-center">
             <p class="text-gray-600 leading-relaxed">
@@ -128,7 +130,7 @@
                 of low-resolution raster references. I reconstructed the mark as a clean vector,
                 refining its typography and proportions while retaining its established character.
             </p>
-        <figure class="md:mt-0">
+        <figure data-reveal class="md:mt-0">
             <div class="relative aspect-square max-w-sm mx-auto overflow-hidden select-none bg-gray-100 border border-gray-200" id="ba-slider">
                 <div class="absolute inset-0 flex items-center justify-center p-10">
                     <picture>
@@ -163,7 +165,7 @@
     </section>
 
     <!-- Retail rollout: LCBO launch -->
-    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
+    <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
         <div class="max-w-2xl">
             <h2 class="font-display font-extrabold text-2xl">A System Built for Retail</h2>
             <p class="text-gray-600 mt-4 leading-relaxed">
@@ -172,7 +174,7 @@
                 general retail alongside the province's largest brands.
             </p>
         </div>
-        <figure class="mt-10">
+        <figure data-reveal class="mt-10">
             <picture>
                 <source srcset="/images/soo-falls-optimized/img_1064.webp" type="image/webp">
                 <img src="/images/soo-falls-optimized/img_1064.jpg" alt="A hand holding a can of Soo Falls Italian Pilsner in front of an LCBO retail display sign reading &quot;Local Pours.&quot;" class="w-full h-auto" loading="lazy">
@@ -181,8 +183,8 @@
         </figure>
     </section>
 
-    <!-- Interactive brand explorer -->
-    <section data-reveal class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
+    <!-- Interactive brand explorer: no entrance motion, it's fully interaction-driven already -->
+    <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-200">
         <h2 class="font-display font-extrabold text-2xl md:text-3xl">Explore the Brand System</h2>
         <p class="text-gray-600 mt-4 max-w-2xl leading-relaxed">
             Four ways the identity carries through the project — packaging, campaigns, the

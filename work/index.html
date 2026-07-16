@@ -36,14 +36,16 @@
     </header>
 
     <section class="max-w-5xl mx-auto px-6 py-16">
-        <h1 class="font-display font-extrabold text-4xl md:text-5xl tracking-tight">Work</h1>
+        <div data-reveal="heading" class="reveal-heading">
+            <h1 class="reveal-heading-inner font-display font-extrabold text-4xl md:text-5xl tracking-tight">Work</h1>
+        </div>
         <p class="text-gray-600 mt-4 max-w-xl leading-relaxed">
             A collection of branding, packaging, campaign, and digital projects.
         </p>
     </section>
 
-    <!-- Filters -->
-    <section data-reveal class="max-w-5xl mx-auto px-6 pb-8">
+    <!-- Filters: interactive controls, no entrance motion so they're clickable immediately -->
+    <section class="max-w-5xl mx-auto px-6 pb-8">
         <div id="filters" class="flex flex-wrap gap-3">
             <button type="button" data-filter="all" class="filter-btn px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">All</button>
             <button type="button" data-filter="branding" class="filter-btn px-4 py-2 border border-ink text-xs font-body uppercase tracking-wide font-medium">Branding</button>
@@ -68,21 +70,36 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-accent-safe">01 &middot; Soo Falls Brewing Co.</p>
-                <p class="text-gray-400 text-xs mt-1">Branding, Packaging</p>
+                <p class="text-gray-400 text-xs mt-1">Case Study &middot; Branding, Packaging</p>
             </a>
 
             <a href="/work/canal-district/" style="--accent:#d23e45; --accent-text:#b8353c" class="project-card group" data-tags="branding,campaigns">
-                <div class="aspect-square overflow-hidden bg-[#d23e45]">
-                    <picture>
-                        <source srcset="/images/canal-district-optimized/canal-district-logo-card.webp" type="image/webp">
-                        <img src="/images/canal-district-optimized/canal-district-logo-card.png" alt="Canal District wordmark on a red background" width="1200" height="1200" class="w-full h-full object-contain" loading="lazy">
-                    </picture>
+                <div data-contact-sheet class="relative aspect-square overflow-hidden bg-[#d23e45]">
+                    <div data-zone="0" class="contact-sheet-frame absolute inset-0" style="opacity:1">
+                        <picture>
+                            <source srcset="/images/canal-district-optimized/canal-district-logo-card.webp" type="image/webp">
+                            <img src="/images/canal-district-optimized/canal-district-logo-card.png" alt="Canal District wordmark on a red background" width="1200" height="1200" class="w-full h-full object-contain" loading="lazy">
+                        </picture>
+                    </div>
+                    <div data-zone="1" class="contact-sheet-frame absolute inset-0" style="opacity:0">
+                        <picture>
+                            <source srcset="/images/canal-district-optimized/buckle-up-tour.webp" type="image/webp">
+                            <img src="/images/canal-district-optimized/buckle-up-tour.jpg" alt="Buckle Up Tour 2025 concert campaign for James Barker Band at The Machine Shop, Sault Ste. Marie" width="1200" height="1200" class="w-full h-full object-cover" loading="lazy">
+                        </picture>
+                    </div>
+                    <div data-zone="2" class="contact-sheet-frame absolute inset-0" style="opacity:0">
+                        <picture>
+                            <source srcset="/images/canal-district-optimized/ice-cream-cart.webp" type="image/webp">
+                            <img src="/images/canal-district-optimized/ice-cream-cart.png" alt="Mobile ice cream cart wrap mockup for the Gelato Mill, showing the branded panel design applied to a physical cart" width="1800" height="1259" class="w-full h-full object-cover" loading="lazy">
+                        </picture>
+                    </div>
+                    <span data-counter aria-hidden="true" class="hidden md:block absolute bottom-2 right-2 text-[10px] font-body bg-ink/70 text-paper px-1.5 py-0.5">01 / 03</span>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-accent-safe">02 &middot; Canal District</p>
-                <p class="text-gray-400 text-xs mt-1">Branding, Campaigns</p>
+                <p class="text-gray-400 text-xs mt-1">Case Study &middot; Branding, Campaigns</p>
             </a>
 
-            <a href="/work/jenesis-medical-aesthetics/" style="--accent:#a59b90; --accent-text:#6b6258" class="project-card group" data-tags="digital-web,branding">
+            <a href="/work/jenesis-medical-aesthetics/" style="--accent:#a59b90; --accent-text:#6b6258" class="project-card group" data-tags="digital-web">
                 <div class="aspect-square overflow-hidden bg-[#6b6258]">
                     <picture>
                         <source srcset="/images/jenesis-medical-aesthetics-optimized/jenesis-logo-card.webp" type="image/webp">
@@ -90,18 +107,33 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-accent-safe">03 &middot; Jenesis Medical Aesthetics</p>
-                <p class="text-gray-400 text-xs mt-1">Digital/Web, Branding</p>
+                <p class="text-gray-400 text-xs mt-1">Case Study &middot; Digital/Web</p>
             </a>
 
             <a href="/work/growtogether/" style="--accent:#468359; --accent-text:#396e49" class="project-card group" data-tags="digital-web,student-work">
-                <div class="aspect-square overflow-hidden bg-[#468359]">
-                    <picture>
-                        <source srcset="/images/growtogether-optimized/growtogether-logo-card.webp" type="image/webp">
-                        <img src="/images/growtogether-optimized/growtogether-logo-card.png" alt="GrowTogether plant-care app logo on a green background" width="1200" height="1200" class="w-full h-full object-contain" loading="lazy">
-                    </picture>
+                <div data-contact-sheet class="relative aspect-square overflow-hidden bg-[#468359]">
+                    <div data-zone="0" class="contact-sheet-frame absolute inset-0" style="opacity:1">
+                        <picture>
+                            <source srcset="/images/growtogether-optimized/growtogether-logo-card.webp" type="image/webp">
+                            <img src="/images/growtogether-optimized/growtogether-logo-card.png" alt="GrowTogether plant-care app logo on a green background" width="1200" height="1200" class="w-full h-full object-contain" loading="lazy">
+                        </picture>
+                    </div>
+                    <div data-zone="1" class="contact-sheet-frame absolute inset-0" style="opacity:0">
+                        <picture>
+                            <source srcset="/images/growtogether-optimized/home.webp" type="image/webp">
+                            <img src="/images/growtogether-optimized/home.jpg" alt="GrowTogether home screen showing a personalized greeting, a plant needing water, a local weather widget, and trending plants" width="487" height="900" class="w-full h-full object-cover" loading="lazy">
+                        </picture>
+                    </div>
+                    <div data-zone="2" class="contact-sheet-frame absolute inset-0" style="opacity:0">
+                        <picture>
+                            <source srcset="/images/growtogether-optimized/user-flow.webp" type="image/webp">
+                            <img src="/images/growtogether-optimized/user-flow.jpg" alt="User flow chart showing the six-screen path from Launch through Discover, Virtual Garden, Search or Scan a Plant, Plant Information Setup, Confirmation, and back to Virtual Garden" width="1400" height="888" class="w-full h-full object-cover" loading="lazy">
+                        </picture>
+                    </div>
+                    <span data-counter aria-hidden="true" class="hidden md:block absolute bottom-2 right-2 text-[10px] font-body bg-ink/70 text-paper px-1.5 py-0.5">01 / 03</span>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-accent-safe">04 &middot; GrowTogether</p>
-                <p class="text-gray-400 text-xs mt-1">Digital/Web, UX/UI, Student Work</p>
+                <p class="text-gray-400 text-xs mt-1">Case Study &middot; Digital/Web, UX/UI, Student Work</p>
             </a>
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="branding" data-gallery="jayl-house"
@@ -113,7 +145,7 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">The Jayl House</p>
-                <p class="text-gray-400 text-xs mt-1">Branding</p>
+                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Branding</p>
             </button>
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="packaging,student-work" data-gallery="high-seas-brewing"
@@ -125,7 +157,7 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">High Seas</p>
-                <p class="text-gray-400 text-xs mt-1">Packaging, Student Work</p>
+                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Packaging, Student Work</p>
             </button>
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="illustration,student-work" data-gallery="atari-2600"
@@ -137,7 +169,7 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Atari 2600</p>
-                <p class="text-gray-400 text-xs mt-1">Illustration, Student Work</p>
+                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Illustration, Student Work</p>
             </button>
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="illustration,student-work" data-gallery="coffee-guy"
@@ -149,7 +181,7 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Coffee Guy</p>
-                <p class="text-gray-400 text-xs mt-1">Illustration, Student Work</p>
+                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Illustration, Student Work</p>
             </button>
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="social-media,campaigns"
@@ -160,7 +192,7 @@
                     </div>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-brand">Project SEARCH Algoma</p>
-                <p class="text-gray-400 text-xs mt-1">Social Media, Campaigns</p>
+                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Social Media, Campaigns</p>
             </button>
 
         </div>
@@ -368,6 +400,56 @@
             if (e.key === "Escape") closeLightbox();
             if (e.key === "ArrowLeft") stepGallery(-1);
             if (e.key === "ArrowRight") stepGallery(1);
+        });
+    </script>
+
+    <script>
+        // Contact-sheet previews: flagship-card-only prototype. Coarse
+        // three-zone crossfade driven by precise-pointer position, with a
+        // short intent delay so diagonal cursor movement doesn't strobe
+        // through all three frames before settling. Touch and keyboard never
+        // fire "mousemove", so they simply see frame 0 (set via inline
+        // opacity:1 in the markup) and nothing else needs to run for them.
+        // SHOW_COUNTER is the one flag to flip to pull the "01 / 03" counter
+        // back out after visual comparison, without touching markup.
+        const SHOW_COUNTER = true;
+
+        document.querySelectorAll("[data-contact-sheet]").forEach((sheet) => {
+            const frames = Array.from(sheet.querySelectorAll("[data-zone]"));
+            const counter = sheet.querySelector("[data-counter]");
+            const total = frames.length;
+            if (counter && !SHOW_COUNTER) counter.classList.add("hidden");
+
+            let current = 0;
+            let pendingZone = 0;
+            let intentTimer = null;
+
+            function showZone(index) {
+                if (index === current) return;
+                current = index;
+                frames.forEach((frame) => {
+                    frame.style.opacity = Number(frame.dataset.zone) === index ? "1" : "0";
+                });
+                if (counter) {
+                    counter.textContent = ("0" + (index + 1)).slice(-2) + " / 0" + total;
+                }
+            }
+
+            sheet.addEventListener("mousemove", (e) => {
+                const rect = sheet.getBoundingClientRect();
+                const ratio = (e.clientX - rect.left) / rect.width;
+                const zone = Math.min(total - 1, Math.max(0, Math.floor(ratio * total)));
+                if (zone === pendingZone) return;
+                pendingZone = zone;
+                if (intentTimer) clearTimeout(intentTimer);
+                intentTimer = setTimeout(() => showZone(pendingZone), 130);
+            });
+
+            sheet.addEventListener("mouseleave", () => {
+                if (intentTimer) clearTimeout(intentTimer);
+                pendingZone = 0;
+                showZone(0);
+            });
         });
     </script>
 

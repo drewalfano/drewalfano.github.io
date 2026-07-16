@@ -3,7 +3,13 @@
   if (!("IntersectionObserver" in window) || !targets.length) return;
 
   targets.forEach(function (el) {
-    el.classList.add(el.hasAttribute("data-reveal-soft") ? "reveal-soft" : "reveal");
+    if (el.hasAttribute("data-reveal-soft")) {
+      el.classList.add("reveal-soft");
+    } else if (el.getAttribute("data-reveal") === "heading") {
+      el.classList.add("reveal-heading");
+    } else {
+      el.classList.add("reveal");
+    }
   });
 
   var observer = new IntersectionObserver(

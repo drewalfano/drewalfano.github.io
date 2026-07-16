@@ -105,7 +105,10 @@
     transform: scaleX(1);
   }
 
-  /* Scroll-reveal, activated only via JS so content still shows without it */
+  /* Scroll-reveal, activated only via JS so content still shows without it.
+     Reserved for image groups and project cards — body copy, metadata, and
+     facts blocks should never carry this (they must be immediately visible),
+     and signature headings use .reveal-heading below instead. */
   .reveal {
     opacity: 0;
     transform: translateY(16px);
@@ -114,6 +117,39 @@
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Masked heading reveal: the heading's content rises up from behind a
+     clipped baseline rather than simply fading in place. Deliberately
+     reserved for the two moments the site treats as signature — page H1s
+     and the one colour-field statement per case study — so it stays scarce
+     and reads as a considered beat, not a sitewide animation. The outer
+     element (targeted by data-reveal="heading") clips overflow; the inner
+     span carries the actual transform so multi-line headings mask as one
+     block regardless of how many lines they wrap to. */
+  .reveal-heading {
+    overflow: hidden;
+  }
+  .reveal-heading-inner {
+    display: block;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+  .reveal-heading.is-visible .reveal-heading-inner {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Contact-sheet card previews (Work grid, flagship cards only): three
+     stacked frames crossfade based on coarse pointer position, driven by
+     inline opacity + a small JS intent delay (see work/index.html). Touch
+     and keyboard never fire the pointer logic, so frame 0's opacity:1
+     inline default is what they see — no separate touch/keyboard path
+     needed. Reduced-motion is covered by the sitewide transition-duration
+     override, not repeated here. */
+  .contact-sheet-frame {
+    transition: opacity 200ms ease;
   }
 
   /* Project imagery starts on a tighter crop and settles to the full
