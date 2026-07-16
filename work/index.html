@@ -187,18 +187,25 @@
         </button>
 
         <div id="lightbox-panel" class="min-h-full flex items-center justify-center p-6 md:p-10">
-            <div class="w-full max-w-3xl py-10">
+            <div class="w-full max-w-xl py-10">
                 <!-- Title-only fallback for projects with no approved gallery yet -->
-                <span id="lightbox-image-label" class="hidden items-center justify-center font-display font-extrabold text-paper text-2xl text-center px-6 h-[55vh] md:h-[60vh]"></span>
+                <span id="lightbox-image-label" class="hidden items-center justify-center font-display font-extrabold text-paper text-2xl text-center px-6 h-[38vh] md:h-[42vh]"></span>
 
                 <!-- Gallery stage: one scroll-snap track drives both desktop
                      (arrow buttons scroll it programmatically) and mobile
-                     (native touch swipe) — a single mechanism, not two. -->
-                <div id="lightbox-stage" class="hidden relative w-full h-[55vh] md:h-[60vh]">
+                     (native touch swipe) — a single mechanism, not two.
+                     overflow-y-hidden is deliberate, not decorative: with
+                     only overflow-x set, CSS requires the UA to treat the
+                     unset y-axis as auto instead of visible, which was
+                     silently clipping the bottom of every image instead of
+                     letterboxing it. object-contain (fixed below) should
+                     make this a non-issue on its own, but it stays as a
+                     second guarantee that nothing can ever crop here. -->
+                <div id="lightbox-stage" class="hidden relative w-full h-[38vh] md:h-[42vh]">
                     <button type="button" id="lightbox-prev" aria-label="Previous image" class="hidden max-md:hidden absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-paper/10 text-paper hover:bg-paper/20">
                         <span aria-hidden="true">&larr;</span>
                     </button>
-                    <div id="lightbox-track" class="h-full w-full flex overflow-x-auto snap-x snap-mandatory no-scrollbar">
+                    <div id="lightbox-track" class="h-full w-full flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory no-scrollbar">
                         <!-- gallery slides injected here by JS -->
                     </div>
                     <button type="button" id="lightbox-next" aria-label="Next image" class="hidden max-md:hidden absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-paper/10 text-paper hover:bg-paper/20">
@@ -421,6 +428,14 @@
                 var slide = document.createElement("div");
                 slide.className = "h-full w-full shrink-0 snap-center flex items-center justify-center";
                 var picture = document.createElement("picture");
+                // <picture> has no intrinsic size of its own — without an
+                // explicit box, max-w-full/max-h-full on the <img> resolve
+                // against an ancestor that's sized TO the image itself, so
+                // the "max" constraint has nothing to actually limit.
+                // w-full h-full here is what makes object-contain on the
+                // image below actually take effect instead of silently
+                // doing nothing.
+                picture.className = "w-full h-full flex items-center justify-center";
                 var source = document.createElement("source");
                 source.type = "image/webp";
                 source.srcset = item.webp;
