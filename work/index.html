@@ -173,43 +173,47 @@
         <a href="mailto:hello@drewalfano.com" class="link-underline hover:text-brand">hello@drewalfano.com</a>
     </footer>
 
-    <!-- Lightbox: near-full-page image-forward viewer for the 5 Selected Work
-         projects. Animation, focus trap, and scroll lock are a follow-up
-         pass (pending approval) — this is the visual/structural redesign:
-         dark backdrop, pinned close button, responsive image stage shared
-         by desktop arrows and mobile swipe (via native scroll-snap), and
-         per-image captions. -->
-    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-[#1C1C1C]" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
-        <button type="button" id="lightbox-close" aria-label="Close" class="fixed top-4 right-4 md:top-6 md:right-6 z-20 w-10 h-10 rounded-full bg-paper/10 text-paper flex items-center justify-center hover:bg-paper/20 text-xl leading-none">
+    <!-- Lightbox: image-forward viewer for the 5 Selected Work projects.
+         Deliberately NOT full-screen — a scrollable panel that rises from
+         the bottom on open, sitting with equal padding on every side
+         rather than pinned edge-to-edge. #lightbox is both the dark
+         backdrop and the scroll container (its own overflow-y handles tall
+         content); #lightbox-panel is the piece that actually slides,
+         keeping the close button — deliberately outside the panel — fixed
+         in one spot throughout. -->
+    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-[#1C1C1C] overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+        <button type="button" id="lightbox-close" aria-label="Close" class="fixed top-4 left-1/2 -translate-x-1/2 md:top-6 z-20 w-10 h-10 rounded-full bg-paper/10 text-paper flex items-center justify-center hover:bg-paper/20 text-xl leading-none">
             <span aria-hidden="true">&times;</span>
         </button>
 
-        <div class="h-full w-full flex flex-col items-center justify-center px-4 md:px-20 py-16 md:py-12">
-            <!-- Title-only fallback for projects with no approved gallery yet -->
-            <span id="lightbox-image-label" class="hidden flex-1 w-full items-center justify-center font-display font-extrabold text-paper text-2xl text-center px-6"></span>
+        <div id="lightbox-panel" class="min-h-full flex items-center justify-center p-6 md:p-10">
+            <div class="w-full max-w-3xl py-10">
+                <!-- Title-only fallback for projects with no approved gallery yet -->
+                <span id="lightbox-image-label" class="hidden items-center justify-center font-display font-extrabold text-paper text-2xl text-center px-6 h-[55vh] md:h-[60vh]"></span>
 
-            <!-- Gallery stage: one scroll-snap track drives both desktop
-                 (arrow buttons scroll it programmatically) and mobile
-                 (native touch swipe) — a single mechanism, not two. -->
-            <div id="lightbox-stage" class="hidden relative w-full flex-1 min-h-0">
-                <button type="button" id="lightbox-prev" aria-label="Previous image" class="hidden max-md:hidden absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-paper/10 text-paper hover:bg-paper/20">
-                    <span aria-hidden="true">&larr;</span>
-                </button>
-                <div id="lightbox-track" class="h-full w-full flex overflow-x-auto snap-x snap-mandatory no-scrollbar">
-                    <!-- gallery slides injected here by JS -->
+                <!-- Gallery stage: one scroll-snap track drives both desktop
+                     (arrow buttons scroll it programmatically) and mobile
+                     (native touch swipe) — a single mechanism, not two. -->
+                <div id="lightbox-stage" class="hidden relative w-full h-[55vh] md:h-[60vh]">
+                    <button type="button" id="lightbox-prev" aria-label="Previous image" class="hidden max-md:hidden absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-paper/10 text-paper hover:bg-paper/20">
+                        <span aria-hidden="true">&larr;</span>
+                    </button>
+                    <div id="lightbox-track" class="h-full w-full flex overflow-x-auto snap-x snap-mandatory no-scrollbar">
+                        <!-- gallery slides injected here by JS -->
+                    </div>
+                    <button type="button" id="lightbox-next" aria-label="Next image" class="hidden max-md:hidden absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-paper/10 text-paper hover:bg-paper/20">
+                        <span aria-hidden="true">&rarr;</span>
+                    </button>
                 </div>
-                <button type="button" id="lightbox-next" aria-label="Next image" class="hidden max-md:hidden absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-paper/10 text-paper hover:bg-paper/20">
-                    <span aria-hidden="true">&rarr;</span>
-                </button>
-            </div>
 
-            <p id="lightbox-caption" class="hidden text-gray-300 text-sm text-center mt-4 max-w-xl"></p>
-            <span id="lightbox-position" class="hidden text-gray-500 text-xs mt-2"></span>
+                <p id="lightbox-caption" class="hidden text-gray-300 text-sm text-center mt-4 max-w-xl mx-auto"></p>
+                <span id="lightbox-position" class="hidden text-gray-500 text-xs mt-2 text-center block"></span>
 
-            <div class="mt-6 max-w-xl text-center">
-                <span id="lightbox-meta" class="text-gray-400 font-body text-xs font-medium uppercase tracking-wide"></span>
-                <h2 id="lightbox-title" class="font-display font-extrabold text-paper text-xl md:text-2xl mt-2"></h2>
-                <p id="lightbox-description" class="text-gray-300 mt-3 leading-relaxed text-sm"></p>
+                <div class="mt-6 max-w-xl mx-auto text-center">
+                    <span id="lightbox-meta" class="text-gray-400 font-body text-xs font-medium uppercase tracking-wide"></span>
+                    <h2 id="lightbox-title" class="font-display font-extrabold text-paper text-xl md:text-2xl mt-2"></h2>
+                    <p id="lightbox-description" class="text-gray-300 mt-3 leading-relaxed text-sm"></p>
+                </div>
             </div>
         </div>
     </div>
@@ -306,12 +310,12 @@
         const lightboxNext = document.getElementById("lightbox-next");
         const lightboxPosition = document.getElementById("lightbox-position");
         const lightboxClose = document.getElementById("lightbox-close");
+        const lightboxPanel = document.getElementById("lightbox-panel");
 
         let currentGallery = null;
         let currentIndex = 0;
         let suppressScrollSync = false;
         let scrollSyncFrame = null;
-        let openingTileRect = null;
         let previouslyFocused = null;
         let scrollLockActive = false;
 
@@ -319,72 +323,31 @@
             return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         }
 
-        // Scale-from-tile open/close: FLIP via the Web Animations API, not
-        // the View Transitions API — View Transitions still isn't in
-        // Firefox and only landed in Safari 18, so using it would mean
-        // maintaining a full FLIP fallback anyway for one browser gap.
-        // Animating the SLIDE CONTAINER (not the <img> itself) sidesteps a
-        // real race condition: gallery images are a different, often
-        // uncached asset from the grid thumbnail, so the <img> may not have
-        // finished loading (and can report a 0×0 rect) at the moment the
-        // lightbox opens. The container's box is CSS-determined the instant
-        // it's laid out, independent of whether its image has arrived yet.
-        function runOpenTransition(targetEl) {
+        // Open/close: the panel rises from the bottom on open and sinks
+        // back down on close (backdrop opacity fades in step with it, same
+        // duration/easing so they read as one motion). Under reduced
+        // motion, skip the translateY entirely and just cross-fade the
+        // backdrop.
+        function runOpenTransition() {
             var reduced = prefersReducedMotion();
-            if (reduced || !openingTileRect || !targetEl) {
-                lightbox.animate([{ opacity: 0 }, { opacity: 1 }], { duration: reduced ? 200 : 350, easing: "ease-out" });
-                return;
-            }
-            var targetRect = targetEl.getBoundingClientRect();
-            if (!targetRect.width || !targetRect.height) {
-                lightbox.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 350, easing: "ease-out" });
-                return;
-            }
-            var scaleX = openingTileRect.width / targetRect.width;
-            var scaleY = openingTileRect.height / targetRect.height;
-            var dx = (openingTileRect.left + openingTileRect.width / 2) - (targetRect.left + targetRect.width / 2);
-            var dy = (openingTileRect.top + openingTileRect.height / 2) - (targetRect.top + targetRect.height / 2);
-
-            lightbox.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 350, easing: "ease-out" });
-            targetEl.animate(
-                [
-                    { transform: "translate(" + dx + "px, " + dy + "px) scale(" + scaleX + ", " + scaleY + ")" },
-                    { transform: "translate(0px, 0px) scale(1, 1)" }
-                ],
+            lightbox.animate([{ opacity: 0 }, { opacity: 1 }], { duration: reduced ? 200 : 350, easing: "ease-out" });
+            if (reduced) return;
+            lightboxPanel.animate(
+                [{ transform: "translateY(100%)" }, { transform: "translateY(0)" }],
                 { duration: 350, easing: "ease-out" }
             );
         }
 
-        // Closing always shrinks back toward the ORIGINAL tile that opened
-        // the viewer, from whichever image is currently on screen — not
-        // necessarily the first one, if the visitor has paged since opening.
-        function runCloseTransition(targetEl, done) {
+        function runCloseTransition(done) {
             var reduced = prefersReducedMotion();
-            if (reduced || !openingTileRect || !targetEl) {
-                var fade = lightbox.animate([{ opacity: 1 }, { opacity: 0 }], { duration: reduced ? 200 : 300, easing: "ease-out" });
-                fade.finished.then(done, done);
-                return;
+            var fade = lightbox.animate([{ opacity: 1 }, { opacity: 0 }], { duration: reduced ? 200 : 300, easing: "ease-out" });
+            if (!reduced) {
+                lightboxPanel.animate(
+                    [{ transform: "translateY(0)" }, { transform: "translateY(100%)" }],
+                    { duration: 300, easing: "ease-out" }
+                );
             }
-            var targetRect = targetEl.getBoundingClientRect();
-            if (!targetRect.width || !targetRect.height) {
-                var fade2 = lightbox.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, easing: "ease-out" });
-                fade2.finished.then(done, done);
-                return;
-            }
-            var scaleX = openingTileRect.width / targetRect.width;
-            var scaleY = openingTileRect.height / targetRect.height;
-            var dx = (openingTileRect.left + openingTileRect.width / 2) - (targetRect.left + targetRect.width / 2);
-            var dy = (openingTileRect.top + openingTileRect.height / 2) - (targetRect.top + targetRect.height / 2);
-
-            lightbox.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, easing: "ease-out" });
-            var imgAnim = targetEl.animate(
-                [
-                    { transform: "translate(0px, 0px) scale(1, 1)" },
-                    { transform: "translate(" + dx + "px, " + dy + "px) scale(" + scaleX + ", " + scaleY + ")" }
-                ],
-                { duration: 300, easing: "ease-out" }
-            );
-            imgAnim.finished.then(done, done);
+            fade.finished.then(done, done);
         }
 
         // Scroll lock: padding-right compensates for the vanishing
@@ -514,8 +477,6 @@
 
         function openLightbox(trigger) {
             previouslyFocused = document.activeElement;
-            var tileImg = trigger.querySelector("img");
-            openingTileRect = tileImg ? tileImg.getBoundingClientRect() : null;
 
             lightboxTitle.textContent = trigger.dataset.title;
             lightboxDescription.textContent = trigger.dataset.description;
@@ -549,20 +510,18 @@
 
             lockScroll();
             lightbox.classList.remove("hidden");
-            runOpenTransition(hasGallery ? lightboxTrack.children[0] : null);
+            runOpenTransition();
             lightboxClose.focus();
         }
 
         function closeLightbox() {
-            var targetEl = currentGallery ? lightboxTrack.children[currentIndex] : null;
-            runCloseTransition(targetEl, () => {
+            runCloseTransition(() => {
                 lightbox.classList.add("hidden");
                 unlockScroll();
                 if (previouslyFocused && typeof previouslyFocused.focus === "function") {
                     previouslyFocused.focus();
                 }
                 previouslyFocused = null;
-                openingTileRect = null;
             });
         }
 
