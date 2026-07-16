@@ -39,7 +39,11 @@ uniform photo grid) → Role & Rollout → contact CTA.
 - `dunkelweizen2.{png,webp}` — brown core can render (currently unused on the page; was a temp hero
   stand-in, now replaced by the Citrus sour).
 - **EXIF orientation baked in** (rotation was wrong in-browser) for: `img_2481`, `img_0559`,
-  `img_3238`, `img_0394` — re-saved upright, EXIF stripped.
+  `img_3238`, `img_0394` — re-saved upright, EXIF stripped. **Correction (next session):** `img_2481`
+  was actually fine; `img_0559`, `img_3238`, and `img_0394` were still sideways after that pass — a
+  further 90° counter-clockwise `sips -r -90` rotation was needed to make them upright, with matching
+  `.webp` regenerated via a temporary `cwebp` download. Verified by opening the actual pixel content,
+  not by rule of thumb.
 
 ## Known follow-ups
 - **No transparent Doppelbock can render** exists (Doppelbock is black). The hero uses the Citrus
