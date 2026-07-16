@@ -155,29 +155,38 @@
 
       /* ---- Experience carousel (borrows the lightbox's scroll-snap track + pill nav).
              One screen is the focal point at a time -- each slide is the full width
-             of the track, so there's no peek of neighbours crowding the view. ---- */
+             of the track, so there's no peek of neighbours crowding the view. The
+             phone is sized by height (not width) so the whole slide fits one viewport
+             without scrolling, and prev/next sit as an overlay beside the phone --
+             the same absolute-positioned arrangement as the site's lightbox -- instead
+             of stacking below the caption. ---- */
+      .gt-carousel{ position:relative; }
       .gt-carousel-track{
         display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
-        -webkit-overflow-scrolling:touch; padding:.5rem 0 1.5rem;
+        -webkit-overflow-scrolling:touch; padding:.5rem 0 1rem;
         scrollbar-width:none;
       }
       .gt-carousel-track::-webkit-scrollbar{ display:none; }
       .gt-slide{
         flex:0 0 100%; width:100%; scroll-snap-align:center; margin:0;
         display:flex; flex-direction:column; align-items:center;
-        padding:0 1rem;
+        padding:0 3.5rem;
       }
-      .gt-slide .gt-phonecap{ max-width:300px; }
-      @media(min-width:640px){ .gt-slide .gt-phonecap{ max-width:340px; } }
-      .gt-slide-wide .gt-pair{ display:flex; gap:1.5rem; align-items:flex-start; justify-content:center; max-width:36rem; margin:0 auto; }
-      .gt-slide-wide .gt-pair .gt-phonecap{ max-width:180px; }
-      @media(min-width:640px){ .gt-slide-wide .gt-pair .gt-phonecap{ max-width:220px; } }
-      .gt-slide-cap{ margin-top:1.75rem; max-width:46ch; text-align:center; }
-      .gt-carousel-nav{ display:flex; gap:.75rem; justify-content:center; margin-top:1rem; }
+      .gt-slide .gt-phonecap{ max-width:none; margin:0 auto; }
+      .gt-slide .gt-device{ height:min(42vh,360px); width:auto; aspect-ratio:.474; margin:0 auto; }
+      .gt-slide-wide .gt-pair{ display:flex; gap:1.25rem; align-items:flex-start; justify-content:center; margin:0 auto; }
+      .gt-slide-wide .gt-pair .gt-device{ height:min(34vh,290px); width:auto; aspect-ratio:.474; margin:0 auto; }
+      .gt-slide-cap{ margin-top:1.25rem; max-width:44ch; text-align:center; }
+      .gt-carousel-nav{
+        position:absolute; inset:0 0 auto 0; height:min(42vh,360px); top:.5rem;
+        display:flex; align-items:center; justify-content:space-between;
+        pointer-events:none;
+      }
       .gt-carousel-btn{
         width:2.5rem; height:2.5rem; border-radius:999px; border:1px solid #e5e7eb;
         background:#fff; color:var(--gt-ink); display:flex; align-items:center; justify-content:center;
         font-size:1.05rem; transition:background-color .2s ease, border-color .2s ease;
+        pointer-events:auto;
       }
       @media(hover:hover){ .gt-carousel-btn:hover{ background:#f3f4f6; border-color:#d1d5db; } }
       .gt-carousel-btn:disabled{ opacity:.35; cursor:default; }
