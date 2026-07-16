@@ -16,11 +16,12 @@ A static portfolio site for a graphic designer/brand lead. Plain HTML + Tailwind
 - **Visual rules:** sharp corners only, no `rounded-*` anywhere. Motion is restrained — 250ms transitions everywhere (`.reveal` scroll fade-up, `.card-image` hover crop, `.link-underline`), all wrapped in a `prefers-reduced-motion` override in `src/input.css`.
 - **Per-project accent color system** (`src/input.css`): set `--accent` (true brand hex) and `--accent-text` (a darkened, WCAG-AA-safe variant of the same hue) as inline CSS custom properties on a scoping element (a page's `<body>`, or an individual card). Utility classes `.text-accent` / `.border-accent` / `.bg-accent` (true hex, for rules/chips/color-field backgrounds) and `.text-accent-safe` (darkened, for any text — labels, links, titles) read these, falling back to brand red if unset. **Never use the true accent hex for text** unless you've verified ≥4.5:1 contrast against white — several of the real brand colors fail at full strength (see per-project values below).
 - **`.full-bleed`** component class breaks an element to the true viewport edge regardless of parent `max-w-*` (paired with `overflow-x: hidden` on `html,body` so it can't introduce horizontal scroll).
+- **Homepage hero** (`index.html`, self-contained `<style>` block in `<head>` — not in `src/input.css`, since it's homepage-only): no hero imagery, the page opens on type. `.hero-statement` sets the tagline large and full-width (`clamp(1.45rem,3.1vw,2.5rem)` DM Sans). `.hero-name` wraps the "Drew Alfano" `<h1>` text with a permanent brand-red (`#D0272B`) underline that draws in once on load via a `scaleX(0)→scaleX(1)` keyframe (`.35s` delay, `.5s` ease-out) — not a hover effect, since the h1 isn't interactive (same reasoning as the static About portrait). Respects `prefers-reduced-motion` (underline renders solid, no animation).
 
 ## Site structure
 
 ```
-/                           homepage — intro, capability sequence, 3 feature sections, work strip, about blurb, contact CTA
+/                           homepage — typographic hero (no hero imagery, see Design system), capability sequence, 3 feature sections, work strip, about blurb, contact CTA
 /work/                      filterable grid (discipline tags), Level 3 items open in a lightbox
 /work/soo-falls/            case study — fully built out, real photography
 /work/canal-district/       case study — placeholder imagery, real venue names (Mill Steakhouse, Boiler Room, Blockhouse, Gelato Mill)
@@ -81,6 +82,6 @@ No image libraries installed (no ImageMagick/PIL). Process is: `sips` (macOS bui
 
 - **Canal District / Jenesis / GrowTogether**: need real photography and real Role/Timeline facts, then the Soo Falls pattern (facts block copy, colour-field bold moment content, figure captions) should be tightened to match once assets exist.
 - **Soo Falls** still has no real process material (sketches, dielines, proofs) — that section was removed rather than left as a placeholder; re-add if/when real material shows up.
-- **Homepage**: still on original placeholder imagery (feature section photos) — never revisited after the initial build.
+- **Homepage**: hero section redone as type-only (no imagery, see Design system); the 3 feature sections below it still have original placeholder imagery — never revisited.
 - Don't fabricate facts, imagery, or results — this has been a hard rule all session. Missing info gets an explicit `TBA` or a clearly labeled placeholder, never an invented value.
 - **`og:image`**: not set on any page. Add once real hero art exists site-wide (currently only Soo Falls has real photography) rather than pointing social previews at a placeholder or the favicon.
