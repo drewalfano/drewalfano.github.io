@@ -153,6 +153,27 @@
 
       .gt-phonecap{ max-width:380px; margin-left:auto; margin-right:auto; }
 
+      /* ---- Experience carousel (borrows the lightbox's scroll-snap track + pill nav) ---- */
+      .gt-carousel-track{
+        display:flex; gap:2.5rem; overflow-x:auto; scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch; padding:.25rem .25rem 1rem;
+        scrollbar-width:none;
+      }
+      .gt-carousel-track::-webkit-scrollbar{ display:none; }
+      .gt-slide{ flex:0 0 auto; width:min(78vw,300px); scroll-snap-align:start; margin:0; }
+      .gt-slide-wide{ width:min(92vw,440px); }
+      .gt-slide .gt-phonecap{ max-width:100%; }
+      .gt-slide-cap{ margin-top:1.25rem; }
+      @media(min-width:640px){ .gt-slide{ width:260px; } .gt-slide-wide{ width:420px; } }
+      .gt-carousel-nav{ display:flex; gap:.75rem; justify-content:flex-end; margin-top:.5rem; }
+      .gt-carousel-btn{
+        width:2.5rem; height:2.5rem; border-radius:999px; border:1px solid #e5e7eb;
+        background:#fff; color:var(--gt-ink); display:flex; align-items:center; justify-content:center;
+        font-size:1.05rem; transition:background-color .2s ease, border-color .2s ease;
+      }
+      @media(hover:hover){ .gt-carousel-btn:hover{ background:#f3f4f6; border-color:#d1d5db; } }
+      .gt-carousel-btn:disabled{ opacity:.35; cursor:default; }
+
       /* ---- Colour-field bold beat ---- */
       .gt-field{
         background:#3f7650; /* deeper than the true accent so even small white labels clear WCAG AA (~5.3:1) */
@@ -332,116 +353,103 @@
         <p class="gt-eyebrow">The Experience — six needs, one interface</p>
       </div>
 
-      <div class="gt-wrap" style="margin-top:clamp(1rem,2vw,1.5rem);">
+      <div class="gt-wrap" style="margin-top:clamp(1.25rem,2.5vw,2rem);">
+        <div class="gt-carousel">
+          <div class="gt-carousel-track" id="gt-exp-track">
 
-        <!-- Feature 01 -->
-        <div class="gt-feature">
-          <div class="txt">
-            <span class="gt-index">01 — Home</span>
-            <h3 class="gt-feature-title">The day's care, surfaced first</h3>
-            <p class="gt-body" style="margin-top:1rem; max-width:44ch;">
-              The home screen leads with what's actionable: the plant due for water, a local
-              weather note that affects care, and a daily tip — reference content sits below it.
-              Priority by hierarchy, not by menu-diving.
-            </p>
-          </div>
-          <div class="img narrow">
-            <div class="gt-phonecap">
-              <span data-parallax data-parallax-range="14" style="display:block;">
+            <figure class="gt-slide">
+              <div class="gt-phonecap">
                 <span class="gt-device"><span class="screen">
                 <picture>
                   <source srcset="../../images/growtogether-optimized/home-frame.webp" type="image/webp">
                   <img class="gt-phone" src="../../images/growtogether-optimized/home-frame.jpg" width="646" height="1400" loading="lazy" alt="GrowTogether home dashboard: Hi, Drew! greeting, My Plants card showing Spike the Snake Plant three days late to water, a weather widget and Trending Plants.">
                 </picture>
                 </span></span>
-              </span>
-            </div>
-          </div>
-        </div>
+              </div>
+              <figcaption class="gt-slide-cap">
+                <span class="gt-index">01 — Home</span>
+                <p class="gt-body" style="margin-top:.5rem;">
+                  The home screen leads with what's actionable: the plant due for water, a local
+                  weather note that affects care, and a daily tip — reference content sits below it.
+                  Priority by hierarchy, not by menu-diving.
+                </p>
+              </figcaption>
+            </figure>
 
-        <!-- Feature 02 (reversed, offset) -->
-        <div class="gt-feature rev" style="margin-top:clamp(1.25rem,3vw,2rem);">
-          <div class="txt">
-            <span class="gt-index">02 — Virtual Garden</span>
-            <h3 class="gt-feature-title">Every plant's status at a glance</h3>
-            <p class="gt-body" style="margin-top:1rem; max-width:44ch;">
-              The garden view shows each plant's last-watered date, next-due date, and a
-              plain-language status (<em>Healthy</em>, <em>Thirsty</em>). The goal was scannability —
-              catch a problem in a glance, before it needs a diagnosis.
-            </p>
-          </div>
-          <div class="img narrow gt-offset-down">
-            <div class="gt-phonecap">
-              <span data-parallax data-parallax-range="18" style="display:block;">
+            <figure class="gt-slide">
+              <div class="gt-phonecap">
                 <span class="gt-device"><span class="screen">
                 <picture>
                   <source srcset="../../images/growtogether-optimized/my-garden.webp" type="image/webp">
                   <img class="gt-phone" src="../../images/growtogether-optimized/my-garden.jpg" width="643" height="1400" loading="lazy" alt="My Garden list: Ollie the Aloe Vera (healthy), Spike the Snake Plant (three days late, thirsty) and Ms. Fig the Fiddle Leaf Fig, each with last-watered and next-water dates and a Water button.">
                 </picture>
                 </span></span>
-              </span>
-            </div>
-          </div>
-        </div>
+              </div>
+              <figcaption class="gt-slide-cap">
+                <span class="gt-index">02 — Virtual Garden</span>
+                <p class="gt-body" style="margin-top:.5rem;">
+                  The garden view shows each plant's last-watered date, next-due date, and a
+                  plain-language status (<em>Healthy</em>, <em>Thirsty</em>). The goal was scannability —
+                  catch a problem in a glance, before it needs a diagnosis.
+                </p>
+              </figcaption>
+            </figure>
 
-        <!-- Feature 03 -->
-        <div class="gt-feature" style="margin-top:clamp(1.25rem,3vw,2rem);">
-          <div class="txt">
-            <span class="gt-index">03 — Dr. Grow</span>
-            <h3 class="gt-feature-title">Guided diagnosis, not a search spiral</h3>
-            <p class="gt-body" style="margin-top:1rem; max-width:44ch;">
-              Instead of sending users off to search a vague symptom, Dr. Grow walks it back to
-              a specific answer: describe what's wrong, answer a follow-up or two, get a named
-              cause and concrete steps — here, white soil spots identified as harmless fungus.
-            </p>
-          </div>
-          <div class="img narrow gt-offset-up">
-            <div class="gt-phonecap">
-              <span data-parallax data-parallax-range="14" style="display:block;">
+            <figure class="gt-slide">
+              <div class="gt-phonecap">
                 <span class="gt-device"><span class="screen">
                 <picture>
                   <source srcset="../../images/growtogether-optimized/dr-grow.webp" type="image/webp">
                   <img class="gt-phone" src="../../images/growtogether-optimized/dr-grow.jpg" width="648" height="1400" loading="lazy" alt="Dr. Grow chat: the user asks about white spots on soil; the assistant explains it is harmless saprophytic fungus and lists a three-step fix.">
                 </picture>
                 </span></span>
-              </span>
-            </div>
+              </div>
+              <figcaption class="gt-slide-cap">
+                <span class="gt-index">03 — Dr. Grow</span>
+                <p class="gt-body" style="margin-top:.5rem;">
+                  Instead of sending users off to search a vague symptom, Dr. Grow walks it back to
+                  a specific answer: describe what's wrong, answer a follow-up or two, get a named
+                  cause and concrete steps — here, white soil spots identified as harmless fungus.
+                </p>
+              </figcaption>
+            </figure>
+
+            <figure class="gt-slide gt-slide-wide">
+              <div style="display:flex; gap:1rem; align-items:flex-start;">
+                <div class="gt-phonecap" style="max-width:48%;">
+                  <span class="gt-device"><span class="screen">
+                  <picture>
+                    <source srcset="../../images/growtogether-optimized/identify-camera.webp" type="image/webp">
+                    <img class="gt-phone" src="../../images/growtogether-optimized/identify-camera.jpg" width="643" height="1400" loading="lazy" alt="Identify Plant camera view framing a Monstera between scan brackets, with the prompt: Show us what you've found. We'll do the rest.">
+                  </picture>
+                  </span></span>
+                </div>
+                <div class="gt-phonecap" style="max-width:48%; margin-top:2rem;">
+                  <span class="gt-device"><span class="screen">
+                  <picture>
+                    <source srcset="../../images/growtogether-optimized/identify-result.webp" type="image/webp">
+                    <img class="gt-phone" src="../../images/growtogether-optimized/identify-result.jpg" width="555" height="1400" loading="lazy" alt="Plant Identified result: Monstera deliciosa with description, type, water, light, toxicity, size and temperature details, Add Plant and Scan Again buttons, and similar plants.">
+                  </picture>
+                  </span></span>
+                </div>
+              </div>
+              <figcaption class="gt-slide-cap">
+                <span class="gt-index">04 — Identify</span>
+                <p class="gt-body" style="margin-top:.5rem;">
+                  Frame an unknown plant, scan, and land on a full care profile with look-alikes —
+                  shown here as an input/output pair so the flow reads at a glance. It closes the
+                  loop back into tracking: identify, then add.
+                </p>
+              </figcaption>
+            </figure>
+
+          </div>
+
+          <div class="gt-carousel-nav">
+            <button type="button" class="gt-carousel-btn" id="gt-exp-prev" aria-label="Previous screen"><span aria-hidden="true">&larr;</span></button>
+            <button type="button" class="gt-carousel-btn" id="gt-exp-next" aria-label="Next screen"><span aria-hidden="true">&rarr;</span></button>
           </div>
         </div>
-
-        <!-- Feature 04 — identify pair -->
-        <div class="gt-feature rev" style="margin-top:clamp(1.25rem,3vw,2rem);">
-          <div class="txt">
-            <span class="gt-index">04 — Identify</span>
-            <h3 class="gt-feature-title">Camera-first plant identification</h3>
-            <p class="gt-body" style="margin-top:1rem; max-width:44ch;">
-              Frame an unknown plant, scan, and land on a full care profile with look-alikes —
-              shown here as an input/output pair so the flow reads at a glance. It closes the
-              loop back into tracking: identify, then add.
-            </p>
-          </div>
-          <div class="img">
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; align-items:start;">
-              <span data-parallax data-parallax-range="12" style="display:block;">
-                <span class="gt-device"><span class="screen">
-                <picture>
-                  <source srcset="../../images/growtogether-optimized/identify-camera.webp" type="image/webp">
-                  <img class="gt-phone" src="../../images/growtogether-optimized/identify-camera.jpg" width="643" height="1400" loading="lazy" alt="Identify Plant camera view framing a Monstera between scan brackets, with the prompt: Show us what you've found. We'll do the rest.">
-                </picture>
-                </span></span>
-              </span>
-              <span data-parallax data-parallax-range="20" style="display:block; margin-top:2.5rem;">
-                <span class="gt-device"><span class="screen">
-                <picture>
-                  <source srcset="../../images/growtogether-optimized/identify-result.webp" type="image/webp">
-                  <img class="gt-phone" src="../../images/growtogether-optimized/identify-result.jpg" width="555" height="1400" loading="lazy" alt="Plant Identified result: Monstera deliciosa with description, type, water, light, toxicity, size and temperature details, Add Plant and Scan Again buttons, and similar plants.">
-                </picture>
-                </span></span>
-              </span>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -684,6 +692,34 @@
             else if(e.key==='ArrowUp'||e.key==='ArrowLeft'){ e.preventDefault(); activate(tabs[(i-1+tabs.length)%tabs.length], true); }
           });
         });
+      })();
+    </script>
+
+    <!-- Experience carousel: prev/next scroll the snap track by one slide. -->
+    <script>
+      (function(){
+        var track = document.getElementById('gt-exp-track');
+        if(!track) return;
+        var prev = document.getElementById('gt-exp-prev');
+        var next = document.getElementById('gt-exp-next');
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        function step(dir){
+          var slide = track.querySelector('.gt-slide');
+          var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+          var amount = slide ? (slide.getBoundingClientRect().width + gap) : track.clientWidth;
+          track.scrollBy({ left: dir * amount, behavior: reduce ? 'auto' : 'smooth' });
+        }
+        function updateNav(){
+          var max = track.scrollWidth - track.clientWidth - 1;
+          prev.disabled = track.scrollLeft <= 0;
+          next.disabled = track.scrollLeft >= max;
+        }
+        prev.addEventListener('click', function(){ step(-1); });
+        next.addEventListener('click', function(){ step(1); });
+        track.addEventListener('scroll', function(){
+          window.requestAnimationFrame(updateNav);
+        });
+        updateNav();
       })();
     </script>
 
