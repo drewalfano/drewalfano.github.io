@@ -39,6 +39,7 @@
         /* beer label accents */
         --sf-lager:#3d5a80; --sf-pilsner:#2c7a4b; --sf-red:#c0392b;
         --sf-ipa:#cf7620; --sf-sour:#e0621f; --sf-guava:#d85a97;
+        --sf-brown:#6e4a30;
       }
       .sf-eyebrow{ font-family:"Work Sans",sans-serif; font-weight:500; text-transform:uppercase;
         letter-spacing:.2em; font-size:.72rem; color:var(--sf-navy); }
@@ -55,19 +56,34 @@
       .sf-section{ padding-top:clamp(2.75rem,5vw,4.5rem); padding-bottom:clamp(2.75rem,5vw,4.5rem); }
       .sf-rule{ border-top:1px solid #e5e7eb; }
       .sf-index{ font-family:"DM Sans"; font-weight:800; font-size:.8rem; letter-spacing:.06em; color:var(--sf-navy); }
+      .sf-sitelink{ display:inline-flex; align-items:center; gap:.4rem; font-family:"Work Sans",sans-serif;
+        font-weight:500; font-size:.88rem; color:#fff; background:var(--sf-navy); padding:.6rem 1rem;
+        text-decoration:none; transition:background .2s ease; }
+      .sf-sitelink:hover, .sf-sitelink:focus-visible{ background:var(--sf-navy-deep); }
+      .sf-sitelink .ar{ font-weight:600; }
 
       /* ---- Hero ---- */
       .sf-hero-grid{ display:grid; grid-template-columns:1fr; gap:2rem; align-items:center; }
       @media(min-width:900px){ .sf-hero-grid{ grid-template-columns:1.02fr .98fr; gap:3rem; } }
       /* colourful can cluster */
-      .sf-cans{ display:grid; grid-template-columns:repeat(3,1fr); align-items:end; gap:0;
-        max-width:440px; margin-left:auto; }
+      /* all three grounded on one baseline so shadows read consistently;
+         Light Lager sits on the top layer via z-index (not raised). */
+      .sf-cans{ display:grid; grid-template-columns:repeat(3,1fr); align-items:end; gap:1rem;
+        max-width:520px; margin:0 auto; padding:1.5rem 1.75rem 2.75rem; overflow:visible; }
       .sf-cans picture{ display:block; }
-      .sf-can{ width:100%; height:auto; display:block;
-        filter:drop-shadow(0 18px 26px rgba(17,24,39,.28)); }
-      .sf-can.b{ transform:translateY(-8%) scale(1.12); z-index:2; }
-      .sf-can.a{ transform:translateX(12%) rotate(-4deg); z-index:1; }
-      .sf-can.c{ transform:translateX(-12%) rotate(4deg); z-index:1; }
+      .sf-can{ width:100%; height:auto; display:block; cursor:default;
+        filter:drop-shadow(0 14px 16px rgba(17,24,39,.24)); }
+      .sf-can.a{ transform:rotate(-5deg); transform-origin:bottom center; z-index:1; }  /* left · Italian Pilsner */
+      .sf-can.b{ z-index:3; transform:translateY(-10px) scale(1.06); transform-origin:bottom center; } /* middle · Light Lager, top layer, slightly raised */
+      .sf-can.c{ transform:rotate(5deg); transform-origin:bottom center; z-index:1; }   /* right · Shipwreck Sour */
+      /* cursor-following can tooltip — colour-matched to the beer */
+      .sf-tip{ position:fixed; z-index:60; pointer-events:none; left:0; top:0;
+        background:var(--sf-navy); color:#fff; font-family:"Work Sans",sans-serif; font-size:.74rem;
+        padding:.38rem .62rem; white-space:nowrap; opacity:0; transform:translate(-50%,-145%);
+        transition:opacity .14s ease; box-shadow:0 6px 18px rgba(17,24,39,.28); }
+      .sf-tip.on{ opacity:1; }
+      .sf-tip b{ font-weight:600; }
+      .sf-tip .t{ opacity:.8; }
 
       /* ---- Facts ---- */
       .sf-facts{ display:grid; grid-template-columns:1fr; gap:1.5rem 2.5rem; }
@@ -85,6 +101,10 @@
 
       /* ---- Lineup band ---- */
       .sf-lineup-shot{ width:100%; height:auto; display:block; }
+      .sf-lineup-wrap{ position:relative; }
+      .sf-hot{ position:absolute; display:block; cursor:pointer; border-radius:6px;
+        transition:background .18s ease, box-shadow .18s ease; }
+      @media(hover:hover){ .sf-hot:hover{ background:rgba(36,53,78,.05); box-shadow:0 0 0 1px rgba(36,53,78,.18) inset; } }
       .sf-corefour{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem 1rem; margin-top:2.5rem; }
       @media(min-width:640px){ .sf-corefour{ grid-template-columns:repeat(3,1fr); } }
       @media(min-width:960px){ .sf-corefour{ grid-template-columns:repeat(6,1fr); gap:1.5rem .75rem; } }
@@ -113,14 +133,13 @@
       .sf-cap{ font-family:"Work Sans"; font-size:.78rem; color:#6b7280; margin-top:.6rem; }
       .sf-cap b{ color:var(--sf-ink); font-weight:600; }
 
-      /* ---- Gallery masonry (brand in the world). CSS columns = robust across
-             any image aspect, no cropping, no row-height guesswork. ---- */
-      .sf-mosaic{ column-count:2; column-gap:1rem; }
-      @media(min-width:640px){ .sf-mosaic{ column-count:3; } }
-      @media(min-width:1000px){ .sf-mosaic{ column-count:4; } }
-      .sf-tile{ position:relative; margin:0 0 1rem; overflow:hidden; background:#e9ebf0;
-        break-inside:avoid; -webkit-column-break-inside:avoid; }
-      .sf-tile img{ width:100%; height:auto; display:block; transition:transform .6s ease; }
+      /* ---- Gallery grid (brand in the world). Uniform 4:5 cells, object-fit
+             cover = perfectly even, no orphaned tiles, consistent orientation. ---- */
+      .sf-mosaic{ display:grid; grid-template-columns:repeat(2,1fr); gap:1rem; }
+      @media(min-width:640px){ .sf-mosaic{ grid-template-columns:repeat(3,1fr); } }
+      @media(min-width:1000px){ .sf-mosaic{ grid-template-columns:repeat(4,1fr); } }
+      .sf-tile{ position:relative; margin:0; overflow:hidden; background:#e9ebf0; aspect-ratio:4/5; }
+      .sf-tile img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
       @media(hover:hover){ .sf-tile:hover img{ transform:scale(1.05); } }
       .sf-tile figcaption{ position:absolute; left:0; right:0; bottom:0;
         font-family:"Work Sans"; font-size:.76rem; color:#fff; padding:1.6rem .9rem .8rem;
@@ -175,6 +194,9 @@
             a packaging system built to scale from five core beers to a shelf full of
             seasonals, and to hold up everywhere from the LCBO to a wrapped Zamboni.
           </p>
+          <a class="sf-sitelink" data-sf href="https://soofallsbrewery.com" target="_blank" rel="noopener" style="margin-top:1.5rem;">
+            Visit the live site — soofallsbrewery.com <span class="ar" aria-hidden="true">&#8599;</span>
+          </a>
           <div class="sf-facts" data-sf style="margin-top:2rem; border-top:1px solid #e5e7eb; padding-top:1.5rem;">
             <div><p class="sf-fact-k">Role</p><p class="sf-fact-v">In-house Graphic Designer &amp; Brand Lead</p></div>
             <div><p class="sf-fact-k">Timeline</p><p class="sf-fact-v">Dec 2023 – Mar 2026 · packaging ongoing</p></div>
@@ -188,12 +210,12 @@
               <img class="sf-can a" src="../../images/soo-falls-optimized/italianpilsner2.png" width="325" height="793" loading="eager" alt="Soo Falls Italian Pilsner can — green label with the circular Soo Falls Brewing Company mark.">
             </picture>
             <picture class="b">
-              <source srcset="../../images/soo-falls-optimized/ipa2.webp" type="image/webp">
-              <img class="sf-can b" src="../../images/soo-falls-optimized/ipa2.png" width="325" height="793" loading="eager" alt="Soo Falls Hazy IPA can — orange label with the circular Soo Falls Brewing Company mark.">
+              <source srcset="../../images/soo-falls-optimized/lager2.webp" type="image/webp">
+              <img class="sf-can b" src="../../images/soo-falls-optimized/lager2.png" width="325" height="793" loading="eager" alt="Soo Falls Light Lager can — blue label with the circular Soo Falls Brewing Company mark.">
             </picture>
             <picture class="c">
-              <source srcset="../../images/soo-falls-optimized/guava2.webp" type="image/webp">
-              <img class="sf-can c" src="../../images/soo-falls-optimized/guava2.png" width="325" height="793" loading="eager" alt="Soo Falls Shipwreck Sour Guava Passion Fruit can — pink label with a shipwreck illustration.">
+              <source srcset="../../images/soo-falls-optimized/sour2.webp" type="image/webp">
+              <img class="sf-can c" src="../../images/soo-falls-optimized/sour2.png" width="325" height="793" loading="eager" alt="Soo Falls Shipwreck Sour Citrus can — orange label with a shipwreck illustration.">
             </picture>
           </div>
         </div>
@@ -255,41 +277,26 @@
       </div>
       <figure class="sf-wrap" data-sf style="margin-top:2.25rem;">
         <div style="border:1px solid #e5e7eb; background:#fff; padding:clamp(1rem,3vw,2.5rem);">
-          <picture>
-            <source srcset="../../images/soo-falls-optimized/full-lineup.webp" type="image/webp">
-            <img class="sf-lineup-shot" src="../../images/soo-falls-optimized/full-lineup.jpg" width="2000" height="1545" loading="lazy" alt="The full Soo Falls packaging lineup on white: Light Lager, Italian Pilsner, Irish Red Ale, Hazy IPA, Dunkelweizen, two Shipwreck Sour flavours, Hefeweizen, Doppelbock, and a Festbier Oktoberfest lager, in two rows.">
-          </picture>
+          <div class="sf-lineup-wrap">
+            <picture>
+              <source srcset="../../images/soo-falls-optimized/full-lineup.webp" type="image/webp">
+              <img class="sf-lineup-shot" src="../../images/soo-falls-optimized/full-lineup.jpg" width="2000" height="1545" loading="lazy" alt="The full Soo Falls packaging lineup on white: Light Lager, Italian Pilsner, Irish Red Ale, Hazy IPA, Dunkelweizen, two Shipwreck Sour flavours, Hefeweizen, Doppelbock, and a Festbier Oktoberfest lager, in two rows.">
+            </picture>
+            <!-- hover hotspots (progressive enhancement; the alt text already lists every beer) -->
+            <span class="sf-hot" data-beer="Light Lager"    data-tier="Core"                  data-color="#24354e" style="left:15.5%;top:6%;width:12%;height:40%;"></span>
+            <span class="sf-hot" data-beer="Italian Pilsner" data-tier="Core"                  data-color="#1f5a37" style="left:29.5%;top:6%;width:12%;height:40%;"></span>
+            <span class="sf-hot" data-beer="Irish Red Ale"  data-tier="Core"                  data-color="#b23227" style="left:44%;top:6%;width:12%;height:40%;"></span>
+            <span class="sf-hot" data-beer="Hazy IPA"       data-tier="Core"                  data-color="#9c4a12" style="left:58.5%;top:6%;width:12%;height:40%;"></span>
+            <span class="sf-hot" data-beer="Dunkelweizen"   data-tier="Core"                  data-color="#6e4a30" style="left:73%;top:6%;width:12%;height:40%;"></span>
+            <span class="sf-hot" data-beer="Shipwreck Sour" data-tier="Sour Series · Citrus"  data-color="#b8541a" style="left:5.5%;top:52%;width:12%;height:41%;"></span>
+            <span class="sf-hot" data-beer="Shipwreck Sour" data-tier="Sour Series · Guava"   data-color="#b03a72" style="left:19%;top:52%;width:12%;height:41%;"></span>
+            <span class="sf-hot" data-beer="Hefeweizen"     data-tier="Seasonal"              data-color="#8a6a12" style="left:40%;top:52%;width:12%;height:41%;"></span>
+            <span class="sf-hot" data-beer="Doppelbock"     data-tier="Seasonal · Strong Lager" data-color="#1a1a1a" style="left:60%;top:52%;width:14%;height:41%;"></span>
+            <span class="sf-hot" data-beer="Festbier"       data-tier="Seasonal · Oktoberfest" data-color="#1f5a86" style="left:81%;top:52%;width:12%;height:41%;"></span>
+          </div>
         </div>
-        <figcaption class="sf-fig">Fig. 01 — The full lineup, core beers through seasonal releases</figcaption>
+        <figcaption class="sf-fig">Fig. 01 — The full lineup, core beers through seasonal releases · hover a can</figcaption>
       </figure>
-
-      <!-- core six, colour-coded (the fun) -->
-      <div class="sf-wrap sf-corefour" data-sf>
-        <div class="sf-corecan"><figure>
-          <picture><source srcset="../../images/soo-falls-optimized/lager2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/lager2.png" width="325" height="793" loading="lazy" alt="Light Lager can, blue label."></picture>
-          <figcaption class="nm"><span class="dot" style="background:var(--sf-lager)"></span>Light Lager<span class="st">Core</span></figcaption>
-        </figure></div>
-        <div class="sf-corecan"><figure>
-          <picture><source srcset="../../images/soo-falls-optimized/italianpilsner2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/italianpilsner2.png" width="325" height="793" loading="lazy" alt="Italian Pilsner can, green label."></picture>
-          <figcaption class="nm"><span class="dot" style="background:var(--sf-pilsner)"></span>Italian Pilsner<span class="st">Core · LCBO</span></figcaption>
-        </figure></div>
-        <div class="sf-corecan"><figure>
-          <picture><source srcset="../../images/soo-falls-optimized/red2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/red2.png" width="325" height="793" loading="lazy" alt="Irish Red Ale can, red label."></picture>
-          <figcaption class="nm"><span class="dot" style="background:var(--sf-red)"></span>Irish Red Ale<span class="st">Core</span></figcaption>
-        </figure></div>
-        <div class="sf-corecan"><figure>
-          <picture><source srcset="../../images/soo-falls-optimized/ipa2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/ipa2.png" width="325" height="793" loading="lazy" alt="Hazy IPA can, orange label."></picture>
-          <figcaption class="nm"><span class="dot" style="background:var(--sf-ipa)"></span>Hazy IPA<span class="st">Core</span></figcaption>
-        </figure></div>
-        <div class="sf-corecan"><figure>
-          <picture><source srcset="../../images/soo-falls-optimized/sour2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/sour2.png" width="325" height="793" loading="lazy" alt="Shipwreck Sour Citrus can, orange label with shipwreck illustration."></picture>
-          <figcaption class="nm"><span class="dot" style="background:var(--sf-sour)"></span>Shipwreck Sour<span class="st">Series · Citrus</span></figcaption>
-        </figure></div>
-        <div class="sf-corecan"><figure>
-          <picture><source srcset="../../images/soo-falls-optimized/guava2.webp" type="image/webp"><img src="../../images/soo-falls-optimized/guava2.png" width="325" height="793" loading="lazy" alt="Shipwreck Sour Guava Passion Fruit can, pink label with shipwreck illustration."></picture>
-          <figcaption class="nm"><span class="dot" style="background:var(--sf-guava)"></span>Shipwreck Sour<span class="st">Series · Guava</span></figcaption>
-        </figure></div>
-      </div>
     </section>
 
     <!-- ======================= LOGO RECONSTRUCTION ======================= -->
@@ -337,9 +344,16 @@
         <p class="sf-index" data-sf>04 — On the Shelf</p>
         <h2 class="sf-h2" data-sf style="margin-top:.75rem; max-width:22ch;">Built to hold up off the shelf, not just on it.</h2>
         <p class="sf-body" data-sf style="margin-top:1rem; max-width:54ch; font-size:1.02rem;">
-          The Italian Pilsner's LCBO launch put the label system to the test — carrying the
-          identity into general retail alongside the province's biggest brands, and off the
-          canning line by the pallet.
+          Retail was the real test. The Italian Pilsner carried the identity into LCBO stores
+          across Sault Ste. Marie and the surrounding area; the Hazy IPA pushed it further still —
+          onto LCBO shelves all the way to Sudbury, alongside the province's biggest brands.
+        </p>
+        <p class="sf-body" data-sf style="margin-top:1rem; max-width:54ch; font-size:1.02rem;">
+          Getting there meant designing inside two sets of technical requirements at once: LCBO
+          and The Beer Store each spec their own label dimensions, mandatory copy, and layout
+          rules before a can is even eligible for their shelves. The branded shelf boxes carried
+          the same constraints — every panel had to hold up as functional retail packaging first,
+          brand system second.
         </p>
       </div>
       <div class="sf-wrap sf-three" data-sf style="margin-top:2rem;">
@@ -348,7 +362,7 @@
             <picture><source srcset="../../images/soo-falls-optimized/img_1064.webp" type="image/webp">
             <img src="../../images/soo-falls-optimized/img_1064.jpg" loading="lazy" alt="A hand holding a Soo Falls Italian Pilsner can in front of an LCBO retail display reading Local Pours."></picture>
           </div>
-          <figcaption class="sf-cap"><b>LCBO launch.</b> Local Pours, provincial shelf.</figcaption>
+          <figcaption class="sf-cap"><b>Italian Pilsner · LCBO.</b> Sault Ste. Marie &amp; area.</figcaption>
         </figure>
         <figure class="sf-shot">
           <div class="frame" style="aspect-ratio:3/4;">
@@ -359,10 +373,10 @@
         </figure>
         <figure class="sf-shot">
           <div class="frame" style="aspect-ratio:3/4;">
-            <picture><source srcset="../../images/soo-falls-optimized/italian-pilsner-canning.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/italian-pilsner-canning.jpg" loading="lazy" alt="A hand holding an Italian Pilsner can above pallets of freshly canned Italian Pilsner on the canning line."></picture>
+            <picture><source srcset="../../images/soo-falls-optimized/hazyipa-lcbo.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/hazyipa-lcbo.jpg" loading="lazy" alt="A hand holding a Soo Falls Hazy IPA can in front of an LCBO Local Pours display stacked with Hazy IPA cases."></picture>
           </div>
-          <figcaption class="sf-cap"><b>Off the line.</b> By the pallet.</figcaption>
+          <figcaption class="sf-cap"><b>Hazy IPA · LCBO.</b> All the way to Sudbury.</figcaption>
         </figure>
       </div>
     </section>
@@ -378,7 +392,16 @@
           one, and directed the look everywhere it landed.
         </p>
       </div>
-      <div class="sf-wrap sf-mosaic" data-sf style="margin-top:2rem;">
+      <figure class="sf-wrap" data-sf style="margin-top:2rem;">
+        <div style="overflow:hidden; border:1px solid #e5e7eb; background:#111;">
+          <picture>
+            <source srcset="../../images/soo-falls-optimized/doppelbock-billboard.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/doppelbock-billboard.jpg" width="1800" height="1256" loading="lazy" style="width:100%; height:auto; display:block;" alt="A highway billboard for Soo Falls Doppelbock reading THE GOAT OF LOCAL BEER, featuring the black ram-horned Doppelbock Strong Lager can.">
+          </picture>
+        </div>
+        <figcaption class="sf-fig">Out-of-home — the Doppelbock "GOAT" billboard</figcaption>
+      </figure>
+      <div class="sf-wrap sf-mosaic" data-sf style="margin-top:1.5rem;">
         <figure class="sf-tile wide tall">
           <picture><source srcset="../../images/soo-falls-optimized/img_7333.webp" type="image/webp">
           <img src="../../images/soo-falls-optimized/img_7333.jpg" loading="lazy" alt="The Soo Falls Brewing Company neon sign glowing in a dark taproom, reading Est. 1899."></picture>
@@ -422,29 +445,6 @@
       </div>
     </section>
 
-    <!-- ======================= NAVY STATEMENT ======================= -->
-    <section class="sf-field full-bleed" data-reveal>
-      <div class="sf-wrap sf-section">
-        <p class="sf-eyebrow on-navy">One System</p>
-        <p class="sf-huge" style="margin-top:1.25rem; max-width:24ch;">
-          From the can to the Zamboni, it all reads as one brand.
-        </p>
-        <p style="font-family:'Work Sans'; color:#c7d2e4; margin-top:1.25rem; max-width:56ch; font-size:1.05rem; line-height:1.6;">
-          Navy anchors the family; each beer brings its own colour. That balance — one disciplined
-          system, room for personality — is what let the identity stretch across packaging, retail,
-          environments, and campaigns without ever coming apart.
-        </p>
-        <div class="sf-swatches" aria-hidden="true">
-          <span class="sf-sw" style="background:#24354e"></span>
-          <span class="sf-sw" style="background:var(--sf-pilsner)"></span>
-          <span class="sf-sw" style="background:var(--sf-red)"></span>
-          <span class="sf-sw" style="background:var(--sf-ipa)"></span>
-          <span class="sf-sw" style="background:var(--sf-guava)"></span>
-          <span class="sf-sw" style="background:var(--sf-lager)"></span>
-        </div>
-      </div>
-    </section>
-
     <!-- ======================= ROLE / REFLECTION ======================= -->
     <section class="sf-section">
       <div class="sf-wrap">
@@ -466,17 +466,7 @@
       </div>
     </section>
 
-    <!-- ======================= CLOSING FULL-BLEED ======================= -->
-    <section class="sf-closer full-bleed" data-reveal>
-      <div style="aspect-ratio:16/9; max-height:70vh; overflow:hidden;">
-        <picture>
-          <source srcset="../../images/soo-falls-optimized/soo-falls-glass.webp" type="image/webp">
-          <img src="../../images/soo-falls-optimized/soo-falls-glass.jpg" loading="lazy" alt="A full pint of Soo Falls beer held up against a brick wall, the wordmark on the glass.">
-        </picture>
-      </div>
-    </section>
-
-    <section class="sf-wrap" style="padding:1.5rem 1.5rem 3rem;">
+    <section class="sf-wrap" style="padding:2.5rem 1.5rem 3rem;">
       <a href="#top" class="link-underline text-sm text-gray-500 hover:text-brand">&uarr; Back to top</a>
     </section>
 
@@ -496,6 +486,26 @@
         <a href="mailto:hello@drewalfano.com" class="link-underline hover:text-brand">hello@drewalfano.com</a>
     </footer>
 
+    <!-- Cursor-following label for the hero cans -->
+    <div class="sf-tip" id="can-tip" aria-hidden="true"></div>
+    <script>
+      (function(){
+        var tip=document.getElementById('can-tip');
+        var cans=document.querySelectorAll('.sf-hot[data-beer]');
+        if(!tip || !cans.length) return;
+        if(window.matchMedia && !window.matchMedia('(hover: hover)').matches) return; // skip on touch
+        function move(e){ tip.style.left=e.clientX+'px'; tip.style.top=e.clientY+'px'; }
+        cans.forEach(function(c){
+          c.addEventListener('mouseenter', function(){
+            tip.innerHTML='<b>'+c.dataset.beer+'</b> <span class="t">— '+c.dataset.tier+'</span>';
+            tip.style.background=c.dataset.color || '#24354e';
+            tip.classList.add('on');
+          });
+          c.addEventListener('mousemove', move);
+          c.addEventListener('mouseleave', function(){ tip.classList.remove('on'); });
+        });
+      })();
+    </script>
     <!-- Before/after slider -->
     <script>
       (function(){
