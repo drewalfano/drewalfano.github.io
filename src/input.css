@@ -55,6 +55,14 @@
   .filter-btn.is-active {
     @apply bg-ink text-paper;
   }
+  .filter-btn {
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+  }
+  @media (hover: hover) {
+    .filter-btn:not(.is-active):hover {
+      @apply bg-gray-100 border-gray-400;
+    }
+  }
 
   /* Project accent color: set --accent (true brand hex, for rules/chips/
      swatches) and --accent-text (a darkened, contrast-safe variant of the
@@ -75,6 +83,20 @@
   }
   .border-accent-safe {
     border-color: var(--accent-text, var(--accent, #D0272B));
+  }
+
+  /* Stretched-link overlay: the anchor itself stays position:static so its
+     ::after escapes past it to the nearest POSITIONED ancestor (the row
+     wrapper), stretching the click target to the whole row instead of just
+     the title text. Never add position:relative to .stretched-link itself
+     — that would trap the overlay inside the anchor's own tiny box instead.
+     Elements that must stay outside the click target (e.g. a description
+     paragraph on desktop) sit above this via a higher z-index of their own. */
+  .stretched-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 10;
   }
 
   /* Animated underline for inline text links */
@@ -107,8 +129,8 @@
 
   /* Scroll-reveal, activated only via JS so content still shows without it.
      Reserved for image groups and project cards — body copy, metadata, and
-     facts blocks should never carry this (they must be immediately visible),
-     and signature headings use .reveal-heading below instead. */
+     facts blocks should never carry this (they must be immediately visible).
+     Headings render in place with no entrance animation. */
   .reveal {
     opacity: 0;
     transform: translateY(16px);
@@ -117,39 +139,6 @@
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
-  }
-
-  /* Masked heading reveal: the heading's content rises up from behind a
-     clipped baseline rather than simply fading in place. Deliberately
-     reserved for the two moments the site treats as signature — page H1s
-     and the one colour-field statement per case study — so it stays scarce
-     and reads as a considered beat, not a sitewide animation. The outer
-     element (targeted by data-reveal="heading") clips overflow; the inner
-     span carries the actual transform so multi-line headings mask as one
-     block regardless of how many lines they wrap to. */
-  .reveal-heading {
-    overflow: hidden;
-  }
-  .reveal-heading-inner {
-    display: block;
-    opacity: 0;
-    transform: translateY(100%);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-  }
-  .reveal-heading.is-visible .reveal-heading-inner {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* Contact-sheet card previews (Work grid, flagship cards only): three
-     stacked frames crossfade based on coarse pointer position, driven by
-     inline opacity + a small JS intent delay (see work/index.html). Touch
-     and keyboard never fire the pointer logic, so frame 0's opacity:1
-     inline default is what they see — no separate touch/keyboard path
-     needed. Reduced-motion is covered by the sitewide transition-duration
-     override, not repeated here. */
-  .contact-sheet-frame {
-    transition: opacity 200ms ease;
   }
 
   /* Project imagery starts on a tighter crop and settles to the full
@@ -272,6 +261,30 @@
       background-color: #111111;
       color: #FFFFFF;
       border-color: #111111;
+    }
+  }
+
+  /* Scroll-driven parallax (featured-row badges, About portrait): applied
+     via JS (assets/js/site.js) only to browsers that support CSS
+     scroll-timelines and only outside prefers-reduced-motion — browsers
+     without support get a rAF-driven inline transform instead, computed
+     entirely in JS, so no CSS is needed for that path. Must be its own
+     element (an inner layer with no other transform on it), never the same
+     element as a static positioning transform, or this animation's
+     transform overwrites that positioning outright. */
+  @supports (animation-timeline: view()) {
+    .parallax-scroll {
+      animation: parallax-drift linear;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+  }
+  @keyframes parallax-drift {
+    from {
+      transform: translateY(-12px);
+    }
+    to {
+      transform: translateY(12px);
     }
   }
 }
