@@ -27,11 +27,11 @@
   });
 })();
 
-// Scroll-driven parallax, desktop only: featured-row badges (data-parallax
-//="badge", on an inner layer with no other transform, so this never fights
-// a positioning transform on the same element) and the About portrait
-// (data-parallax="portrait"). Prefers a CSS scroll-timeline animation;
-// falls back to a throttled rAF scroll listener for browsers without it
+// Scroll-driven parallax, desktop only: currently just the About portrait
+// (data-parallax="portrait") — the site's one scroll-driven effect after
+// the featured-row badge parallax was removed. Generic over any future
+// [data-parallax] element. Prefers a CSS scroll-timeline animation; falls
+// back to a throttled rAF scroll listener for browsers without it
 // (currently Firefox). Fully skipped under prefers-reduced-motion, since
 // the fallback path computes its own transform and isn't covered by the
 // sitewide transition-duration override.

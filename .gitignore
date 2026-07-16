@@ -12,3 +12,12 @@ images/high-seas-brewing/
 images/canal-district-logo.png
 images/canal-district-hero.png
 images/Jayl-House-Thumbnail.png
+images/D_Alfano_Proj1_Dieline.png
+
+# Stray design-tool export dumps (default "Untitled" filenames from Finder/
+# design-tool exports) — never a real, intentionally-named project asset.
+images/Untitled*.png
+
+# Local working notes / session checkpoints — useful for picking a session
+# back up, not meant to be read by anyone else or tracked in history.
+/notes/

@@ -127,6 +127,72 @@
     transform: scaleX(1);
   }
 
+  /* Nav logo hover-reveal: "DA" opens into "Drew Alfano". D and A are fixed
+     anchors; "rew " and "lfano" are separate segments that expand from 0
+     simultaneously. Each segment is an inline-grid with a single animatable
+     column (0fr -> 1fr) — the standard CSS-only way to animate to a
+     content's natural width without guessing a pixel value or measuring in
+     JS. min-width:0 on both the grid and its child is required, or grid's
+     default min-width:auto refuses to shrink the track below content size.
+     The underline shares the exact same duration/easing so both read as one
+     motion. Disabled entirely on touch (only wired up inside
+     (hover:hover)) and forced back to collapsed+inert under reduced motion
+     below — the sitewide transition-duration override alone would just
+     make it snap open, which is explicitly not wanted here. */
+  .nav-logo {
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+  }
+  .nav-logo-seg {
+    display: inline-grid;
+    grid-template-columns: 0fr;
+    min-width: 0;
+    opacity: 0;
+  }
+  .nav-logo-seg > span {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  .nav-logo-underline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background-color: #D0272B;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  @media (hover: hover) {
+    .nav-logo-seg,
+    .nav-logo-underline {
+      transition: grid-template-columns 0.42s ease-out, opacity 0.42s ease-out, transform 0.42s ease-out;
+    }
+    .nav-logo:hover .nav-logo-seg,
+    .nav-logo:focus-visible .nav-logo-seg {
+      grid-template-columns: 1fr;
+      opacity: 1;
+    }
+    .nav-logo:hover .nav-logo-underline,
+    .nav-logo:focus-visible .nav-logo-underline {
+      transform: scaleX(1);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav-logo:hover .nav-logo-seg,
+    .nav-logo:focus-visible .nav-logo-seg {
+      grid-template-columns: 0fr;
+      opacity: 0;
+    }
+    .nav-logo:hover .nav-logo-underline,
+    .nav-logo:focus-visible .nav-logo-underline {
+      transform: scaleX(0);
+    }
+  }
+
   /* Scroll-reveal, activated only via JS so content still shows without it.
      Reserved for image groups and project cards — body copy, metadata, and
      facts blocks should never carry this (they must be immediately visible).
@@ -264,8 +330,8 @@
     }
   }
 
-  /* Scroll-driven parallax (featured-row badges, About portrait): applied
-     via JS (assets/js/site.js) only to browsers that support CSS
+  /* Scroll-driven parallax (currently just the About portrait): applied via
+     JS (assets/js/site.js) only to browsers that support CSS
      scroll-timelines and only outside prefers-reduced-motion — browsers
      without support get a rAF-driven inline transform instead, computed
      entirely in JS, so no CSS is needed for that path. Must be its own
@@ -286,5 +352,16 @@
     to {
       transform: translateY(12px);
     }
+  }
+
+  /* Lightbox gallery swipe track: hides the scrollbar on the native
+     scroll-snap track (work/index.html) — swipe/scroll still works
+     identically, just without a visible scrollbar drawn across the image. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }

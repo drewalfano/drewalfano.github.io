@@ -27,7 +27,7 @@
 <body class="bg-paper text-ink font-body">
 
     <header id="top" class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
-        <a href="/" class="font-display font-extrabold text-lg">DA</a>
+        <a href="/" aria-label="Drew Alfano" class="nav-logo font-display font-extrabold text-lg"><span aria-hidden="true">D</span><span aria-hidden="true" class="nav-logo-seg"><span>rew&nbsp;</span></span><span aria-hidden="true">A</span><span aria-hidden="true" class="nav-logo-seg"><span>lfano</span></span><span aria-hidden="true" class="nav-logo-underline"></span></a>
         <nav class="flex gap-6 text-xs uppercase tracking-wide font-medium">
             <a href="/work/" class="text-brand border-b-2 border-brand pb-1">Work</a>
             <a href="/about/" class="link-underline hover:text-brand">About</a>
@@ -116,8 +116,8 @@
                 <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Branding</p>
             </button>
 
-            <button type="button" style="--accent:#17475a; --accent-text:#17475a" class="project-card group text-left lightbox-trigger" data-tags="packaging,student-work" data-gallery="high-seas-brewing"
-                data-title="High Seas" data-description="Packaging concept and label system for a fictional rum brand, built around nautical illustration." data-meta="Packaging, Student Work">
+            <button type="button" style="--accent:#17475a; --accent-text:#17475a" class="project-card group text-left lightbox-trigger" data-tags="branding,packaging,campaigns,student-work" data-gallery="high-seas-brewing"
+                data-title="High Seas" data-description="A concept brand for a fictional maritime craft brewery, built around a bold illustrative identity designed to scale across packaging and campaign." data-description-full="High Seas Brewing is a self-directed concept project for a fictional craft brewery, built around a bold, maritime-inspired identity. The work pairs a full brand strategy with an illustrative visual system engineered for high-impact scalability, then carries it across a packaging suite for the flagship lineup and a multi-channel campaign spanning outdoor billboards, street-style posters, and social-first promotional content." data-meta="Branding, Packaging, Campaign, Student Work">
                 <div class="aspect-square overflow-hidden bg-[#17475a]">
                     <picture>
                         <source srcset="/images/high-seas-brewing-optimized/high-seas-logo-card.webp" type="image/webp">
@@ -125,11 +125,11 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-accent-safe">High Seas</p>
-                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Packaging, Student Work</p>
+                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Branding, Packaging, Campaign, Student Work</p>
             </button>
 
-            <button type="button" style="--accent:#d0272b; --accent-text:#d0272b" class="project-card group text-left lightbox-trigger" data-tags="illustration,student-work" data-gallery="atari-2600"
-                data-title="Atari 2600" data-description="A poster illustration series celebrating the design history of the Atari 2600." data-meta="Illustration, Student Work">
+            <button type="button" style="--accent:#d0272b; --accent-text:#d0272b" class="project-card group text-left lightbox-trigger" data-tags="illustration,marketing-materials,student-work" data-gallery="atari-2600"
+                data-title="Atari 2600" data-description="A precision vector illustration study of the Atari 2600, extended into a retro-inspired marketing kit." data-description-full="This project centers on high-detail, realistic vector illustrations of the Atari 2600, with a focus on technical execution and precision. It replicates the console's complex textures, materials, and vintage hardware aesthetic entirely through vector tools, then integrates the illustrations into a broader marketing kit of retro-inspired posters, technical schematics, and custom apparel concepts." data-meta="Illustration, Marketing Materials, Student Work">
                 <div class="aspect-square overflow-hidden bg-[#d0272b]">
                     <picture>
                         <source srcset="/images/atari-2600-optimized/atari-2600-logo-card.webp" type="image/webp">
@@ -137,11 +137,11 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-accent-safe">Atari 2600</p>
-                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Illustration, Student Work</p>
+                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Illustration, Marketing Materials, Student Work</p>
             </button>
 
-            <button type="button" style="--accent:#c5c2e3; --accent-text:#4b3f82" class="project-card group text-left lightbox-trigger" data-tags="illustration,student-work" data-gallery="coffee-guy"
-                data-title="Coffee Guy" data-description="A character illustration and sticker set made for a local coffee shop." data-meta="Illustration, Student Work">
+            <button type="button" style="--accent:#c5c2e3; --accent-text:#4b3f82" class="project-card group text-left lightbox-trigger" data-tags="logo-design,visual-identity,illustration,packaging,student-work" data-gallery="coffee-guy"
+                data-title="Coffee Guy" data-description="A playful, character-driven identity concept for a boutique coffee brand, from custom illustrative logo through packaging." data-description-full="This project develops a playful, character-driven visual identity for a boutique coffee brand concept. It centers on a custom illustrative logo paired with a vibrant, minimalist color palette built to stand out in a competitive retail space, then extends the identity across physical and digital assets including specialized beverage packaging and seasonal promotional materials." data-meta="Logo Design, Visual Identity, Illustration, Packaging, Student Work">
                 <div class="aspect-square overflow-hidden bg-[#c5c2e3]">
                     <picture>
                         <source srcset="/images/coffee-guy-optimized/coffee-guy-logo-card.webp" type="image/webp">
@@ -149,7 +149,7 @@
                     </picture>
                 </div>
                 <p class="font-body text-sm mt-2 group-hover:text-accent-safe">Coffee Guy</p>
-                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Illustration, Student Work</p>
+                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Logo Design, Visual Identity, Illustration, Packaging, Student Work</p>
             </button>
 
             <button type="button" class="project-card group text-left lightbox-trigger" data-tags="social-media,campaigns"
@@ -173,30 +173,43 @@
         <a href="mailto:hello@drewalfano.com" class="link-underline hover:text-brand">hello@drewalfano.com</a>
     </footer>
 
-    <!-- Lightbox modal -->
-    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-ink/90 items-center justify-center px-6">
-        <div class="bg-paper text-ink max-w-lg w-full">
-            <div class="relative aspect-[4/3] bg-gray-200 overflow-hidden">
-                <span id="lightbox-image-label" class="absolute inset-0 flex items-center justify-center px-4 text-center font-display font-extrabold text-gray-500 text-xl"></span>
-                <picture id="lightbox-picture" class="hidden absolute inset-0">
-                    <source id="lightbox-source" type="image/webp">
-                    <img id="lightbox-img" src="" alt="" class="w-full h-full object-contain">
-                </picture>
-                <button type="button" id="lightbox-prev" aria-label="Previous image" class="hidden absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center bg-paper/90 text-ink hover:bg-paper">
+    <!-- Lightbox: near-full-page image-forward viewer for the 5 Selected Work
+         projects. Animation, focus trap, and scroll lock are a follow-up
+         pass (pending approval) — this is the visual/structural redesign:
+         dark backdrop, pinned close button, responsive image stage shared
+         by desktop arrows and mobile swipe (via native scroll-snap), and
+         per-image captions. -->
+    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-[#1C1C1C]" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+        <button type="button" id="lightbox-close" aria-label="Close" class="fixed top-4 right-4 md:top-6 md:right-6 z-20 w-10 h-10 rounded-full bg-paper/10 text-paper flex items-center justify-center hover:bg-paper/20 text-xl leading-none">
+            <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="h-full w-full flex flex-col items-center justify-center px-4 md:px-20 py-16 md:py-12">
+            <!-- Title-only fallback for projects with no approved gallery yet -->
+            <span id="lightbox-image-label" class="hidden flex-1 w-full items-center justify-center font-display font-extrabold text-paper text-2xl text-center px-6"></span>
+
+            <!-- Gallery stage: one scroll-snap track drives both desktop
+                 (arrow buttons scroll it programmatically) and mobile
+                 (native touch swipe) — a single mechanism, not two. -->
+            <div id="lightbox-stage" class="hidden relative w-full flex-1 min-h-0">
+                <button type="button" id="lightbox-prev" aria-label="Previous image" class="hidden max-md:hidden absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-paper/10 text-paper hover:bg-paper/20">
                     <span aria-hidden="true">&larr;</span>
                 </button>
-                <button type="button" id="lightbox-next" aria-label="Next image" class="hidden absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center bg-paper/90 text-ink hover:bg-paper">
+                <div id="lightbox-track" class="h-full w-full flex overflow-x-auto snap-x snap-mandatory no-scrollbar">
+                    <!-- gallery slides injected here by JS -->
+                </div>
+                <button type="button" id="lightbox-next" aria-label="Next image" class="hidden max-md:hidden absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-paper/10 text-paper hover:bg-paper/20">
                     <span aria-hidden="true">&rarr;</span>
                 </button>
-                <span id="lightbox-position" class="hidden absolute bottom-2 right-2 text-xs font-body bg-ink/70 text-paper px-2 py-0.5"></span>
             </div>
-            <div class="p-8">
-                <span id="lightbox-meta" class="text-brand font-body text-sm font-medium uppercase tracking-wide"></span>
-                <h2 id="lightbox-title" class="font-display font-extrabold text-2xl mt-2"></h2>
-                <p id="lightbox-description" class="text-gray-600 mt-4 leading-relaxed"></p>
-                <button type="button" id="lightbox-close" class="inline-block mt-6 font-body font-medium text-sm border-b-2 border-brand text-brand hover:opacity-70">
-                    Close &times;
-                </button>
+
+            <p id="lightbox-caption" class="hidden text-gray-300 text-sm text-center mt-4 max-w-xl"></p>
+            <span id="lightbox-position" class="hidden text-gray-500 text-xs mt-2"></span>
+
+            <div class="mt-6 max-w-xl text-center">
+                <span id="lightbox-meta" class="text-gray-400 font-body text-xs font-medium uppercase tracking-wide"></span>
+                <h2 id="lightbox-title" class="font-display font-extrabold text-paper text-xl md:text-2xl mt-2"></h2>
+                <p id="lightbox-description" class="text-gray-300 mt-3 leading-relaxed text-sm"></p>
             </div>
         </div>
     </div>
@@ -252,9 +265,9 @@
         // Approved image sequences for supporting projects (Project SEARCH
         // Algoma has no approved sequence yet, so it is deliberately absent
         // here and falls back to the title-only state).
-        // This shape (ordered array of {src, webp, alt}) is designed to be
-        // lifted directly into the future large editorial viewer without
-        // reshaping the data.
+        // Shape: ordered array of {src, webp, alt, caption?}. caption is
+        // optional per image — an image with none shows no caption text at
+        // all, it never falls back to the project description.
         const projectGalleries = {
             "jayl-house": [
                 { src: "/images/jayl-house-optimized/jayl-house-storefront.jpg", webp: "/images/jayl-house-optimized/jayl-house-storefront.webp", alt: "The Jayl House horizontal wordmark in deep green on a backlit beige storefront sign mockup" },
@@ -274,6 +287,7 @@
             ],
             "coffee-guy": [
                 { src: "/images/coffee-guy-optimized/coffee-guy-logo-full.png", webp: "/images/coffee-guy-optimized/coffee-guy-logo-full.webp", alt: "Coffee Guy character logo: a coffee cup face wearing glasses with a steam swirl for hair" },
+                { src: "/images/coffee-guy-optimized/coffee-guy-dieline.png", webp: "/images/coffee-guy-optimized/coffee-guy-dieline.webp", alt: "Coffee Guy cup dieline template in Espresso Indigo and Lavender Latte spot colors, with a repeating \"Woah there! Careful this is very hot\" warning band along the base" },
                 { src: "/images/coffee-guy-optimized/coffee-guy-cup.png", webp: "/images/coffee-guy-optimized/coffee-guy-cup.webp", alt: "Coffee Guy branded paper cup product photo" },
                 { src: "/images/coffee-guy-optimized/coffee-guy-banner.jpg", webp: "/images/coffee-guy-optimized/coffee-guy-banner.webp", alt: "Coffee Guy promotional banner ad: \"Relax This Fall and Enjoy a Coffee On Us\"" },
                 { src: "/images/coffee-guy-optimized/coffee-guy-pattern.png", webp: "/images/coffee-guy-optimized/coffee-guy-pattern.webp", alt: "Coffee Guy repeating brand pattern texture" }
@@ -285,39 +299,224 @@
         const lightboxDescription = document.getElementById("lightbox-description");
         const lightboxMeta = document.getElementById("lightbox-meta");
         const lightboxImageLabel = document.getElementById("lightbox-image-label");
-        const lightboxPicture = document.getElementById("lightbox-picture");
-        const lightboxSource = document.getElementById("lightbox-source");
-        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxStage = document.getElementById("lightbox-stage");
+        const lightboxTrack = document.getElementById("lightbox-track");
+        const lightboxCaption = document.getElementById("lightbox-caption");
         const lightboxPrev = document.getElementById("lightbox-prev");
         const lightboxNext = document.getElementById("lightbox-next");
         const lightboxPosition = document.getElementById("lightbox-position");
+        const lightboxClose = document.getElementById("lightbox-close");
 
         let currentGallery = null;
         let currentIndex = 0;
+        let suppressScrollSync = false;
+        let scrollSyncFrame = null;
+        let openingTileRect = null;
+        let previouslyFocused = null;
+        let scrollLockActive = false;
 
-        function preload(src) {
-            var img = new Image();
-            img.src = src;
+        function prefersReducedMotion() {
+            return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         }
 
-        function renderGalleryImage() {
-            if (!currentGallery) return;
+        // Scale-from-tile open/close: FLIP via the Web Animations API, not
+        // the View Transitions API — View Transitions still isn't in
+        // Firefox and only landed in Safari 18, so using it would mean
+        // maintaining a full FLIP fallback anyway for one browser gap.
+        // Animating the SLIDE CONTAINER (not the <img> itself) sidesteps a
+        // real race condition: gallery images are a different, often
+        // uncached asset from the grid thumbnail, so the <img> may not have
+        // finished loading (and can report a 0×0 rect) at the moment the
+        // lightbox opens. The container's box is CSS-determined the instant
+        // it's laid out, independent of whether its image has arrived yet.
+        function runOpenTransition(targetEl) {
+            var reduced = prefersReducedMotion();
+            if (reduced || !openingTileRect || !targetEl) {
+                lightbox.animate([{ opacity: 0 }, { opacity: 1 }], { duration: reduced ? 200 : 350, easing: "ease-out" });
+                return;
+            }
+            var targetRect = targetEl.getBoundingClientRect();
+            if (!targetRect.width || !targetRect.height) {
+                lightbox.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 350, easing: "ease-out" });
+                return;
+            }
+            var scaleX = openingTileRect.width / targetRect.width;
+            var scaleY = openingTileRect.height / targetRect.height;
+            var dx = (openingTileRect.left + openingTileRect.width / 2) - (targetRect.left + targetRect.width / 2);
+            var dy = (openingTileRect.top + openingTileRect.height / 2) - (targetRect.top + targetRect.height / 2);
+
+            lightbox.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 350, easing: "ease-out" });
+            targetEl.animate(
+                [
+                    { transform: "translate(" + dx + "px, " + dy + "px) scale(" + scaleX + ", " + scaleY + ")" },
+                    { transform: "translate(0px, 0px) scale(1, 1)" }
+                ],
+                { duration: 350, easing: "ease-out" }
+            );
+        }
+
+        // Closing always shrinks back toward the ORIGINAL tile that opened
+        // the viewer, from whichever image is currently on screen — not
+        // necessarily the first one, if the visitor has paged since opening.
+        function runCloseTransition(targetEl, done) {
+            var reduced = prefersReducedMotion();
+            if (reduced || !openingTileRect || !targetEl) {
+                var fade = lightbox.animate([{ opacity: 1 }, { opacity: 0 }], { duration: reduced ? 200 : 300, easing: "ease-out" });
+                fade.finished.then(done, done);
+                return;
+            }
+            var targetRect = targetEl.getBoundingClientRect();
+            if (!targetRect.width || !targetRect.height) {
+                var fade2 = lightbox.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, easing: "ease-out" });
+                fade2.finished.then(done, done);
+                return;
+            }
+            var scaleX = openingTileRect.width / targetRect.width;
+            var scaleY = openingTileRect.height / targetRect.height;
+            var dx = (openingTileRect.left + openingTileRect.width / 2) - (targetRect.left + targetRect.width / 2);
+            var dy = (openingTileRect.top + openingTileRect.height / 2) - (targetRect.top + targetRect.height / 2);
+
+            lightbox.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, easing: "ease-out" });
+            var imgAnim = targetEl.animate(
+                [
+                    { transform: "translate(0px, 0px) scale(1, 1)" },
+                    { transform: "translate(" + dx + "px, " + dy + "px) scale(" + scaleX + ", " + scaleY + ")" }
+                ],
+                { duration: 300, easing: "ease-out" }
+            );
+            imgAnim.finished.then(done, done);
+        }
+
+        // Scroll lock: padding-right compensates for the vanishing
+        // scrollbar so page content doesn't visibly shift width while the
+        // dialog is open.
+        function lockScroll() {
+            var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            document.body.style.overflow = "hidden";
+            if (scrollbarWidth > 0) document.body.style.paddingRight = scrollbarWidth + "px";
+            scrollLockActive = true;
+        }
+        function unlockScroll() {
+            if (!scrollLockActive) return;
+            document.body.style.overflow = "";
+            document.body.style.paddingRight = "";
+            scrollLockActive = false;
+        }
+
+        // Focus trap: Tab/Shift+Tab cycle within the dialog's own focusable
+        // elements. Escape and arrow-key paging live on this same
+        // dialog-scoped listener (not document) — once focus is trapped
+        // inside the dialog, a listener here catches everything relevant
+        // via bubbling without ever needing a "some paths might have to skip
+        // this because it's not open" guard, since a hidden dialog can't
+        // hold focus in the first place.
+        function getFocusable() {
+            // getClientRects().length, not offsetParent — offsetParent is
+            // spec'd to return null for position:fixed elements (the close
+            // button), which would otherwise wrongly drop it from the trap.
+            return Array.prototype.slice
+                .call(lightbox.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])'))
+                .filter((el) => el.getClientRects().length > 0 && !el.disabled);
+        }
+        lightbox.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+                closeLightbox();
+                return;
+            }
+            if (e.key === "ArrowLeft") {
+                stepGallery(-1);
+                return;
+            }
+            if (e.key === "ArrowRight") {
+                stepGallery(1);
+                return;
+            }
+            if (e.key !== "Tab") return;
+            var focusable = getFocusable();
+            if (!focusable.length) return;
+            var first = focusable[0];
+            var last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        });
+
+        // Every gallery image is rendered as a real slide in the scroll-snap
+        // track up front (see renderGallery below), so the old "preload a
+        // neighbour via a throwaway Image() object" trick from the small-
+        // modal version is redundant here — there's no swapped single <img>
+        // left to warm the cache for. loading="eager" on the first slide
+        // plus native loading="lazy" on the rest covers the same "no flash"
+        // goal without it.
+        function renderGallery(gallery) {
+            lightboxTrack.innerHTML = "";
+            gallery.forEach((item, i) => {
+                var slide = document.createElement("div");
+                slide.className = "h-full w-full shrink-0 snap-center flex items-center justify-center";
+                var picture = document.createElement("picture");
+                var source = document.createElement("source");
+                source.type = "image/webp";
+                source.srcset = item.webp;
+                var img = document.createElement("img");
+                img.src = item.src;
+                img.alt = item.alt;
+                img.loading = i === 0 ? "eager" : "lazy";
+                img.className = "max-w-full max-h-full object-contain";
+                picture.appendChild(source);
+                picture.appendChild(img);
+                slide.appendChild(picture);
+                lightboxTrack.appendChild(slide);
+            });
+        }
+
+        function updateForIndex() {
             var item = currentGallery[currentIndex];
-            lightboxSource.srcset = item.webp;
-            lightboxImg.src = item.src;
-            lightboxImg.alt = item.alt;
+            lightboxCaption.textContent = item.caption || "";
+            lightboxCaption.classList.toggle("hidden", !item.caption);
             lightboxPosition.textContent = ("0" + (currentIndex + 1)).slice(-2) + " / 0" + currentGallery.length;
-            preload(currentGallery[(currentIndex + 1) % currentGallery.length].src);
-            preload(currentGallery[(currentIndex - 1 + currentGallery.length) % currentGallery.length].src);
+        }
+
+        function scrollToIndex(index, smooth) {
+            suppressScrollSync = true;
+            var slide = lightboxTrack.children[index];
+            if (slide) slide.scrollIntoView({ behavior: smooth ? "smooth" : "instant", inline: "center", block: "nearest" });
+            window.setTimeout(() => { suppressScrollSync = false; }, smooth ? 400 : 50);
         }
 
         function stepGallery(delta) {
             if (!currentGallery) return;
             currentIndex = (currentIndex + delta + currentGallery.length) % currentGallery.length;
-            renderGalleryImage();
+            updateForIndex();
+            scrollToIndex(currentIndex, true);
         }
 
+        // Native scroll (mouse-driven arrow scrolls or touch swipe) is the
+        // source of truth for the current slide — this listener just keeps
+        // currentIndex/caption/counter in sync with wherever the track
+        // actually is, rather than the reverse.
+        lightboxTrack.addEventListener("scroll", () => {
+            if (suppressScrollSync || !currentGallery) return;
+            if (scrollSyncFrame) cancelAnimationFrame(scrollSyncFrame);
+            scrollSyncFrame = requestAnimationFrame(() => {
+                var width = lightboxTrack.clientWidth || 1;
+                var index = Math.round(lightboxTrack.scrollLeft / width);
+                index = Math.max(0, Math.min(currentGallery.length - 1, index));
+                if (index !== currentIndex) {
+                    currentIndex = index;
+                    updateForIndex();
+                }
+            });
+        }, { passive: true });
+
         function openLightbox(trigger) {
+            previouslyFocused = document.activeElement;
+            var tileImg = trigger.querySelector("img");
+            openingTileRect = tileImg ? tileImg.getBoundingClientRect() : null;
+
             lightboxTitle.textContent = trigger.dataset.title;
             lightboxDescription.textContent = trigger.dataset.description;
             lightboxMeta.textContent = trigger.dataset.meta;
@@ -329,27 +528,42 @@
             currentIndex = 0;
 
             lightboxImageLabel.classList.toggle("hidden", hasGallery);
-            lightboxPicture.classList.toggle("hidden", !hasGallery);
+            lightboxImageLabel.classList.toggle("flex", !hasGallery);
+            lightboxStage.classList.toggle("hidden", !hasGallery);
+            lightboxStage.classList.toggle("flex", hasGallery);
             var showNav = hasGallery && gallery.length > 1;
             lightboxPrev.classList.toggle("hidden", !showNav);
             lightboxPrev.classList.toggle("flex", showNav);
             lightboxNext.classList.toggle("hidden", !showNav);
             lightboxNext.classList.toggle("flex", showNav);
             lightboxPosition.classList.toggle("hidden", !hasGallery);
+            lightboxCaption.classList.add("hidden");
 
             if (hasGallery) {
-                renderGalleryImage();
+                renderGallery(gallery);
+                updateForIndex();
+                scrollToIndex(0, false);
             } else {
                 lightboxImageLabel.textContent = trigger.dataset.title;
             }
 
+            lockScroll();
             lightbox.classList.remove("hidden");
-            lightbox.classList.add("flex");
+            runOpenTransition(hasGallery ? lightboxTrack.children[0] : null);
+            lightboxClose.focus();
         }
 
         function closeLightbox() {
-            lightbox.classList.add("hidden");
-            lightbox.classList.remove("flex");
+            var targetEl = currentGallery ? lightboxTrack.children[currentIndex] : null;
+            runCloseTransition(targetEl, () => {
+                lightbox.classList.add("hidden");
+                unlockScroll();
+                if (previouslyFocused && typeof previouslyFocused.focus === "function") {
+                    previouslyFocused.focus();
+                }
+                previouslyFocused = null;
+                openingTileRect = null;
+            });
         }
 
         document.querySelectorAll(".lightbox-trigger").forEach((trigger) => {
@@ -359,15 +573,9 @@
         lightboxPrev.addEventListener("click", () => stepGallery(-1));
         lightboxNext.addEventListener("click", () => stepGallery(1));
 
-        document.getElementById("lightbox-close").addEventListener("click", closeLightbox);
+        lightboxClose.addEventListener("click", closeLightbox);
         lightbox.addEventListener("click", (e) => {
             if (e.target === lightbox) closeLightbox();
-        });
-        document.addEventListener("keydown", (e) => {
-            if (lightbox.classList.contains("hidden")) return;
-            if (e.key === "Escape") closeLightbox();
-            if (e.key === "ArrowLeft") stepGallery(-1);
-            if (e.key === "ArrowRight") stepGallery(1);
         });
     </script>
 
