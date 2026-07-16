@@ -153,19 +153,27 @@
 
       .gt-phonecap{ max-width:380px; margin-left:auto; margin-right:auto; }
 
-      /* ---- Experience carousel (borrows the lightbox's scroll-snap track + pill nav) ---- */
+      /* ---- Experience carousel (borrows the lightbox's scroll-snap track + pill nav).
+             One screen is the focal point at a time -- each slide is the full width
+             of the track, so there's no peek of neighbours crowding the view. ---- */
       .gt-carousel-track{
-        display:flex; gap:2.5rem; overflow-x:auto; scroll-snap-type:x mandatory;
-        -webkit-overflow-scrolling:touch; padding:.25rem .25rem 1rem;
+        display:flex; overflow-x:auto; scroll-snap-type:x mandatory;
+        -webkit-overflow-scrolling:touch; padding:.5rem 0 1.5rem;
         scrollbar-width:none;
       }
       .gt-carousel-track::-webkit-scrollbar{ display:none; }
-      .gt-slide{ flex:0 0 auto; width:min(78vw,300px); scroll-snap-align:start; margin:0; }
-      .gt-slide-wide{ width:min(92vw,440px); }
-      .gt-slide .gt-phonecap{ max-width:100%; }
-      .gt-slide-cap{ margin-top:1.25rem; }
-      @media(min-width:640px){ .gt-slide{ width:260px; } .gt-slide-wide{ width:420px; } }
-      .gt-carousel-nav{ display:flex; gap:.75rem; justify-content:flex-end; margin-top:.5rem; }
+      .gt-slide{
+        flex:0 0 100%; width:100%; scroll-snap-align:center; margin:0;
+        display:flex; flex-direction:column; align-items:center;
+        padding:0 1rem;
+      }
+      .gt-slide .gt-phonecap{ max-width:300px; }
+      @media(min-width:640px){ .gt-slide .gt-phonecap{ max-width:340px; } }
+      .gt-slide-wide .gt-pair{ display:flex; gap:1.5rem; align-items:flex-start; justify-content:center; max-width:36rem; margin:0 auto; }
+      .gt-slide-wide .gt-pair .gt-phonecap{ max-width:180px; }
+      @media(min-width:640px){ .gt-slide-wide .gt-pair .gt-phonecap{ max-width:220px; } }
+      .gt-slide-cap{ margin-top:1.75rem; max-width:46ch; text-align:center; }
+      .gt-carousel-nav{ display:flex; gap:.75rem; justify-content:center; margin-top:1rem; }
       .gt-carousel-btn{
         width:2.5rem; height:2.5rem; border-radius:999px; border:1px solid #e5e7eb;
         background:#fff; color:var(--gt-ink); display:flex; align-items:center; justify-content:center;
@@ -415,8 +423,8 @@
             </figure>
 
             <figure class="gt-slide gt-slide-wide">
-              <div style="display:flex; gap:1rem; align-items:flex-start;">
-                <div class="gt-phonecap" style="max-width:48%;">
+              <div class="gt-pair">
+                <div class="gt-phonecap">
                   <span class="gt-device"><span class="screen">
                   <picture>
                     <source srcset="../../images/growtogether-optimized/identify-camera.webp" type="image/webp">
@@ -424,7 +432,7 @@
                   </picture>
                   </span></span>
                 </div>
-                <div class="gt-phonecap" style="max-width:48%; margin-top:2rem;">
+                <div class="gt-phonecap" style="margin-top:2rem;">
                   <span class="gt-device"><span class="screen">
                   <picture>
                     <source srcset="../../images/growtogether-optimized/identify-result.webp" type="image/webp">
@@ -704,10 +712,7 @@
         var next = document.getElementById('gt-exp-next');
         var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         function step(dir){
-          var slide = track.querySelector('.gt-slide');
-          var gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
-          var amount = slide ? (slide.getBoundingClientRect().width + gap) : track.clientWidth;
-          track.scrollBy({ left: dir * amount, behavior: reduce ? 'auto' : 'smooth' });
+          track.scrollBy({ left: dir * track.clientWidth, behavior: reduce ? 'auto' : 'smooth' });
         }
         function updateNav(){
           var max = track.scrollWidth - track.clientWidth - 1;
