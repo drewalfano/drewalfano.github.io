@@ -104,7 +104,7 @@
                 <p class="text-gray-400 text-xs mt-1">Case Study &middot; Digital/Web, UX/UI, Student Work</p>
             </a>
 
-            <button type="button" style="--accent:#253821; --accent-text:#253821" class="project-card group text-left lightbox-trigger" data-tags="branding" data-gallery="jayl-house"
+            <button type="button" id="jayl-house" style="--accent:#253821; --accent-text:#253821" class="project-card group text-left lightbox-trigger" data-tags="branding" data-gallery="jayl-house"
                 data-title="The Jayl House" data-description="Brand identity for a contrast-therapy sauna and cold plunge social house in Sault Ste. Marie: a JH monogram, stacked and horizontal wordmark lockups, and a brand style guide in a deep green and warm beige palette, applied across signage and branded goods." data-meta="Branding, Client Work">
                 <div class="aspect-square overflow-hidden bg-[#253821]">
                     <picture>
@@ -116,7 +116,7 @@
                 <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Branding</p>
             </button>
 
-            <button type="button" style="--accent:#17475a; --accent-text:#17475a" class="project-card group text-left lightbox-trigger" data-tags="branding,packaging,campaigns,student-work" data-gallery="high-seas-brewing"
+            <button type="button" id="high-seas-brewing" style="--accent:#17475a; --accent-text:#17475a" class="project-card group text-left lightbox-trigger" data-tags="branding,packaging,campaigns,student-work" data-gallery="high-seas-brewing"
                 data-title="High Seas" data-description="A concept brand for a fictional maritime craft brewery, built around a bold illustrative identity designed to scale across packaging and campaign." data-description-full="High Seas Brewing is a self-directed concept project for a fictional craft brewery, built around a bold, maritime-inspired identity. The work pairs a full brand strategy with an illustrative visual system engineered for high-impact scalability, then carries it across a packaging suite for the flagship lineup and a multi-channel campaign spanning outdoor billboards, street-style posters, and social-first promotional content." data-meta="Branding, Packaging, Campaign, Student Work">
                 <div class="aspect-square overflow-hidden bg-[#17475a]">
                     <picture>
@@ -128,7 +128,7 @@
                 <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Branding, Packaging, Campaign, Student Work</p>
             </button>
 
-            <button type="button" style="--accent:#d0272b; --accent-text:#d0272b" class="project-card group text-left lightbox-trigger" data-tags="illustration,marketing-materials,student-work" data-gallery="atari-2600"
+            <button type="button" id="atari-2600" style="--accent:#d0272b; --accent-text:#d0272b" class="project-card group text-left lightbox-trigger" data-tags="illustration,marketing-materials,student-work" data-gallery="atari-2600"
                 data-title="Atari 2600" data-description="A precision vector illustration study of the Atari 2600, extended into a retro-inspired marketing kit." data-description-full="This project centers on high-detail, realistic vector illustrations of the Atari 2600, with a focus on technical execution and precision. It replicates the console's complex textures, materials, and vintage hardware aesthetic entirely through vector tools, then integrates the illustrations into a broader marketing kit of retro-inspired posters, technical schematics, and custom apparel concepts." data-meta="Illustration, Marketing Materials, Student Work">
                 <div class="aspect-square overflow-hidden bg-[#d0272b]">
                     <picture>
@@ -140,7 +140,7 @@
                 <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Illustration, Marketing Materials, Student Work</p>
             </button>
 
-            <button type="button" style="--accent:#c5c2e3; --accent-text:#4b3f82" class="project-card group text-left lightbox-trigger" data-tags="logo-design,visual-identity,illustration,packaging,student-work" data-gallery="coffee-guy"
+            <button type="button" id="coffee-guy" style="--accent:#c5c2e3; --accent-text:#4b3f82" class="project-card group text-left lightbox-trigger" data-tags="logo-design,visual-identity,illustration,packaging,student-work" data-gallery="coffee-guy"
                 data-title="Coffee Guy" data-description="A playful, character-driven identity concept for a boutique coffee brand, from custom illustrative logo through packaging." data-description-full="This project develops a playful, character-driven visual identity for a boutique coffee brand concept. It centers on a custom illustrative logo paired with a vibrant, minimalist color palette built to stand out in a competitive retail space, then extends the identity across physical and digital assets including specialized beverage packaging and seasonal promotional materials." data-meta="Logo Design, Visual Identity, Illustration, Packaging, Student Work">
                 <div class="aspect-square overflow-hidden bg-[#c5c2e3]">
                     <picture>
@@ -152,7 +152,7 @@
                 <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Logo Design, Visual Identity, Illustration, Packaging, Student Work</p>
             </button>
 
-            <button type="button" class="project-card group text-left lightbox-trigger" data-tags="social-media,campaigns"
+            <button type="button" id="project-search" class="project-card group text-left lightbox-trigger" data-tags="social-media,campaigns"
                 data-title="Project SEARCH Algoma" data-description="Social media campaign assets supporting Project SEARCH Algoma's community outreach program." data-meta="Social Media, Campaigns">
                 <div class="card-image aspect-square overflow-hidden">
                     <div class="w-full h-full bg-ink flex items-center justify-center p-6">
@@ -537,6 +537,13 @@
                     previouslyFocused.focus();
                 }
                 previouslyFocused = null;
+                // Always strip the hash on close, whether the lightbox was
+                // opened via a #project-id deep link or a normal click — a
+                // stale hash left in the URL would re-open the same project
+                // on refresh or Back.
+                var url = new URL(window.location.href);
+                url.hash = "";
+                window.history.replaceState({}, "", url);
             });
         }
 
@@ -551,6 +558,46 @@
         lightbox.addEventListener("click", (e) => {
             if (e.target === lightbox) closeLightbox();
         });
+
+        // Deep links: /work/#<project-id> auto-opens that project's
+        // lightbox on load (used by the homepage's Selected Work tiles for
+        // the five projects that only live here, not at their own URL).
+        // Only these five ids are addressable — anything else, including no
+        // hash at all, is just a normal page load.
+        var HASH_ADDRESSABLE_PROJECTS = ["jayl-house", "high-seas-brewing", "atari-2600", "coffee-guy", "project-search"];
+        var requestedProjectId = window.location.hash.slice(1);
+        if (HASH_ADDRESSABLE_PROJECTS.includes(requestedProjectId)) {
+            var requestedTrigger = document.getElementById(requestedProjectId);
+            if (requestedTrigger) {
+                openLightbox(requestedTrigger);
+                // openLightbox captured document.activeElement (effectively
+                // nothing, this early in page load) as the focus to restore
+                // on close — point it at the deep-linked card instead so
+                // closing lands focus somewhere sane rather than <body>.
+                previouslyFocused = requestedTrigger;
+                // The browser's own fragment-navigation focus (moving focus
+                // to the #id target element itself, i.e. the trigger) can
+                // land on an unpredictable delay — after this script runs,
+                // after "load", sometimes later still — and isn't a normal
+                // script-driven focus() call, so there's no single event to
+                // intercept. Reclaim focus into the dialog for a bounded
+                // window after open, stopping as soon as the dialog closes
+                // or focus settles somewhere other than the trigger (i.e.
+                // a real user interaction, which should never be fought).
+                var reclaimAttempts = 0;
+                var reclaimFocus = window.setInterval(function() {
+                    reclaimAttempts++;
+                    var stillOpen = !lightbox.classList.contains("hidden");
+                    if (!stillOpen || reclaimAttempts > 10) {
+                        window.clearInterval(reclaimFocus);
+                        return;
+                    }
+                    if (document.activeElement === requestedTrigger) {
+                        lightboxClose.focus();
+                    }
+                }, 100);
+            }
+        }
     </script>
 
     <script src="/assets/js/site.js" defer></script>
