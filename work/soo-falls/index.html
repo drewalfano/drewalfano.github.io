@@ -91,7 +91,7 @@
       .sf-facts{ display:grid; grid-template-columns:1fr; gap:1.5rem 2.5rem; }
       @media(min-width:720px){ .sf-facts{ grid-template-columns:repeat(3,1fr); } }
       .sf-fact-k{ font-family:"Work Sans"; text-transform:uppercase; letter-spacing:.14em;
-        font-size:.66rem; color:#9ca3af; font-weight:500; }
+        font-size:.66rem; color:#6b7280; font-weight:500; }
       .sf-fact-v{ font-family:"Work Sans"; color:var(--sf-ink); margin-top:.5rem; font-size:.92rem; line-height:1.5; }
       .sf-chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
 
@@ -113,7 +113,7 @@
         filter:drop-shadow(0 10px 16px rgba(17,24,39,.18)); }
       .sf-corecan .nm{ font-family:"DM Sans"; font-weight:700; font-size:.82rem; color:var(--sf-ink); margin-top:.8rem; }
       .sf-corecan .dot{ display:inline-block; width:8px; height:8px; border-radius:999px; margin-right:.35rem; vertical-align:middle; }
-      .sf-corecan .st{ font-family:"Work Sans"; font-size:.68rem; color:#9ca3af; text-transform:uppercase; letter-spacing:.08em; margin-top:.15rem; }
+      .sf-corecan .st{ font-family:"Work Sans"; font-size:.68rem; color:#6b7280; text-transform:uppercase; letter-spacing:.08em; margin-top:.15rem; }
 
       /* ---- Before/After slider ---- */
       .sf-ba{ position:relative; aspect-ratio:1/1; max-width:26rem; overflow:hidden;
@@ -159,7 +159,7 @@
         box-shadow:0 20px 60px -20px rgba(0,0,0,.6); }
       .sf-lb figcaption{ color:#e5e7eb; font-family:"Work Sans"; font-size:.85rem; margin-top:1rem; text-align:center; max-width:52ch; }
       .sf-lb figcaption b{ color:#fff; font-weight:600; }
-      .sf-lb-position{ color:#6b7280; font-family:"Work Sans"; font-size:.72rem; margin-top:.5rem; text-align:center; display:block; }
+      .sf-lb-position{ color:#9ca3af; font-family:"Work Sans"; font-size:.72rem; margin-top:.5rem; text-align:center; display:block; }
       .sf-lb-close{ position:absolute; top:1rem; left:50%; transform:translateX(-50%); width:2.5rem; height:2.5rem; border-radius:999px;
         border:0; background:rgba(255,255,255,.1); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;
         transition:background-color .2s ease; }
@@ -185,7 +185,7 @@
       .sf-closer img{ width:100%; height:100%; object-fit:cover; display:block; }
 
       figcaption.sf-fig{ font-family:"Work Sans"; font-size:.72rem; text-transform:uppercase;
-        letter-spacing:.1em; color:#9ca3af; margin-top:.75rem; }
+        letter-spacing:.1em; color:#6b7280; margin-top:.75rem; }
 
       /* reveal */
       [data-sf]{ opacity:0; transform:translateY(20px); transition:opacity .6s cubic-bezier(.2,.6,.2,1), transform .6s cubic-bezier(.2,.6,.2,1); }
@@ -199,15 +199,18 @@
     <noscript><style>[]{opacity:1 !important; transform:none !important;}</style></noscript>
 </head>
 <body class="bg-paper text-ink font-body" style="--accent:#24354e; --accent-text:#24354e">
+    <a href="#main" class="skip-link">Skip to content</a>
 
     <header id="top" class="max-w-5xl mx-auto px-6 py-6 flex items-center justify-between">
         <a href="/" aria-label="Drew Alfano" class="nav-logo font-display font-extrabold text-lg"><span aria-hidden="true">D</span><span aria-hidden="true" class="nav-logo-seg"><span>rew&nbsp;</span></span><span aria-hidden="true">A</span><span aria-hidden="true" class="nav-logo-seg"><span>lfano</span></span><span aria-hidden="true" class="nav-logo-underline"></span></a>
         <nav class="flex gap-6 text-xs uppercase tracking-wide font-medium">
-            <a href="/work/" class="text-brand border-b-2 border-brand pb-1">Work</a>
+            <a href="/work/" aria-current="page" class="text-brand border-b-2 border-brand pb-1">Work</a>
             <a href="/about/" class="link-underline hover:text-brand">About</a>
             <a href="/contact/" class="link-underline hover:text-brand">Contact</a>
         </nav>
     </header>
+
+    <main id="main" tabindex="-1">
 
     <!-- ======================= HERO (product-first + text) ======================= -->
     <section class="sf-wrap" style="padding-top:clamp(1.5rem,4vw,3rem); padding-bottom:clamp(2.5rem,5vw,4rem);">
@@ -337,20 +340,20 @@
             rebuilt it as a clean vector — refining the typography, weight, and proportions while
             keeping the character that made it feel like it had been around since 1899.
           </p>
-          <p class="sf-body" style="margin-top:1rem; font-size:.9rem; color:#9ca3af;">Drag the handle to compare.</p>
+          <p class="sf-body" style="margin-top:1rem; font-size:.9rem; color:#6b7280;">Drag the handle to compare.</p>
         </div>
         <figure style="margin:0;">
           <div class="sf-ba" id="ba-slider" style="margin-inline:auto;">
             <div class="layer">
               <picture>
                 <source srcset="../../images/soo-falls-optimized/logo-after.webp" type="image/webp">
-                <img src="../../images/soo-falls-optimized/logo-after.png" alt="Reconstructed, modernised vector Soo Falls logo." loading="lazy">
+                <img src="../../images/soo-falls-optimized/logo-after.png" alt="Reconstructed, modernised vector Soo Falls logo." width="1545" height="1600" loading="lazy">
               </picture>
             </div>
             <div class="layer" id="ba-before-wrap" style="clip-path: inset(0 50% 0 0);">
               <picture>
                 <source srcset="../../images/soo-falls-optimized/logo-before.webp" type="image/webp">
-                <img src="../../images/soo-falls-optimized/logo-before.png" alt="Original low-resolution Soo Falls logo supplied at the start of the project." loading="lazy">
+                <img src="../../images/soo-falls-optimized/logo-before.png" alt="Original low-resolution Soo Falls logo supplied at the start of the project." width="1545" height="1600" loading="lazy">
               </picture>
             </div>
             <div id="ba-handle" style="position:absolute; top:0; bottom:0; width:2px; background:var(--sf-navy); left:50%; z-index:4; pointer-events:none;"></div>
@@ -387,21 +390,21 @@
         <figure class="sf-shot">
           <div class="frame" style="aspect-ratio:3/4;">
             <picture><source srcset="../../images/soo-falls-optimized/lcbo-pilsner.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/lcbo-pilsner.jpg" loading="lazy" alt="A hand holding a Soo Falls Italian Pilsner can in front of an LCBO retail display reading Local Pours."></picture>
+            <img src="../../images/soo-falls-optimized/lcbo-pilsner.jpg" loading="lazy" width="1350" height="1800" alt="A hand holding a Soo Falls Italian Pilsner can in front of an LCBO retail display reading Local Pours."></picture>
           </div>
           <figcaption class="sf-cap"><b>Italian Pilsner · LCBO.</b> Sault Ste. Marie &amp; area.</figcaption>
         </figure>
         <figure class="sf-shot">
           <div class="frame" style="aspect-ratio:3/4;">
             <picture><source srcset="../../images/soo-falls-optimized/beer-store-cans.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/beer-store-cans.jpg" loading="lazy" alt="Two Soo Falls cans, Italian Pilsner and Hazy IPA, held up outside The Beer Store."></picture>
+            <img src="../../images/soo-falls-optimized/beer-store-cans.jpg" loading="lazy" width="1440" height="1800" alt="Two Soo Falls cans, Italian Pilsner and Hazy IPA, held up outside The Beer Store."></picture>
           </div>
           <figcaption class="sf-cap"><b>The Beer Store.</b> Two cores, side by side.</figcaption>
         </figure>
         <figure class="sf-shot">
           <div class="frame" style="aspect-ratio:3/4;">
             <picture><source srcset="../../images/soo-falls-optimized/hazy-ipa-lcbo.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/hazy-ipa-lcbo.jpg" loading="lazy" alt="A hand holding a Soo Falls Hazy IPA can in front of an LCBO Local Pours display stacked with Hazy IPA cases."></picture>
+            <img src="../../images/soo-falls-optimized/hazy-ipa-lcbo.jpg" loading="lazy" width="1125" height="1500" alt="A hand holding a Soo Falls Hazy IPA can in front of an LCBO Local Pours display stacked with Hazy IPA cases."></picture>
           </div>
           <figcaption class="sf-cap"><b>Hazy IPA · LCBO.</b> All the way to Sudbury.</figcaption>
         </figure>
@@ -432,56 +435,56 @@
         <figure class="sf-tile group wide tall">
           <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/taproom-neon.jpg" data-cap="<b>Neon.</b> Est. 1899, lit up again.">
             <picture class="card-image"><source srcset="../../images/soo-falls-optimized/taproom-neon.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/taproom-neon.jpg" loading="lazy" alt="The Soo Falls Brewing Company neon sign glowing in a dark taproom, reading Est. 1899."></picture>
+            <img src="../../images/soo-falls-optimized/taproom-neon.jpg" loading="lazy" width="1440" height="1800" alt="The Soo Falls Brewing Company neon sign glowing in a dark taproom, reading Est. 1899."></picture>
           </button>
           <figcaption><b>Neon.</b> Est. 1899, lit up again.</figcaption>
         </figure>
         <figure class="sf-tile group wide">
           <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/trailer-wrap.jpg" data-cap="<b>Wrapped &amp; parked.</b> The identity at 15 km/h.">
             <picture class="card-image"><source srcset="../../images/soo-falls-optimized/trailer-wrap.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/trailer-wrap.jpg" loading="lazy" alt="A trailer fully wrapped in Soo Falls branding parked outside the brick brewery."></picture>
+            <img src="../../images/soo-falls-optimized/trailer-wrap.jpg" loading="lazy" width="1350" height="1800" alt="A trailer fully wrapped in Soo Falls branding parked outside the brick brewery."></picture>
           </button>
           <figcaption><b>Wrapped &amp; parked.</b> The identity at 15 km/h.</figcaption>
         </figure>
         <figure class="sf-tile group">
           <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/tap-handles.jpg" data-cap="<b>On tap.</b>">
             <picture class="card-image"><source srcset="../../images/soo-falls-optimized/tap-handles.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/tap-handles.jpg" loading="lazy" alt="A row of Soo Falls tap handles lined up behind the bar."></picture>
+            <img src="../../images/soo-falls-optimized/tap-handles.jpg" loading="lazy" width="1350" height="1800" alt="A row of Soo Falls tap handles lined up behind the bar."></picture>
           </button>
           <figcaption><b>On tap.</b></figcaption>
         </figure>
         <figure class="sf-tile group">
           <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/festival-tent.jpg" data-cap="<b>Festival circuit.</b>">
             <picture class="card-image"><source srcset="../../images/soo-falls-optimized/festival-tent.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/festival-tent.jpg" loading="lazy" alt="A Soo Falls event tent and branded flags set up at an outdoor festival."></picture>
+            <img src="../../images/soo-falls-optimized/festival-tent.jpg" loading="lazy" width="1440" height="1800" alt="A Soo Falls event tent and branded flags set up at an outdoor festival."></picture>
           </button>
           <figcaption><b>Festival circuit.</b></figcaption>
         </figure>
         <figure class="sf-tile group">
           <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/cans-at-brewery.jpg" data-cap="<b>Merch.</b> Cap to match the cans.">
             <picture class="card-image"><source srcset="../../images/soo-falls-optimized/cans-at-brewery.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/cans-at-brewery.jpg" loading="lazy" alt="Soo Falls cans and a branded cap arranged on grass in front of the brick brewery."></picture>
+            <img src="../../images/soo-falls-optimized/cans-at-brewery.jpg" loading="lazy" width="1350" height="1800" alt="Soo Falls cans and a branded cap arranged on grass in front of the brick brewery."></picture>
           </button>
           <figcaption><b>Merch.</b> Cap to match the cans.</figcaption>
         </figure>
         <figure class="sf-tile group">
           <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/doppelbock-tanks.jpg" data-cap="<b>From the source.</b>">
             <picture class="card-image"><source srcset="../../images/soo-falls-optimized/doppelbock-tanks.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/doppelbock-tanks.jpg" loading="lazy" alt="A hand holding a Soo Falls Doppelbock can in front of the stainless brewing tanks."></picture>
+            <img src="../../images/soo-falls-optimized/doppelbock-tanks.jpg" loading="lazy" width="1350" height="1800" alt="A hand holding a Soo Falls Doppelbock can in front of the stainless brewing tanks."></picture>
           </button>
           <figcaption><b>From the source.</b></figcaption>
         </figure>
         <figure class="sf-tile group wide">
           <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/patio-glasses.jpg" data-cap="<b>Patio season.</b> Partner restaurants and menus.">
             <picture class="card-image"><source srcset="../../images/soo-falls-optimized/patio-glasses.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/patio-glasses.jpg" loading="lazy" alt="Two full glasses of Soo Falls beer on a patio table beside a printed menu."></picture>
+            <img src="../../images/soo-falls-optimized/patio-glasses.jpg" loading="lazy" width="1350" height="1800" alt="Two full glasses of Soo Falls beer on a patio table beside a printed menu."></picture>
           </button>
           <figcaption><b>Patio season.</b> Partner restaurants and menus.</figcaption>
         </figure>
         <figure class="sf-tile group">
           <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/launch-table.jpg" data-cap="<b>Trade-show ready.</b>">
             <picture class="card-image"><source srcset="../../images/soo-falls-optimized/launch-table.webp" type="image/webp">
-            <img src="../../images/soo-falls-optimized/launch-table.jpg" loading="lazy" alt="A Soo Falls launch table with a branded tablecloth reading Proudly Brewed in Sault Ste. Marie."></picture>
+            <img src="../../images/soo-falls-optimized/launch-table.jpg" loading="lazy" width="1350" height="1800" alt="A Soo Falls launch table with a branded tablecloth reading Proudly Brewed in Sault Ste. Marie."></picture>
           </button>
           <figcaption><b>Trade-show ready.</b></figcaption>
         </figure>
@@ -509,6 +512,13 @@
       </div>
     </section>
 
+    <!-- Case-study navigation -->
+    <section class="sf-wrap" style="padding:1rem 1.5rem 0;">
+      <nav aria-label="Case study navigation" class="flex items-center justify-end text-sm">
+        <a href="/work/growtogether/" class="link-underline hover:text-brand">Next: GrowTogether &rarr;</a>
+      </nav>
+    </section>
+
     <section class="sf-wrap" style="padding:2.5rem 1.5rem 3rem;">
       <a href="#top" class="link-underline text-sm text-gray-500 hover:text-brand">&uarr; Back to top</a>
     </section>
@@ -523,6 +533,8 @@
             </a>
         </div>
     </section>
+
+    </main>
 
     <footer class="max-w-5xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
         <span class="font-body">&copy; 2026 Drew Alfano</span>

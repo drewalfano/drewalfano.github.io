@@ -52,6 +52,24 @@
     letter-spacing: -0.02em;
   }
 
+  /* Skip-to-content link: off-screen until keyboard focus, matching the
+     site's :focus-visible-only convention for keyboard affordances. */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 50;
+    background-color: #111111;
+    color: #FFFFFF;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+  .skip-link:focus-visible {
+    left: 1rem;
+    top: 1rem;
+  }
+
   .filter-btn.is-active {
     @apply bg-ink text-paper;
   }
