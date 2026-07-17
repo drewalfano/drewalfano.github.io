@@ -82,3 +82,56 @@
   window.addEventListener("resize", onScroll);
   update();
 })();
+
+// Cursor-reactive card shadow: tracks the mouse over any .project-card and
+// leans the existing accent-glow's offset away from the cursor, like a
+// light source (see the matching rule in src/input.css — this only ever
+// writes --shadow-x/--shadow-y, the glow's blur/spread/color are untouched).
+// One delegated listener covers every card on every page rather than
+// attaching per-card. Skipped entirely for touch (no cursor to track) and
+// reduced motion (CSS falls back to the original static offset in both
+// cases) — this only handles the reactive tracking.
+(function () {
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (window.matchMedia && window.matchMedia("(hover: none)").matches) return;
+
+  var MAX_OFFSET = 8;
+  var activeCard = null;
+
+  function resetCard(card) {
+    card.classList.remove("is-shadow-tracking");
+    card.style.setProperty("--shadow-x", "0px");
+    card.style.setProperty("--shadow-y", "0px");
+  }
+
+  function updateCard(card, clientX, clientY) {
+    var rect = card.getBoundingClientRect();
+    var nx = (clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+    var ny = (clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+    nx = Math.max(-1, Math.min(1, nx));
+    ny = Math.max(-1, Math.min(1, ny));
+    card.classList.add("is-shadow-tracking");
+    card.style.setProperty("--shadow-x", (-nx * MAX_OFFSET).toFixed(2) + "px");
+    card.style.setProperty("--shadow-y", (-ny * MAX_OFFSET).toFixed(2) + "px");
+  }
+
+  document.addEventListener(
+    "mousemove",
+    function (e) {
+      var card = e.target.closest ? e.target.closest(".project-card") : null;
+      if (card !== activeCard) {
+        if (activeCard) resetCard(activeCard);
+        activeCard = card;
+      }
+      if (card) updateCard(card, e.clientX, e.clientY);
+    },
+    { passive: true }
+  );
+
+  document.addEventListener("mouseleave", function () {
+    if (activeCard) {
+      resetCard(activeCard);
+      activeCard = null;
+    }
+  });
+})();

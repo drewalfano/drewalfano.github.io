@@ -223,19 +223,38 @@
 
   /* Project card accent-glow: a subtle colored shadow lifts in on hover/
      focus, tinted with the card's own --accent-text (falls back to brand
-     red where neither --accent nor --accent-text is set, e.g. Project
-     SEARCH Algoma). Shared by the homepage's Selected Work strip and the
-     /work/ grid — both use .project-card.group on the card link/button. */
+     red where neither --accent nor --accent-text is set). Shared by the
+     homepage's Selected Work strip and the /work/ grid — both use
+     .project-card.group on the card link/button.
+
+     The offset (--shadow-x/--shadow-y) is cursor-reactive: assets/js/site.js
+     writes it in px as the mouse moves over a card, leaning the glow away
+     from the cursor like a light source. Unset (no JS, i.e. reduced motion
+     or touch, and the initial hover frame before the first mousemove)
+     falls back to the original static "0px 16px" lift. is-shadow-tracking
+     (JS-toggled while the mouse is actively over a card) kills the
+     transition so the offset follows the cursor with no lag; removing it
+     on mouseleave lets the transition below ease it back to nothing. */
   .project-card.group > div {
     transition: box-shadow 0.25s ease;
   }
   @media (hover: hover) {
     .project-card.group:hover > div {
-      box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--accent-text, var(--accent, #D0272B)) 45%, transparent);
+      box-shadow: var(--shadow-x, 0px) var(--shadow-y, 16px) 32px -12px color-mix(in srgb, var(--accent-text, var(--accent, #D0272B)) 60%, transparent);
     }
   }
+  .project-card.group.is-shadow-tracking > div {
+    transition: none;
+  }
   .project-card.group:focus-visible > div {
-    box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--accent-text, var(--accent, #D0272B)) 45%, transparent);
+    box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--accent-text, var(--accent, #D0272B)) 60%, transparent);
+  }
+  /* Touch has no cursor to react to and no hover state — tap feedback
+     falls back to the same static glow as focus-visible above. */
+  @media (hover: none) {
+    .project-card.group:active > div {
+      box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--accent-text, var(--accent, #D0272B)) 60%, transparent);
+    }
   }
 
   /* Full-bleed: breaks an element out to the true viewport edge regardless
