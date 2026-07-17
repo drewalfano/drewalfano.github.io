@@ -37,8 +37,6 @@
         --cd-red-deep:#b8353c;
         --cd-ink:#111111;
       }
-      .cd-eyebrow{ font-family:"Work Sans",sans-serif; font-weight:500; text-transform:uppercase;
-        letter-spacing:.2em; font-size:.72rem; color:var(--cd-red-deep); }
       .cd-title{ font-family:"DM Sans",sans-serif; font-weight:800; letter-spacing:-.03em;
         line-height:1.02; font-size:clamp(2.4rem,6vw,4.6rem); color:var(--cd-red-deep); }
       .cd-h2{ font-family:"DM Sans",sans-serif; font-weight:800; letter-spacing:-.02em;
@@ -52,7 +50,7 @@
       .cd-rule{ border-top:1px solid #e5e7eb; }
       .cd-index{ font-family:"DM Sans"; font-weight:800; font-size:.8rem; letter-spacing:.06em; color:var(--cd-red-deep); }
       .cd-sitelink{ display:inline-flex; align-items:center; gap:.5rem; font-family:"Work Sans",sans-serif;
-        font-weight:500; font-size:.88rem; color:#fff; background:var(--cd-red); padding:.65rem 1.1rem;
+        font-weight:500; font-size:.88rem; color:#fff; background:var(--cd-red); padding:.75rem 1rem;
         text-decoration:none; transition:background .2s ease; }
       .cd-sitelink:hover, .cd-sitelink:focus-visible{ background:var(--cd-red-deep); }
 
@@ -69,7 +67,6 @@
         font-size:.66rem; color:#9ca3af; font-weight:500; }
       .cd-fact-v{ font-family:"Work Sans"; color:var(--cd-ink); margin-top:.5rem; font-size:.92rem; line-height:1.5; }
       .cd-chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
-      .cd-chip{ border:1px solid #d1d5db; font-family:"Work Sans"; font-size:.72rem; color:#374151; padding:.3rem .65rem; }
 
       /* ---- Work carousel (scroll-snap rail + pill nav + lightbox) ---- */
       .cd-rail-wrap{ position:relative; }
@@ -77,35 +74,40 @@
         -webkit-overflow-scrolling:touch; scrollbar-width:none; padding:.25rem 0 .5rem; }
       .cd-rail::-webkit-scrollbar{ display:none; }
       .cd-card{ flex:0 0 auto; width:clamp(260px,80vw,340px); scroll-snap-align:start; margin:0; }
-      .cd-card .thumb{ display:block; width:100%; aspect-ratio:4/3; padding:.85rem; border:1px solid #e5e7eb;
+      .cd-card .thumb{ display:block; width:100%; aspect-ratio:1/1; padding:.75rem; border:1px solid #e5e7eb;
         background:#f4f4f5; cursor:pointer; overflow:hidden; }
-      .cd-card .thumb img{ width:100%; height:100%; object-fit:contain; display:block; transition:transform .5s ease; }
+      .cd-card .thumb img{ width:100%; height:100%; object-fit:contain; display:block; transition:transform .25s ease; }
       @media(hover:hover){ .cd-card .thumb:hover img{ transform:scale(1.04); } }
       .cd-card .thumb:focus-visible{ outline:2px solid var(--cd-red); outline-offset:2px; }
-      .cd-kicker{ font-family:"Work Sans"; text-transform:uppercase; letter-spacing:.1em; font-size:.66rem;
-        color:var(--cd-red-deep); margin-top:.75rem; font-weight:500; }
+      .cd-card .eyebrow{ margin-top:.75rem; }
       .cd-card .t{ font-family:"DM Sans"; font-weight:700; font-size:.95rem; color:var(--cd-ink); margin-top:.25rem; }
-      .cd-card .d{ font-family:"Work Sans"; font-size:.82rem; color:#6b7280; margin-top:.3rem; line-height:1.45; }
-      .cd-railnav{ display:flex; gap:.5rem; margin-top:1.1rem; }
-      .cd-railbtn{ width:2.5rem; height:2.5rem; border-radius:999px; border:1px solid #e5e7eb; background:#fff;
+      .cd-card .d{ font-family:"Work Sans"; font-size:.82rem; color:#6b7280; margin-top:.25rem; line-height:1.45; }
+      .cd-railnav{ display:flex; gap:.5rem; margin-top:1rem; }
+      .cd-railbtn{ width:2.5rem; height:2.5rem; border-radius:999px; border:0; background:rgba(17,17,17,.06);
         color:var(--cd-ink); display:flex; align-items:center; justify-content:center; font-size:1.05rem; cursor:pointer;
-        transition:background-color .2s ease, border-color .2s ease; }
-      @media(hover:hover){ .cd-railbtn:hover:not(:disabled){ background:#f3f4f6; border-color:#d1d5db; } }
+        transition:background-color .2s ease; }
+      @media(hover:hover){ .cd-railbtn:hover:not(:disabled){ background:rgba(17,17,17,.12); } }
       .cd-railbtn:disabled{ opacity:.35; cursor:default; }
 
       /* ---- Lightbox ---- */
       .cd-lb{ position:fixed; inset:0; z-index:90; display:flex; align-items:center; justify-content:center;
-        padding:clamp(1rem,4vw,3.5rem); background:rgba(17,17,20,.9); opacity:0; visibility:hidden; transition:opacity .25s ease; }
+        padding:clamp(1rem,4vw,3.5rem); background:#1C1C1C; opacity:0; visibility:hidden; transition:opacity .25s ease; }
       .cd-lb.open{ opacity:1; visibility:visible; }
       .cd-lb figure{ margin:0; max-width:min(92vw,64rem); display:flex; flex-direction:column; align-items:center; }
       .cd-lb img{ max-width:100%; max-height:80vh; width:auto; height:auto; object-fit:contain; background:#fff;
         box-shadow:0 20px 60px -20px rgba(0,0,0,.6); }
       .cd-lb figcaption{ color:#e5e7eb; font-family:"Work Sans"; font-size:.85rem; margin-top:1rem; text-align:center; max-width:52ch; }
       .cd-lb figcaption b{ color:#fff; font-weight:600; }
-      .cd-lb-close{ position:absolute; top:1rem; right:1rem; width:2.75rem; height:2.75rem; border-radius:999px;
-        border:0; background:#fff; color:#111; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-      .cd-lb-nav{ position:absolute; top:50%; transform:translateY(-50%); width:2.75rem; height:2.75rem; border-radius:999px;
-        border:0; background:rgba(255,255,255,.92); color:#111; font-size:1.2rem; cursor:pointer; }
+      .cd-lb-position{ color:#6b7280; font-family:"Work Sans"; font-size:.72rem; margin-top:.5rem; text-align:center; display:block; }
+      .cd-lb-close{ position:absolute; top:1rem; left:50%; transform:translateX(-50%); width:2.5rem; height:2.5rem; border-radius:999px;
+        border:0; background:rgba(255,255,255,.1); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;
+        transition:background-color .2s ease; }
+      @media(hover:hover){ .cd-lb-close:hover{ background:rgba(255,255,255,.2); } }
+      @media(min-width:768px){ .cd-lb-close{ top:1.5rem; } }
+      .cd-lb-nav{ position:absolute; top:50%; transform:translateY(-50%); width:2.5rem; height:2.5rem; border-radius:999px;
+        border:0; background:rgba(255,255,255,.1); color:#fff; font-size:1.05rem; cursor:pointer;
+        transition:background-color .2s ease; }
+      @media(hover:hover){ .cd-lb-nav:hover{ background:rgba(255,255,255,.2); } }
       .cd-lb-nav.prev{ left:clamp(.5rem,2vw,1.5rem); }
       .cd-lb-nav.next{ right:clamp(.5rem,2vw,1.5rem); }
 
@@ -117,7 +119,7 @@
       .cd-proof{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; max-width:24rem; }
       .cd-proof figure{ margin:0; }
       .cd-proof img{ width:100%; height:auto; display:block; border:1px solid #e5e7eb; }
-      .cd-proof figcaption{ font-family:"Work Sans"; font-size:.72rem; color:#6b7280; margin-top:.4rem; line-height:1.4; }
+      .cd-proof figcaption{ font-family:"Work Sans"; font-size:.72rem; color:#6b7280; margin-top:.5rem; line-height:1.4; }
       .cd-proof b{ color:var(--cd-ink); font-weight:600; }
 
       /* ---- Motion (Whiskey River loop) ---- */
@@ -125,7 +127,7 @@
       @media(min-width:820px){ .cd-motion{ grid-template-columns:.85fr 1.15fr; gap:3rem; } }
       .cd-video{ position:relative; border:1px solid #e5e7eb; background:#000; overflow:hidden; }
       .cd-video video{ display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; }
-      .cd-video .badge{ position:absolute; top:.6rem; left:.6rem; font-family:"Work Sans"; font-size:.6rem;
+      .cd-video .badge{ position:absolute; top:.5rem; left:.5rem; font-family:"Work Sans"; font-size:.6rem;
         letter-spacing:.12em; text-transform:uppercase; color:#fff; background:rgba(17,17,20,.6);
         padding:.25rem .5rem; pointer-events:none; }
 
@@ -156,15 +158,15 @@
         <a href="/work/" class="link-underline text-sm text-gray-500 hover:text-brand">&larr; Back to Work</a>
         <div class="cd-hero-grid" style="margin-top:1.5rem;">
             <div>
-                <p class="cd-eyebrow">02 &middot; Brand Systems &amp; Social Content</p>
-                <h1 class="cd-title" data-cd style="margin-top:.9rem;">Canal District</h1>
-                <p class="cd-lead" style="margin-top:1.1rem; max-width:44ch;">
+                <p class="eyebrow text-accent-safe">02 &middot; Brand Systems &amp; Social Content</p>
+                <h1 class="cd-title" data-cd style="margin-top:1rem;">Canal District</h1>
+                <p class="cd-lead" style="margin-top:1rem; max-width:44ch;">
                     Ongoing brand, social, and production work across seven connected
                     hospitality and entertainment venues in Sault Ste. Marie. One in-house
                     designer running the system end to end, from a weekly post to a highway
                     billboard.
                 </p>
-                <div class="cd-facts" style="margin-top:1.75rem; border-top:1px solid #e5e7eb; padding-top:1.35rem;">
+                <div class="cd-facts" style="margin-top:1.75rem; border-top:1px solid #e5e7eb; padding-top:1.25rem;">
                     <div><p class="cd-fact-k">Role</p><p class="cd-fact-v">In-house Graphic Designer &amp; Brand Lead</p></div>
                     <div><p class="cd-fact-k">Timeline</p><p class="cd-fact-v">May 2024 – March 2026</p></div>
                     <div><p class="cd-fact-k">Disciplines</p><p class="cd-fact-v">Brand Systems, Social &amp; Data, Menu &amp; Print, Out-of-home, Merchandise, Signage, Motion</p></div>
@@ -183,13 +185,13 @@
         <div style="margin-top:clamp(1.5rem,3vw,2rem);">
             <p class="cd-fact-k" style="margin-bottom:.75rem;">Across seven venues</p>
             <div class="cd-chips">
-                <span class="cd-chip">Blockhouse Pub</span>
-                <span class="cd-chip">The Boiler Room</span>
-                <span class="cd-chip">The Mill Steakhouse</span>
-                <span class="cd-chip">The Machine Shop</span>
-                <span class="cd-chip">The Gelato Mill</span>
-                <span class="cd-chip">Outfitters</span>
-                <span class="cd-chip">Seasonal Rink</span>
+                <span class="tag-chip">Blockhouse Pub</span>
+                <span class="tag-chip">The Boiler Room</span>
+                <span class="tag-chip">The Mill Steakhouse</span>
+                <span class="tag-chip">The Machine Shop</span>
+                <span class="tag-chip">The Gelato Mill</span>
+                <span class="tag-chip">Outfitters</span>
+                <span class="tag-chip">Seasonal Rink</span>
             </div>
         </div>
     </section>
@@ -198,15 +200,15 @@
     <section class="cd-section cd-rule">
         <div class="cd-wrap">
             <p class="cd-index">01 &middot; Selected Work</p>
-            <h2 class="cd-h2" data-cd style="margin-top:.6rem; max-width:26ch;">One system, running across every surface the district touches.</h2>
-            <p class="cd-body" style="margin-top:.85rem; max-width:60ch; font-size:1.02rem;">
+            <h2 class="cd-h2" data-cd style="margin-top:.5rem; max-width:26ch;">One system, running across every surface the district touches.</h2>
+            <p class="cd-body" style="margin-top:1rem; max-width:60ch; font-size:1.02rem;">
                 Each venue keeps its own personality while reading as one place. The same hands
                 move from social and menus to out-of-home, merchandise, and production. Click any
                 piece to see it full size.
             </p>
         </div>
 
-        <div class="cd-wrap cd-rail-wrap" style="margin-top:1.35rem;">
+        <div class="cd-wrap cd-rail-wrap" style="margin-top:1.25rem;">
             <div class="cd-rail" id="cd-work-rail">
                 <figure class="cd-card">
                     <button type="button" class="thumb" data-full="../../images/canal-district-optimized/magazine-ad.jpg" data-cap="<b>Print &amp; campaign.</b> Full-page Canal District magazine ad bringing all seven venues under a single system.">
@@ -215,7 +217,7 @@
                             <img src="../../images/canal-district-optimized/magazine-ad.jpg" width="1100" height="1700" loading="lazy" alt="Canal District magazine ad in brand red, Where History Meets Modern Living, with a photo grid of the venues and all seven venue logos across the base.">
                         </picture>
                     </button>
-                    <p class="cd-kicker">Print &amp; Campaign</p>
+                    <p class="eyebrow text-accent-safe">Print &amp; Campaign</p>
                     <p class="t">Full-page district ad</p>
                     <p class="d">One layout pulling all seven venues under a single system.</p>
                 </figure>
@@ -226,7 +228,7 @@
                             <img src="../../images/canal-district-optimized/bus-ad.jpg" width="1600" height="717" loading="lazy" alt="Canal District transit ad reading Rich History, Great Food, Local Beer, with the logo and photography of food, patio, and the historic building on the river.">
                         </picture>
                     </button>
-                    <p class="cd-kicker">Out-of-home</p>
+                    <p class="eyebrow text-accent-safe">Out-of-home</p>
                     <p class="t">City transit ad</p>
                     <p class="d">Wide-format advertising built for the street.</p>
                 </figure>
@@ -237,7 +239,7 @@
                             <img src="../../images/canal-district-optimized/gelato-cart.jpg" width="1100" height="1467" loading="lazy" alt="The Gelato Mill branded cart in use: a striped pink, yellow, and black vinyl wrap with the circular Gelato Mill mark, applied to the stainless mobile cart.">
                         </picture>
                     </button>
-                    <p class="cd-kicker">Environmental &amp; Production</p>
+                    <p class="eyebrow text-accent-safe">Environmental &amp; Production</p>
                     <p class="t">The Gelato Mill cart wrap</p>
                     <p class="d">Measured, designed, and produced end to end, from quote and PO to install.</p>
                 </figure>
@@ -248,7 +250,7 @@
                             <img src="../../images/canal-district-optimized/wayfinding.jpg" width="1520" height="1598" loading="lazy" alt="Two Canal District wayfinding signs, white on black metal: an exterior directional sign for The Mill Steakhouse Addition and an interior sign for The SIS Group Admin Office, each with a directional arrow.">
                         </picture>
                     </button>
-                    <p class="cd-kicker">Wayfinding &amp; Signage</p>
+                    <p class="eyebrow text-accent-safe">Wayfinding &amp; Signage</p>
                     <p class="t">Interior &amp; exterior navigation signs</p>
                     <p class="d">Measured on site, drawn to spec, and coordinated through print production.</p>
                 </figure>
@@ -259,7 +261,7 @@
                             <img src="../../images/canal-district-optimized/easter-menu.jpg" width="1200" height="1200" loading="lazy" alt="The Boiler Room Easter specials menu with an illustrated pattern of Easter chicks and eggs.">
                         </picture>
                     </button>
-                    <p class="cd-kicker">Menu &amp; Print</p>
+                    <p class="eyebrow text-accent-safe">Menu &amp; Print</p>
                     <p class="t">Seasonal specials menu</p>
                     <p class="d">One layout, refreshed and printed for the table.</p>
                 </figure>
@@ -270,7 +272,7 @@
                             <img src="../../images/canal-district-optimized/shirt-trio.jpg" width="2260" height="640" loading="lazy" alt="Three Canal District staff shirts: Blockhouse Pub on green, The Boiler Room on navy, The Mill Steakhouse on black, each with its own badge inside a shared template.">
                         </picture>
                     </button>
-                    <p class="cd-kicker">Merchandise &amp; Production</p>
+                    <p class="eyebrow text-accent-safe">Merchandise &amp; Production</p>
                     <p class="t">Staff shirts across venues</p>
                     <p class="d">One template, each venue keeping its own mark.</p>
                 </figure>
@@ -281,7 +283,7 @@
                             <img src="../../images/canal-district-optimized/comfort-trio.jpg" width="1080" height="1350" loading="lazy" alt="The Boiler Room Ultimate Comfort Trio social graphic: a photographed plate of salad, broccoli-cheddar soup, and herb bread under a boxed headline.">
                         </picture>
                     </button>
-                    <p class="cd-kicker">Social Content</p>
+                    <p class="eyebrow text-accent-safe">Social Content</p>
                     <p class="t">The Boiler Room, Comfort Trio</p>
                     <p class="d">Designed and photographed in house.</p>
                 </figure>
@@ -302,7 +304,7 @@
                     Top-performing posts reached between 10,000 and 17,000 views each, designed and
                     photographed in house.
                 </p>
-                <p class="cd-body" style="margin-top:.9rem; max-width:44ch; font-size:1.02rem;">
+                <p class="cd-body" style="margin-top:1rem; max-width:44ch; font-size:1.02rem;">
                     Ongoing content across every venue account, built as repeatable systems that hold
                     quality against a fast calendar of launches, weekly specials, and events.
                 </p>
@@ -331,8 +333,8 @@
         <div class="cd-wrap cd-motion">
             <div>
                 <p class="cd-index">03 &middot; Original Identity &amp; Motion</p>
-                <h2 class="cd-h2" data-cd style="margin-top:.6rem; max-width:16ch;">Whiskey River, built from the ground up.</h2>
-                <p class="cd-body" style="margin-top:.85rem; max-width:42ch; font-size:1.02rem;">
+                <h2 class="cd-h2" data-cd style="margin-top:.5rem; max-width:16ch;">Whiskey River, built from the ground up.</h2>
+                <p class="cd-body" style="margin-top:1rem; max-width:42ch; font-size:1.02rem;">
                     One place in this project where the identity itself, not just its application, is
                     original work: a logo and a produced television spot built from the ground up.
                 </p>
@@ -352,12 +354,12 @@
     <section class="cd-section cd-rule">
         <div class="cd-wrap">
             <p class="cd-index">04 &middot; Part of the Same Property</p>
-            <h2 class="cd-h2" data-cd style="margin-top:.6rem; max-width:20ch;">Soo Falls Brewing Co.</h2>
-            <p class="cd-body" style="margin-top:.85rem; max-width:58ch; font-size:1.02rem;">
+            <h2 class="cd-h2" data-cd style="margin-top:.5rem; max-width:20ch;">Soo Falls Brewing Co.</h2>
+            <p class="cd-body" style="margin-top:1rem; max-width:58ch; font-size:1.02rem;">
                 Soo Falls Brewing Co. is part of the same property. Its brand identity, packaging,
                 and social presence were built from the ground up, and it has its own full case study.
             </p>
-            <a class="cd-sitelink" href="/work/soo-falls/" style="margin-top:1.35rem;">
+            <a class="cd-sitelink" href="/work/soo-falls/" style="margin-top:1.25rem;">
                 View the Soo Falls case study <span aria-hidden="true">&rarr;</span>
             </a>
         </div>
@@ -390,6 +392,7 @@
         <figure>
             <img id="cd-lb-img" src="" alt="">
             <figcaption id="cd-lb-cap"></figcaption>
+            <span id="cd-lb-position" class="cd-lb-position"></span>
         </figure>
         <button type="button" class="cd-lb-nav next" id="cd-lb-next" aria-label="Next piece"><span aria-hidden="true">&rarr;</span></button>
     </div>
@@ -413,29 +416,66 @@
     <script>
       (function(){
         var lb=document.getElementById('cd-lb'); if(!lb) return;
-        var img=document.getElementById('cd-lb-img'), cap=document.getElementById('cd-lb-cap');
+        var img=document.getElementById('cd-lb-img'), cap=document.getElementById('cd-lb-cap'), pos=document.getElementById('cd-lb-position');
         var closeBtn=document.getElementById('cd-lb-close'), prevBtn=document.getElementById('cd-lb-prev'), nextBtn=document.getElementById('cd-lb-next');
         var thumbs=Array.prototype.slice.call(document.querySelectorAll('.cd-card .thumb[data-full]'));
-        var i=0, lastFocus=null;
+        var i=0, lastFocus=null, scrollLockActive=false;
         function render(){
           var t=thumbs[i];
           img.src=t.getAttribute('data-full');
           var im=t.querySelector('img'); img.alt=im?im.alt:'';
           cap.innerHTML=t.getAttribute('data-cap')||'';
+          pos.textContent = ("0"+(i+1)).slice(-2) + " / 0" + thumbs.length;
         }
-        function open(idx){ i=idx; lastFocus=document.activeElement; render(); lb.classList.add('open'); closeBtn.focus(); }
-        function close(){ lb.classList.remove('open'); if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+        // Scroll lock: padding-right compensates for the vanishing scrollbar
+        // so page content doesn't visibly shift width while open.
+        function lockScroll(){
+          var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+          document.body.style.overflow = "hidden";
+          if (scrollbarWidth > 0) document.body.style.paddingRight = scrollbarWidth + "px";
+          scrollLockActive = true;
+        }
+        function unlockScroll(){
+          if (!scrollLockActive) return;
+          document.body.style.overflow = "";
+          document.body.style.paddingRight = "";
+          scrollLockActive = false;
+        }
+        // getClientRects().length, not offsetParent -- offsetParent is null
+        // for position:fixed/absolute-in-fixed-ancestor elements, which
+        // would otherwise wrongly drop the close button from the trap.
+        function getFocusable(){
+          return Array.prototype.slice
+            .call(lb.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])'))
+            .filter(function(el){ return el.getClientRects().length > 0 && !el.disabled; });
+        }
+        function open(idx){ i=idx; lastFocus=document.activeElement; render(); lb.classList.add('open'); lockScroll(); closeBtn.focus(); }
+        function close(){
+          lb.classList.remove('open');
+          unlockScroll();
+          if (lastFocus && lastFocus.focus) lastFocus.focus();
+          lastFocus=null;
+        }
         function go(d){ i=(i+d+thumbs.length)%thumbs.length; render(); }
         thumbs.forEach(function(t,idx){ t.addEventListener('click', function(){ open(idx); }); });
         closeBtn.addEventListener('click', close);
         prevBtn.addEventListener('click', function(){ go(-1); });
         nextBtn.addEventListener('click', function(){ go(1); });
         lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
-        document.addEventListener('keydown', function(e){
-          if(!lb.classList.contains('open')) return;
-          if(e.key==='Escape') close();
-          else if(e.key==='ArrowLeft') go(-1);
-          else if(e.key==='ArrowRight') go(1);
+        // Esc/arrow-key paging and the Tab focus trap share this one
+        // dialog-scoped listener -- once focus is trapped inside, everything
+        // relevant arrives here via bubbling with no "is it open" guard
+        // needed, since a closed dialog can't hold focus in the first place.
+        lb.addEventListener('keydown', function(e){
+          if(e.key==='Escape'){ close(); return; }
+          if(e.key==='ArrowLeft'){ go(-1); return; }
+          if(e.key==='ArrowRight'){ go(1); return; }
+          if(e.key!=='Tab') return;
+          var focusable=getFocusable();
+          if(!focusable.length) return;
+          var first=focusable[0], last=focusable[focusable.length-1];
+          if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+          else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
         });
       })();
     </script>

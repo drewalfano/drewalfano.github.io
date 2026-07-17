@@ -221,6 +221,23 @@
     transform: scale(1);
   }
 
+  /* Project card accent-glow: a subtle colored shadow lifts in on hover/
+     focus, tinted with the card's own --accent-text (falls back to brand
+     red where neither --accent nor --accent-text is set, e.g. Project
+     SEARCH Algoma). Shared by the homepage's Selected Work strip and the
+     /work/ grid — both use .project-card.group on the card link/button. */
+  .project-card.group > div {
+    transition: box-shadow 0.25s ease;
+  }
+  @media (hover: hover) {
+    .project-card.group:hover > div {
+      box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--accent-text, var(--accent, #D0272B)) 45%, transparent);
+    }
+  }
+  .project-card.group:focus-visible > div {
+    box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--accent-text, var(--accent, #D0272B)) 45%, transparent);
+  }
+
   /* Full-bleed: breaks an element out to the true viewport edge regardless
      of its parent's max-width. Paired with overflow-x:hidden above so the
      100vw calculation can never introduce a scrollbar-width sliver of
@@ -363,5 +380,32 @@
   }
   .no-scrollbar::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Section eyebrow: small uppercase Work Sans label, wide-tracked.
+     Pair with .text-accent-safe for color (or .on-dark on a colour-field
+     section). Replaces the formerly duplicated .cd-eyebrow/.cd-kicker/
+     .gt-eyebrow/.sf-eyebrow copies across the case-study pages. */
+  .eyebrow {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+  }
+  .eyebrow.on-dark {
+    color: #FFFFFF;
+    opacity: 0.7;
+  }
+
+  /* Bordered tag chip for selected-applications/venue lists. Replaces the
+     formerly duplicated .cd-chip/.sf-chip copies and Jenesis's one-off
+     inline chip utility. */
+  .tag-chip {
+    border: 1px solid #d1d5db;
+    font-family: "Work Sans", sans-serif;
+    font-size: 0.72rem;
+    color: #374151;
+    padding: 0.3rem 0.65rem;
   }
 }

@@ -42,15 +42,6 @@
       }
 
       /* ---- Type scale (fluid, bold-simple) ---- */
-      .gt-eyebrow{
-        font-family:"Work Sans",sans-serif;
-        font-weight:500;
-        text-transform:uppercase;
-        letter-spacing:.18em;
-        font-size:.72rem;
-        color:var(--gt-green-safe);
-      }
-      .gt-eyebrow.on-dark{ color:#bfe0c7; }
       .gt-display{
         font-family:"DM Sans",sans-serif;
         font-weight:800;
@@ -124,7 +115,7 @@
       .gt-hero{ position:relative; overflow:hidden; }
       .gt-hero-grid{ display:grid; gap:2.5rem; align-items:center; grid-template-columns:1fr; }
       @media(min-width:960px){ .gt-hero-grid{ grid-template-columns:.9fr 1.1fr; gap:2.5rem; } }
-      .gt-cluster{ display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; align-items:start; }
+      .gt-cluster{ display:grid; grid-template-columns:repeat(3,1fr); gap:.5rem; align-items:start; }
       .gt-cluster .c1{ margin-top:0; }
       .gt-cluster .c2{ margin-top:2rem; }
       .gt-cluster .c3{ margin-top:4rem; }
@@ -133,7 +124,7 @@
       .gt-facts{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem 2rem; }
       @media(min-width:720px){ .gt-facts{ grid-template-columns:repeat(4,1fr); } }
       .gt-fact-k{ font-family:"Work Sans"; text-transform:uppercase; letter-spacing:.14em; font-size:.68rem; color:#9ca3af; font-weight:500; }
-      .gt-fact-v{ font-family:"DM Sans"; font-weight:700; color:var(--gt-ink); margin-top:.4rem; font-size:1.02rem; }
+      .gt-fact-v{ font-family:"DM Sans"; font-weight:700; color:var(--gt-ink); margin-top:.5rem; font-size:1.02rem; }
 
       /* ---- Feature interweave rows ---- */
       .gt-feature{ display:grid; grid-template-columns:1fr; gap:2rem; align-items:center; }
@@ -149,7 +140,7 @@
         .gt-offset-down{ margin-top:2.25rem; }
       }
       .gt-index{ font-family:"DM Sans"; font-weight:800; font-size:.9rem; color:var(--gt-green-safe); letter-spacing:.05em; }
-      .gt-feature-title{ font-family:"DM Sans"; font-weight:800; letter-spacing:-.02em; font-size:clamp(1.5rem,3vw,2.1rem); color:var(--gt-ink); line-height:1.1; margin-top:.6rem; }
+      .gt-feature-title{ font-family:"DM Sans"; font-weight:800; letter-spacing:-.02em; font-size:clamp(1.5rem,3vw,2.1rem); color:var(--gt-ink); line-height:1.1; margin-top:.5rem; }
 
       .gt-phonecap{ max-width:380px; margin-left:auto; margin-right:auto; }
 
@@ -182,12 +173,12 @@
         pointer-events:none;
       }
       .gt-carousel-btn{
-        width:2.5rem; height:2.5rem; border-radius:999px; border:1px solid #e5e7eb;
-        background:#fff; color:var(--gt-ink); display:flex; align-items:center; justify-content:center;
-        font-size:1.05rem; transition:background-color .2s ease, border-color .2s ease;
+        width:2.5rem; height:2.5rem; border-radius:999px; border:0;
+        background:rgba(17,17,17,.06); color:var(--gt-ink); display:flex; align-items:center; justify-content:center;
+        font-size:1.05rem; transition:background-color .2s ease;
         pointer-events:auto;
       }
-      @media(hover:hover){ .gt-carousel-btn:hover{ background:#f3f4f6; border-color:#d1d5db; } }
+      @media(hover:hover){ .gt-carousel-btn:hover{ background:rgba(17,17,17,.12); } }
       .gt-carousel-btn:disabled{ opacity:.35; cursor:default; }
 
       /* ---- Colour-field bold beat ---- */
@@ -205,8 +196,8 @@
       /* ---- Problem chips ---- */
       .gt-needs{ display:grid; grid-template-columns:1fr; gap:0; margin-top:2.5rem; }
       @media(min-width:720px){ .gt-needs{ grid-template-columns:1fr 1fr; column-gap:3rem; } }
-      .gt-need{ display:flex; gap:1rem; padding:1.1rem 0; border-top:1px solid #e5e7eb; }
-      .gt-need .n{ font-family:"DM Sans"; font-weight:800; color:var(--gt-green-safe); font-size:.85rem; padding-top:.15rem; }
+      .gt-need{ display:flex; gap:1rem; padding:1rem 0; border-top:1px solid #e5e7eb; }
+      .gt-need .n{ font-family:"DM Sans"; font-weight:800; color:var(--gt-green-safe); font-size:.85rem; padding-top:.25rem; }
       .gt-need p{ font-family:"Work Sans"; color:#374151; }
 
       /* ---- Testing cards ---- */
@@ -214,10 +205,10 @@
       @media(min-width:820px){ .gt-tests{ grid-template-columns:repeat(3,1fr); } }
       .gt-test{ background:#fff; border:1px solid #e5e7eb; padding:1.75rem; }
       .gt-test .who{ font-family:"DM Sans"; font-weight:800; color:var(--gt-ink); font-size:1.05rem; }
-      .gt-test .stage{ font-family:"Work Sans"; text-transform:uppercase; letter-spacing:.12em; font-size:.62rem; color:#9ca3af; margin-top:.15rem; }
-      .gt-test .pref{ display:inline-block; margin-top:1rem; background:var(--gt-green-safe); color:#fff; font-family:"Work Sans"; font-weight:500; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; padding:.28rem .6rem; }
+      .gt-test .stage{ font-family:"Work Sans"; text-transform:uppercase; letter-spacing:.12em; font-size:.62rem; color:#9ca3af; margin-top:.25rem; }
+      .gt-test .pref{ display:inline-block; margin-top:1rem; background:var(--gt-green-safe); color:#fff; font-family:"Work Sans"; font-weight:500; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; padding:.25rem .5rem; }
       .gt-test p.q{ font-family:"Work Sans"; color:#374151; margin-top:1rem; line-height:1.6; font-size:.95rem; }
-      .gt-a11y{ margin-top:1.1rem; font-family:"Work Sans"; text-transform:uppercase; letter-spacing:.1em; font-size:.62rem; color:var(--gt-green-safe); font-weight:500; }
+      .gt-a11y{ margin-top:1rem; font-family:"Work Sans"; text-transform:uppercase; letter-spacing:.1em; font-size:.62rem; color:var(--gt-green-safe); font-weight:500; }
 
       .gt-pullquote{ font-family:"DM Sans"; font-weight:700; letter-spacing:-.01em; font-size:clamp(1.4rem,3vw,2.1rem); line-height:1.25; color:var(--gt-ink); }
       .gt-pullquote .accent{ color:var(--gt-green-safe); }
@@ -232,13 +223,13 @@
       .gt-tablist{ display:flex; flex-direction:row; gap:.5rem; overflow-x:auto; }
       @media(min-width:900px){ .gt-tablist{ flex-direction:column; gap:0; overflow:visible; position:sticky; top:1.5rem; } }
       .gt-tab{ appearance:none; background:none; border:0; text-align:left; cursor:pointer;
-        display:block; min-width:190px; padding:1rem 0 1rem 1.2rem;
+        display:block; min-width:190px; padding:1rem 0 1rem 1.25rem;
         border-left:2px solid #e5e7eb; transition:border-color .24s ease; }
-      @media(max-width:899px){ .gt-tab{ border-left:0; border-bottom:2px solid #e5e7eb; padding:.6rem .2rem; min-width:150px; } }
+      @media(max-width:899px){ .gt-tab{ border-left:0; border-bottom:2px solid #e5e7eb; padding:.5rem .25rem; min-width:150px; } }
       .gt-tab .n{ display:block; font-family:"Work Sans"; font-size:.68rem; letter-spacing:.14em; color:#9ca3af; }
       .gt-tab .t{ display:block; font-family:"DM Sans"; font-weight:800; font-size:1.2rem; letter-spacing:-.01em;
         color:#9ca3af; margin-top:.25rem; transition:color .24s ease; }
-      .gt-tab .d{ display:block; font-family:"Work Sans"; font-size:.82rem; line-height:1.4; color:#c0c5cc; margin-top:.35rem; transition:color .24s ease; }
+      .gt-tab .d{ display:block; font-family:"Work Sans"; font-size:.82rem; line-height:1.4; color:#c0c5cc; margin-top:.25rem; transition:color .24s ease; }
       @media(max-width:899px){ .gt-tab .d{ display:none; } }
       .gt-tab.is-active{ border-color:var(--gt-green); }
       .gt-tab.is-active .t{ color:var(--gt-ink); }
@@ -252,10 +243,10 @@
       .gt-panel figcaption{ font-family:"Work Sans"; font-size:.8rem; text-transform:uppercase; letter-spacing:.1em; color:#9ca3af; margin-top:.75rem; }
       .gt-panel.is-entering{ animation:gt-fade .32s ease; }
       @keyframes gt-fade{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:none; } }
-      .gt-selector-hint{ grid-column:1 / -1; font-size:.78rem; color:#9ca3af; margin-top:.2rem; }
+      .gt-selector-hint{ grid-column:1 / -1; font-size:.78rem; color:#9ca3af; margin-top:.25rem; }
 
       /* ---- Version badges ---- */
-      .gt-vbadge{ font-family:"Work Sans"; font-weight:500; text-transform:uppercase; letter-spacing:.1em; font-size:.66rem; padding:.28rem .6rem; color:#fff; }
+      .gt-vbadge{ font-family:"Work Sans"; font-weight:500; text-transform:uppercase; letter-spacing:.1em; font-size:.66rem; padding:.25rem .5rem; color:#fff; }
       .gt-vbadge.a{ background:var(--gt-ink); }
       .gt-vbadge.b{ background:var(--gt-green-safe); }
 
@@ -263,16 +254,22 @@
              click-to-open lightbox) -- click only, no hover-zoom affordance. ---- */
       .gt-lb-trigger{ cursor:zoom-in; }
       .gt-lb{ position:fixed; inset:0; z-index:90; display:flex; align-items:center; justify-content:center;
-        padding:clamp(1rem,4vw,3.5rem); background:rgba(17,17,20,.9); opacity:0; visibility:hidden; transition:opacity .25s ease; }
+        padding:clamp(1rem,4vw,3.5rem); background:#1C1C1C; opacity:0; visibility:hidden; transition:opacity .25s ease; }
       .gt-lb.open{ opacity:1; visibility:visible; }
       .gt-lb figure{ margin:0; max-width:min(92vw,64rem); display:flex; flex-direction:column; align-items:center; }
       .gt-lb img{ max-width:100%; max-height:80vh; width:auto; height:auto; object-fit:contain; background:#fff;
         box-shadow:0 20px 60px -20px rgba(0,0,0,.6); }
       .gt-lb figcaption{ color:#e5e7eb; font-family:"Work Sans"; font-size:.85rem; margin-top:1rem; text-align:center; max-width:52ch; }
-      .gt-lb-close{ position:absolute; top:1rem; right:1rem; width:2.75rem; height:2.75rem; border-radius:999px;
-        border:0; background:#fff; color:#111; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-      .gt-lb-nav{ position:absolute; top:50%; transform:translateY(-50%); width:2.75rem; height:2.75rem; border-radius:999px;
-        border:0; background:rgba(255,255,255,.92); color:#111; font-size:1.2rem; cursor:pointer; }
+      .gt-lb-position{ color:#6b7280; font-family:"Work Sans"; font-size:.72rem; margin-top:.5rem; text-align:center; display:block; }
+      .gt-lb-close{ position:absolute; top:1rem; left:50%; transform:translateX(-50%); width:2.5rem; height:2.5rem; border-radius:999px;
+        border:0; background:rgba(255,255,255,.1); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;
+        transition:background-color .2s ease; }
+      @media(hover:hover){ .gt-lb-close:hover{ background:rgba(255,255,255,.2); } }
+      @media(min-width:768px){ .gt-lb-close{ top:1.5rem; } }
+      .gt-lb-nav{ position:absolute; top:50%; transform:translateY(-50%); width:2.5rem; height:2.5rem; border-radius:999px;
+        border:0; background:rgba(255,255,255,.1); color:#fff; font-size:1.05rem; cursor:pointer;
+        transition:background-color .2s ease; }
+      @media(hover:hover){ .gt-lb-nav:hover{ background:rgba(255,255,255,.2); } }
       .gt-lb-nav.prev{ left:clamp(.5rem,2vw,1.5rem); }
       .gt-lb-nav.next{ right:clamp(.5rem,2vw,1.5rem); }
       @media (prefers-reduced-motion: reduce){ .gt-lb{ transition:none; } }
@@ -306,7 +303,7 @@
 
         <div class="gt-hero-grid" style="margin-top:2rem;">
           <div>
-            <p class="gt-eyebrow">04 — UX / UI · Mobile App Concept</p>
+            <p class="eyebrow text-accent-safe">04 — UX / UI · Mobile App Concept</p>
             <h1 class="gt-display" data-gt style="margin-top:1rem;">Houseplant care,<br>minus the guesswork.</h1>
             <p class="gt-lead" style="margin-top:1.5rem; max-width:38ch;">
               GrowTogether is a plant-care app concept I took from information architecture
@@ -363,7 +360,7 @@
     <!-- ======================= THE BRIEF / PROBLEM ======================= -->
     <section class="gt-section gt-rule">
       <div class="gt-wrap">
-        <p class="gt-eyebrow">The Problem</p>
+        <p class="eyebrow text-accent-safe">The Problem</p>
         <h2 class="gt-h2" data-gt style="margin-top:1rem; max-width:20ch;">Plant care lives in scattered places — memory, plant tags, guesswork.</h2>
         <p class="gt-body" style="margin-top:1.5rem; max-width:52ch; font-size:1.05rem;">
           The brief was to design a single place for the needs that came up again and
@@ -384,7 +381,7 @@
     <!-- ======================= THE EXPERIENCE (interwoven features) ======================= -->
     <section class="gt-section gt-rule">
       <div class="gt-wrap">
-        <p class="gt-eyebrow">The Experience — four screens, one interface</p>
+        <p class="eyebrow text-accent-safe">The Experience — four screens, one interface</p>
       </div>
 
       <div class="gt-wrap" style="margin-top:clamp(1.25rem,2.5vw,2rem);">
@@ -490,7 +487,7 @@
     <!-- ======================= COLOUR-FIELD BOLD BEAT ======================= -->
     <section class="gt-field full-bleed" data-reveal>
       <div class="gt-wrap" style="padding-top:clamp(3.25rem,6vw,5rem); padding-bottom:clamp(3.25rem,6vw,5rem);">
-        <p class="gt-eyebrow on-dark">The Design Question</p>
+        <p class="eyebrow on-dark">The Design Question</p>
         <p class="gt-huge" style="margin-top:1.5rem; max-width:20ch;">
           One fast, single-scroll form. One guided, three-step wizard.
         </p>
@@ -505,7 +502,7 @@
     <!-- ======================= ARCHITECTURE / USER FLOW ======================= -->
     <section class="gt-section">
       <div class="gt-wrap">
-        <p class="gt-eyebrow">Information Architecture</p>
+        <p class="eyebrow text-accent-safe">Information Architecture</p>
         <h2 class="gt-h2" data-gt style="margin-top:1rem; max-width:22ch;">Mapped end to end before a single screen was drawn.</h2>
         <p class="gt-body" style="margin-top:1.5rem; max-width:54ch; font-size:1.05rem;">
           Launch → Discover → Virtual Garden → Search / Select / Scan → Plant Info Setup
@@ -527,7 +524,7 @@
     <!-- ======================= TWO APPROACHES ======================= -->
     <section class="gt-section gt-rule">
       <div class="gt-wrap">
-        <p class="gt-eyebrow">Two Approaches</p>
+        <p class="eyebrow text-accent-safe">Two Approaches</p>
         <h2 class="gt-h2" data-gt style="margin-top:1rem; max-width:24ch;">Two add-a-plant flows, compared head to head.</h2>
         <p class="gt-body" style="margin-top:1.5rem; max-width:54ch; font-size:1.05rem;">
           The "Add a Plant" flow was designed as two real directions — not a right answer
@@ -576,7 +573,7 @@
     <!-- ======================= USABILITY TESTING (the spine) ======================= -->
     <section class="gt-section gt-rule">
       <div class="gt-wrap">
-        <p class="gt-eyebrow">Usability Testing</p>
+        <p class="eyebrow text-accent-safe">Usability Testing</p>
         <h2 class="gt-h2" data-gt style="margin-top:1rem; max-width:24ch;">Three participants, one task, one clear preference.</h2>
         <p class="gt-body" style="margin-top:1.5rem; max-width:54ch; font-size:1.05rem;">
           Both versions were tested with three participants completing the same task:
@@ -617,7 +614,7 @@
       <div class="gt-wrap">
         <div class="gt-feature rev">
           <div class="txt">
-            <p class="gt-eyebrow">Insight to Iteration</p>
+            <p class="eyebrow text-accent-safe">Insight to Iteration</p>
             <h2 class="gt-h2" style="margin-top:1rem; max-width:18ch;">Tightening the flow from draft to shippable.</h2>
             <p class="gt-body" style="margin-top:1.5rem; max-width:46ch; font-size:1.02rem;">
               Early drafts used placeholder names ("Emma," "Mr. Ficus") and a rougher
@@ -645,7 +642,7 @@
     <!-- ======================= THE FINISHED APP ======================= -->
     <section class="gt-section gt-rule">
       <div class="gt-wrap">
-        <p class="gt-eyebrow">The Finished App</p>
+        <p class="eyebrow text-accent-safe">The Finished App</p>
         <h2 class="gt-h2" data-gt style="margin-top:1rem; max-width:22ch;">Sign in through plant identification — the full high-fidelity set.</h2>
       </div>
       <figure class="gt-wrap" data-reveal style="margin-top:2.5rem; max-width:82rem;">
@@ -662,9 +659,9 @@
     <!-- ======================= REFLECTION ======================= -->
     <section class="gt-section gt-rule">
       <div class="gt-wrap">
-        <p class="gt-eyebrow">Reflection</p>
+        <p class="eyebrow text-accent-safe">Reflection</p>
         <h2 class="gt-h2" data-gt style="margin-top:1rem; max-width:22ch;">What I'd carry into the next round.</h2>
-        <div style="margin-top:1.5rem; max-width:58ch; display:grid; gap:1.1rem;">
+        <div style="margin-top:1.5rem; max-width:58ch; display:grid; gap:1rem;">
           <p class="gt-body" style="font-size:1.05rem;">
             Version A's visual economy won with this group — but that doesn't make Version B
             a mistake. The accessibility observation, that smaller steps were easier to take
@@ -710,6 +707,7 @@
         <figure>
             <img id="gt-lb-img" src="" alt="">
             <figcaption id="gt-lb-cap"></figcaption>
+            <span id="gt-lb-position" class="gt-lb-position"></span>
         </figure>
         <button type="button" class="gt-lb-nav next" id="gt-lb-next" aria-label="Next diagram"><span aria-hidden="true">&rarr;</span></button>
     </div>
@@ -719,30 +717,67 @@
     <script>
       (function(){
         var lb=document.getElementById('gt-lb'); if(!lb) return;
-        var img=document.getElementById('gt-lb-img'), cap=document.getElementById('gt-lb-cap');
+        var img=document.getElementById('gt-lb-img'), cap=document.getElementById('gt-lb-cap'), pos=document.getElementById('gt-lb-position');
         var closeBtn=document.getElementById('gt-lb-close'), prevBtn=document.getElementById('gt-lb-prev'), nextBtn=document.getElementById('gt-lb-next');
         var thumbs=Array.prototype.slice.call(document.querySelectorAll('.gt-lb-trigger[data-full]'));
         if(!thumbs.length) return;
-        var i=0, lastFocus=null;
+        var i=0, lastFocus=null, scrollLockActive=false;
         function render(){
           var t=thumbs[i];
           img.src=t.getAttribute('data-full');
           img.alt=t.alt||'';
           cap.innerHTML=t.getAttribute('data-cap')||'';
+          pos.textContent = ("0"+(i+1)).slice(-2) + " / 0" + thumbs.length;
         }
-        function open(idx){ i=idx; lastFocus=document.activeElement; render(); lb.classList.add('open'); closeBtn.focus(); }
-        function close(){ lb.classList.remove('open'); if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+        // Scroll lock: padding-right compensates for the vanishing scrollbar
+        // so page content doesn't visibly shift width while open.
+        function lockScroll(){
+          var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+          document.body.style.overflow = "hidden";
+          if (scrollbarWidth > 0) document.body.style.paddingRight = scrollbarWidth + "px";
+          scrollLockActive = true;
+        }
+        function unlockScroll(){
+          if (!scrollLockActive) return;
+          document.body.style.overflow = "";
+          document.body.style.paddingRight = "";
+          scrollLockActive = false;
+        }
+        // getClientRects().length, not offsetParent -- offsetParent is null
+        // for position:fixed/absolute-in-fixed-ancestor elements, which
+        // would otherwise wrongly drop the close button from the trap.
+        function getFocusable(){
+          return Array.prototype.slice
+            .call(lb.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])'))
+            .filter(function(el){ return el.getClientRects().length > 0 && !el.disabled; });
+        }
+        function open(idx){ i=idx; lastFocus=document.activeElement; render(); lb.classList.add('open'); lockScroll(); closeBtn.focus(); }
+        function close(){
+          lb.classList.remove('open');
+          unlockScroll();
+          if (lastFocus && lastFocus.focus) lastFocus.focus();
+          lastFocus=null;
+        }
         function go(d){ i=(i+d+thumbs.length)%thumbs.length; render(); }
         thumbs.forEach(function(t,idx){ t.addEventListener('click', function(){ open(idx); }); });
         closeBtn.addEventListener('click', close);
         prevBtn.addEventListener('click', function(){ go(-1); });
         nextBtn.addEventListener('click', function(){ go(1); });
         lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
-        document.addEventListener('keydown', function(e){
-          if(!lb.classList.contains('open')) return;
-          if(e.key==='Escape') close();
-          else if(e.key==='ArrowLeft') go(-1);
-          else if(e.key==='ArrowRight') go(1);
+        // Esc/arrow-key paging and the Tab focus trap share this one
+        // dialog-scoped listener -- once focus is trapped inside, everything
+        // relevant arrives here via bubbling with no "is it open" guard
+        // needed, since a closed dialog can't hold focus in the first place.
+        lb.addEventListener('keydown', function(e){
+          if(e.key==='Escape'){ close(); return; }
+          if(e.key==='ArrowLeft'){ go(-1); return; }
+          if(e.key==='ArrowRight'){ go(1); return; }
+          if(e.key!=='Tab') return;
+          var focusable=getFocusable();
+          if(!focusable.length) return;
+          var first=focusable[0], last=focusable[focusable.length-1];
+          if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+          else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
         });
       })();
     </script>

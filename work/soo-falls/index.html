@@ -41,9 +41,6 @@
         --sf-ipa:#cf7620; --sf-sour:#e0621f; --sf-guava:#d85a97;
         --sf-brown:#6e4a30;
       }
-      .sf-eyebrow{ font-family:"Work Sans",sans-serif; font-weight:500; text-transform:uppercase;
-        letter-spacing:.2em; font-size:.72rem; color:var(--sf-navy); }
-      .sf-eyebrow.on-navy{ color:#a9bad4; }
       .sf-title{ font-family:"DM Sans",sans-serif; font-weight:800; letter-spacing:-.03em;
         line-height:1.02; font-size:clamp(2.4rem,6vw,4.6rem); color:var(--sf-navy); }
       .sf-h2{ font-family:"DM Sans",sans-serif; font-weight:800; letter-spacing:-.02em;
@@ -92,8 +89,6 @@
         font-size:.66rem; color:#9ca3af; font-weight:500; }
       .sf-fact-v{ font-family:"Work Sans"; color:var(--sf-ink); margin-top:.5rem; font-size:.92rem; line-height:1.5; }
       .sf-chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
-      .sf-chip{ border:1px solid #d1d5db; font-family:"Work Sans"; font-size:.72rem; color:#374151;
-        padding:.3rem .65rem; }
 
       /* ---- Two-up ---- */
       .sf-twoup{ display:grid; grid-template-columns:1fr; gap:2rem; }
@@ -139,8 +134,8 @@
       @media(min-width:640px){ .sf-mosaic{ grid-template-columns:repeat(3,1fr); } }
       @media(min-width:1000px){ .sf-mosaic{ grid-template-columns:repeat(4,1fr); } }
       .sf-tile{ position:relative; margin:0; overflow:hidden; background:#e9ebf0; aspect-ratio:4/5; }
-      .sf-tile img{ width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s ease; }
-      @media(hover:hover){ .sf-tile:hover img{ transform:scale(1.05); } }
+      .sf-tile picture{ display:block; width:100%; height:100%; }
+      .sf-tile img{ width:100%; height:100%; object-fit:cover; display:block; }
       .sf-tile figcaption{ position:absolute; left:0; right:0; bottom:0;
         font-family:"Work Sans"; font-size:.76rem; color:#fff; padding:1.6rem .9rem .8rem;
         background:linear-gradient(to top, rgba(17,20,28,.78), rgba(17,20,28,0)); }
@@ -166,7 +161,7 @@
       @media (prefers-reduced-motion: reduce){
         [data-sf]{ opacity:1 !important; transform:none !important; transition:none !important; }
         .sf-can, .sf-can.a, .sf-can.b, .sf-can.c{ transform:none !important; }
-        .sf-shot img, .sf-tile img{ transition:none !important; }
+        .sf-shot img{ transition:none !important; }
       }
     </style>
     <noscript><style>[]{opacity:1 !important; transform:none !important;}</style></noscript>
@@ -187,7 +182,7 @@
       <a href="/work/" class="link-underline text-sm text-gray-500 hover:text-brand">&larr; Back to Work</a>
       <div class="sf-hero-grid" style="margin-top:1.75rem;">
         <div>
-          <p class="sf-eyebrow">01 — Brand Identity &amp; Packaging</p>
+          <p class="eyebrow text-accent-safe">01 — Brand Identity &amp; Packaging</p>
           <h1 class="sf-title" data-sf style="margin-top:.9rem;">Soo Falls<br>Brewing Co.</h1>
           <p class="sf-lead" style="margin-top:1.25rem; max-width:40ch;">
             Reviving Sault Ste. Marie's historic brewery with a bold, flexible identity —
@@ -225,15 +220,15 @@
       <div style="margin-top:clamp(2rem,4vw,3rem);">
         <p class="sf-fact-k" style="margin-bottom:.85rem;">Selected Applications</p>
         <div class="sf-chips">
-          <span class="sf-chip">10+ Produced Can Designs</span>
-          <span class="sf-chip">Seasonal Packaging</span>
-          <span class="sf-chip">LCBO Launch</span>
-          <span class="sf-chip">Restaurant Partner Collateral</span>
-          <span class="sf-chip">Bus &amp; Billboard Advertising</span>
-          <span class="sf-chip">Zamboni Wraps</span>
-          <span class="sf-chip">Event Branding</span>
-          <span class="sf-chip">Social Campaigns</span>
-          <span class="sf-chip">Signage &amp; History Walls</span>
+          <span class="tag-chip">10+ Produced Can Designs</span>
+          <span class="tag-chip">Seasonal Packaging</span>
+          <span class="tag-chip">LCBO Launch</span>
+          <span class="tag-chip">Restaurant Partner Collateral</span>
+          <span class="tag-chip">Bus &amp; Billboard Advertising</span>
+          <span class="tag-chip">Zamboni Wraps</span>
+          <span class="tag-chip">Event Branding</span>
+          <span class="tag-chip">Social Campaigns</span>
+          <span class="tag-chip">Signage &amp; History Walls</span>
         </div>
       </div>
     </section>
@@ -402,43 +397,43 @@
         <figcaption class="sf-fig">Out-of-home — the Doppelbock "GOAT" billboard</figcaption>
       </figure>
       <div class="sf-wrap sf-mosaic" style="margin-top:1.5rem;">
-        <figure class="sf-tile wide tall">
-          <picture><source srcset="../../images/soo-falls-optimized/taproom-neon.webp" type="image/webp">
+        <figure class="sf-tile group wide tall">
+          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/taproom-neon.webp" type="image/webp">
           <img src="../../images/soo-falls-optimized/taproom-neon.jpg" loading="lazy" alt="The Soo Falls Brewing Company neon sign glowing in a dark taproom, reading Est. 1899."></picture>
           <figcaption><b>Neon.</b> Est. 1899, lit up again.</figcaption>
         </figure>
-        <figure class="sf-tile wide">
-          <picture><source srcset="../../images/soo-falls-optimized/trailer-wrap.webp" type="image/webp">
+        <figure class="sf-tile group wide">
+          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/trailer-wrap.webp" type="image/webp">
           <img src="../../images/soo-falls-optimized/trailer-wrap.jpg" loading="lazy" alt="A trailer fully wrapped in Soo Falls branding parked outside the brick brewery."></picture>
           <figcaption><b>Wrapped &amp; parked.</b> The identity at 15 km/h.</figcaption>
         </figure>
-        <figure class="sf-tile">
-          <picture><source srcset="../../images/soo-falls-optimized/tap-handles.webp" type="image/webp">
+        <figure class="sf-tile group">
+          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/tap-handles.webp" type="image/webp">
           <img src="../../images/soo-falls-optimized/tap-handles.jpg" loading="lazy" alt="A row of Soo Falls tap handles lined up behind the bar."></picture>
           <figcaption><b>On tap.</b></figcaption>
         </figure>
-        <figure class="sf-tile">
-          <picture><source srcset="../../images/soo-falls-optimized/festival-tent.webp" type="image/webp">
+        <figure class="sf-tile group">
+          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/festival-tent.webp" type="image/webp">
           <img src="../../images/soo-falls-optimized/festival-tent.jpg" loading="lazy" alt="A Soo Falls event tent and branded flags set up at an outdoor festival."></picture>
           <figcaption><b>Festival circuit.</b></figcaption>
         </figure>
-        <figure class="sf-tile">
-          <picture><source srcset="../../images/soo-falls-optimized/cans-at-brewery.webp" type="image/webp">
+        <figure class="sf-tile group">
+          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/cans-at-brewery.webp" type="image/webp">
           <img src="../../images/soo-falls-optimized/cans-at-brewery.jpg" loading="lazy" alt="Soo Falls cans and a branded cap arranged on grass in front of the brick brewery."></picture>
           <figcaption><b>Merch.</b> Cap to match the cans.</figcaption>
         </figure>
-        <figure class="sf-tile">
-          <picture><source srcset="../../images/soo-falls-optimized/doppelbock-tanks.webp" type="image/webp">
+        <figure class="sf-tile group">
+          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/doppelbock-tanks.webp" type="image/webp">
           <img src="../../images/soo-falls-optimized/doppelbock-tanks.jpg" loading="lazy" alt="A hand holding a Soo Falls Doppelbock can in front of the stainless brewing tanks."></picture>
           <figcaption><b>From the source.</b></figcaption>
         </figure>
-        <figure class="sf-tile wide">
-          <picture><source srcset="../../images/soo-falls-optimized/patio-glasses.webp" type="image/webp">
+        <figure class="sf-tile group wide">
+          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/patio-glasses.webp" type="image/webp">
           <img src="../../images/soo-falls-optimized/patio-glasses.jpg" loading="lazy" alt="Two full glasses of Soo Falls beer on a patio table beside a printed menu."></picture>
           <figcaption><b>Patio season.</b> Partner restaurants and menus.</figcaption>
         </figure>
-        <figure class="sf-tile">
-          <picture><source srcset="../../images/soo-falls-optimized/launch-table.webp" type="image/webp">
+        <figure class="sf-tile group">
+          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/launch-table.webp" type="image/webp">
           <img src="../../images/soo-falls-optimized/launch-table.jpg" loading="lazy" alt="A Soo Falls launch table with a branded tablecloth reading Proudly Brewed in Sault Ste. Marie."></picture>
           <figcaption><b>Trade-show ready.</b></figcaption>
         </figure>
