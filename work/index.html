@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;800&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;800&family=Roboto+Mono:wght@400&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/dist/output.css">
 </head>
 <body class="bg-paper text-ink font-body">
@@ -114,7 +114,7 @@
             </button>
 
             <button type="button" id="jenesis-medical-aesthetics" style="--accent:#a59b90; --accent-text:#6b6258" class="project-card group flex flex-col text-left lightbox-trigger" data-tags="uiux-web" data-gallery="jenesis-medical-aesthetics"
-                data-title="Jenesis Medical Aesthetics" data-description="Responsive website planning and implementation for a multi-practitioner medical-aesthetics business. I organized the practice's services into a seven-page sitemap, planned the information architecture, and built the original responsive layouts in Wix Studio around the client's existing identity. Portions of the visual design were later modified by the client." data-meta="Responsive Web Design &middot; Information Architecture &middot; Wix Studio">
+                data-title="Jenesis Medical Aesthetics" data-description="Responsive website planning and implementation for a multi-practitioner medical-aesthetics business, including setting up the site's online store. I organized the practice's services into a seven-page sitemap, planned the information architecture, and built the original responsive layouts and store in Wix Studio around the client's existing identity. Portions of the visual design were later modified by the client." data-meta="Responsive Web Design &middot; Information Architecture &middot; Wix Studio" data-link="https://www.jenesismedicalaesthetics.ca" data-link-label="Visit the live site">
                 <div class="aspect-square overflow-hidden bg-[#6b6258]">
                     <picture>
                         <source srcset="/images/jenesis-medical-aesthetics-optimized/jenesis-logo-card.webp" type="image/webp">
@@ -224,6 +224,7 @@
                     <span id="lightbox-meta" class="text-gray-400 font-body text-xs font-medium uppercase tracking-wide"></span>
                     <h2 id="lightbox-title" class="font-display font-extrabold text-paper text-xl md:text-2xl mt-2"></h2>
                     <p id="lightbox-description" class="text-gray-300 mt-3 leading-relaxed text-sm"></p>
+                    <a id="lightbox-link" class="hidden mt-4 font-body font-medium text-sm border-b-2 border-paper/40 text-paper hover:border-paper" href="" target="_blank" rel="noopener"></a>
                 </div>
             </div>
         </div>
@@ -312,18 +313,21 @@
                 { src: "/images/project-search-optimized/project-search-logo-card.png", webp: "/images/project-search-optimized/project-search-logo-card.webp", alt: "Project SEARCH Algoma logo in a square card layout" },
                 { src: "/images/project-search-optimized/project-search-original-logo.jpg", webp: "/images/project-search-optimized/project-search-original-logo.webp", alt: "Original national Project SEARCH logo, shown for reference", caption: "Original national Project SEARCH mark (reference)", small: true }
             ],
-            // Only the existing brand mark is available for this project — no
-            // desktop/mobile site screenshots or a sitemap diagram have been
-            // supplied yet, so this gallery deliberately has one slide rather
-            // than inventing placeholder imagery.
+            // Brand mark, plus real desktop and mobile screenshots of the live
+            // site (captured 2026-07-17). The site has been modified by the
+            // client since this was delivered — see the caption on each shot.
+            // No sitemap diagram exists yet, so that's still not included.
             "jenesis-medical-aesthetics": [
-                { src: "/images/jenesis-medical-aesthetics-optimized/jenesis-logo-card.png", webp: "/images/jenesis-medical-aesthetics-optimized/jenesis-logo-card.webp", alt: "Jenesis Medical Aesthetics logo on a taupe background" }
+                { src: "/images/jenesis-medical-aesthetics-optimized/jenesis-logo-card.png", webp: "/images/jenesis-medical-aesthetics-optimized/jenesis-logo-card.webp", alt: "Jenesis Medical Aesthetics logo on a taupe background" },
+                { src: "/images/jenesis-medical-aesthetics-optimized/jenesis-site-desktop.jpg", webp: "/images/jenesis-medical-aesthetics-optimized/jenesis-site-desktop.webp", alt: "Jenesis Medical Aesthetics website homepage, desktop view", caption: "Current live site (desktop) — the client has since updated the visual design." },
+                { src: "/images/jenesis-medical-aesthetics-optimized/jenesis-site-mobile.jpg", webp: "/images/jenesis-medical-aesthetics-optimized/jenesis-site-mobile.webp", alt: "Jenesis Medical Aesthetics website homepage, mobile view", caption: "Current live site (mobile)." }
             ]
         };
 
         const lightbox = document.getElementById("lightbox");
         const lightboxTitle = document.getElementById("lightbox-title");
         const lightboxDescription = document.getElementById("lightbox-description");
+        const lightboxLink = document.getElementById("lightbox-link");
         const lightboxMeta = document.getElementById("lightbox-meta");
         const lightboxImageLabel = document.getElementById("lightbox-image-label");
         const lightboxStage = document.getElementById("lightbox-stage");
@@ -514,6 +518,19 @@
             lightboxTitle.textContent = trigger.dataset.title;
             lightboxDescription.textContent = trigger.dataset.description;
             lightboxMeta.textContent = trigger.dataset.meta;
+
+            // Optional "visit the live site" link — only a couple of
+            // projects (Soo Falls's case study, now Jenesis's lightbox) have
+            // a real live site to point to, so this is hidden by default and
+            // only shown when a trigger supplies both data attributes.
+            if (trigger.dataset.link) {
+                lightboxLink.href = trigger.dataset.link;
+                lightboxLink.textContent = (trigger.dataset.linkLabel || "Visit the live site") + " ↗";
+                lightboxLink.classList.remove("hidden");
+            } else {
+                lightboxLink.classList.add("hidden");
+                lightboxLink.removeAttribute("href");
+            }
 
             var gallery = projectGalleries[trigger.dataset.gallery];
             var hasGallery = Array.isArray(gallery) && gallery.length > 0;

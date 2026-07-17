@@ -401,15 +401,17 @@
     display: none;
   }
 
-  /* Section eyebrow: small uppercase Work Sans label, wide-tracked.
-     Pair with .text-accent-safe for color (or .on-dark on a colour-field
-     section). Replaces the formerly duplicated .cd-eyebrow/.cd-kicker/
-     .gt-eyebrow/.sf-eyebrow copies across the case-study pages. */
+  /* Section eyebrow: small uppercase Roboto Mono label (label-layer typeface,
+     see CLAUDE.md standing decision). Pair with .text-accent-safe for color
+     (or .on-dark on a colour-field section). Replaces the formerly
+     duplicated .cd-eyebrow/.cd-kicker/.gt-eyebrow/.sf-eyebrow copies across
+     the case-study pages. Slashed zero matters for "01"/"02" numbering. */
   .eyebrow {
-    font-family: "Work Sans", sans-serif;
-    font-weight: 500;
+    font-family: "Roboto Mono", monospace;
+    font-weight: 400;
+    font-feature-settings: "zero" 1;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.12em;
     font-size: 0.72rem;
   }
   .eyebrow.on-dark {
@@ -422,9 +424,18 @@
      inline chip utility. */
   .tag-chip {
     border: 1px solid #d1d5db;
-    font-family: "Work Sans", sans-serif;
+    font-family: "Roboto Mono", monospace;
+    font-feature-settings: "zero" 1;
     font-size: 0.72rem;
     color: #374151;
     padding: 0.3rem 0.65rem;
+  }
+
+  /* Label-layer typeface for one-off label elements that aren't .eyebrow/
+     .tag-chip (e.g. the homepage hero capability strip, which uses a
+     flex-wrap layout rather than the eyebrow pattern). */
+  .label-mono {
+    font-family: "Roboto Mono", monospace;
+    font-feature-settings: "zero" 1;
   }
 }
