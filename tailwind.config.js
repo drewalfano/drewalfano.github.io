@@ -20,7 +20,7 @@ module.exports = {
       fontFamily: {
         display: ["DM Sans", "sans-serif"],
         body: ["Work Sans", "sans-serif"],
-        mono: ["Roboto Mono", "monospace"],
+        mono: ["JetBrains Mono", "monospace"],
       },
     },
   },

@@ -401,15 +401,16 @@
     display: none;
   }
 
-  /* Section eyebrow: small uppercase Roboto Mono label (label-layer typeface,
+  /* Section eyebrow: small uppercase JetBrains Mono label (label-layer typeface,
      see CLAUDE.md standing decision). Pair with .text-accent-safe for color
      (or .on-dark on a colour-field section). Replaces the formerly
      duplicated .cd-eyebrow/.cd-kicker/.gt-eyebrow/.sf-eyebrow copies across
-     the case-study pages. Slashed zero matters for "01"/"02" numbering. */
+     the case-study pages. JetBrains Mono's zero has a built-in centered dot
+     (always on, not a toggleable feature) that disambiguates it from "O" —
+     matters for "01"/"02" numbering. */
   .eyebrow {
-    font-family: "Roboto Mono", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-weight: 400;
-    font-feature-settings: "zero" 1;
     text-transform: uppercase;
     letter-spacing: 0.12em;
     font-size: 0.72rem;
@@ -424,8 +425,7 @@
      inline chip utility. */
   .tag-chip {
     border: 1px solid #d1d5db;
-    font-family: "Roboto Mono", monospace;
-    font-feature-settings: "zero" 1;
+    font-family: "JetBrains Mono", monospace;
     font-size: 0.72rem;
     color: #374151;
     padding: 0.3rem 0.65rem;
@@ -435,7 +435,6 @@
      .tag-chip (e.g. the homepage hero capability strip, which uses a
      flex-wrap layout rather than the eyebrow pattern). */
   .label-mono {
-    font-family: "Roboto Mono", monospace;
-    font-feature-settings: "zero" 1;
+    font-family: "JetBrains Mono", monospace;
   }
 }
