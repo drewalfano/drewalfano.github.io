@@ -62,7 +62,8 @@ No image libraries installed (no ImageMagick/PIL). Process is: `sips` (macOS bui
 - Thumbnail/grid images: cap at ~1200px longest side, never upscale
 - Photos with no EXIF orientation tag may render sideways — always visually verify rotation direction before batch-processing (verified empirically per image last session, not by rule of thumb)
 - Flat/vector-style graphics (logos, transparent product renders) → keep PNG, don't force JPEG (JPEG compresses hard edges/flat color badly)
-- Output convention: `images/<project>-optimized/<slug>.{jpg,png} + <slug>.webp`, raw source folders (`images/soo-falls/`, `images/soo-falls-selects/`) are **gitignored** — only optimized output is committed
+- Output convention: `images/<project>-optimized/<slug>.{jpg,png} + <slug>.webp` — only optimized output is committed
+- **Folder layout (reorganized 2026-07-16):** raw source material lives in one gitignored folder per project (`images/atari-2600/`, `images/canal-district/`, `images/coffee-guy/`, `images/high-seas-brewing/`, `images/jayl-house/`, `images/soo-falls/`, `images/soo-falls-selects/`) — no loose files at the `images/` root. Optimized exports that no page references live in gitignored `images/unused/<original-subfolder>/` (kept on disk, untracked; several are staged assets for the future Canal District build-out). All filenames are lowercase-hyphen slugs; the formerly cryptic used Soo Falls images (`img_0394` etc.) were renamed to descriptive slugs derived from their alt text (e.g. `tap-handles`, `taproom-neon`, `can-italian-pilsner`), with raw sources renamed to match their optimized outputs for traceability. HTML references were updated in the same pass and verified (0 broken).
 
 ## Current state (end of this session)
 

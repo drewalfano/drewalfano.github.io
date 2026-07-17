@@ -2,27 +2,18 @@ node_modules/
 .DS_Store
 .claude/settings.local.json
 
-# Raw, unoptimized source photography — only the processed /images/*-optimized/
-# folders are actually used by the site and committed.
+# Raw, unoptimized source material — one folder per project. Only the processed
+# /images/*-optimized/ folders are actually used by the site and committed.
+images/atari-2600/
+images/canal-district/
+images/coffee-guy/
+images/high-seas-brewing/
+images/jayl-house/
 images/soo-falls/
 images/soo-falls-selects/
-images/Atari Images/
-images/Coffeeguy/
-images/high-seas-brewing/
-images/canal-district-logo.png
-images/canal-district-hero.png
-images/Jayl-House-Thumbnail.png
-images/D_Alfano_Proj1_Dieline.png
-images/IceCreamCart.png
-images/IceCreamCart_Artwork.pdf
-images/5.25x8.52 Mag Ad.pdf
-images/Whiskey River TV Ad.aep.mp4
-images/Canal District Map Ad.pdf
-images/Concert Post.png
 
-# Stray design-tool export dumps (default "Untitled" filenames from Finder/
-# design-tool exports) — never a real, intentionally-named project asset.
-images/Untitled*.png
+# Exports/alternates not referenced by any page (kept on disk, not tracked)
+images/unused/
 
 # Local working notes / session checkpoints — useful for picking a session
 # back up, not meant to be read by anyone else or tracked in history.
