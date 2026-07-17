@@ -103,7 +103,7 @@
       .cd-lb figcaption{ color:#e5e7eb; font-family:"Work Sans"; font-size:.85rem; margin-top:1rem; text-align:center; max-width:52ch; }
       .cd-lb figcaption b{ color:#fff; font-weight:600; }
       .cd-lb-close{ position:absolute; top:1rem; right:1rem; width:2.75rem; height:2.75rem; border-radius:999px;
-        border:0; background:#fff; color:#111; font-size:1.5rem; line-height:1; cursor:pointer; }
+        border:0; background:#fff; color:#111; cursor:pointer; display:flex; align-items:center; justify-content:center; }
       .cd-lb-nav{ position:absolute; top:50%; transform:translateY(-50%); width:2.75rem; height:2.75rem; border-radius:999px;
         border:0; background:rgba(255,255,255,.92); color:#111; font-size:1.2rem; cursor:pointer; }
       .cd-lb-nav.prev{ left:clamp(.5rem,2vw,1.5rem); }
@@ -381,7 +381,11 @@
 
     <!-- Lightbox -->
     <div class="cd-lb" id="cd-lb" role="dialog" aria-modal="true" aria-label="Work preview">
-        <button type="button" class="cd-lb-close" id="cd-lb-close" aria-label="Close preview">&times;</button>
+        <button type="button" class="cd-lb-close" id="cd-lb-close" aria-label="Close preview">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L15 15M15 1L1 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </button>
         <button type="button" class="cd-lb-nav prev" id="cd-lb-prev" aria-label="Previous piece"><span aria-hidden="true">&larr;</span></button>
         <figure>
             <img id="cd-lb-img" src="" alt="">
