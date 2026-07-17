@@ -136,10 +136,37 @@
       .sf-tile{ position:relative; margin:0; overflow:hidden; background:#e9ebf0; aspect-ratio:4/5; }
       .sf-tile picture{ display:block; width:100%; height:100%; }
       .sf-tile img{ width:100%; height:100%; object-fit:cover; display:block; }
-      .sf-tile figcaption{ position:absolute; left:0; right:0; bottom:0;
+      .sf-tile-btn{ position:absolute; inset:0; display:block; width:100%; height:100%;
+        border:0; padding:0; margin:0; background:none; cursor:zoom-in; }
+      .sf-tile figcaption{ position:absolute; left:0; right:0; bottom:0; pointer-events:none;
         font-family:"Work Sans"; font-size:.76rem; color:#fff; padding:1.6rem .9rem .8rem;
         background:linear-gradient(to top, rgba(17,20,28,.78), rgba(17,20,28,0)); }
       .sf-tile figcaption b{ font-weight:600; }
+
+      /* ---- Lightbox for the "Brand in the World" mosaic (same pattern as
+             the site's other case-study lightboxes: translucent top-center
+             close, translucent side arrows, numeric pagination). ---- */
+      .sf-lb{ position:fixed; inset:0; z-index:90; display:flex; align-items:center; justify-content:center;
+        padding:clamp(1rem,4vw,3.5rem); background:#1C1C1C; opacity:0; visibility:hidden; transition:opacity .25s ease; }
+      .sf-lb.open{ opacity:1; visibility:visible; }
+      .sf-lb figure{ margin:0; max-width:min(92vw,64rem); display:flex; flex-direction:column; align-items:center; }
+      .sf-lb img{ max-width:100%; max-height:80vh; width:auto; height:auto; object-fit:contain; background:#fff;
+        box-shadow:0 20px 60px -20px rgba(0,0,0,.6); }
+      .sf-lb figcaption{ color:#e5e7eb; font-family:"Work Sans"; font-size:.85rem; margin-top:1rem; text-align:center; max-width:52ch; }
+      .sf-lb figcaption b{ color:#fff; font-weight:600; }
+      .sf-lb-position{ color:#6b7280; font-family:"Work Sans"; font-size:.72rem; margin-top:.5rem; text-align:center; display:block; }
+      .sf-lb-close{ position:absolute; top:1rem; left:50%; transform:translateX(-50%); width:2.5rem; height:2.5rem; border-radius:999px;
+        border:0; background:rgba(255,255,255,.1); color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center;
+        transition:background-color .2s ease; }
+      @media(hover:hover){ .sf-lb-close:hover{ background:rgba(255,255,255,.2); } }
+      @media(min-width:768px){ .sf-lb-close{ top:1.5rem; } }
+      .sf-lb-nav{ position:absolute; top:50%; transform:translateY(-50%); width:2.5rem; height:2.5rem; border-radius:999px;
+        border:0; background:rgba(255,255,255,.1); color:#fff; font-size:1.05rem; cursor:pointer;
+        transition:background-color .2s ease; }
+      @media(hover:hover){ .sf-lb-nav:hover{ background:rgba(255,255,255,.2); } }
+      .sf-lb-nav.prev{ left:clamp(.5rem,2vw,1.5rem); }
+      .sf-lb-nav.next{ right:clamp(.5rem,2vw,1.5rem); }
+      @media (prefers-reduced-motion: reduce){ .sf-lb{ transition:none; } }
 
       /* ---- Navy statement band ---- */
       .sf-field{ background:var(--sf-navy); color:#fff; }
@@ -398,43 +425,59 @@
       </figure>
       <div class="sf-wrap sf-mosaic" style="margin-top:1.5rem;">
         <figure class="sf-tile group wide tall">
-          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/taproom-neon.webp" type="image/webp">
-          <img src="../../images/soo-falls-optimized/taproom-neon.jpg" loading="lazy" alt="The Soo Falls Brewing Company neon sign glowing in a dark taproom, reading Est. 1899."></picture>
+          <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/taproom-neon.jpg" data-cap="<b>Neon.</b> Est. 1899, lit up again.">
+            <picture class="card-image"><source srcset="../../images/soo-falls-optimized/taproom-neon.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/taproom-neon.jpg" loading="lazy" alt="The Soo Falls Brewing Company neon sign glowing in a dark taproom, reading Est. 1899."></picture>
+          </button>
           <figcaption><b>Neon.</b> Est. 1899, lit up again.</figcaption>
         </figure>
         <figure class="sf-tile group wide">
-          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/trailer-wrap.webp" type="image/webp">
-          <img src="../../images/soo-falls-optimized/trailer-wrap.jpg" loading="lazy" alt="A trailer fully wrapped in Soo Falls branding parked outside the brick brewery."></picture>
+          <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/trailer-wrap.jpg" data-cap="<b>Wrapped &amp; parked.</b> The identity at 15 km/h.">
+            <picture class="card-image"><source srcset="../../images/soo-falls-optimized/trailer-wrap.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/trailer-wrap.jpg" loading="lazy" alt="A trailer fully wrapped in Soo Falls branding parked outside the brick brewery."></picture>
+          </button>
           <figcaption><b>Wrapped &amp; parked.</b> The identity at 15 km/h.</figcaption>
         </figure>
         <figure class="sf-tile group">
-          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/tap-handles.webp" type="image/webp">
-          <img src="../../images/soo-falls-optimized/tap-handles.jpg" loading="lazy" alt="A row of Soo Falls tap handles lined up behind the bar."></picture>
+          <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/tap-handles.jpg" data-cap="<b>On tap.</b>">
+            <picture class="card-image"><source srcset="../../images/soo-falls-optimized/tap-handles.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/tap-handles.jpg" loading="lazy" alt="A row of Soo Falls tap handles lined up behind the bar."></picture>
+          </button>
           <figcaption><b>On tap.</b></figcaption>
         </figure>
         <figure class="sf-tile group">
-          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/festival-tent.webp" type="image/webp">
-          <img src="../../images/soo-falls-optimized/festival-tent.jpg" loading="lazy" alt="A Soo Falls event tent and branded flags set up at an outdoor festival."></picture>
+          <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/festival-tent.jpg" data-cap="<b>Festival circuit.</b>">
+            <picture class="card-image"><source srcset="../../images/soo-falls-optimized/festival-tent.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/festival-tent.jpg" loading="lazy" alt="A Soo Falls event tent and branded flags set up at an outdoor festival."></picture>
+          </button>
           <figcaption><b>Festival circuit.</b></figcaption>
         </figure>
         <figure class="sf-tile group">
-          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/cans-at-brewery.webp" type="image/webp">
-          <img src="../../images/soo-falls-optimized/cans-at-brewery.jpg" loading="lazy" alt="Soo Falls cans and a branded cap arranged on grass in front of the brick brewery."></picture>
+          <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/cans-at-brewery.jpg" data-cap="<b>Merch.</b> Cap to match the cans.">
+            <picture class="card-image"><source srcset="../../images/soo-falls-optimized/cans-at-brewery.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/cans-at-brewery.jpg" loading="lazy" alt="Soo Falls cans and a branded cap arranged on grass in front of the brick brewery."></picture>
+          </button>
           <figcaption><b>Merch.</b> Cap to match the cans.</figcaption>
         </figure>
         <figure class="sf-tile group">
-          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/doppelbock-tanks.webp" type="image/webp">
-          <img src="../../images/soo-falls-optimized/doppelbock-tanks.jpg" loading="lazy" alt="A hand holding a Soo Falls Doppelbock can in front of the stainless brewing tanks."></picture>
+          <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/doppelbock-tanks.jpg" data-cap="<b>From the source.</b>">
+            <picture class="card-image"><source srcset="../../images/soo-falls-optimized/doppelbock-tanks.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/doppelbock-tanks.jpg" loading="lazy" alt="A hand holding a Soo Falls Doppelbock can in front of the stainless brewing tanks."></picture>
+          </button>
           <figcaption><b>From the source.</b></figcaption>
         </figure>
         <figure class="sf-tile group wide">
-          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/patio-glasses.webp" type="image/webp">
-          <img src="../../images/soo-falls-optimized/patio-glasses.jpg" loading="lazy" alt="Two full glasses of Soo Falls beer on a patio table beside a printed menu."></picture>
+          <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/patio-glasses.jpg" data-cap="<b>Patio season.</b> Partner restaurants and menus.">
+            <picture class="card-image"><source srcset="../../images/soo-falls-optimized/patio-glasses.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/patio-glasses.jpg" loading="lazy" alt="Two full glasses of Soo Falls beer on a patio table beside a printed menu."></picture>
+          </button>
           <figcaption><b>Patio season.</b> Partner restaurants and menus.</figcaption>
         </figure>
         <figure class="sf-tile group">
-          <picture class="card-image"><source srcset="../../images/soo-falls-optimized/launch-table.webp" type="image/webp">
-          <img src="../../images/soo-falls-optimized/launch-table.jpg" loading="lazy" alt="A Soo Falls launch table with a branded tablecloth reading Proudly Brewed in Sault Ste. Marie."></picture>
+          <button type="button" class="sf-tile-btn" data-full="../../images/soo-falls-optimized/launch-table.jpg" data-cap="<b>Trade-show ready.</b>">
+            <picture class="card-image"><source srcset="../../images/soo-falls-optimized/launch-table.webp" type="image/webp">
+            <img src="../../images/soo-falls-optimized/launch-table.jpg" loading="lazy" alt="A Soo Falls launch table with a branded tablecloth reading Proudly Brewed in Sault Ste. Marie."></picture>
+          </button>
           <figcaption><b>Trade-show ready.</b></figcaption>
         </figure>
       </div>
@@ -481,6 +524,22 @@
         <a href="mailto:hello@drewalfano.com" class="link-underline hover:text-brand">hello@drewalfano.com</a>
     </footer>
 
+    <!-- Lightbox: "Brand in the World" mosaic -->
+    <div class="sf-lb" id="sf-lb" role="dialog" aria-modal="true" aria-label="Brand photo preview">
+        <button type="button" class="sf-lb-close" id="sf-lb-close" aria-label="Close preview">
+            <svg aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L15 15M15 1L1 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <button type="button" class="sf-lb-nav prev" id="sf-lb-prev" aria-label="Previous photo"><span aria-hidden="true">&larr;</span></button>
+        <figure>
+            <img id="sf-lb-img" src="" alt="">
+            <figcaption id="sf-lb-cap"></figcaption>
+            <span id="sf-lb-position" class="sf-lb-position"></span>
+        </figure>
+        <button type="button" class="sf-lb-nav next" id="sf-lb-next" aria-label="Next photo"><span aria-hidden="true">&rarr;</span></button>
+    </div>
+
     <!-- Cursor-following label for the hero cans -->
     <div class="sf-tip" id="can-tip" aria-hidden="true"></div>
     <script>
@@ -498,6 +557,74 @@
           });
           c.addEventListener('mousemove', move);
           c.addEventListener('mouseleave', function(){ tip.classList.remove('on'); });
+        });
+      })();
+    </script>
+    <!-- Lightbox: click a mosaic photo to open full size; arrows / Esc to navigate. -->
+    <script>
+      (function(){
+        var lb=document.getElementById('sf-lb'); if(!lb) return;
+        var img=document.getElementById('sf-lb-img'), cap=document.getElementById('sf-lb-cap'), pos=document.getElementById('sf-lb-position');
+        var closeBtn=document.getElementById('sf-lb-close'), prevBtn=document.getElementById('sf-lb-prev'), nextBtn=document.getElementById('sf-lb-next');
+        var thumbs=Array.prototype.slice.call(document.querySelectorAll('.sf-tile-btn[data-full]'));
+        if(!thumbs.length) return;
+        var i=0, lastFocus=null, scrollLockActive=false;
+        function render(){
+          var t=thumbs[i];
+          img.src=t.getAttribute('data-full');
+          var im=t.querySelector('img'); img.alt=im?im.alt:'';
+          cap.innerHTML=t.getAttribute('data-cap')||'';
+          pos.textContent = ("0"+(i+1)).slice(-2) + " / 0" + thumbs.length;
+        }
+        // Scroll lock: padding-right compensates for the vanishing scrollbar
+        // so page content doesn't visibly shift width while open.
+        function lockScroll(){
+          var scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+          document.body.style.overflow = "hidden";
+          if (scrollbarWidth > 0) document.body.style.paddingRight = scrollbarWidth + "px";
+          scrollLockActive = true;
+        }
+        function unlockScroll(){
+          if (!scrollLockActive) return;
+          document.body.style.overflow = "";
+          document.body.style.paddingRight = "";
+          scrollLockActive = false;
+        }
+        // getClientRects().length, not offsetParent -- offsetParent is null
+        // for position:fixed/absolute-in-fixed-ancestor elements, which
+        // would otherwise wrongly drop the close button from the trap.
+        function getFocusable(){
+          return Array.prototype.slice
+            .call(lb.querySelectorAll('button, [href], [tabindex]:not([tabindex="-1"])'))
+            .filter(function(el){ return el.getClientRects().length > 0 && !el.disabled; });
+        }
+        function open(idx){ i=idx; lastFocus=document.activeElement; render(); lb.classList.add('open'); lockScroll(); closeBtn.focus(); }
+        function close(){
+          lb.classList.remove('open');
+          unlockScroll();
+          if (lastFocus && lastFocus.focus) lastFocus.focus();
+          lastFocus=null;
+        }
+        function go(d){ i=(i+d+thumbs.length)%thumbs.length; render(); }
+        thumbs.forEach(function(t,idx){ t.addEventListener('click', function(){ open(idx); }); });
+        closeBtn.addEventListener('click', close);
+        prevBtn.addEventListener('click', function(){ go(-1); });
+        nextBtn.addEventListener('click', function(){ go(1); });
+        lb.addEventListener('click', function(e){ if(e.target===lb) close(); });
+        // Esc/arrow-key paging and the Tab focus trap share this one
+        // dialog-scoped listener -- once focus is trapped inside, everything
+        // relevant arrives here via bubbling with no "is it open" guard
+        // needed, since a closed dialog can't hold focus in the first place.
+        lb.addEventListener('keydown', function(e){
+          if(e.key==='Escape'){ close(); return; }
+          if(e.key==='ArrowLeft'){ go(-1); return; }
+          if(e.key==='ArrowRight'){ go(1); return; }
+          if(e.key!=='Tab') return;
+          var focusable=getFocusable();
+          if(!focusable.length) return;
+          var first=focusable[0], last=focusable[focusable.length-1];
+          if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+          else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
         });
       })();
     </script>
