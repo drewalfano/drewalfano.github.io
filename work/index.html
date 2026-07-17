@@ -152,15 +152,16 @@
                 <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Logo Design, Visual Identity, Illustration, Packaging, Student Work</p>
             </button>
 
-            <button type="button" id="project-search" class="project-card group flex flex-col text-left lightbox-trigger" data-tags="social-media,campaigns"
-                data-title="Project SEARCH Algoma" data-description="Social media campaign assets supporting Project SEARCH Algoma's community outreach program." data-meta="Social Media, Campaigns">
-                <div class="card-image aspect-square overflow-hidden">
-                    <div class="w-full h-full bg-ink flex items-center justify-center p-6">
-                        <span class="font-display font-extrabold text-paper text-lg md:text-xl text-center leading-tight">Project SEARCH<br>Algoma</span>
-                    </div>
+            <button type="button" id="project-search" style="--accent:#E2895C; --accent-text:#A64B1E" class="project-card group flex flex-col text-left lightbox-trigger" data-tags="branding,logo-design,brand-adaptation" data-gallery="project-search"
+                data-title="Project SEARCH Algoma" data-description="A regional lockup adapted from the national Project SEARCH identity for the Algoma program, a school-to-work transition initiative for students with disabilities. The mark unifies Sault Area Hospital, Algoma District School Board, and Community Living Algoma under one identity for use on documents and apparel, extending the original typography and figure while adding the ALGOMA wordmark treatment." data-meta="Logo Design, Brand Adaptation">
+                <div class="aspect-square overflow-hidden bg-[#FAFAFA]">
+                    <picture>
+                        <source srcset="/images/project-search-optimized/project-search-logo-card.webp" type="image/webp">
+                        <img src="/images/project-search-optimized/project-search-logo-card.png" alt="Project SEARCH Algoma logo in a square card layout" width="1200" height="1200" class="w-full h-full object-contain" loading="lazy">
+                    </picture>
                 </div>
-                <p class="font-body text-sm mt-2 group-hover:text-brand">Project SEARCH Algoma</p>
-                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Social Media, Campaigns</p>
+                <p class="font-body text-sm mt-2 group-hover:text-accent-safe">Project SEARCH Algoma</p>
+                <p class="text-gray-400 text-xs mt-1">Selected Work &middot; Logo Design, Brand Adaptation</p>
             </button>
 
         </div>
@@ -308,6 +309,11 @@
                 { src: "/images/coffee-guy-optimized/coffee-guy-cup.png", webp: "/images/coffee-guy-optimized/coffee-guy-cup.webp", alt: "Coffee Guy branded paper cup product photo" },
                 { src: "/images/coffee-guy-optimized/coffee-guy-banner.jpg", webp: "/images/coffee-guy-optimized/coffee-guy-banner.webp", alt: "Coffee Guy promotional banner ad: \"Relax This Fall and Enjoy a Coffee On Us\"" },
                 { src: "/images/coffee-guy-optimized/coffee-guy-pattern.png", webp: "/images/coffee-guy-optimized/coffee-guy-pattern.webp", alt: "Coffee Guy repeating brand pattern texture" }
+            ],
+            "project-search": [
+                { src: "/images/project-search-optimized/project-search-logo.png", webp: "/images/project-search-optimized/project-search-logo.webp", alt: "Project SEARCH Algoma horizontal logo lockup, combining the Project SEARCH mark with the ALGOMA wordmark" },
+                { src: "/images/project-search-optimized/project-search-logo-card.png", webp: "/images/project-search-optimized/project-search-logo-card.webp", alt: "Project SEARCH Algoma logo in a square card layout" },
+                { src: "/images/project-search-optimized/project-search-original-logo.jpg", webp: "/images/project-search-optimized/project-search-original-logo.webp", alt: "Original national Project SEARCH logo, shown for reference", caption: "Original national Project SEARCH mark (reference)", small: true }
             ]
         };
 
@@ -441,7 +447,9 @@
                 // w-full h-full here is what makes object-contain on the
                 // image below actually take effect instead of silently
                 // doing nothing.
-                picture.className = "w-full h-full flex items-center justify-center";
+                picture.className = item.small
+                    ? "w-1/2 h-1/2 flex items-center justify-center"
+                    : "w-full h-full flex items-center justify-center";
                 var source = document.createElement("source");
                 source.type = "image/webp";
                 source.srcset = item.webp;
