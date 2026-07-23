@@ -153,8 +153,9 @@
      JS. min-width:0 on both the grid and its child is required, or grid's
      default min-width:auto refuses to shrink the track below content size.
      The underline shares the exact same duration/easing so both read as one
-     motion. Disabled entirely on touch (only wired up inside
-     (hover:hover)) and forced back to collapsed+inert under reduced motion
+     motion. The hover/focus reveal stays inside (hover:hover); a separate
+     JS-driven .is-unfurling intro (below) reuses the same end-state so touch
+     gets the moment too. Forced back to collapsed+inert under reduced motion
      below — the sitewide transition-duration override alone would just
      make it snap open, which is explicitly not wanted here. */
   .nav-logo {
@@ -167,6 +168,7 @@
     grid-template-columns: 0fr;
     min-width: 0;
     opacity: 0;
+    transition: grid-template-columns 0.42s ease-out, opacity 0.42s ease-out;
   }
   .nav-logo-seg > span {
     display: inline-block;
@@ -183,12 +185,22 @@
     background-color: #D0272B;
     transform: scaleX(0);
     transform-origin: left;
+    transition: transform 0.42s ease-out;
+  }
+  /* One-time intro unfurl, added by assets/js/site.js on the first page load
+     of a session (see the nav-logo intro IIFE). Not gated behind (hover:hover)
+     so it also plays on touch; the transitions live on the base selectors
+     above, so both opening (class added) and settling back to "DA" (class
+     removed) ease. JS never adds this under prefers-reduced-motion, so no
+     motion-safe override is needed here. */
+  .nav-logo.is-unfurling .nav-logo-seg {
+    grid-template-columns: 1fr;
+    opacity: 1;
+  }
+  .nav-logo.is-unfurling .nav-logo-underline {
+    transform: scaleX(1);
   }
   @media (hover: hover) {
-    .nav-logo-seg,
-    .nav-logo-underline {
-      transition: grid-template-columns 0.42s ease-out, opacity 0.42s ease-out, transform 0.42s ease-out;
-    }
     .nav-logo:hover .nav-logo-seg,
     .nav-logo:focus-visible .nav-logo-seg {
       grid-template-columns: 1fr;

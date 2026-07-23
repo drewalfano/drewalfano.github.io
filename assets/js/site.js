@@ -135,3 +135,79 @@
     }
   });
 })();
+
+// Nav logo one-time intro unfurl: on the first page load of a session, "DA"
+// unfurls into "Drew Alfano", holds a readable beat, then settles back to
+// "DA". Plays on every device (not hover-gated), so touch/mobile gets the
+// reveal the hover interaction alone can't offer. sessionStorage gates it to
+// once per visit so it doesn't replay on every navigation.
+//
+// Sequencing hook for the (later) homepage hero entrance: if a
+// [data-hero-entrance] element is present, the unfurl waits for the hero to
+// finish and dispatch a "hero:revealed" event on document, then follows a
+// beat later so the two read as one sequence instead of firing at once. A
+// safety timer still plays it if that signal never arrives. Pages with no
+// hero entrance just play it shortly after load. Fully skipped under
+// prefers-reduced-motion (the flag is still set, so it stays quiet all visit).
+(function () {
+  var logo = document.querySelector(".nav-logo");
+  if (!logo) return;
+
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  var KEY = "nav-unfurl-played";
+  try {
+    if (sessionStorage.getItem(KEY)) return;
+  } catch (e) {
+    // sessionStorage unavailable (private mode, etc.): fall through and play
+    // once for this load rather than tracking across navigations.
+  }
+
+  var HERO_FOLLOW_MS = 220;   // beat after the hero reveal settles
+  var HERO_SAFETY_MS = 2200;  // hero present but never signalled: play anyway
+  var FALLBACK_MS = 550;      // no hero on this page: play shortly after load
+  var OPEN_HOLD_MS = 1400;    // how long "Drew Alfano" holds open before settling
+  var MIN_GAP = 16;           // breathing room to keep between the open logo and the nav
+
+  // Would the fully-expanded "Drew Alfano" clear the nav without colliding?
+  // Each hidden segment span keeps its intrinsic text width even while the
+  // grid clips it to 0fr, so scrollWidth tells us how far the logo will grow.
+  // On very narrow viewports (~320px) it doesn't fit, so the intro is skipped
+  // rather than clip the wordmark into the nav links.
+  function fits() {
+    var nav = logo.parentElement.querySelector("nav");
+    if (!nav) return true;
+    var grow = 0;
+    logo.querySelectorAll(".nav-logo-seg > span").forEach(function (s) {
+      grow += s.scrollWidth;
+    });
+    var expandedRight = logo.getBoundingClientRect().right + grow;
+    return expandedRight + MIN_GAP <= nav.getBoundingClientRect().left;
+  }
+
+  var played = false;
+  function play() {
+    if (played || !fits()) return; // too narrow: leave the flag unset so a wider page can still play it
+    played = true;
+    try {
+      sessionStorage.setItem(KEY, "1");
+    } catch (e) {}
+    logo.classList.add("is-unfurling");
+    setTimeout(function () {
+      logo.classList.remove("is-unfurling");
+    }, OPEN_HOLD_MS);
+  }
+
+  if (document.querySelector("[data-hero-entrance]")) {
+    document.addEventListener(
+      "hero:revealed",
+      function () {
+        setTimeout(play, HERO_FOLLOW_MS);
+      },
+      { once: true }
+    );
+    setTimeout(play, HERO_SAFETY_MS);
+  } else {
+    setTimeout(play, FALLBACK_MS);
+  }
+})();
