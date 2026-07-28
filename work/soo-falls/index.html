@@ -102,9 +102,9 @@
       /* ---- Lineup band ---- */
       .sf-lineup-shot{ width:100%; height:auto; display:block; }
       .sf-lineup-wrap{ position:relative; }
-      .sf-hot{ position:absolute; display:block; cursor:pointer; border-radius:6px;
-        transition:background .18s ease, box-shadow .18s ease; }
-      @media(hover:hover){ .sf-hot:hover{ background:rgba(36,53,78,.05); box-shadow:0 0 0 1px rgba(36,53,78,.18) inset; } }
+      /* Invisible hit areas — the tooltip is the only hover feedback, no frame
+         drawn on the can itself (the rounded outline read as a UI artifact). */
+      .sf-hot{ position:absolute; display:block; cursor:pointer; }
       .sf-corefour{ display:grid; grid-template-columns:repeat(2,1fr); gap:1.25rem 1rem; margin-top:2.5rem; }
       @media(min-width:640px){ .sf-corefour{ grid-template-columns:repeat(3,1fr); } }
       @media(min-width:960px){ .sf-corefour{ grid-template-columns:repeat(6,1fr); gap:1.5rem .75rem; } }
