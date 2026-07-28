@@ -266,7 +266,7 @@
      transition so the offset follows the cursor with no lag; removing it
      on mouseleave lets the transition below ease it back to nothing. */
   .project-card.group > div {
-    transition: box-shadow 0.25s ease;
+    transition: box-shadow 0.25s ease, transform 0.15s ease;
   }
   @media (hover: hover) {
     .project-card.group:hover > div {
@@ -279,8 +279,15 @@
   .project-card.group:focus-visible > div {
     box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--accent-text, var(--accent, #D0272B)) 60%, transparent);
   }
-  /* Touch has no cursor to react to and no hover state — tap feedback
-     falls back to the same static glow as focus-visible above. */
+  /* Touch has no cursor to react to and no hover state. Tap feedback is a
+     brief press: assets/js/site.js toggles .is-pressed on touchstart/touchend
+     (more reliable than :active on iOS Safari), lifting the same static glow
+     as focus-visible plus a small scale-in. Purely visual and passive, so it
+     never delays the tap. The :active rule stays as a no-JS fallback. */
+  .project-card.group.is-pressed > div {
+    box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--accent-text, var(--accent, #D0272B)) 60%, transparent);
+    transform: scale(0.99);
+  }
   @media (hover: none) {
     .project-card.group:active > div {
       box-shadow: 0 16px 32px -12px color-mix(in srgb, var(--accent-text, var(--accent, #D0272B)) 60%, transparent);

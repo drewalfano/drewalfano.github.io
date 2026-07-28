@@ -211,3 +211,37 @@
     setTimeout(play, FALLBACK_MS);
   }
 })();
+
+// Touch press feedback for project cards: :active is unreliable on iOS
+// Safari, so toggle .is-pressed explicitly on touchstart/touchend. Purely
+// visual (the matching CSS reuses the accent glow plus a small scale-in) and
+// all listeners are passive, so the tap's navigation is never delayed. Mouse
+// pointers keep the hover/focus glow and never fire these touch handlers.
+(function () {
+  var pressed = null;
+
+  function release() {
+    if (pressed) {
+      pressed.classList.remove("is-pressed");
+      pressed = null;
+    }
+  }
+
+  document.addEventListener(
+    "touchstart",
+    function (e) {
+      var card = e.target.closest ? e.target.closest(".project-card") : null;
+      if (!card) return;
+      release();
+      pressed = card;
+      card.classList.add("is-pressed");
+    },
+    { passive: true }
+  );
+
+  // Release on end/cancel, and also on move so a tap that turns into a scroll
+  // doesn't leave the press stuck on.
+  document.addEventListener("touchend", release, { passive: true });
+  document.addEventListener("touchcancel", release, { passive: true });
+  document.addEventListener("touchmove", release, { passive: true });
+})();
